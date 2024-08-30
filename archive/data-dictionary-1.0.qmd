@@ -1,0 +1,361 @@
+---
+title: " CLIF-1.0 Data Dictionary- Archived"
+---
+
+
+Below is the entity-relationship diagram (ERD) that provides an overview of the relational CLIF database structure.
+
+![](ERD.png)
+
+Relational CLIF tables are organized into clinically relevant column categories - demographics, objective measures, respiratory support, orders, and inputs-outputs. Below are sample templates for each table in R-CLIF. Here you can find detailed descriptions of each table and their fields.
+
+You can use our custom GPT- [CLIF Assistant](https://chatgpt.com/g/g-h1nk6d3eR-clif-assistant) to learn more about CLIF and develop analysis scripts using [Clifford (Synthetic CLIF)](https://github.com/kaveriC/CLIF-1.0/tree/main/clifford). 
+
+## Patient_encounters
+
+| Variable Name | Data Type | Definition |
+|---------------|-----------|------------|
+| patient_id    | VARCHAR   | ID variable for each patient. Every patient assigned a unique identifier is presumed to be a distinct individual 
+| encounter_id  | VARCHAR   | ID variable for each patient encounter (a given patient can have multiple encounters). Each encounter_id represents a unique hospitalization for a patient, capturing the entire duration of the hospital stay. This is the primary key for most other tables 
+
+**Example:**
+
+::: {.scrollable-table}
+| patient_id | encounter_id  | 
+|------------|---------------|
+| 1          | 1             | 
+| 1          | 2             | 
+| 1          | 3             | 
+| 5          | 10            | 
+| 6          | 11            | 
+| 6          | 12            | 
+: {.striped .hover}
+:::
+
+## Patient_demographics
+
+| Variable Name | Data Type | Definition | Permissible Values |
+|---------------|-----------|------------|-----------|
+| encounter_id  | VARCHAR   |ID variable for each patient encounter |
+| race          | VARCHAR   | Description of patient's race. Each site could have different strings in source data | `Black` , `White`, `American Indian or Alaska Native`, `Asian`, `Native Hawaiian or Other Pacific Islander`, `Unknown`, `Other` |
+| ethnicity     | VARCHAR   | Description of patient's ethnicity | `Hispanic`, `Non-Hispanic`, `Unknown`|
+| sex           | VARCHAR   | Patient's biological sex |`Male` , `Female`, `Unknown` |
+
+**Example:**
+
+::: {.scrollable-table}
+| patient_id | race                     | ethnicity    | sex    | 
+|------------|--------------------------|--------------|--------|
+| 1          | Black                    | Non-hispanic | Female |
+| 5          | Black                    | Non-hispanic | Male   | 
+| 6          | White                    | Non-hispanic | Male   |
+| 32         | Asian                    | Non-hispanic | Male   |
+| 43         | White                    | Hispanic     | Female |
+| 62         | Other                    | Non-hispanic | Female |
+: {.striped .hover}
+:::
+
+## Limited_identifiers
+
+| Variable Name   | Data Type | Definition | 
+|-----------------|-----------|------------|
+| encounter_id    | VARCHAR   | ID variable for each patient encounter. Each encounter_id represents a unique hospitalization for a patient, capturing the entire duration of the hospital stay |
+| admission_dttm  | DATETIME  | Date and time the patient is admitted (in the format %Y-%m-%d %H:%M:%S). Use this date to determine the start date and time of the patient hospitalization |
+| discharge_dttm  | DATETIME  | Date and time the patient is discharged (in the format %Y-%m-%d %H:%M:%S). Use this date to determine the distacharge date of the patient hospitalization|
+| birth_date      | DATETIME  | Patient date of birth. This variable is used to calculate age at admission for analysis |
+| zipcode_9digit  | VARCHAR   | Patient zipcode. This variable is used to link the database with other indices like ADI, SVI etc | |
+**Example:**
+
+::: {.scrollable-table}
+| encounter_id | admission_dttm        | discharge_dttm          | birth_dttm        | zipcode_9digit    | 
+|--------------|------------------------|------------------------|-------------------|-------------------
+| 1            | 2020-08-27 08:15:00    | 2020-08-27 18:59:00    | 2014-08-10        |                   |
+| 2            | 2021-06-28 07:00:00    | 2021-06-27 19:00:00    | 2000-02-11        |                   |
+| 3            | 2021-09-17 08:43:00    | 2021-09-17 18:59:00    | 2000-02-11        |                   |
+| 10           | 2020-08-12 00:44:00    | 2020-08-12 18:59:00    | 1990-04-21        |                   |
+| 11           | 2021-04-19 06:23:00    | 2021-04-19 18:59:00    | 2019-01-23        |                   |
+| 12           | 2022-10-06 10:43:00    | 2022-10-06 18:59:00    | 2019-01-23        |                   |
+: {.striped .hover}
+:::
+
+## Encounter_demographics_disposition
+
+
+| Variable Name       | Data Type | Definition | Permissible Values |
+|---------------------|-----------|------------|--------------------|
+| encounter_id        | VARCHAR       | ID variable for each patient encounter. | |
+| age_at_admission    | INT       | Age of the patient at the time of admission. Calculated using the admission_dttm and birth_date from the limited identifiers table. | |
+| disposition_name    | VARCHAR   | Original disposition name string recorded in the raw data. This field allows for the storing of the dispostion value as it appears in the source data. This field is not used for analysis.| |
+| disposition_category| VARCHAR   | Description of disposition when discharged. Map source values stored in disposition_name to the mCIDE categories.| `Home`, `Hospice`, `Discharged to another facility`, `Dead`, `Admitted`, `Other` |
+
+**Example:**
+
+::: {.scrollable-table}
+| encounter_id | age_at_admission | disposition_name | disposition_category          |
+|--------------|------------------|------------------|------------------------------|
+| 1            | 6                |Discharged to Home or Self Care (Routine Discharge) | Home                         |
+| 2            | 22               |Discharged/transferred to Home Under Care of Organized Home Health Service Org| Home                         |
+| 3            | 54               |Left Against Medical Advice or Discontinued Care| Home                         |
+| 10           | 20               |Discharged/transferred to a Short-Term General Hospital for Inpatient Care| Discharged to another facility|
+| 11           | 2                |Discharged/transferred to a Facility that Provides Custodial or Supportive Care| Discharged to another facility|
+| 62           | 66               |Hospice - Medical Facility (Certified) Providing Hospice Level of Care| Hospice |
+| 634          | 827              |Expired| Dead|
+: {.striped .hover}
+:::
+
+## ADT
+
+| Variable Name     | Data Type | Definition                                                      | Permissible Values |
+|-------------------|-----------|-----------------------------------------------------------------|-----------------------|
+| encounter_id      | VARCHAR       | ID variable for each patient encounter                          |                       |
+| hospital_id       | VARCHAR   | Assign an ID to each hospital in the hospital system            |                       |
+| in_dttm           | DATETIME  | Start date and time at a particular location                    | Datetime format should be %Y-%m-%d %H:%M:%S |
+| out_dttm          | DATETIME  | End date and time at a particular location                      | Datetime format should be %Y-%m-%d %H:%M:%S  |
+| location_name     | VARCHAR   | Location of the patient inside the hospital. This field is used to store the patient location from the source data. This field is not used for analysis. | No restriction |
+| location_category | VARCHAR   | Map location_name from the source data to categories identified under CLIF.     | `ER`, `OR`, `ICU`, `Ward`, `Other`|
+
+**Example:**
+
+::: {.scrollable-table}
+| encounter_id | hospital_id | in_dttm            | out_dttm            | location_name  | location_category |
+|--------------|--------------|--------------------|--------------------|----------------|-------------------|
+| 1            | A            | 2020-12-28 10:35:00| 2020-12-29 03:21:00 | ED CCD        | ER                |
+| 1            | A            | 2020-12-29 03:21:00| 2020-12-29 07:25:00 | N03W          | Ward              |
+| 3            | A            | 2021-03-18 05:02:00| 2021-03-19 20:22:00 | N03W          | ICU               |
+| 3            | B            | 2021-03-19 20:22:00| 2021-03-22 09:30:00 | T5SW          | Ward              |
+| 11           | F            | 2022-09-30 17:50:00| 2022-09-30 23:30:00 | ER COMER      | ER                |
+: {.striped .hover}
+:::
+
+## Vitals
+
+
+| Variable Name     | Data Type | Definition                                                      | Permissible Values |
+|-------------------|-----------|-----------------------------------------------------------------|----------------------|
+| encounter_id      | VARCHAR       | ID variable for each patient encounter.  | |
+| recorded_dttm     | DATETIME  | Date and time when the vital is recorded. |Datetime format should be %Y-%m-%d %H:%M:%S  |
+| vital_name        | VARCHAR   | This field is used to store the description of the flowsheet measure from the source data. This field is not used for analysis. | No restriction |
+| vital_category    | VARCHAR   | Map flowsheet measures stored in vital_name to the to categories identified under CLIF. | `temp_c`, `pulse`, `sbp`, `dbp`, `spo2`, `respiratory_rate`, `map`, `height_inches`, `weight_kg`|
+| vital_value       | DOUBLE    | Recorded value of the vital. Ensure that the measurement unit is aligned with the permissible units of measurements.  | `temp_c = Celsius`, `height_inches = Inch`, `weight_kg = Kg`, `map = mm/Hg`, `spo2 = %`, No unit for `pulse`, `sbp`, `dbp`, and `respiratory_rate` |
+| meas_site_name    | VARCHAR   | Site where vital is recorded | No restrictions. Record the site name from the source data. |
+
+**Example:**
+
+::: {.scrollable-table}
+| encounter_id | recorded_dttm      | vital_name                           | vital_category    | vital_value | meas_site_name |
+|--------------|--------------------|--------------------------------------|-------------------|-------------|----------------|
+| 1            | 2022-05-05 04:18:00| RESPIRATIONS                         | respiratory_rate  | 18          | not specified  |
+| 1            | 2022-05-05 04:18:00| PULSE OXIMETRY                       | spo2              | 97          | not specified  |
+| 1            | 2022-05-05 04:18:00| NUR RS CORE TEMPERATURE MEASUREMENT  | temp_c            | 98.1        | core           |
+| 1            | 2022-05-05 04:18:00| PULSE                                | pulse             | 73          | not specified  |
+| 1            | 2022-05-01 11:23:00| WEIGHT/SCALE                         | weight_kg         | 78.8        | not specified  |
+| 1            | 2022-05-01 11:23:00| HEIGHT                               | height_inches     | 73          | not specified  |
+: {.striped .hover}
+:::
+
+## Labs
+
+| Variable Name     | Data Type | Definition                                                      | Permissible Values |
+|-------------------|-----------|-----------------------------------------------------------------|-----------------|
+| encounter_id      | VARCHAR   | ID variable for each patient encounter.                      |                 |
+| lab_order_dttm    | DATETIME  | Date and time when the lab is ordered.                           |Datetime format should be %Y-%m-%d %H:%M:%S |
+| lab_collect_dttm  | DATETIME  | Date and time when the specimen is collected.                    |Datetime format should be %Y-%m-%d %H:%M:%S |
+| lab_result_dttm   | DATETIME  | Date and time when the lab results are available.                |Datetime format should be %Y-%m-%d %H:%M:%S |
+| lab_name          | VARCHAR   | Original lab name string recorded in the raw data. This field is not used for analysis. |  |
+| lab_category      | VARCHAR   | 43 labs identified by the CLIF consortium.                       |[List of lab categories in CLIF](https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/clif_vocab_labs.csv) |
+| lab_group         | VARCHAR   | Lab categories roll up to form lab groups.                       | `ABG`, `BMP`, `CBC`, `Coags`, `LFT`, `Lactic Acid`, `Misc`, `VBG `|
+| lab_value         | DOUBLE    | Recorded value corresponding to a lab.                           |                                    |
+| reference_unit    | VARCHAR   | Unit of measurement for that lab .                               |Permissible reference values for each `lab_category` listed [here](https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/clif_vocab_labs.csv)                                                         |
+| lab_type_name     | VARCHAR   | Type of lab.                                                    | `arterial`, `venous`, `standard`, `poc`                 |
+
+**Example:**
+
+::: {.scrollable-table}
+| encounter_id | lab_order_dttm      | lab_collect_dttm    | lab_result_dttm     | lab_name             | lab_group | lab_category | lab_value | reference_unit | lab_type_name |
+|--------------|---------------------|---------------------|---------------------|----------------------|-----------|--------------|-----------|----------------|---------------|
+| 2            | 2022-09-30 17:50:00 | 2022-09-30 18:05:00 | 2022-09-30 18:53:00 |BASOPHILS    | CBC       | basophil          | 1         | %              | standard      | 
+| 2            | 2022-09-30 17:50:00 | 2022-09-30 18:05:00 | 2022-09-30 18:53:00 |MONOCYTES    | CBC       | monocyte            | 7         | %              | standard      | 
+| 2            | 2022-09-30 17:50:00 | 2022-09-30 18:05:00 | 2022-09-30 18:53:00 |NEUTROPHILS  | CBC       | neutrophil         | 47        | %              | standard      | 
+| 2            | 2022-09-30 17:50:00 | 2022-09-30 18:05:00 | 2022-09-30 18:53:00 |LYMPHOCYTES  | CBC       | lymphocyte           | 44        | %              | standard      | 
+| 2            | 2022-09-30 17:50:00 | 2022-09-30 18:05:00 | 2022-09-30 18:53:00 |EOSINOPHILS  | CBC       | eosinophils         | 1         | %              | standard      | 
+| 2            | 2022-09-30 17:50:00 | 2022-09-30 18:05:00 | 2022-09-30 18:53:00 |BILIRUBIN, UNCONJUGATED | LFT       | bilirubin_unconjugated         | 0.9       | mg/dL          | standard      | 
+: {.striped .hover}
+:::
+
+*Note*: The `lab_value` field often has non-numeric entries that are useful to make project-specific decisions. A site may choose to keep the `lab_value` field as a character and create a new field `lab_value_numeric` that only parses the character field to extract the numeric part of the string.
+
+## Microbiology
+
+| Variable Name     | Data Type | Definition                                                      | Permissible Values |
+|-------------------|-----------|-----------------------------------------------------------------|--------------------|
+| encounter_id      | VARCHAR   | ID variable for each patient encounter.                          |                    |
+| test_id           | VARCHAR   | An ID for a specific component, such as a gram culture smear, taken from a fluid sample with a unique order and collection time, if two different pathogens are identified, the result will be recorded as two separate rows, each sharing the same test_id. |                    |
+| order_dttm        | DATETIME  | Date and time when the test is ordered.                          |Datetime format should be %Y-%m-%d %H:%M:%S |
+| collect_dttm      | DATETIME  | Date and time when the specimen is collected.                    |Datetime format should be %Y-%m-%d %H:%M:%S |
+| result_dttm       | DATETIME  | Date and time when the results are available.                    |Datetime format should be %Y-%m-%d %H:%M:%S |
+| fluid_name        | VARCHAR   | Cleaned fluid name string from the raw data. This field is not used for analysis. | No restriction. Check this file for examples: [clif_vocab_microbiology_fluid_ucmc.csv](https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/ucmc/clif_vocab_microbiology_fluid_ucmc.csv) |
+| fluid_category    | VARCHAR   | Fluid categories defined according to the NIH common data elements. |[CDE NIH Infection Site](https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/clif_nih_vocab_microbiology_fluid.csv)|
+| component_name    | VARCHAR   | Original componenet names from the source data.                     | No restriction|
+| component_category| VARCHAR   | Map component names to the categories identified under CLIF.        |`culture`, `gram stain`, `smear` |
+| organism_name     | VARCHAR   | Cleaned oragnism name string from the raw data. This field is not used for analysis. |No restriction. Check this file for examples: [clif_vocab_microbiology_organism_ucmc.csv](https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/ucmc/clif_vocab_microbiology_organism_ucmc.csv) |
+| organism_category | VARCHAR   | Organism categories defined according to the NIH common data elements.| [CDE NIH Organism](https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/clif_nih_vocab_microbiology_organism.csv)|
+
+**Example:**
+
+::: {.scrollable-table}
+| encounter_id | test_id | culture_id | order_dttm      | collect_dttm    | result_dttm     | fluid_name                 | fluid_category                                      | component_name          | component_category | organism_name          | organism_category                                  |
+|--------------|---------|------------|-----------------|-----------------|-----------------|---------------------------|----------------------------------------------------|-------------------------|--------------------|------------------------|----------------------------------------------------|
+| 1            | 1       |            | 5/11/20 15:14   | 5/11/20 15:17   | 5/12/20 15:17   | culture & stain, pleural fluid | pleural cavity, pleural fluid                      | quant. gram stain       | gram stain         | gram negative rod (nos) | gram negative rod (nos)                           |
+| 1            | 2       | 1          | 5/11/20 15:14   | 5/11/20 15:17   | 5/14/20 15:17   | culture & stain, pleural fluid | pleural cavity, pleural fluid                      | culture                 | culture            | morganella_morganii     | other bacteria                                      |
+| 2            | 3       |            | 7/20/20 19:23   | 7/20/20 19:24   | 7/22/20 16:07   | culture & stain, fluid         | gallbladder and billary tree (not hepatitis), pancreas | gram stain              | gram stain         | no growth               | no growth                                           |
+| 2            | 4       | 2          | 7/20/20 19:23   | 7/20/20 19:24   | 7/23/20 17:07   | culture & stain, fluid         | gallbladder and billary tree (not hepatitis), pancreas | culture                 | culture            | haemophilus_influenzae  | haemophilus (all species including influenzae)     |
+| 3            | 5       | 3          | 8/7/20 22:38    | 8/8/20 22:38    | 8/10/20 22:38   | culture & stain, respiratory   | lower respiratory tract (lung)                     | culture, fungal and bacterial | culture           | rhizopus_sp             | mucormycosis (zygomycetes, rhizopus)               |
+: {.striped .hover}
+:::
+
+
+
+
+## Respiratory_support
+
+| Variable Name                     | Data Type | Definition                                                      | Permissible Values |
+|-----------------------------------|-----------|-----------------------------------------------------------------|-----------------|
+| encounter_id                      | VARCHAR   | ID variable for each patient encounter                          |                 |
+| recorded_dttm                     | DATETIME  | Date and time when the device started                           |Datetime format should be %Y-%m-%d %H:%M:%S |
+| device_name                       | VARCHAR   | Includes raw string of the devices. Not used for analysis       |[Example mapping for device name to device category](https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/clif_vocab_respiratory_support_devices.csv)                  |
+| device_category                   | VARCHAR   | Includes a limited number of devices identified by the CLIF consortium |`Vent`, `NIPPV`, `CPAP`, `High Flow NC`, `Face Mask`, `Trach Collar`, `Nasal Cannula`, `Room Air`, `Other` |
+| mode_name                         | VARCHAR   | Includes raw string of the modes. Not used for analysis         |[Example mapping for mode name to mode category](https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/clif_vocab_respiratory_support_modes.csv)                 |
+| mode_category                     | VARCHAR   | Limited number of modes identified by the CLIF consortium       |`Assist Control-Volume Control`, `Pressure Support/CPAP`, `Pressure Control`, `Pressure-Regulated Volume Control`, `Other`, `SIMV`, `Blow by` |
+| tracheostomy                      | BOOLEAN   | Indicates if tracheostomy is performed                          |0 = No, 1 = Yes  |
+| fio2_set                          | DOUBLE    | Fraction of inspired oxygen set                                 |                 |
+| lpm_set                           | DOUBLE    | Liters per minute set                                           |                 |
+| tidal_volume_set                  | DOUBLE    | Tidal volume set (in mL)                                        |                 |
+| resp_rate_set                     | DOUBLE    | Respiratory rate set (in bpm)                                   |                 |
+| pressure_control_set              | DOUBLE    | Pressure control set (in cmH2O)                                 |                 |
+| pressure_support_set              | DOUBLE    | Pressure support set (in cmH2O)                                 |                 |
+| flow_rate_set                     | DOUBLE    | Flow rate set                                                   |                 |
+| peak_inspiratory_pressure_set     | DOUBLE    | Peak inspiratory pressure set (in cmH2O)                        |                 |
+| inspiratory_time_set              | DOUBLE    | Inspiratory time set (in seconds)                               |                 |
+| peep_set                          | DOUBLE    | Positive-end-expiratory pressure set (in cmH2O)                 |                 |
+| tidal_volume_obs                  | DOUBLE    | Observed tidal volume (in mL)                                   |                 |
+| resp_rate_obs                     | DOUBLE    | Observed respiratory rate (in bpm)                              |                 |
+| plateau_pressure_obs              | DOUBLE    | Observed plateau pressure (in cmH2O)                            |                 |
+| peak_inspiratory_pressure_obs     | DOUBLE    | Observed peak inspiratory pressure (in cmH2O)                   |                 |
+| peep_obs                          | DOUBLE    | Observed positive-end-expiratory pressure (in cmH2O)            |                 |
+| minute_vent_obs                   | DOUBLE    | Observed minute ventilation (in liters)                         |                 |
+                 |
+**Example:**
+
+::: {.scrollable-table}
+| encounter_id | recorded_dttm      | device_name         | device_category    | mode_name              | mode_category | tracheostomy | fio2_set | lpm_set | tidal_volume_set | resp_rate_set | pressure_control_set | pressure_support_set | flow_rate_set | peak_inspiratory_pressure_set | inspiratory_time_set | peep_set | tidal_volume_obs | resp_rate_obs | plateau_pressure_obs | peak_inspiratory_pressure_obs | peep_obs | minute_vent_obs |
+|--------------|--------------------|---------------------|--------------------|------------------------|---------------|--------------|----------|---------|------------------|---------------|----------------------|----------------------|---------------|------------------------------|-----------------------|----------|------------------|--------------|----------------------|-----------------------------|----------|-----------------|
+| 5            | 2024-05-05 19:37:26|      | Nasal Cannula     |                        |  | 0            |          | 6       |                  |               |                      |                      |               |                              |                       |          |                  |              |                      |                             |          |                 |
+| 5            | 2024-05-05 20:37:26|        | High Flow NC      |                        | | 0            | 100      | 60      |                  |               |                      |                      | 60            |                              |                       |          |                  |              |                      |                             |          |                 |
+| 5            | 2024-05-05 21:37:26|        | High Flow NC     |                        |   | 0            | 100      | 60      |                  |               |                      |                      | 60            |                              |                       |          |                  |              |                      |                             |          |                 |
+| 5            | 2024-05-05 22:37:26|                | Vent | | Assist-Control/Volume Control | 0            | 100      |         | 500              | 20            |                      | 0                    |               | 1.2                          | 5                     | 400      | 14               | 30           | 35                   | 5                           | 7        |                 |
+| 5            | 2024-05-05 23:37:26|              | Vent | | Assist-Control/Volume Control | 0            | 80       |         | 400              | 14            |                      | 0                    |               | 1.2                          | 5                     | 400      | 14               |              |                      |                             | 7        |                 |
+| 5            | 2024-05-06 00:37:26|             | Vent | | Assist-Control/Volume Control | 0            | 75       |         | 400              | 14            |                      | 0                    |               | 1.2                          | 5                     | 400      | 22               |              |                      |                             |          |                 |
+| 5            | 2024-05-06 03:37:26|            | Vent | | Assist-Control/Volume Control | 0            | 50       |         | 400              | 14            |                      | 0                    |               | 1.2                          | 5                     | 400      | 2                | 30           | 35                   |                             | 7        |                 |
+| 5            | 2024-05-06 04:37:26|           | Vent |       | Pressure Support     | 0            | 50       |         |                  |               | 0                    |                      |               |                              |                       | 5        |                  |              |                      |                             |          |                 |
+| 5            | 2024-05-06 05:37:26|      | Nasal Cannula  |                        |   | 0            |          | 4       |                  |               |                      |                      |               |                              |                       |          |                  | 20           |                      |                             |          |                 |
+: {.striped .hover}
+:::
+
+
+## Medication_admin_continuous
+
+| Variable Name     | Data Type | Definition                                                      | Permissible Values |
+|-------------------|-----------|-----------------------------------------------------------------|--------------------|
+| encounter_id      | VARCHAR   | ID variable for each patient encounter| |
+| med_order_id      | VARCHAR   | Medication order id. Foreign key to link this table to other medication tables | |
+| admin_dttm        | DATETIME  | Date and time when the medicine was administered | Datetime format should be %Y-%m-%d %H:%M:%S  |
+| med_name          | VARCHAR   | Original med name string recorded in the raw data for a limited number of labs identified by the CLIF consortium | [Example mapping of med_name to med_category](https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/ucmc_cide_mappings/clif_vocab_medication_admin_continuous_med_ucmc.csv)|
+| med_category      | VARCHAR   | Limited number of medication categories identified by the CLIF consortium        | [List of continuous medication categories in CLIF](https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/clif_vocab_medication_admin_continuous.csv) |
+| med_route         | VARCHAR   | eod of medicine delivery | |
+| med_dose          | VARCHAR   | quantity taken in dose  | |
+| med_dose_unit     | VARCHAR   | unit of dose           | |
+
+**Example:**
+
+::: {.scrollable-table}
+| encounter_id | med_order_id | admin_dttm | med_name | med_category |med_route  | med_dose    | med_dose_unit |
+|-----------|----------|------------|-----------|-------|-------|--------------|----------|
+| 2         |  43| 10/6/2022  11:10:00 | phenylephrine |vasoactives |Intravenous  |0.4| mcg/kg/min  | 
+| 2         | 76 | 10/6/2022  11:13:00| phenylephrine  | vasoactives |Intravenous  |0.75| mcg/kg/min | 
+| 2         | 89 | 10/6/2022  11:32:00 | insulin | endocrine  |Intravenous | 2 | Units/hr | 
+| 11         | 42 | 1/22/2022  00:00:00 | propofol  | sedation  |Intravenous | 40| mcg/kg/min | 
+| 11        | 807 | 1/22/2022  02:13:00 | propofol  | sedation  |Intravenous | 30 | mcg/kg/min | 
+| 11        | 432 | 1/22/2022  04:00:00 | fentanyl  | sedation  |Intravenous | 150 | mcg/hr  | 
+: {.striped .hover}
+:::
+
+
+Note: The `medication_admin_intermittent` table has exactly the same schema. The consortium decided to separate the medications that are administered intermittenly from the continuously administered medications. 
+
+
+## Dialysis
+
+| Variable Name            | Data Type | Definition | Permissible values |
+|--------------------------|-----------|------------|--------------------|
+| encounter_id             | VARCHAR   | ID variable for each patient encounter | | 
+| start_dttm               | DATETIME  | Start date and time of dialysis session|Datetime format should be %Y-%m-%d %H:%M:%S |
+| stop_dttm                | DATETIME  | Stop date and time of dialysis session  |Datetime format should be %Y-%m-%d %H:%M:%S |
+| dialysis_type            | VARCHAR   | Type of dialysis performed |`intermittent`, `peritoneal`, `crrt` |
+| dialysate_flow_amount    | DOUBLE    | Amount of dialysate flow | |
+| ultrafiltration_amount   | DOUBLE    | Amount of ultrafiltration | |
+
+**Example:**
+
+::: {.scrollable-table}
+| encounter_id | start_dttm          | stop_dttm           | dialysis_type | dialysate_flow_amount | ultrafiltration_amount |
+|--------------|---------------------|---------------------|---------------|-----------------------|------------------------|
+| 18           | 2021-03-24 09:00:00 | 2021-03-24 10:00:00 | crrt          | 0.86                  | 0                      |
+| 18           | 2021-03-24 10:00:00 | 2021-03-24 11:00:00 | crrt          | 3.89                  | 0                      |
+| 18           | 2021-03-24 11:00:00 | 2021-03-24 12:00:00 | crrt          | 3.82                  | 0                      |
+| 18           | 2021-03-24 12:00:00 | 2021-03-24 13:00:00 | crrt          | 3.89                  | 0                      |
+| 18           | 2021-03-24 13:00:00 | 2021-03-24 14:00:00 | crrt          | 3.89                  | 0                      |
+| 18           | 2021-03-24 14:00:00 | 2021-03-24 15:00:00 | crrt          | 3.900                 | 0                      |
+: {.striped .hover}
+:::
+
+
+## Position
+
+| Variable Name     | Data Type | Definition                                                      | Permissible Values |
+|-------------------|-----------|-----------------------------------------------------------------|----------------------|
+| encounter_id      | VARCHAR   | ID variable for each patient encounter. This table only includes those encounters that have proning documented ever.  | |
+| recorded_dttm     | DATETIME  | Date and time when the vital is recorded. |Datetime format should be %Y-%m-%d %H:%M:%S  |
+| position_name     | VARCHAR   | This field is used to store the description of the position from the source data. This field is not used for analysis. | No restriction |
+| position_category | VARCHAR   | Map position_name to the to categories identified under CLIF. | `prone`, `not_prone`|
+
+
+**Example:**
+
+::: {.scrollable-table}
+| encounter_id | recorded_dttm      | position_name                                | position_category |
+|--------------|--------------------|----------------------------------------------|-------------------|
+| 13           | 2017-10-25 12:31:00| Lying down                                   | not_prone            |
+| 13           | 2017-10-25 14:07:00| Sitting                                      | not_prone            |
+| 13           | 2017-10-26 08:11:00| Lying down                                   | not_prone            |
+| 13           | 2017-10-27 08:24:00| Prone                                        | prone             |
+| 13           | 2017-11-19 17:05:00| Lying down;HOB equal/greater than 30 degrees | not_prone            |
+| 13           | 2017-11-20 11:23:00| Lying down;Prone                             | prone             |
+: {.striped .hover}
+:::
+
+
+
+
+
+
+
+
+<!-- ## Provider
+
+| Variable Name            | Data Type | Definition |
+|--------------------------|-----------|------------|
+| encounter_id             | INT       | ID variable for each patient encounter |
+| provider_id              | VARCHAR   | ID variable for each primary attending  |
+| start_dttm               | DATETIME  | Start date and time of the provider (in the format %Y-%m-%d %H:%M:%S) |
+| stop_dttm                | DATETIME  | Stop date and time of the provider (in the format %Y-%m-%d %H:%M:%S) | -->
+

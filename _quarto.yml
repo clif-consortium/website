@@ -1,0 +1,54 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "CLIF Consortium"
+  description: "Website and blog for the CLIF Consortium"
+  page-footer: 
+    background: "#F6F5F3"
+    center: © 2024  &middot; Made with
+      [![](https://quarto.org/quarto.png){fig-alt="Quarto" width=65px}](https://quarto.org/) 
+    right:
+      - icon: github
+        href: https://github.com/kaveriC/clif-consortium/
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: TEAM
+      - href: projects.qmd
+        text: Projects
+      - href: data-dictionary.qmd
+        text: Data Dictionary
+      - posts.qmd # add your posts.qmd file to your navbar!
+    right:
+      - icon: github
+        href: https://github.com/kaveriC/CLIF-1.0/
+
+# navbar:
+#     left:
+#       - text: Home
+#         href: index.qmd
+#       - text: Team
+#         href: about.qmd
+#       - text: Projects
+#         href: projects.qmd
+#       - text: Blog
+#         href: blog.qmd
+#       - text: Data Dictionary
+#         href: data-dictionary.qmd
+#     right:
+#       - icon: github
+#         href: https://github.com/kaveriC/clif-consortium/
+
+
+format:
+  html:
+    theme: sandstone
+    css: styles.css
+    toc: true
+
+
+

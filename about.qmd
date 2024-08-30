@@ -1,0 +1,197 @@
+---
+title: "Meet the CLIF Team"
+---
+
+## University of Chicago
+
+<div class="team-grid">
+  <div><img src="headshots/will_parker.jpeg" alt="William Parker" class="team-img">
+    <p><strong>William Parker, MD, PhD</strong><br>
+    <a href="https://scholar.google.com/citations?user=jaBF4DEAAAAJ&hl=en&oi=ao" target="_blank">
+      <img src="images/scholar_icon.png" alt="Google Scholar" class="icon">
+    </a></p></div>
+  <div><img src="headshots/jay_koyner.jpeg" alt="Jay Koyner" class="team-img">
+    <p><strong>Jay Koyner, MD</strong><br>
+    <a href="https://scholar.google.com/citations?hl=en&user=O_b_5pAAAAAJ" target="_blank">
+      <img src="images/scholar_icon.png" alt="Google Scholar" class="icon">
+    </a></p></div>
+  <div><img src="headshots/kevin_smith.jpeg" alt="Kevin Smith" class="team-img">
+    <p><strong>Kevin Smith, MD</strong><br>
+    <a href="https://hdsi.uchicago.edu/team/kevin-smith-md-ms/" target="_blank">
+      <img src="images/scholar_icon.png" alt="Google Scholar" class="icon">
+    </a></p></div>
+  <div><img src="headshots/kevin_buell.JPG" alt="Kevin Buell" class="team-img">
+    <p><strong>Kevin Buell, MBBS</strong><br>
+    <a href="https://scholar.google.com/citations?hl=en&user=svuM0vcAAAAJ" target="_blank">
+      <img src="images/scholar_icon.png" alt="Google Scholar" class="icon">
+    </a></p></div>
+  <div><img src="headshots/bhakti_patel.jpeg" alt="Bhakti Patel" class="team-img">
+    <p><strong>Bhakti Patel, MD</strong><br>
+     <a href="https://scholar.google.com/citations?hl=en&user=Me-p5jkAAAAJ" target="_blank">
+      <img src="images/scholar_icon.png" alt="Google Scholar" class="icon">
+    </a></p></div>
+  <div><img src="headshots/kaveri_chhikara.jpeg" alt="Kaveri Chhikara" class="team-img">
+    <p><strong>Kaveri Chhikara, MS</strong><br>
+    <a href="https://www.linkedin.com/in/kaverichhikara/" target="_blank">
+      <img src="images/linkedin_icon.png" alt="LinkedIn" class="icon">
+    </a></p></div>
+  <div><img src="headshots/rachel_baccile.jpeg" alt="Rachel Baccile" class="team-img">
+    <p><strong>Rachel Baccile, MPP</strong><br>
+    <a href="https://www.linkedin.com/in/rachel-b-95b59b5a/" target="_blank">
+      <img src="images/linkedin_icon.png" alt="LinkedIn" class="icon">
+    </a></p></div>
+  <div><img src="headshots/kyle_carey.jpg" alt="Kyle Carey" class="team-img">
+    <p><strong>Kyle Carey, MS</strong><br>
+     <a href="https://www.linkedin.com/in/kyle-carey-653687107/ " target="_blank">
+      <img src="images/linkedin_icon.png" alt="LinkedIn" class="icon">
+    </a></p></div>
+  <div><img src="headshots/haley_beck.jpeg" alt="Haley Beck" class="team-img">
+    <p><strong>Haley Beck, MA</strong><br>
+     <a href="https://www.linkedin.com/in/haley-beck-m-a-559b46263/" target="_blank">
+      <img src="images/linkedin_icon.png" alt="LinkedIn" class="icon">
+    </a></p></div>
+</div>
+
+## Rush University
+
+<div class="team-grid">
+ <div><img src="headshots/jc_rojas.jpeg" alt="J.C. Rojas" class="team-img">
+  <p><strong>J.C. Rojas, MD</strong><br>
+  <a href="https://scholar.google.com/citations?user=XXHTvWEAAAAJ&hl=en" target="_blank">
+    <img src="images/scholar_icon.png" alt="Google Scholar" class="icon">
+  </a>
+  <a href="https://www.linkedin.com/in/juan-c-rojas-md-ms-3a7345190/" target="_blank">
+    <img src="images/linkedin_icon.png" alt="LinkedIn" class="icon">
+  </a></p></div>
+  <div><img src="headshots/vaishvik_chaudhary.jpeg" alt="Vaishvik Chaudhary" class="team-img">
+    <p><strong>Vaishvik C., MS</strong><br>
+    <a href="https://www.linkedin.com/in/vgc25/" target="_blank">
+      <img src="images/linkedin_icon.png" alt="LinkedIn" class="icon">
+    </a></p></div>
+</div>
+
+## Northwestern University
+
+<div class="team-grid">
+  <div><img src="headshots/cathy_gao.jpeg" alt="Catherine Gao" class="team-img">
+    <p><strong>Catherine Gao, MD</strong><br>
+    <a href="https://scholar.google.com/citations?hl=en&user=IwClOEIAAAAJ" target="_blank">
+      <img src="images/scholar_icon.png" alt="Google Scholar" class="icon">
+    </a></p></div>
+  <div><img src="headshots/yuan_luo.jpeg" alt="Yuan Luo" class="team-img">
+    <p><strong>Yuan Luo, PhD</strong><br>
+    <a href="https://scholar.google.com/citations?hl=en&user=txsHQx4AAAAJ" target="_blank">
+      <img src="images/scholar_icon.png" alt="Google Scholar" class="icon">
+    </a></p></div>
+  <div><img src="headshots/chengsheng_mao.jpeg" alt="Chengsheng Mao" class="team-img">
+    <p><strong>Chengsheng Mao, PhD</strong><br>
+    <a href="https://scholar.google.com/citations?user=vFO2btcAAAAJ&hl=en" target="_blank">
+      <img src="images/scholar_icon.png" alt="Google Scholar" class="icon">
+    </a></p></div>
+  <div><img src="headshots/saki_amagai.jpeg" alt="Saki Amagai" class="team-img">
+    <p><strong>Saki Amagai, PhD </strong><br>
+    <a href="https://www.linkedin.com/in/saki-amagai-25461ab5/" target="_blank">
+      <img src="images/linkedin_icon.png" alt="LinkedIn" class="icon">
+    </a></p></div>
+</div>
+
+## Oregon Health & Science University
+
+<div class="team-grid">
+  <div><img src="headshots/pat_lyons.jpeg" alt="Pat Lyons" class="team-img">
+    <p><strong>Pat Lyons, MD</strong><br>
+    <a href="https://scholar.google.com/citations?user=1S-Nm9cAAAAJ&hl=en&oi=sra" target="_blank">
+      <img src="images/scholar_icon.png" alt="Google Scholar" class="icon">
+    </a></p></div>
+  <div><img src="headshots/placeholder.jpg" alt="Brenna Park-Egan" class="team-img">
+    <p><strong>Brenna Park-Egan, MS </strong><br>
+    </p></div>
+</div>
+
+## John Hopkins University
+
+<div class="team-grid">
+  <div><img src="headshots/chad_hochberg.jpg" alt="Chad Hochberg" class="team-img">
+    <p><strong>Chad Hochberg, MD</strong><br>
+    <a href="https://scholar.google.com/citations?hl=en&user=Yc6Zh2kAAAAJ" target="_blank">
+      <img src="images/scholar_icon.png" alt="Google Scholar" class="icon">
+    </a></p></div>
+</div>
+
+## University of Minnesota
+
+<div class="team-grid">
+  <div><img src="headshots/nick_ingrahm.jpg" alt="Nicholas Ingraham" class="team-img">
+    <p><strong>Nicholas Ingraham, MD</strong><br>
+    <a href="https://scholar.google.com/citations?hl=en&user=ZKMVVHkAAAAJ" target="_blank">
+      <img src="images/scholar_icon.png" alt="Google Scholar" class="icon">
+    </a></p></div>
+</div>
+
+## Emory University
+
+<div class="team-grid">
+  <div><img src="headshots/siva_bhavani.jpeg" alt="Siva Bhavani" class="team-img">
+    <p><strong>Siva Bhavani, MD</strong><br>
+    <a href="https://scholar.google.com/citations?user=xSuWGTIAAAAJ&hl=en" target="_blank">
+      <img src="images/scholar_icon.png" alt="Google Scholar" class="icon">
+    </a></p></div>
+  <div><img src="headshots/muna_nour.jpeg" alt="Muna Nour" class="team-img">
+    <p><strong>Muna Nour, MPH</strong><br>
+    <a href="https://www.linkedin.com/in/muna-nour-a51661202/" target="_blank">
+      <img src="images/linkedin_icon.png" alt="LinkedIn" class="icon">
+    </a></p></div>
+</div>
+
+## Tufts University
+
+<div class="team-grid">
+  <div><img src="headshots/susan_han.jpeg" alt="Susan Han" class="team-img">
+    <p><strong>Susan Han, MD</strong><br>
+    <a href="https://scholar.google.com/citations?hl=en&user=qnzL2JUAAAAJ" target="_blank">
+      <img src="images/scholar_icon.png" alt="Google Scholar" class="icon">
+    </a></p></div>
+</div>
+
+## University of Michigan
+
+<div class="team-grid">
+  <div><img src="headshots/anna_barker.jpg" alt="Anna Barker" class="team-img">
+    <p><strong>Anna Barker, MD, PhD </strong><br>
+    <a href="https://scholar.google.com/citations?user=F4kupm0AAAAJ&hl=en" target="_blank">
+       <img src="images/scholar_icon.png" alt="Google Scholar" class="icon">
+    </a></p></div>
+  <div><img src="headshots/placeholder.jpg" alt="Mark Nuppnau" class="team-img">
+    <p><strong>Mark Nuppnau, MS </strong><br>
+    </p></div>
+</div>
+
+
+<!-- -->
+<style>
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+.team-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+.team-grid div {
+  text-align: center;
+}
+.team-grid p {
+  text-align: center;
+  font-weight: bold;
+}
+.icon {
+  width: 20px;
+  height: 20px;
+  margin-top: 5px;
+}
+</style>
