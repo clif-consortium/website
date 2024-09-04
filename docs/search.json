@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "Common Longitudinal ICU data Format",
     "section": "",
-    "text": "Federated Critical Care Research\n\n\nMulticenter critical care research often relies on sharing sensitive patient data across sites, requiring complex data use agreements (DUAs) and yielding redundant work to account for diverse data infrastructures. To overcome these barriers, we present CLIF, designed specifically for observational studies of critically ill patients across multiple centres. Through CLIF, we aim to streamline data organization into a longitudinal format and establish standard vocabularies to facilitate federated analytics and improve data readability for researchers and clinicians.\n\n\nThe CLIF consortium, comprising critical care researchers from eight US academic health systems, collaboratively developed CLIF’s schema, clinical vocabularies, and “proof of concept” datasets. CLIF’s tables emphasize care processes, clinical outcomes, and granular clinical physiology measures.\n\n\n\nParticipating sites"
+    "text": "Federated Critical Care Research\n\n\nMulticenter critical care research often relies on sharing sensitive patient data across sites, requiring complex data use agreements (DUAs) and yielding redundant work to account for diverse data infrastructures. To overcome these barriers, we present CLIF, designed specifically for observational studies of critically ill patients across multiple centres. Through CLIF, we aim to streamline data organization into a longitudinal format and establish standard vocabularies to facilitate federated analytics and improve data readability for researchers and clinicians.\n\n\nThe CLIF consortium, comprising critical care researchers from eight US academic health systems, collaboratively developed CLIF’s schema, clinical vocabularies, and “proof of concept” datasets. CLIF’s tables emphasize care processes, clinical outcomes, and granular clinical physiology measures.\n\n\nRead CLIF concept paper here\n\n\n\nParticipating sites"
   },
   {
     "objectID": "posts/sipa_blog/SIPA_blog_post.html",
@@ -705,5 +705,19 @@
     "title": "CLIF-2.0 Data Dictionary",
     "section": "ICU bestpractice",
     "text": "ICU bestpractice"
+  },
+  {
+    "objectID": "publications.html",
+    "href": "publications.html",
+    "title": "CLIF Consortium",
+    "section": "",
+    "text": "The Common Longitudinal ICU Data Format (CLIF) is an innovative open-source data format designed to standardize critical illness data across multiple healthcare systems, facilitating advanced research in intensive care settings. In response to the complexities of electronic health record (EHR) data, CLIF harmonizes essential ICU data elements, enabling efficient federated studies. This initiative encompasses two proof-of-concept studies, demonstrating the potential of CLIF in predicting in-hospital mortality and analyzing temperature trajectories among critically ill patients. By enhancing data accessibility and consistency, CLIF aims to accelerate research efforts and improve patient outcomes in critical care.\n\nAnalysis Code: Access code for the two proof-of-concept studies here"
+  },
+  {
+    "objectID": "publications.html#publications",
+    "href": "publications.html#publications",
+    "title": "CLIF Consortium",
+    "section": "",
+    "text": "The Common Longitudinal ICU Data Format (CLIF) is an innovative open-source data format designed to standardize critical illness data across multiple healthcare systems, facilitating advanced research in intensive care settings. In response to the complexities of electronic health record (EHR) data, CLIF harmonizes essential ICU data elements, enabling efficient federated studies. This initiative encompasses two proof-of-concept studies, demonstrating the potential of CLIF in predicting in-hospital mortality and analyzing temperature trajectories among critically ill patients. By enhancing data accessibility and consistency, CLIF aims to accelerate research efforts and improve patient outcomes in critical care.\n\nAnalysis Code: Access code for the two proof-of-concept studies here"
   }
 ]

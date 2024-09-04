@@ -11,7 +11,7 @@ website:
       [![](https://quarto.org/quarto.png){fig-alt="Quarto" width=65px}](https://quarto.org/) 
     right:
       - icon: github
-        href: https://github.com/kaveriC/clif-consortium/
+        href: https://github.com/clif-consortium/website
   navbar:
     left:
       - href: index.qmd
@@ -22,10 +22,12 @@ website:
         text: Projects
       - href: data-dictionary.qmd
         text: Data Dictionary
+      - href: publications.qmd
+        text: Publications
       - posts.qmd # add your posts.qmd file to your navbar!
     right:
       - icon: github
-        href: https://github.com/kaveriC/CLIF-1.0/
+        href: https://github.com/clif-consortium/CLIF
 
 # navbar:
 #     left:

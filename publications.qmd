@@ -1,0 +1,7 @@
+## Publications
+
+### CLIF Concept Paper: CLIF: Standardizing ICU Data for Federated Research
+
+The Common Longitudinal ICU Data Format (CLIF) is an innovative open-source data format designed to standardize critical illness data across multiple healthcare systems, facilitating advanced research in intensive care settings. In response to the complexities of electronic health record (EHR) data, CLIF harmonizes essential ICU data elements, enabling efficient federated studies. This initiative encompasses two proof-of-concept studies, demonstrating the potential of CLIF in predicting in-hospital mortality and analyzing temperature trajectories among critically ill patients. By enhancing data accessibility and consistency, CLIF aims to accelerate research efforts and improve patient outcomes in critical care.
+
+- **Analysis Code:** Access code for the two proof-of-concept studies [here](https://github.com/clif-consortium/CLIF/tree/main/projects/concept_paper)
