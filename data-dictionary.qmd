@@ -97,7 +97,7 @@ The table structure and CDE is complete for the following tables. Consortium sit
 
 *Note*: The `lab_value` field often has non-numeric entries that are useful to make project-specific decisions. A site may choose to keep the `lab_value` field as a character and create a new field `lab_value_numeric` that only parses the character field to extract the numeric part of the string.
 
-## Microbiology
+## Microbiology Culture
 
 | Variable Name     | Data Type | Definition                                                      | Permissible Values |
 |-------------------|-----------|-----------------------------------------------------------------|--------------------|
@@ -114,14 +114,14 @@ The table structure and CDE is complete for the following tables. Consortium sit
 | organism_category | VARCHAR   | Organism categories defined according to the NIH common data elements.| [CDE NIH Organism](https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/clif_nih_vocab_microbiology_organism.csv)|
 
 
-## Respiratory_support
+## Respiratory Support
 
 | Variable Name                     | Data Type | Definition                                                      | Permissible Values |
 |-----------------------------------|-----------|-----------------------------------------------------------------|-----------------|
 | hospitalization_id                      | VARCHAR   | ID variable for each patient encounter                          |                 |
 | recorded_dttm                     | DATETIME  | Date and time when the device started                           |Datetime format should be %Y-%m-%d %H:%M:%S |
 | device_name                       | VARCHAR   | Includes raw string of the devices. Not used for analysis       |[Example mapping for device name to device category](https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/clif_vocab_respiratory_support_devices.csv)                  |
-| device_category                   | VARCHAR   | Includes a limited number of devices identified by the CLIF consortium |`Vent`, `NIPPV`, `CPAP`, `High Flow NC`, `Face Mask`, `Trach Collar`, `Nasal Cannula`, `Room Air`, `Other` |
+| device_category                   | VARCHAR   | Includes a limited number of devices identified by the CLIF consortium |`IMV`, `NIPPV`, `CPAP`, `High Flow NC`, `Face Mask`, `Trach Collar`, `Nasal Cannula`, `Room Air`, `Other` |
 | mode_name                         | VARCHAR   | Includes raw string of the modes. Not used for analysis         |[Example mapping for mode name to mode category](https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/clif_vocab_respiratory_support_modes.csv)                 |
 | mode_category                     | VARCHAR   | Limited number of modes identified by the CLIF consortium       |`Assist Control-Volume Control`, , `Pressure Control`, `Pressure-Regulated Volume Control`, `SIMV`, `Pressure Support/CPAP`,`Volume Support`,  `Blow by`, `Other` |
 | tracheostomy                      | BOOLEAN   | Indicates if tracheostomy is performed                          |0 = No, 1 = Yes  |
@@ -145,7 +145,7 @@ The table structure and CDE is complete for the following tables. Consortium sit
                  |
 
 
-## Medication_admin_continuous
+## Medication Admin Continuous
 
 | Variable Name     | Data Type | Definition                                                      | Permissible Values |
 |-------------------|-----------|-----------------------------------------------------------------|--------------------|

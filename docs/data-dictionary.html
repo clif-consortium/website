@@ -142,9 +142,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#adt" id="toc-adt" class="nav-link" data-scroll-target="#adt">ADT</a></li>
   <li><a href="#vitals" id="toc-vitals" class="nav-link" data-scroll-target="#vitals">Vitals</a></li>
   <li><a href="#labs" id="toc-labs" class="nav-link" data-scroll-target="#labs">Labs</a></li>
-  <li><a href="#microbiology" id="toc-microbiology" class="nav-link" data-scroll-target="#microbiology">Microbiology</a></li>
-  <li><a href="#respiratory_support" id="toc-respiratory_support" class="nav-link" data-scroll-target="#respiratory_support">Respiratory_support</a></li>
-  <li><a href="#medication_admin_continuous" id="toc-medication_admin_continuous" class="nav-link" data-scroll-target="#medication_admin_continuous">Medication_admin_continuous</a></li>
+  <li><a href="#microbiology-culture" id="toc-microbiology-culture" class="nav-link" data-scroll-target="#microbiology-culture">Microbiology Culture</a></li>
+  <li><a href="#respiratory-support" id="toc-respiratory-support" class="nav-link" data-scroll-target="#respiratory-support">Respiratory Support</a></li>
+  <li><a href="#medication-admin-continuous" id="toc-medication-admin-continuous" class="nav-link" data-scroll-target="#medication-admin-continuous">Medication Admin Continuous</a></li>
   <li><a href="#position" id="toc-position" class="nav-link" data-scroll-target="#position">Position</a></li>
   </ul></li>
   <li><a href="#in-progress-tables" id="toc-in-progress-tables" class="nav-link" data-scroll-target="#in-progress-tables">In progress tables</a>
@@ -555,8 +555,8 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Example:</strong></p>
 <p><em>Note</em>: The <code>lab_value</code> field often has non-numeric entries that are useful to make project-specific decisions. A site may choose to keep the <code>lab_value</code> field as a character and create a new field <code>lab_value_numeric</code> that only parses the character field to extract the numeric part of the string.</p>
 </section>
-<section id="microbiology" class="level2">
-<h2 class="anchored" data-anchor-id="microbiology">Microbiology</h2>
+<section id="microbiology-culture" class="level2">
+<h2 class="anchored" data-anchor-id="microbiology-culture">Microbiology Culture</h2>
 <table class="table">
 <thead>
 <tr class="header">
@@ -636,8 +636,8 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </section>
-<section id="respiratory_support" class="level2">
-<h2 class="anchored" data-anchor-id="respiratory_support">Respiratory_support</h2>
+<section id="respiratory-support" class="level2">
+<h2 class="anchored" data-anchor-id="respiratory-support">Respiratory Support</h2>
 <table class="table">
 <thead>
 <tr class="header">
@@ -670,7 +670,7 @@ ul.task-list li input[type="checkbox"] {
 <td>device_category</td>
 <td>VARCHAR</td>
 <td>Includes a limited number of devices identified by the CLIF consortium</td>
-<td><code>Vent</code>, <code>NIPPV</code>, <code>CPAP</code>, <code>High Flow NC</code>, <code>Face Mask</code>, <code>Trach Collar</code>, <code>Nasal Cannula</code>, <code>Room Air</code>, <code>Other</code></td>
+<td><code>IMV</code>, <code>NIPPV</code>, <code>CPAP</code>, <code>High Flow NC</code>, <code>Face Mask</code>, <code>Trach Collar</code>, <code>Nasal Cannula</code>, <code>Room Air</code>, <code>Other</code></td>
 </tr>
 <tr class="odd">
 <td>mode_name</td>
@@ -801,8 +801,8 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </section>
-<section id="medication_admin_continuous" class="level2">
-<h2 class="anchored" data-anchor-id="medication_admin_continuous">Medication_admin_continuous</h2>
+<section id="medication-admin-continuous" class="level2">
+<h2 class="anchored" data-anchor-id="medication-admin-continuous">Medication Admin Continuous</h2>
 <table class="table">
 <thead>
 <tr class="header">
