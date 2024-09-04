@@ -3,7 +3,7 @@ title: " CLIF-1.0 Data Dictionary- Archived"
 ---
 
 
-Below is the entity-relationship diagram (ERD) that provides an overview of the relational CLIF database structure.
+Below is the entity-relationship diagram (ERD) that provides an overview of the relational CLIF database structure. This version of CLIF is ![Deprecated](https://img.shields.io/badge/Maturity-Deprecated-lightgrey)
 
 ![](ERD.png)
 
