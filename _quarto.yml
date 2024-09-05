@@ -22,12 +22,15 @@ website:
         text: Projects
       - href: data-dictionary.qmd
         text: Data Dictionary
-      - href: publications.qmd
-        text: Publications
+      - href: mCIDE.qmd
+        text: minimum Common ICU Data Elements
+     # - href: publications.qmd
+      #  text: Publications
       - posts.qmd # add your posts.qmd file to your navbar!
     right:
       - icon: github
         href: https://github.com/clif-consortium/CLIF
+    twitter-card: true
 
 # navbar:
 #     left:
