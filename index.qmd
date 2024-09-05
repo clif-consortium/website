@@ -11,7 +11,7 @@ about:
   <p><strong>Federated Critical Care Research</strong></p>
   <p>Multicenter critical care research often relies on sharing sensitive patient data across sites, requiring complex data use agreements (DUAs) and yielding redundant work to account for diverse data infrastructures. To overcome these barriers, we present CLIF, designed specifically for observational studies of critically ill patients across multiple centres. Through CLIF, we aim to streamline data organization into a longitudinal format and establish standard vocabularies to facilitate federated analytics and improve data readability for researchers and clinicians.</p>
   <p>The CLIF consortium, comprising critical care researchers from eight US academic health systems, collaboratively developed CLIF's schema, clinical vocabularies, and "proof of concept" datasets. CLIF’s tables emphasize care processes, clinical outcomes, and granular clinical physiology measures.</p>
-  <p>Read CLIF concept paper [here](https://clif-consortium.github.io/website/publications.html) </p>
+<a href="CLIF_concept_preprint.pdf" download>Download the CLIF Concept Preprint</a>
 </div>
 
 <p><strong>Participating sites</strong></p>
