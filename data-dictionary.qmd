@@ -14,15 +14,17 @@ You can use our custom GPT- [CLIF Assistant](https://chatgpt.com/g/g-h1nk6d3eR-c
 
 CLIF is an evolving format, and some parts of the format are more mature than others. The consortium has two different maturity concepts: one for the overall ER model and one for the individual tables.
 
-## Maturity Level for CLIF Entity-Relationship Model
+## Overall Maturity Level for CLIF
 
--   ![Experimental](https://img.shields.io/badge/Maturity-Experimental-red) **Experimental**: Majority of critical illness and hospital course not represented in ER model, expect frequent breaking changes.
+-   ![Experimental](https://img.shields.io/badge/Maturity-Experimental-red) **Experimental**: Majority of critical illness and hospital course not represented in Entity-Relationship (ER) model, expect frequent breaking changes.
 -   ![Beta](https://img.shields.io/badge/Maturity-Beta-yellow) **Beta**: ER model complete and breaking changes to the existing structure unlikely. Actively seeking feedback about new tables to add to the ER model to fully capture critical illness.
 -   ![Stable](https://img.shields.io/badge/Maturity-Stable-brightgreen) **Stable**: Tested and recommended for general use. EHR data not currently represented in CLIF outside the scope of the format.
 -   ![Mature](https://img.shields.io/badge/Maturity-Mature-blue) **Mature**: Widely adopted across majority of consoritium sites with majority of tables in stable or mature (see maturity levels for CLIF Tables). ER model very stable.
 -   ![Deprecated](https://img.shields.io/badge/Maturity-Deprecated-lightgrey) **Deprecated**: No longer maintained.
 
-The entity-relationship model for this project is currently at the ![Beta](https://img.shields.io/badge/Maturity-Beta-yellow) **Beta** level. ER model complete and major breaking changes to the existing structure are unlikely. The consortium is actively seeking feedback about new tables and fields to add to the ER model to achieve the goal of representing developing a [minimum Common ICU Data Elements (mCIDE)](https://clif-consortium.github.io/website/mcide.html)
+The entity-relationship model for this project is currently at the ![Beta](https://img.shields.io/badge/Maturity-Beta-yellow) **Beta** level for adult patients in a general medical intensive care unit. Major breaking changes to the existing structure are unlikely. The consortium is actively seeking feedback about new tables and fields to add to the ER model to achieve the goal of representing developing a [minimum Common ICU Data Elements (mCIDE)](https://clif-consortium.github.io/website/mcide.html)
+
+For pediatric patients, CLIF is in the ![Experimental](https://img.shields.io/badge/Maturity-Experimental-red) **Experimental** maturity phase. CLIF is also ![Experimental](https://img.shields.io/badge/Maturity-Experimental-red) **Experimental** for adult patients in specialty ICUs (e.g. cardiac intensive care unit, surgical intensive care unit, and neurointensive care unit). 
 
 ## Maturity Levels for CLIF Tables {#maturity-levels-for-clif-tables}
 
@@ -287,15 +289,15 @@ the respiratory support table is a wider longitudinal table that captures simult
 +-------------------------------+-----------+------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
 | device_name                   | VARCHAR   | Includes raw string of the devices. Not used for analysis              | [Example mapping for device name to device category](https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/clif_vocab_respiratory_support_devices.csv)  |
 +-------------------------------+-----------+------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-| device_category               | VARCHAR   | Includes a limited number of devices identified by the CLIF consortium | `IMV`, `NIPPV`, `CPAP`, `High Flow NC`, `Face Mask`, `Trach Collar`, `Nasal Cannula`, `Room Air`, `Other`                                             |
+| device_category               | VARCHAR   | Categorization of respiratory support device | `IMV`, `NIPPV`, `CPAP`, `High Flow NC`, `Face Mask`, `Trach Collar`, `Nasal Cannula`, `Room Air`, `Other`                                             |
 +-------------------------------+-----------+------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
 | mode_name                     | VARCHAR   | Includes raw string of the modes. Not used for analysis                | [Example mapping for mode name to mode category](https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/clif_vocab_respiratory_support_modes.csv)        |
 +-------------------------------+-----------+------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-| mode_category                 | VARCHAR   | Limited number of modes identified by the CLIF consortium              | `Assist Control-Volume Control`, , `Pressure Control`, `Pressure-Regulated Volume Control`, `SIMV`, `Pressure Support/CPAP`,`Volume Support`, `Other` |
+| mode_category                 | VARCHAR   | Categorization of mode of mechanical ventilation            | `Assist Control-Volume Control`, , `Pressure Control`, `Pressure-Regulated Volume Control`, `SIMV`, `Pressure Support/CPAP`,`Volume Support`, `Other` |
 +-------------------------------+-----------+------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
 | tracheostomy                  | BOOLEAN   | Indicates if tracheostomy is performed                                 | 0 = No, 1 = Yes                                                                                                                                       |
 +-------------------------------+-----------+------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-| fio2_set                      | DOUBLE    | Fraction of inspired oxygen set                                        | No restriction, see \[Expected \*\_set values for each device_category and mode_category\]                                                            |
+| fio2_set                      | DOUBLE    | Fraction of inspired oxygen set in decimals (e.g. 0.21)                                       | No restriction, see \[Expected \*\_set values for each device_category and mode_category\]                                                            |
 +-------------------------------+-----------+------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
 | lpm_set                       | DOUBLE    | Liters per minute set                                                  | No restriction, see \[Expected \*\_set values for each device_category and mode_category\]                                                            |
 +-------------------------------+-----------+------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -337,24 +339,24 @@ the respiratory support table is a wider longitudinal table that captures simult
 +----------------------+---------------------------------+-------------------------+--------------------+-------------------------------------+--------+------------------+
 | ventilator setting   | `Assist Control-Volume Control` | `Pressure Support/CPAP` | `Pressure Control` | `Pressure-Regulated Volume Control` | `SIMV` | `Volume Support` |
 +----------------------+---------------------------------+-------------------------+--------------------+-------------------------------------+--------+------------------+
-| fio2_set             | R                               | R                       | R                  | R                                   | R      | R                |
+| fio2_set             | E                               | E                       | E                  | E                                   | E      | E                |
 +----------------------+---------------------------------+-------------------------+--------------------+-------------------------------------+--------+------------------+
-| tidal_volume_set     | R                               |                         |                    | R                                   | P      | R                |
+| tidal_volume_set     | E                               |                         |                    | E                                   | P      | E                |
 +----------------------+---------------------------------+-------------------------+--------------------+-------------------------------------+--------+------------------+
-| resp_rate_set        | R                               |                         | R                  | R                                   | R      |                  |
+| resp_rate_set        | E                               |                         | E                  | E                                   | E      |                  |
 +----------------------+---------------------------------+-------------------------+--------------------+-------------------------------------+--------+------------------+
-| pressure_control_set |                                 |                         | R                  |                                     | P      |                  |
+| pressure_control_set |                                 |                         | E                  |                                     | P      |                  |
 +----------------------+---------------------------------+-------------------------+--------------------+-------------------------------------+--------+------------------+
-| pressure_support_set |                                 | R                       |                    |                                     | R      |                  |
+| pressure_support_set |                                 | E                       |                    |                                     | E      |                  |
 +----------------------+---------------------------------+-------------------------+--------------------+-------------------------------------+--------+------------------+
 | flow_rate_set        | P                               |                         |                    |                                     | P      |                  |
 +----------------------+---------------------------------+-------------------------+--------------------+-------------------------------------+--------+------------------+
-| inspiratory_time_set | P                               |                         | R                  |                                     | P      |                  |
+| inspiratory_time_set | P                               |                         | E                  |                                     | P      |                  |
 +----------------------+---------------------------------+-------------------------+--------------------+-------------------------------------+--------+------------------+
-| peep_set             | R                               | R                       | R                  | R                                   | R      | R                |
+| peep_set             | E                               | E                       | E                  | E                                   | E      | E                |
 +----------------------+---------------------------------+-------------------------+--------------------+-------------------------------------+--------+------------------+
 
-R = Required ventilator setting for the mode, P = possible ventilator setting for the mode.
+E = Expected ventilator setting for the mode, P = possible ventilator setting for the mode.
 
 #### `device_category` == "NIPPV"
 
