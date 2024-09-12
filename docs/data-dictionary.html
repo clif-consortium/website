@@ -137,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#clif-maturity" id="toc-clif-maturity" class="nav-link active" data-scroll-target="#clif-maturity">CLIF maturity</a>
   <ul class="collapse">
-  <li><a href="#maturity-level-for-clif-entity-relationship-model" id="toc-maturity-level-for-clif-entity-relationship-model" class="nav-link" data-scroll-target="#maturity-level-for-clif-entity-relationship-model">Maturity Level for CLIF Entity-Relationship Model</a></li>
+  <li><a href="#overall-maturity-level-for-clif" id="toc-overall-maturity-level-for-clif" class="nav-link" data-scroll-target="#overall-maturity-level-for-clif">Overall Maturity Level for CLIF</a></li>
   <li><a href="#maturity-levels-for-clif-tables" id="toc-maturity-levels-for-clif-tables" class="nav-link" data-scroll-target="#maturity-levels-for-clif-tables">Maturity Levels for CLIF Tables</a></li>
   </ul></li>
   <li><a href="#general-inpatient-tables" id="toc-general-inpatient-tables" class="nav-link" data-scroll-target="#general-inpatient-tables">General inpatient tables</a>
@@ -204,16 +204,17 @@ ul.task-list li input[type="checkbox"] {
 <section id="clif-maturity" class="level1">
 <h1>CLIF maturity</h1>
 <p>CLIF is an evolving format, and some parts of the format are more mature than others. The consortium has two different maturity concepts: one for the overall ER model and one for the individual tables.</p>
-<section id="maturity-level-for-clif-entity-relationship-model" class="level2">
-<h2 class="anchored" data-anchor-id="maturity-level-for-clif-entity-relationship-model">Maturity Level for CLIF Entity-Relationship Model</h2>
+<section id="overall-maturity-level-for-clif" class="level2">
+<h2 class="anchored" data-anchor-id="overall-maturity-level-for-clif">Overall Maturity Level for CLIF</h2>
 <ul>
-<li><img src="https://img.shields.io/badge/Maturity-Experimental-red.png" class="img-fluid" alt="Experimental"> <strong>Experimental</strong>: Majority of critical illness and hospital course not represented in ER model, expect frequent breaking changes.</li>
+<li><img src="https://img.shields.io/badge/Maturity-Experimental-red.png" class="img-fluid" alt="Experimental"> <strong>Experimental</strong>: Majority of critical illness and hospital course not represented in Entity-Relationship (ER) model, expect frequent breaking changes.</li>
 <li><img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid" alt="Beta"> <strong>Beta</strong>: ER model complete and breaking changes to the existing structure unlikely. Actively seeking feedback about new tables to add to the ER model to fully capture critical illness.</li>
 <li><img src="https://img.shields.io/badge/Maturity-Stable-brightgreen.png" class="img-fluid" alt="Stable"> <strong>Stable</strong>: Tested and recommended for general use. EHR data not currently represented in CLIF outside the scope of the format.</li>
 <li><img src="https://img.shields.io/badge/Maturity-Mature-blue.png" class="img-fluid" alt="Mature"> <strong>Mature</strong>: Widely adopted across majority of consoritium sites with majority of tables in stable or mature (see maturity levels for CLIF Tables). ER model very stable.</li>
 <li><img src="https://img.shields.io/badge/Maturity-Deprecated-lightgrey.png" class="img-fluid" alt="Deprecated"> <strong>Deprecated</strong>: No longer maintained.</li>
 </ul>
-<p>The entity-relationship model for this project is currently at the <img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid" alt="Beta"> <strong>Beta</strong> level. ER model complete and major breaking changes to the existing structure are unlikely. The consortium is actively seeking feedback about new tables and fields to add to the ER model to achieve the goal of representing developing a <a href="https://clif-consortium.github.io/website/mcide.html">minimum Common ICU Data Elements (mCIDE)</a></p>
+<p>The entity-relationship model for this project is currently at the <img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid" alt="Beta"> <strong>Beta</strong> level for adult patients in a general medical intensive care unit. Major breaking changes to the existing structure are unlikely. The consortium is actively seeking feedback about new tables and fields to add to the ER model to achieve the goal of representing developing a <a href="https://clif-consortium.github.io/website/mcide.html">minimum Common ICU Data Elements (mCIDE)</a></p>
+<p>For pediatric patients, CLIF is in the <img src="https://img.shields.io/badge/Maturity-Experimental-red.png" class="img-fluid" alt="Experimental"> <strong>Experimental</strong> maturity phase. CLIF is also <img src="https://img.shields.io/badge/Maturity-Experimental-red.png" class="img-fluid" alt="Experimental"> <strong>Experimental</strong> for adult patients in specialty ICUs (e.g.&nbsp;cardiac intensive care unit, surgical intensive care unit, and neurointensive care unit).</p>
 </section>
 <section id="maturity-levels-for-clif-tables" class="level2">
 <h2 class="anchored" data-anchor-id="maturity-levels-for-clif-tables">Maturity Levels for CLIF Tables</h2>
@@ -261,7 +262,7 @@ ul.task-list li input[type="checkbox"] {
 <td>race_category</td>
 <td>VARCHAR</td>
 <td>Description of patient’s race. The source data may contain different strings for race.</td>
-<td><code>Black or African American</code> , <code>White</code>, <code>American Indian or Alaska Native</code>, <code>Asian</code>, <code>Native Hawaiian or Other Pacific Islander</code>, <code>Unknown</code>, <code>Other</code></td>
+<td><code>Black or African American</code>, <code>White</code>, <code>American Indian or Alaska Native</code>, <code>Asian</code>, <code>Native Hawaiian or Other Pacific Islander</code>, <code>Unknown</code>, <code>Other</code></td>
 </tr>
 <tr class="odd">
 <td>ethnicity_category</td>
@@ -273,19 +274,19 @@ ul.task-list li input[type="checkbox"] {
 <td>sex_category</td>
 <td>VARCHAR</td>
 <td>Patient’s biological sex.</td>
-<td><code>Male</code> , <code>Female</code>, <code>Unknown</code></td>
+<td><code>Male</code>, <code>Female</code>, <code>Unknown</code></td>
 </tr>
 <tr class="odd">
 <td>birth_date</td>
-<td>DATE</td>
+<td>DATETIME</td>
 <td>Patient’s date of birth.</td>
-<td></td>
+<td>Date format should be <code>%Y-%m-%d</code></td>
 </tr>
 <tr class="even">
-<td>death_date</td>
-<td>DATE</td>
-<td>Patient’s death date</td>
-<td></td>
+<td>death_dttm</td>
+<td>DATETIME</td>
+<td>Patient’s death date, including time.</td>
+<td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
 </tr>
 </tbody>
 </table>
@@ -301,6 +302,7 @@ ul.task-list li input[type="checkbox"] {
 <th>Data Type</th>
 <th>Definition</th>
 <th>Permissible Values</th>
+<th></th>
 </tr>
 </thead>
 <tbody>
@@ -309,11 +311,13 @@ ul.task-list li input[type="checkbox"] {
 <td>VARCHAR</td>
 <td>Unique identifier for each patient, linking to the <code>patient</code> table.</td>
 <td></td>
+<td></td>
 </tr>
 <tr class="even">
 <td>hospitalization_id</td>
 <td>VARCHAR</td>
 <td>Unique identifier for each hospitalization encounter. Each hospitalization_id represents a unique stay in the hospital.</td>
+<td></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -321,16 +325,19 @@ ul.task-list li input[type="checkbox"] {
 <td>DATETIME</td>
 <td>Date and time the patient is admitted to the hospital.</td>
 <td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
+<td></td>
 </tr>
 <tr class="even">
 <td>discharge_dttm</td>
 <td>DATETIME</td>
 <td>Date and time the patient is discharged from the hospital.</td>
 <td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
+<td></td>
 </tr>
 <tr class="odd">
 <td>age_at_admission</td>
-<td>INT | Age of the patient at the time of admission. | Age in years |</td>
+<td>INT</td>
+<td>Age of the patient at the time of admission, in years.</td>
 <td></td>
 <td></td>
 </tr>
@@ -339,17 +346,20 @@ ul.task-list li input[type="checkbox"] {
 <td>VARCHAR</td>
 <td>Original disposition name string recorded in the raw data.</td>
 <td></td>
+<td></td>
 </tr>
 <tr class="odd">
 <td>discharge_category</td>
 <td>VARCHAR</td>
 <td>Description of the patient’s disposition when discharged, mapped to mCIDE categories.</td>
-<td><code>Home</code>, <code>Hospice</code>, <code>Acute care hospital</code> , <code>Still Admitted</code>, <code>Inpatient Rehab Facility</code>, <code>Skilled Nursing Facility</code>, <code>Long Term Care Hospital</code>,<code>Psychiatric Hospital</code>, <code>Dead</code>, <code>Other</code></td>
+<td><code>Home</code>, <code>Hospice</code>, <code>Acute care hospital</code>, <code>Still Admitted</code>, <code>Inpatient Rehab Facility</code>, <code>Skilled Nursing Facility</code>, <code>Long Term Care Hospital</code>, <code>Psychiatric Hospital</code>, <code>Dead</code>, <code>Other</code></td>
+<td></td>
 </tr>
 <tr class="even">
 <td>zipcode_nine_digit</td>
 <td>VARCHAR</td>
 <td>Patient’s 9 digit zip code, used to link with other indices such as ADI and SVI.</td>
+<td></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -357,11 +367,13 @@ ul.task-list li input[type="checkbox"] {
 <td>VARCHAR</td>
 <td>Patient’s 5 digit zip code, used to link with other indices such as ADI and SVI.</td>
 <td></td>
+<td></td>
 </tr>
 <tr class="even">
 <td>census_block_code</td>
 <td>VARCHAR</td>
 <td>15 digit FIPS code. Definition <a href="https://www.census.gov/programs-surveys/geography/guidance/geo-identifiers.html">here</a>.</td>
+<td></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -369,11 +381,13 @@ ul.task-list li input[type="checkbox"] {
 <td>VARCHAR</td>
 <td>12 digit FIPS code. Definition <a href="https://www.census.gov/programs-surveys/geography/guidance/geo-identifiers.html">here</a>.</td>
 <td></td>
+<td></td>
 </tr>
 <tr class="even">
 <td>census_tract</td>
 <td>VARCHAR</td>
 <td>11 digit FIPS code. Definition <a href="https://www.census.gov/programs-surveys/geography/guidance/geo-identifiers.html">here</a>.</td>
+<td></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -381,11 +395,13 @@ ul.task-list li input[type="checkbox"] {
 <td>VARCHAR</td>
 <td>2 digit FIPS code. Definition <a href="https://www.census.gov/programs-surveys/geography/guidance/geo-identifiers.html">here</a>.</td>
 <td></td>
+<td></td>
 </tr>
 <tr class="even">
 <td>county_code</td>
 <td>VARCHAR</td>
 <td>5 digit FIPS code. Definition <a href="https://www.census.gov/programs-surveys/geography/guidance/geo-identifiers.html">here</a>.</td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -581,7 +597,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>lab_value_numeric</td>
-<td>VARCHAR</td>
+<td>DOUBLE</td>
 <td>Parse out numeric part of the lab_value variable.</td>
 <td>Numeric</td>
 </tr>
@@ -750,19 +766,19 @@ ul.task-list li input[type="checkbox"] {
 <td>order_start_dttm</td>
 <td>DATETIME</td>
 <td>Date and time when the medication order was initiated</td>
-<td>Datetime format should be %Y-%m-%d %H:%M:%S</td>
+<td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
 </tr>
 <tr class="even">
 <td>order_end_dttm</td>
 <td>DATETIME</td>
 <td>Date and time when the medication order ended or was discontinued</td>
-<td>Datetime format should be %Y-%m-%d %H:%M:%S</td>
+<td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
 </tr>
 <tr class="odd">
 <td>ordered_dttm</td>
 <td>DATETIME</td>
 <td>Date and time when the medication was actually ordered</td>
-<td>Datetime format should be %Y-%m-%d %H:%M:%S</td>
+<td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
 </tr>
 <tr class="even">
 <td>med_name</td>
@@ -814,161 +830,187 @@ ul.task-list li input[type="checkbox"] {
 <h1>Critical illness specific tables</h1>
 <section id="respiratory-support" class="level2">
 <h2 class="anchored" data-anchor-id="respiratory-support">Respiratory Support</h2>
-<p>the respiratory support table is a wider longitudinal table that captures simultaneously recorded ventilator settings and observed ventilator parameters. The table is designed to capture the most common respiratory support devices and modes used in the ICU. It will be sparse for patients who are not on mechanical ventilation.</p>
+<p>The respiratory support table is a wider longitudinal table that captures simultaneously recorded ventilator settings and observed ventilator parameters. The table is designed to capture the most common respiratory support devices and modes used in the ICU. It will be sparse for patients who are not on mechanical ventilation.</p>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid"></a></p>
 <table class="table">
-<thead>
-<tr class="header">
-<th>Variable Name</th>
-<th>Data Type</th>
-<th>Definition</th>
-<th>Permissible Values</th>
-</tr>
-</thead>
 <tbody>
 <tr class="odd">
-<td>hospitalization_id</td>
-<td>VARCHAR</td>
-<td>ID variable for each patient encounter</td>
+<td><h1 id="variable-name">Variable Name</h1>
+<p>hospitalization_id</p></td>
+<td><h1 id="data-type">Data Type</h1>
+<p>VARCHAR</p></td>
+<td><h1 id="definition">Definition</h1>
+<p>ID variable for each patient encounter</p></td>
+<td><h1 id="permissible-values">Permissible Values</h1></td>
 <td></td>
 </tr>
 <tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>recorded_dttm</td>
 <td>DATETIME</td>
 <td>Date and time when the device started</td>
-<td>Datetime format should be %Y-%m-%d %H:%M:%S</td>
+<td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>device_name</td>
 <td>VARCHAR</td>
 <td>Includes raw string of the devices. Not used for analysis</td>
 <td><a href="https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/clif_vocab_respiratory_support_devices.csv">Example mapping for device name to device category</a></td>
-</tr>
-<tr class="even">
-<td>device_category</td>
-<td>VARCHAR</td>
-<td>Includes a limited number of devices identified by the CLIF consortium</td>
-<td><code>IMV</code>, <code>NIPPV</code>, <code>CPAP</code>, <code>High Flow NC</code>, <code>Face Mask</code>, <code>Trach Collar</code>, <code>Nasal Cannula</code>, <code>Room Air</code>, <code>Other</code></td>
+<td></td>
 </tr>
 <tr class="odd">
+<td>device_category</td>
+<td>VARCHAR</td>
+<td>Categorization of respiratory support device</td>
+<td><code>IMV</code>, <code>NIPPV</code>, <code>CPAP</code>, <code>High Flow NC</code>, <code>Face Mask</code>, <code>Trach Collar</code>, <code>Nasal Cannula</code>, <code>Room Air</code>, <code>Other</code></td>
+<td></td>
+</tr>
+<tr class="even">
 <td>mode_name</td>
 <td>VARCHAR</td>
 <td>Includes raw string of the modes. Not used for analysis</td>
 <td><a href="https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/clif_vocab_respiratory_support_modes.csv">Example mapping for mode name to mode category</a></td>
-</tr>
-<tr class="even">
-<td>mode_category</td>
-<td>VARCHAR</td>
-<td>Limited number of modes identified by the CLIF consortium</td>
-<td><code>Assist Control-Volume Control</code>, , <code>Pressure Control</code>, <code>Pressure-Regulated Volume Control</code>, <code>SIMV</code>, <code>Pressure Support/CPAP</code>,<code>Volume Support</code>, <code>Other</code></td>
+<td></td>
 </tr>
 <tr class="odd">
+<td>mode_category</td>
+<td>VARCHAR</td>
+<td>Categorization of mode of mechanical ventilation</td>
+<td><code>Assist Control-Volume Control</code>, <code>Pressure Control</code>, <code>Pressure-Regulated Volume Control</code>, <code>SIMV</code>, <code>Pressure Support/CPAP</code>, <code>Volume Support</code>, <code>Other</code></td>
+<td></td>
+</tr>
+<tr class="even">
 <td>tracheostomy</td>
 <td>BOOLEAN</td>
 <td>Indicates if tracheostomy is performed</td>
 <td>0 = No, 1 = Yes</td>
-</tr>
-<tr class="even">
-<td>fio2_set</td>
-<td>DOUBLE</td>
-<td>Fraction of inspired oxygen set</td>
-<td>No restriction, see [Expected *_set values for each device_category and mode_category]</td>
+<td></td>
 </tr>
 <tr class="odd">
+<td>fio2_set</td>
+<td>DOUBLE</td>
+<td>Fraction of inspired oxygen set in decimals (e.g.&nbsp;0.21)</td>
+<td>No restriction, see <a href="https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category">Expected *_set values for each device_category and mode_category</a></td>
+<td></td>
+</tr>
+<tr class="even">
 <td>lpm_set</td>
 <td>DOUBLE</td>
 <td>Liters per minute set</td>
-<td>No restriction, see [Expected *_set values for each device_category and mode_category]</td>
+<td>No restriction, see <a href="https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category">Expected *_set values for each device_category and mode_category</a></td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>tidal_volume_set</td>
 <td>DOUBLE</td>
 <td>Tidal volume set (in mL)</td>
-<td>No restriction, see [Expected *_set values for each device_category and mode_category]</td>
+<td>No restriction, see <a href="https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category">Expected *_set values for each device_category and mode_category</a></td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>resp_rate_set</td>
 <td>DOUBLE</td>
 <td>Respiratory rate set (in bpm)</td>
-<td>No restriction, see [Expected *_set values for each device_category and mode_category]</td>
+<td>No restriction, see <a href="https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category">Expected *_set values for each device_category and mode_category</a></td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>pressure_control_set</td>
 <td>DOUBLE</td>
 <td>Pressure control set (in cmH2O)</td>
-<td>No restriction, see [Expected *_set values for each device_category and mode_category]</td>
+<td>No restriction, see <a href="https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category">Expected *_set values for each device_category and mode_category</a></td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>pressure_support_set</td>
 <td>DOUBLE</td>
 <td>Pressure support set (in cmH2O)</td>
-<td>No restriction, see [Expected *_set values for each device_category and mode_category]</td>
+<td>No restriction, see <a href="https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category">Expected *_set values for each device_category and mode_category</a></td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>flow_rate_set</td>
 <td>DOUBLE</td>
 <td>Flow rate set</td>
-<td>No restriction, see [Expected *_set values for each device_category and mode_category]</td>
+<td>No restriction, see <a href="https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category">Expected *_set values for each device_category and mode_category</a></td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>peak_inspiratory_pressure_set</td>
 <td>DOUBLE</td>
 <td>Peak inspiratory pressure set (in cmH2O)</td>
-<td>No restriction, see [Expected *_set values for each device_category and mode_category]</td>
+<td>No restriction, see <a href="https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category">Expected *_set values for each device_category and mode_category</a></td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>inspiratory_time_set</td>
 <td>DOUBLE</td>
 <td>Inspiratory time set (in seconds)</td>
-<td>No restriction, see [Expected *_set values for each device_category and mode_category]</td>
+<td>No restriction, see <a href="https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category">Expected *_set values for each device_category and mode_category</a></td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>peep_set</td>
 <td>DOUBLE</td>
 <td>Positive-end-expiratory pressure set (in cmH2O)</td>
-<td>No restriction, see [Expected *_set values for each device_category and mode_category]</td>
+<td>No restriction, see <a href="https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category">Expected *_set values for each device_category and mode_category</a></td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>tidal_volume_obs</td>
 <td>DOUBLE</td>
 <td>Observed tidal volume (in mL)</td>
 <td>No restriction</td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>resp_rate_obs</td>
 <td>DOUBLE</td>
 <td>Observed respiratory rate (in bpm)</td>
 <td>No restriction</td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>plateau_pressure_obs</td>
 <td>DOUBLE</td>
 <td>Observed plateau pressure (in cmH2O)</td>
 <td>No restriction</td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>peak_inspiratory_pressure_obs</td>
 <td>DOUBLE</td>
 <td>Observed peak inspiratory pressure (in cmH2O)</td>
 <td>No restriction</td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>peep_obs</td>
 <td>DOUBLE</td>
 <td>Observed positive-end-expiratory pressure (in cmH2O)</td>
 <td>No restriction</td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>minute_vent_obs</td>
 <td>DOUBLE</td>
 <td>Observed minute ventilation (in liters)</td>
 <td>No restriction</td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>mean_airway_pressure_obs</td>
 <td>DOUBLE</td>
 <td>Observed mean airway pressure</td>
 <td>No restriction</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -998,36 +1040,36 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>fio2_set</td>
-<td>R</td>
-<td>R</td>
-<td>R</td>
-<td>R</td>
-<td>R</td>
-<td>R</td>
+<td>E</td>
+<td>E</td>
+<td>E</td>
+<td>E</td>
+<td>E</td>
+<td>E</td>
 </tr>
 <tr class="odd">
 <td>tidal_volume_set</td>
-<td>R</td>
+<td>E</td>
 <td></td>
 <td></td>
-<td>R</td>
+<td>E</td>
 <td>P</td>
-<td>R</td>
+<td>E</td>
 </tr>
 <tr class="even">
 <td>resp_rate_set</td>
-<td>R</td>
+<td>E</td>
 <td></td>
-<td>R</td>
-<td>R</td>
-<td>R</td>
+<td>E</td>
+<td>E</td>
+<td>E</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>pressure_control_set</td>
 <td></td>
 <td></td>
-<td>R</td>
+<td>E</td>
 <td></td>
 <td>P</td>
 <td></td>
@@ -1035,10 +1077,10 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>pressure_support_set</td>
 <td></td>
-<td>R</td>
+<td>E</td>
 <td></td>
 <td></td>
-<td>R</td>
+<td>E</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -1054,23 +1096,23 @@ ul.task-list li input[type="checkbox"] {
 <td>inspiratory_time_set</td>
 <td>P</td>
 <td></td>
-<td>R</td>
+<td>E</td>
 <td></td>
 <td>P</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>peep_set</td>
-<td>R</td>
-<td>R</td>
-<td>R</td>
-<td>R</td>
-<td>R</td>
-<td>R</td>
+<td>E</td>
+<td>E</td>
+<td>E</td>
+<td>E</td>
+<td>E</td>
+<td>E</td>
 </tr>
 </tbody>
 </table>
-<p>R = Required ventilator setting for the mode, P = possible ventilator setting for the mode.</p>
+<p>E = Expected ventilator setting for the mode, P = possible ventilator setting for the mode.</p>
 </section>
 <section id="device_category-nippv" class="level4">
 <h4 class="anchored" data-anchor-id="device_category-nippv"><code>device_category</code> == “NIPPV”</h4>
@@ -1124,7 +1166,7 @@ ul.task-list li input[type="checkbox"] {
 <td>admin_dttm</td>
 <td>DATETIME</td>
 <td>Date and time when the medicine was administered</td>
-<td>Datetime format should be %Y-%m-%d %H:%M:%S</td>
+<td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
 </tr>
 <tr class="even">
 <td>med_name</td>
@@ -1168,7 +1210,7 @@ ul.task-list li input[type="checkbox"] {
 <col style="width: 10%">
 <col style="width: 5%">
 <col style="width: 59%">
-<col style="width: 22%">
+<col style="width: 23%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1189,7 +1231,7 @@ ul.task-list li input[type="checkbox"] {
 <td>recorded_dttm</td>
 <td>DATETIME</td>
 <td>Date and time when the vital is recorded.</td>
-<td>Datetime format should be %Y-%m-%d %H:%M:%S</td>
+<td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
 </tr>
 <tr class="odd">
 <td>position_name</td>
@@ -1200,7 +1242,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>position_category</td>
 <td>VARCHAR</td>
-<td>Map position_name to the to categories identified under CLIF.</td>
+<td>Map position_name to the categories identified under CLIF.</td>
 <td><code>prone</code>, <code>not_prone</code></td>
 </tr>
 </tbody>
@@ -1236,13 +1278,13 @@ ul.task-list li input[type="checkbox"] {
 <td>start_dttm</td>
 <td>DATETIME</td>
 <td>Start date and time of dialysis session</td>
-<td>Datetime format should be %Y-%m-%d %H:%M:%S</td>
+<td>Datetime format <code>%Y-%m-%d %H:%M:%S</code></td>
 </tr>
 <tr class="odd">
 <td>stop_dttm</td>
 <td>DATETIME</td>
 <td>Stop date and time of dialysis session</td>
-<td>Datetime format should be %Y-%m-%d %H:%M:%S</td>
+<td>Datetime format <code>%Y-%m-%d %H:%M:%S</code></td>
 </tr>
 <tr class="even">
 <td>dialysis_type</td>
@@ -1271,62 +1313,55 @@ ul.task-list li input[type="checkbox"] {
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
 <table class="table">
 <colgroup>
-<col style="width: 18%">
-<col style="width: 66%">
-<col style="width: 13%">
+<col style="width: 21%">
+<col style="width: 78%">
 </colgroup>
+<thead>
+<tr class="header">
+<th>Variable Name</th>
+<th>Description</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td><h1 id="variable-name">Variable Name</h1>
-<p>hospitalization_id</p></td>
-<td><h1 id="description">Description</h1>
-<p>Unique identifier for the hospitalization event.</p></td>
-<td></td>
+<td>hospitalization_id</td>
+<td>Unique identifier for the hospitalization event.</td>
 </tr>
 <tr class="even">
-<td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>start_dttm</td>
 <td>Date and time when ECMO/MCS support started.</td>
-<td></td>
 </tr>
 <tr class="even">
 <td>end_dttm</td>
 <td>Date and time when ECMO/MCS support ended.</td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>device_name</td>
 <td>Name of the ECMO/MCS device used including brand information.</td>
-<td></td>
 </tr>
 <tr class="even">
 <td>device_category</td>
 <td>Category of the ECMO/MCS device.</td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>device_metric_name</td>
 <td>String that captures the measure of work rate of the device, e.g., RPMs.</td>
-<td></td>
 </tr>
 <tr class="even">
 <td>device_rate</td>
 <td>Numeric value of work rate, e.g., 3000 RPMs.</td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>flow</td>
 <td>Blood flow in L/min.</td>
-<td></td>
 </tr>
 <tr class="even">
 <td>sweep</td>
 <td>Gas flow rate in L/min.</td>
-<td></td>
 </tr>
 </tbody>
 </table>

@@ -16,4 +16,4 @@ about:
 
 <p><strong>Participating sites</strong></p>
 
-![](images/member_logos.jpeg)
+![](images/member_logos.png)
