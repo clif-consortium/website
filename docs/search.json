@@ -662,7 +662,7 @@
     "href": "data-dictionary.html#ecmo_mcs",
     "title": "CLIF-2.0 Data Dictionary",
     "section": "ECMO_MCS",
-    "text": "ECMO_MCS\nThe ECMO/MCS table is a wider longitudinal table that captures the start and stop times of ECMO/MCS support, the type of device used, and the work rate of the device.\n\n\n\n\n\n\n\n\nVariable Name\nDescription\n\n\n\n\nhospitalization_id\nUnique identifier for the hospitalization event.\n\n\n\n\n\n\nstart_dttm\nDate and time when ECMO/MCS support started.\n\n\nend_dttm\nDate and time when ECMO/MCS support ended.\n\n\ndevice_name\nName of the ECMO/MCS device used including brand information.\n\n\ndevice_category\nCategory of the ECMO/MCS device.\n\n\ndevice_metric_name\nString that captures the measure of work rate of the device, e.g., RPMs.\n\n\ndevice_rate\nNumeric value of work rate, e.g., 3000 RPMs.\n\n\nflow\nBlood flow in L/min.\n\n\nsweep\nGas flow rate in L/min."
+    "text": "ECMO_MCS\nThe ECMO/MCS table is a wider longitudinal table that captures the start and stop times of ECMO/MCS support, the type of device used, and the work rate of the device.\n\n\n\n\n\n\n\n\nVariable Name\nDescription\n\n\n\n\nhospitalization_id\nUnique identifier for the hospitalization event.\n\n\nstart_dttm\nDate and time when ECMO/MCS support started.\n\n\nend_dttm\nDate and time when ECMO/MCS support ended.\n\n\ndevice_name\nName of the ECMO/MCS device used including brand information.\n\n\ndevice_category\nCategory of the ECMO/MCS device.\n\n\ndevice_metric_name\nString that captures the measure of work rate of the device, e.g., RPMs.\n\n\ndevice_rate\nNumeric value of work rate, e.g., 3000 RPMs.\n\n\nflow\nBlood flow in L/min.\n\n\nsweep\nGas flow rate in L/min."
   },
   {
     "objectID": "data-dictionary.html#intake_output",
@@ -739,7 +739,7 @@
     "href": "data-dictionary.html#medication-admin-continuous",
     "title": "CLIF-2.0 Data Dictionary",
     "section": "Medication Admin Continuous",
-    "text": "Medication Admin Continuous\nThe medication admin continuous table is a long form (one medication administration per row) longitudinal table. Note that it only reflects dose changes of the continuous medication and does not have a specific “end_time” variable to indicate the medication being stopped\n\n\n\n\nVariable Name\nData Type\nDefinition\nPermissible Values\n\n\n\n\nhospitalization_id\nVARCHAR\nID variable for each patient encounter\n\n\n\nmed_order_id\nVARCHAR\nMedication order id. Foreign key to link this table to other medication tables\n\n\n\nadmin_dttm\nDATETIME\nDate and time when the medicine was administered\nDatetime format should be %Y-%m-%d %H:%M:%S\n\n\nmed_name\nVARCHAR\nOriginal med name string recorded in the raw data for a limited number of labs identified by the CLIF consortium\nExample mapping of med_name to med_category\n\n\nmed_category\nVARCHAR\nLimited number of medication categories identified by the CLIF consortium\nList of continuous medication categories in CLIF\n\n\nmed_route\nVARCHAR\nmedicine delivery route\ne.g. IV, enteral\n\n\nmed_dose\nVARCHAR\nquantity taken in dose\n\n\n\nmed_dose_unit\nVARCHAR\nunit of dose"
+    "text": "Medication Admin Continuous\nThe medication admin continuous table is a long form (one medication administration per row) longitudinal table. Note that it only reflects dose changes of the continuous medication and does not have a specific “end_time” variable to indicate the medication being stopped\n\n\n\n\nVariable Name\nData Type\nDefinition\nPermissible Values\n\n\n\n\nhospitalization_id\nVARCHAR\nID variable for each patient encounter\n\n\n\nmed_order_id\nVARCHAR\nMedication order id. Foreign key to link this table to other medication tables\n\n\n\nadmin_dttm\nDATETIME\nDate and time when the medicine was administered\nDatetime format should be %Y-%m-%d %H:%M:%S\n\n\nmed_name\nVARCHAR\nOriginal med name string recorded in the raw data for a limited number of labs identified by the CLIF consortium\nExample mapping of med_name to med_category\n\n\nmed_category\nVARCHAR\nLimited number of medication categories identified by the CLIF consortium\nList of continuous medication categories in CLIF\n\n\nmed_route\nVARCHAR\nmedicine delivery route\ne.g. IV, enteral\n\n\nmed_dose\nDOUBLE\nquantity taken in dose\n\n\n\nmed_dose_unit\nVARCHAR\nunit of dose"
   },
   {
     "objectID": "data-dictionary.html#maturity-level-for-clif-entity-relationship-model",
@@ -824,5 +824,12 @@
     "title": "Meet the CLIF Team",
     "section": "Yale University",
     "text": "Yale University\n\n\n\n\nSnigdha Jain, MD"
+  },
+  {
+    "objectID": "about.html#university-of-pennsylvania",
+    "href": "about.html#university-of-pennsylvania",
+    "title": "Meet the CLIF Team",
+    "section": "University of Pennsylvania",
+    "text": "University of Pennsylvania\n\n\n\n\nGary E. Weissman, MD   \n\n\n\n\n\nAlexander Ortiz, MD   \n\n\n\n\n\nBenjamin Schmid, MS"
   }
 ]
