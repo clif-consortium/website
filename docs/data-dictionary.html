@@ -461,11 +461,11 @@ ul.task-list li input[type="checkbox"] {
 <td>location_category</td>
 <td>VARCHAR</td>
 <td>Map location_name from the source data to categories identified under CLIF.</td>
-<td><code>ER</code>, <code>OR</code>, <code>ICU</code>, <code>Ward</code>, <code>Other</code></td>
+<td><code>ER</code>, <code>Procedural</code>, <code>ICU</code>, <code>Ward</code>, <code>Other</code></td>
 </tr>
 </tbody>
 </table>
-<p>Note: Procedural areas and operating rooms should be mapped to “Other”. Intra-procedural EHR data such as anethesia records are not represented in CLIF currently</p>
+<p>Note: Procedural areas and operating rooms should be mapped to <code>Procedural</code>. Pre/Intra/Post-procedural/OR EHR data (such as anesthesia flowsheet records from Labs, Vitals, Scores, Respiratory Support) <strong>are not currently</strong> represented in CLIF</p>
 </section>
 <section id="vitals" class="level2">
 <h2 class="anchored" data-anchor-id="vitals">Vitals</h2>
@@ -1254,10 +1254,10 @@ ul.task-list li input[type="checkbox"] {
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
 <table class="table">
 <colgroup>
-<col style="width: 19%">
-<col style="width: 10%">
-<col style="width: 32%">
-<col style="width: 35%">
+<col style="width: 20%">
+<col style="width: 11%">
+<col style="width: 34%">
+<col style="width: 31%">
 </colgroup>
 <thead>
 <tr class="header">
