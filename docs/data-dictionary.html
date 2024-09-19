@@ -586,8 +586,8 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>lab_category</td>
 <td>VARCHAR</td>
-<td>43 labs identified by the CLIF consortium as minimum necessary labs for the study of critical illness.</td>
-<td><a href="https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/clif_vocab_labs.csv">List of lab categories in CLIF</a></td>
+<td>Limited labs identified by the CLIF consortium as minimum necessary labs for the study of critical illness.</td>
+<td>[List of lab categories in CLIF](https://github.com/clif-consortium/CLIF/blob/main/mCIDE/clif_labs_categories.csv</td>
 </tr>
 <tr class="odd">
 <td>lab_value</td>
@@ -741,6 +741,12 @@ ul.task-list li input[type="checkbox"] {
 <p>this table records the ordering (not adminstration) of medications. The table is a long form (one medication order per row) longitudinal table. Linkage to the <code>medication_admin_continuous</code> and <code>medication_admin_intermittent</code> tables is through the <code>med_order_id</code> field.</p>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
 <table class="table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 4%">
+<col style="width: 39%">
+<col style="width: 46%">
+</colgroup>
 <thead>
 <tr class="header">
 <th>Variable Name</th>
@@ -790,7 +796,7 @@ ul.task-list li input[type="checkbox"] {
 <td>med_category</td>
 <td>VARCHAR</td>
 <td>Category of the medication, typically indicating the drug class or type</td>
-<td>CDE defined by <a href="#medication-admin-continuous">Medication Admin Continuous</a> and <a href="#medication-admin-intermittent">Medication Admin Intermittent</a></td>
+<td></td>
 </tr>
 <tr class="even">
 <td>med_route</td>
@@ -862,7 +868,7 @@ ul.task-list li input[type="checkbox"] {
 <td>device_name</td>
 <td>VARCHAR</td>
 <td>Includes raw string of the devices. Not used for analysis</td>
-<td><a href="https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/clif_vocab_respiratory_support_devices.csv">Example mapping for device name to device category</a></td>
+<td></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -876,7 +882,7 @@ ul.task-list li input[type="checkbox"] {
 <td>mode_name</td>
 <td>VARCHAR</td>
 <td>Includes raw string of the modes. Not used for analysis</td>
-<td><a href="https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/clif_vocab_respiratory_support_modes.csv">Example mapping for mode name to mode category</a></td>
+<td></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -1172,27 +1178,33 @@ ul.task-list li input[type="checkbox"] {
 <td>med_name</td>
 <td>VARCHAR</td>
 <td>Original med name string recorded in the raw data for a limited number of labs identified by the CLIF consortium</td>
-<td><a href="https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/ucmc_cide_mappings/clif_vocab_medication_admin_continuous_med_ucmc.csv">Example mapping of med_name to med_category</a></td>
+<td></td>
 </tr>
 <tr class="odd">
 <td>med_category</td>
 <td>VARCHAR</td>
 <td>Limited number of medication categories identified by the CLIF consortium</td>
-<td><a href="https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/clif_vocab_medication_admin_continuous.csv">List of continuous medication categories in CLIF</a></td>
+<td><a href="https://github.com/clif-consortium/CLIF/blob/main/mCIDE/clif_medication_admin_continuous_med_categories.csv">List of continuous medication categories in CLIF</a></td>
 </tr>
 <tr class="even">
+<td>med_group</td>
+<td>VARCHAR</td>
+<td>Limited number of medication groups identified by the CLIF consortium</td>
+<td><a href="https://github.com/clif-consortium/CLIF/blob/main/mCIDE/clif_medication_admin_continuous_med_categories.csv">List of continuous medication groups in CLIF</a></td>
+</tr>
+<tr class="odd">
 <td>med_route</td>
 <td>VARCHAR</td>
 <td>medicine delivery route</td>
 <td>e.g.&nbsp;IV, enteral</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>med_dose</td>
 <td>DOUBLE</td>
 <td>quantity taken in dose</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>med_dose_unit</td>
 <td>VARCHAR</td>
 <td>unit of dose</td>
@@ -2160,7 +2172,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>© 2024 · Made with <a href="https://quarto.org/"><img src="https://quarto.org/quarto.png" class="img-fluid" alt="Quarto" width="65"></a></p>
+<p>© 2024 · Made with <a href="https://quarto.org/"><img src="https://quarto.org/quarto.png" class="img-fluid" alt="Quarto" width="65"></a> <br> Contact us 💌 <a href="mailto:clif_consortium@uchicago.edu">clif_consortium@uchicago.edu</a></p>
 </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
