@@ -89,25 +89,32 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
 <span class="menu-text">TEAM</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./projects.html"> 
-<span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./data-dictionary.html" aria-current="page"> 
 <span class="menu-text">Data Dictionary</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./mCIDE.html"> 
-<span class="menu-text">minimum Common ICU Data Elements</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-resources">    
+        <li>
+    <a class="dropdown-item" href="./projects.html">
+ <span class="dropdown-text">Projects</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./mCIDE.html">
+ <span class="dropdown-text">minimum Common ICU Data Elements</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./faqs.html">
+ <span class="dropdown-text">FAQs</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="./posts.html"> 
 <span class="menu-text">Blog</span></a>
@@ -415,53 +422,57 @@ ul.task-list li input[type="checkbox"] {
 <colgroup>
 <col style="width: 8%">
 <col style="width: 5%">
-<col style="width: 65%">
+<col style="width: 64%">
 <col style="width: 19%">
+<col style="width: 0%">
 </colgroup>
-<thead>
-<tr class="header">
-<th>Variable Name</th>
-<th>Data Type</th>
-<th>Definition</th>
-<th>Permissible Values</th>
-</tr>
-</thead>
 <tbody>
 <tr class="odd">
-<td>hospitalization_id</td>
-<td>VARCHAR</td>
-<td>ID variable for each patient encounter</td>
-<td>No restriction</td>
+<td rowspan="2"><h1 id="variable-name">Variable Name</h1>
+<p>hospitalization_id</p></td>
+<td rowspan="2"><h1 id="data-type">Data Type</h1>
+<p>VARCHAR</p></td>
+<td rowspan="2"><h1 id="definition">Definition</h1>
+<p>ID variable for each patient encounter</p></td>
+<td rowspan="2"><h1 id="permissible-values">Permissible Values</h1>
+<p>No restriction</p></td>
+<td></td>
 </tr>
 <tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
 <td>hospital_id</td>
 <td>VARCHAR</td>
 <td>Assign an ID to each hospital in the hospital system</td>
 <td>No restriction</td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>in_dttm</td>
 <td>DATETIME</td>
 <td>Start date and time at a particular location</td>
-<td>Datetime format should be %Y-%m-%d %H:%M:%S</td>
+<td colspan="2">Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>out_dttm</td>
 <td>DATETIME</td>
 <td>End date and time at a particular location</td>
-<td>Datetime format should be %Y-%m-%d %H:%M:%S</td>
+<td colspan="2">Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>location_name</td>
 <td>VARCHAR</td>
 <td>Location of the patient inside the hospital. This field is used to store the patient location from the source data. This field is not used for analysis.</td>
 <td>No restriction</td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>location_category</td>
 <td>VARCHAR</td>
 <td>Map location_name from the source data to categories identified under CLIF.</td>
 <td><code>ER</code>, <code>Procedural</code>, <code>ICU</code>, <code>Ward</code>, <code>Other</code></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -475,54 +486,59 @@ ul.task-list li input[type="checkbox"] {
 <colgroup>
 <col style="width: 7%">
 <col style="width: 4%">
-<col style="width: 49%">
+<col style="width: 48%">
 <col style="width: 37%">
+<col style="width: 0%">
 </colgroup>
-<thead>
-<tr class="header">
-<th>Variable Name</th>
-<th>Data Type</th>
-<th>Definition</th>
-<th>Permissible Values</th>
-</tr>
-</thead>
 <tbody>
 <tr class="odd">
-<td>hospitalization_id</td>
-<td>VARCHAR</td>
-<td>ID variable for each patient encounter.</td>
-<td>No restriction</td>
+<td rowspan="2"><h1 id="variable-name-1">Variable Name</h1>
+<p>hospitalization_id</p></td>
+<td rowspan="2"><h1 id="data-type-1">Data Type</h1>
+<p>VARCHAR</p></td>
+<td rowspan="2"><h1 id="definition-1">Definition</h1>
+<p>ID variable for each patient encounter.</p></td>
+<td rowspan="2"><h1 id="permissible-values-1">Permissible Values</h1>
+<p>No restriction</p></td>
+<td></td>
 </tr>
 <tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
 <td>recorded_dttm</td>
 <td>DATETIME</td>
 <td>Date and time when the vital is recorded.</td>
-<td>Datetime format should be %Y-%m-%d %H:%M:%S</td>
+<td colspan="2">Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>vital_name</td>
 <td>VARCHAR</td>
 <td>This field is used to store the description of the flowsheet measure from the source data. This field is not used for analysis.</td>
 <td>No restriction</td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>vital_category</td>
 <td>VARCHAR</td>
 <td>Map flowsheet measures stored in vital_name to the to categories identified under CLIF.</td>
 <td><code>temp_c</code>, <code>heart_rate</code>, <code>sbp</code>, <code>dbp</code>, <code>spo2</code>, <code>respiratory_rate</code>, <code>map</code>, <code>height_cm</code>, <code>weight_kg</code></td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>vital_value</td>
 <td>DOUBLE</td>
 <td>Recorded value of the vital. Ensure that the measurement unit is aligned with the permissible units of measurements.</td>
 <td><p><code>temp_c = Celsius</code>, <code>height_cm = Centimeters</code>, <code>weight_kg = Kg</code>, <code>map = mm/Hg</code>, <code>spo2 = %</code>,</p>
 <p>No unit for <code>heart_rate</code>, <code>sbp</code>, <code>dbp</code>, and <code>respiratory_rate</code></p></td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>meas_site_name</td>
 <td>VARCHAR</td>
-<td>Site where vital is recorded. No CDE corresponding to this variable</td>
+<td>Site where vital is recorded. No CDE corresponding to this variable (Optional field)</td>
 <td>No restrictions. Note: no _category CDE variable exists yet</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -532,86 +548,101 @@ ul.task-list li input[type="checkbox"] {
 <p>The labs table is a long form (one lab result per row) longitudinal table.</p>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid"></a></p>
 <table class="table">
-<thead>
-<tr class="header">
-<th>Variable Name</th>
-<th>Data Type</th>
-<th>Definition</th>
-<th>Permissible Values</th>
-</tr>
-</thead>
 <tbody>
 <tr class="odd">
-<td>hospitalization_id</td>
-<td>VARCHAR</td>
-<td>ID variable for each patient encounter.</td>
-<td>No restriction</td>
+<td><h1 id="variable-name-2">Variable Name</h1>
+<p>hospitalization_id</p></td>
+<td><h1 id="data-type-2">Data Type</h1>
+<p>VARCHAR</p></td>
+<td><h1 id="definition-2">Definition</h1>
+<p>ID variable for each patient encounter.</p></td>
+<td><h1 id="permissible-values-2">Permissible Values</h1>
+<p>No restriction</p></td>
+<td></td>
 </tr>
 <tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
 <td>lab_order_dttm</td>
 <td>DATETIME</td>
 <td>Date and time when the lab is ordered.</td>
-<td>Datetime format should be %Y-%m-%d %H:%M:%S</td>
+<td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>lab_collect_dttm</td>
 <td>DATETIME</td>
 <td>Date and time when the specimen is collected.</td>
-<td>Datetime format should be %Y-%m-%d %H:%M:%S</td>
+<td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>lab_result_dttm</td>
 <td>DATETIME</td>
 <td>Date and time when the lab results are available.</td>
-<td>Datetime format should be %Y-%m-%d %H:%M:%S</td>
+<td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>lab_order_name</td>
 <td>VARCHAR</td>
 <td>Procedure name for the lab. This field is not used for analysis.</td>
 <td>No restriction</td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>lab_order_category</td>
 <td>VARCHAR</td>
 <td>Permissible CDE values for lab order names.</td>
 <td>CDE under development</td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>lab_name</td>
 <td>VARCHAR</td>
 <td>Original lab name string recorded in the raw data. This field is not used for analysis.</td>
 <td>No restriction</td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>lab_category</td>
 <td>VARCHAR</td>
 <td>Limited labs identified by the CLIF consortium as minimum necessary labs for the study of critical illness.</td>
-<td>[List of lab categories in CLIF](https://github.com/clif-consortium/CLIF/blob/main/mCIDE/clif_labs_categories.csv</td>
+<td><a href="https://github.com/clif-consortium/CLIF/blob/main/mCIDE/clif_labs_categories.csv">List of lab categories in CLIF</a> |</td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>lab_value</td>
 <td>VARCHAR</td>
 <td>Recorded value corresponding to a lab. Lab values are often string which can contain non-numeric results (e.g.&nbsp;&gt; upper limit of detection”)</td>
 <td>No restriction</td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>lab_value_numeric</td>
 <td>DOUBLE</td>
 <td>Parse out numeric part of the lab_value variable.</td>
 <td>Numeric</td>
+<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>reference_unit</td>
 <td>VARCHAR</td>
 <td>Unit of measurement for that lab .</td>
 <td>Permissible reference values for each <code>lab_category</code> listed <a href="https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/clif_vocab_labs.csv">here</a></td>
+<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>lab_type_name</td>
 <td>VARCHAR</td>
 <td>Type of lab. (e.g.&nbsp;standard, POC)</td>
 <td>No restrictions.</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -841,13 +872,13 @@ ul.task-list li input[type="checkbox"] {
 <table class="table">
 <tbody>
 <tr class="odd">
-<td><h1 id="variable-name">Variable Name</h1>
+<td><h1 id="variable-name-3">Variable Name</h1>
 <p>hospitalization_id</p></td>
-<td><h1 id="data-type">Data Type</h1>
+<td><h1 id="data-type-3">Data Type</h1>
 <p>VARCHAR</p></td>
-<td><h1 id="definition">Definition</h1>
+<td><h1 id="definition-3">Definition</h1>
 <p>ID variable for each patient encounter</p></td>
-<td><h1 id="permissible-values">Permissible Values</h1></td>
+<td><h1 id="permissible-values-3">Permissible Values</h1></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -2169,10 +2200,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-      &nbsp;
-    </div>   
+<p>🔒 <a href="https://docs.google.com/spreadsheets/d/1l8nvjHmmf4lxCviPp12rxafRo2zNApKGOGK126Tn2_s/edit?usp=sharing">CLIF Internal Tracker</a> <br> 🖌️ <a href="https://redcap.uchicago.edu/surveys/?s=7FMNPWTXKP3P3ANW">CLIF Project Proposal Application</a></p>
+</div>   
     <div class="nav-footer-center">
-<p>© 2024 · Made with <a href="https://quarto.org/"><img src="https://quarto.org/quarto.png" class="img-fluid" alt="Quarto" width="65"></a> <br> Contact us 💌 <a href="mailto:clif_consortium@uchicago.edu">clif_consortium@uchicago.edu</a></p>
+<p>© 2024 · Made with <a href="https://quarto.org/"><img src="https://quarto.org/quarto.png" class="img-fluid" alt="Quarto" width="65"></a> <br> Contact us ✉️ <a href="mailto:clif_consortium@uchicago.edu">clif_consortium@uchicago.edu</a></p>
 </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">

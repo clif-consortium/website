@@ -1,0 +1,42 @@
+
+---
+title: "Frequently Asked Questions"
+---
+
+CLIF is a [maturing format](https://clif-consortium.github.io/website/data-dictionary.html#maturity-levels-for-clif-tables) and we welcome all feedback. Please use the [issues page](https://github.com/clif-consortium/CLIF/issues) or email us at <clif_consortium@uchicago.edu>. Please also refer to our pre-print [concept paper](https://www.medrxiv.org/content/10.1101/2024.09.04.24313058v1). 
+
+# What is "federated" analysis and what is the project workflow?
+
+A lead principal investigator (PI) originates a project idea, specifies the required cohort and CLIF tables for the project, and then develops analytic code written using their local CLIF database. The CLIF consortium then runs the script and returns **aggregate results** to the PI. The PI complies the aggregate results for publication. 
+
+At no point is patient-level (i.e. "row-level") data exchanged between sites, unless there is a specific Data Use Agreement (DAU) that permits this for specific combinations of consortium sites and directionality. You can submit your project idea [here](https://redcap.uchicago.edu/surveys/?s=7FMNPWTXKP3P3ANW)!
+
+# What's the process for joining the consortium? Do I need to CLIF my healthsystem's data to start collaborating?
+
+The CLIF consortium is committed to an inclusive, open-source development ecosystem. We recognize that not all investigators have the resources or institutional support necessary to extract-transform-load (ETL) their local healthsystem's data into CLIF. **Therefore, we will run any high-quality observational study coded to run on CLIF.**
+
+We have an ongoing project to CLIF the de-identified exemplar  [MIMIC-IV](https://physionet.org/content/mimic-iv-demo/2.2/) so anyone can get access to a high-quality CLIF database. 
+
+# What about multi-modal data like notes and images? 
+
+The current CLIF framework is for standardized longitudinal ICU data elements (e.g. labs, vitals, ventilator settings, medication doses, and flowsheet documentation). We believe the clinical context defined by these standardized [minimum Common ICU Data Elements (CDE)](https://clif-consortium.github.io/website/mCIDE.html) are essential for the proper interpretation of multi-modal data such as clinical notes and imaging results.
+
+Once CLIF is mature for these standardized data elements, we plan to represent these multi-modal data. 
+
+# Why didn't you just use an existing Common Data Model (CDM) like the Observational Medical Outcomes Partnership (OMOP)? 
+
+Established open-source CDMs such as the OMOP take on data harmonization and standardization challenge for the entire EHR. The work of the [Observational Health Data Sciences and Informatics (OHDSI)](https://www.ohdsi.org/data-standardization/) community has been a guiding force for the CLIF consoritum throughout CLIF's development.  However, the extract-transform-load (ETL) to a CDM is a major data engineering challenge, and data elements essential for the study of critical illness typically are not prioritized. Local CDM instances often completely omit granular critical illness data elements, such as ventilator settings for patients suffering from respiratory failure. 
+
+# What about outpatient data?
+
+CLIF is designed for critically ill hospitalized adults and does not represent outpatient encounters. The `patient`, `hospitalization`, and `admission_diagnosis` table summarize information about the patient on admission to the hospital. CLIF could be used as one part of a larger EHR study that requires outpatient data from before the admission. 
+
+# What about connections to existing data standards like Health Level Seven (HL7) Fast Healthcare Interoperability Resources (FHIR)?
+
+CLIF is currently not linked to established interoperability standards like [Health Level Seven (HL7) Fast Healthcare Interoperability Resources (FHIR)](https://www.hl7.org/fhir/overview.html). Future data engineering directions include the development of HL7 FHIR queries to generate real-time CLIF tables
+
+# What about Institutional Review Board (IRB) approval and ethical oversight?
+
+The CLIF consortium is committed to the responsible conduct of research. Each consortium site has independent IRB approval or an exemption for each CLIF project they run on their local CLIF database. 
+
+The consortium is aware of the [NIH Single Institutional Review Board (IRB) policy](https://grants.nih.gov/grants/guide/notice-files/NOT-OD-16-094.html) and planning to adhere to this policy for future NIH-funded projects using the consortium. 
