@@ -6,23 +6,38 @@ website:
   title: "CLIF Consortium"
   description: "Website and blog for the CLIF Consortium"
   page-footer: 
+    # background: "#F6F5F3"
+    # left: 🔒 
+    #   <a href="https://docs.google.com/spreadsheets/d/1l8nvjHmmf4lxCviPp12rxafRo2zNApKGOGK126Tn2_s/edit?usp=sharing">CLIF Internal Tracker</a> <br>
+    #   🖌️
+    #   <a href="https://redcap.uchicago.edu/surveys/?s=7FMNPWTXKP3P3ANW">CLIF Project Proposal Application</a> 
+    # center: © 2024  &middot; Made with
+    #   [![](https://quarto.org/quarto.png){fig-alt="Quarto" width=65px}](https://quarto.org/) <br> 
+    #   Contact us  ✉️   <a href="mailto:clif_consortium@uchicago.edu">clif_consortium@uchicago.edu</a>
+    # right:
+    #   - icon: github
+    #     href: https://github.com/clif-consortium/website
     background: "#F6F5F3"
-    left: 🔒 
-      <a href="https://docs.google.com/spreadsheets/d/1l8nvjHmmf4lxCviPp12rxafRo2zNApKGOGK126Tn2_s/edit?usp=sharing">CLIF Internal Tracker</a> <br>
-      🖌️
-      <a href="https://redcap.uchicago.edu/surveys/?s=7FMNPWTXKP3P3ANW">CLIF Project Proposal Application</a> 
-    center: © 2024  &middot; Made with
-      [![](https://quarto.org/quarto.png){fig-alt="Quarto" width=65px}](https://quarto.org/) <br> 
-      Contact us  ✉️   <a href="mailto:clif_consortium@uchicago.edu">clif_consortium@uchicago.edu</a>
-    right:
-      - icon: github
-        href: https://github.com/clif-consortium/website
+    left: |
+      Want to Join the Consortium? <br>
+      🖌️ Submit a <a href="https://redcap.uchicago.edu/surveys/?s=7FMNPWTXKP3P3ANW">Project Proposal</a> <br>
+
+      
+    center: |
+      © 2024  &middot; CLIF Consortium <br>
+      ✉️ <a href="mailto:clif_consortium@uchicago.edu">clif_consortium@uchicago.edu</a> <br> 
+      <br>
+      
+    right: |
+      Already a member? <br>
+      👩🏻‍💻Access <a href="https://docs.google.com/spreadsheets/d/1l8nvjHmmf4lxCviPp12rxafRo2zNApKGOGK126Tn2_s/edit?usp=sharing">CLIF Tracker</a> <br>
   navbar:
     left:
       - href: about.qmd
         text: TEAM
       - href: data-dictionary.qmd
         text: Data Dictionary
+      - posts.qmd # add your posts.qmd file to your navbar!
       - text: Resources
         menu: 
         - href: projects.qmd
@@ -33,7 +48,7 @@ website:
           text: FAQs
      # - href: publications.qmd
       #  text: Publications
-      - posts.qmd # add your posts.qmd file to your navbar!
+
     right:
       - icon: github
         href: https://github.com/clif-consortium/CLIF
@@ -44,6 +59,3 @@ format:
     theme: sandstone
     css: styles.css
     toc: true
-
-
-
