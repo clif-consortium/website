@@ -4,11 +4,47 @@ title: " CLIF-2.0 Data Dictionary"
 
 Below is the entity-relationship diagram (ERD) that provides an overview of the relational CLIF database structure.
 
-![](images/ERD.png)
+<div id="erd-container" style="max-width: 100%; overflow: hidden;">
+  <img id="erd" src="images/ERD.png" alt="ERD" usemap="#clif-map" style="width: 100%;">
+</div>
+
+<map name="clif-map">
+  <area shape="rect" coords="34,44,400,400" alt="Patient" href="#patient">
+  <area shape="rect" coords="450,100,650,250" alt="Vitals" href="#vitals">
+  <area shape="rect" coords="700,100,900,250" alt="Respiratory Support" href="#respiratory_support">
+  <area shape="rect" coords="950,100,1200,250" alt="Labs" href="#labs">
+  <area shape="rect" coords="1250,100,1450,250" alt="Medication Orders" href="#medication_orders">
+  <area shape="rect" coords="1500,100,1800,250" alt="Medication Admin Continuous" href="#medication_admin_continuous">
+  <area shape="rect" coords="34,450,400,600" alt="Hospitalization" href="#hospitalization">
+  <area shape="rect" coords="450,450,650,600" alt="Patient Assessments" href="#patient_assessments">
+  <area shape="rect" coords="700,450,900,600" alt="Dialysis" href="#dialysis">
+  <area shape="rect" coords="950,450,1200,600" alt="Microbiology Culture" href="#microbiology_culture">
+  <area shape="rect" coords="1250,450,1450,600" alt="Sensitivity" href="#sensitivity">
+  <area shape="rect" coords="1500,450,1800,600" alt="Medication Admin Intermittent" href="#medication_admin_intermittent">
+  <area shape="rect" coords="34,650,400,800" alt="ADT" href="#adt">
+  <area shape="rect" coords="450,650,650,800" alt="Intake Output" href="#intake_output">
+  <area shape="rect" coords="700,650,900,800" alt="ECMO MCS" href="#ecmo_mcs">
+  <area shape="rect" coords="950,650,1200,800" alt="Microbiology Non-culture" href="#microbiology_nonculture">
+  <area shape="rect" coords="1250,650,1450,800" alt="Procedures" href="#procedures">
+  <area shape="rect" coords="1500,650,1800,800" alt="Therapy Details" href="#therapy_details">
+  <area shape="rect" coords="34,900,400,1050" alt="Admission Diagnosis" href="#admission_diagnosis">
+  <area shape="rect" coords="450,900,650,1050" alt="Provider" href="#provider">
+  <area shape="rect" coords="1500,1050,1800,1200" alt="Position" href="#position">
+</map>
+
+<script src="https://cdn.jsdelivr.net/npm/@panzoom/panzoom@9.4.0/dist/panzoom.min.js"></script>
+<script>
+  const panzoom = Panzoom(document.getElementById('erd'), {
+    maxScale: 5,
+    minScale: 1,
+    contain: 'outside'
+  });
+  document.getElementById('erd').parentElement.addEventListener('wheel', panzoom.zoomWithWheel);
+</script>
 
 Relational CLIF (RCLIF) is a database that is organized into clinically relevant column categories - demographics, objective measures, respiratory support, orders, and inputs-outputs. Below are sample templates for each table in R-CLIF. Here you can find detailed descriptions of each table and their fields.
 
-You can use our custom GPT- [CLIF Assistant](https://chatgpt.com/g/g-h1nk6d3eR-clif-assistant) to learn more about CLIF and develop analysis scripts using [Clifford](https://github.com/clif-consortium/CLIF/tree/main/clifford), a set of simulated CLIF tables.
+You can use our custom GPT- [CLIF Assistant](https://chatgpt.com/g/g-h1nk6d3eR-clif-assistant) to learn more about CLIF and develop analysis scripts.
 
 # CLIF maturity
 
@@ -48,21 +84,17 @@ The data in these tables are typically of most electronic data warehouse systems
 
 This table contains demographic information about the patient that does not vary between hospitalizations.
 
-+--------------------+-----------+--------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
 | Variable Name      | Data Type | Definition                                                                                       | Permissible Values                                                                                                                                 |
-+====================+===========+==================================================================================================+====================================================================================================================================================+
+|--------------------|-----------|--------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 | patient_id         | VARCHAR   | Unique identifier for each patient. This is presumed to be a distinct individual.                |                                                                                                                                                    |
-+--------------------+-----------+--------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
 | race_category      | VARCHAR   | Description of patient's race. The source data may contain different strings for race.           | `Black or African American`, `White`, `American Indian or Alaska Native`, `Asian`, `Native Hawaiian or Other Pacific Islander`, `Unknown`, `Other` |
-+--------------------+-----------+--------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
 | ethnicity_category | VARCHAR   | Description of patient's ethnicity. The source data may contain different strings for ethnicity. | `Hispanic`, `Non-Hispanic`, `Unknown`                                                                                                              |
-+--------------------+-----------+--------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
 | sex_category       | VARCHAR   | Patient's biological sex.                                                                        | `Male`, `Female`, `Unknown`                                                                                                                        |
-+--------------------+-----------+--------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
 | birth_date         | DATETIME  | Patient's date of birth.                                                                         | Date format should be `%Y-%m-%d`                                                                                                                   |
-+--------------------+-----------+--------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
 | death_dttm         | DATETIME  | Patient's death date, including time.                                                            | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                                                      |
-+--------------------+-----------+--------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
+| language_name      | VARCHAR   | Patient's preferred language.                                                                    | Original string from the source data                                                                                                               |
+| language_category  | VARCHAR   | mCIDE for language name                                                                          | Under-development                                                                                                                                  |
+
 
 ## Hospitalization
 
@@ -70,85 +102,65 @@ The hospitalization table contains information about each hospitalization event.
 
 [![](https://img.shields.io/badge/Maturity-Beta-yellow)](#maturity-levels-for-clif-tables)
 
-+-------------------------+-----------+-------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-| Variable Name           | Data Type | Definition                                                                                                              | Permissible Values                                                                                                                                                                     |       |
-+=========================+===========+=========================================================================================================================+========================================================================================================================================================================================+=======+
-| patient_id              | VARCHAR   | Unique identifier for each patient, linking to the `patient` table.                                                     |                                                                                                                                                                                        |       |
-+-------------------------+-----------+-------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-| hospitalization_id      | VARCHAR   | Unique identifier for each hospitalization encounter. Each hospitalization_id represents a unique stay in the hospital. |                                                                                                                                                                                        |       |
-+-------------------------+-----------+-------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-| admission_dttm          | DATETIME  | Date and time the patient is admitted to the hospital.                                                                  | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                                                                                          |       |
-+-------------------------+-----------+-------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-| discharge_dttm          | DATETIME  | Date and time the patient is discharged from the hospital.                                                              | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                                                                                          |       |
-+-------------------------+-----------+-------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-| age_at_admission        | INT       | Age of the patient at the time of admission, in years.                                                                  |                                                                                                                                                                                        |       |
-+-------------------------+-----------+-------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-| discharge_name          | VARCHAR   | Original disposition name string recorded in the raw data.                                                              |                                                                                                                                                                                        |       |
-+-------------------------+-----------+-------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-| discharge_category      | VARCHAR   | Description of the patient's disposition when discharged, mapped to mCIDE categories.                                   | `Home`, `Hospice`, `Acute care hospital`, `Still Admitted`, `Inpatient Rehab Facility`, `Skilled Nursing Facility`, `Long Term Care Hospital`, `Psychiatric Hospital`, `Dead`, `Other` |       |
-+-------------------------+-----------+-------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-| zipcode_nine_digit      | VARCHAR   | Patient's 9 digit zip code, used to link with other indices such as ADI and SVI.                                        |                                                                                                                                                                                        |       |
-+-------------------------+-----------+-------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-| zipcode_five_digit      | VARCHAR   | Patient's 5 digit zip code, used to link with other indices such as ADI and SVI.                                        |                                                                                                                                                                                        |       |
-+-------------------------+-----------+-------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-| census_block_code       | VARCHAR   | 15 digit FIPS code. Definition [here](https://www.census.gov/programs-surveys/geography/guidance/geo-identifiers.html). |                                                                                                                                                                                        |       |
-+-------------------------+-----------+-------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-| census_block_group_code | VARCHAR   | 12 digit FIPS code. Definition [here](https://www.census.gov/programs-surveys/geography/guidance/geo-identifiers.html). |                                                                                                                                                                                        |       |
-+-------------------------+-----------+-------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-| census_tract            | VARCHAR   | 11 digit FIPS code. Definition [here](https://www.census.gov/programs-surveys/geography/guidance/geo-identifiers.html). |                                                                                                                                                                                        |       |
-+-------------------------+-----------+-------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-| state_code              | VARCHAR   | 2 digit FIPS code. Definition [here](https://www.census.gov/programs-surveys/geography/guidance/geo-identifiers.html).  |                                                                                                                                                                                        |       |
-+-------------------------+-----------+-------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-| county_code             | VARCHAR   | 5 digit FIPS code. Definition [here](https://www.census.gov/programs-surveys/geography/guidance/geo-identifiers.html).  |                                                                                                                                                                                        |       |
-+-------------------------+-----------+-------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+| Variable Name           | Data Type | Definition                                                                                                              | Permissible Values                                                                                                                                                                     |
+|-------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| patient_id              | VARCHAR   | Unique identifier for each patient, linking to the `patient` table.                                                     |                                                                                                                                                                                        |
+| hospitalization_id      | VARCHAR   | Unique identifier for each hospitalization encounter. Each hospitalization_id represents a unique stay in the hospital. |                                                                                                                                                                                        |
+| admission_dttm          | DATETIME  | Date and time the patient is admitted to the hospital.                                                                  | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                                                                                          |
+| discharge_dttm          | DATETIME  | Date and time the patient is discharged from the hospital.                                                              | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                                                                                          |
+| age_at_admission        | INT       | Age of the patient at the time of admission, in years.                                                                  |                                                                                                                                                                                        |
+| admission_type_name     | VARCHAR   | Disposition when admitted. Original string from the source data                                                         |                                                                                                                                                                                        |
+| admission_type_category | VARCHAR   | Admission disposition mapped to mCIDE categories.                                                                       | Under-development                                                                                                                                                                      |
+| discharge_name          | VARCHAR   | Original discharge disposition name string recorded in the raw data.                                                    | No restriction. Example mapping from `discharge_name` to `discharge_category` [here](https://github.com/clif-consortium/CLIF/blob/main/mCIDE/mCIDE_mapping_examples/clif_hospitalization_discharge_categories_UMN.csv)|
+| discharge_category      | VARCHAR   | Description of the patient's disposition when discharged, mapped to mCIDE categories.                                   | `Home`, `Skilled Nursing Facility (SNF)`, `Expired`, `Acute Inpatient Rehab Facility`, `Hospice`, `Long Term Care Hospital (LTACH)`, `Acute Care Hospital`, `Group Home`, `Chemical Dependency`, `Against Medical Advice (AMA)`, `Assisted Living`, `Still Admitted`, `Missing`, `Other`, `Psychiatric Hospital`, `Shelter`, `Jail` |
+| zipcode_nine_digit      | VARCHAR   | Patient's 9 digit zip code, used to link with other indices such as ADI and SVI.                                        |                                                                                                                                                                                        |
+| zipcode_five_digit      | VARCHAR   | Patient's 5 digit zip code, used to link with other indices such as ADI and SVI.                                        |                                                                                                                                                                                        |
+| census_block_code       | VARCHAR   | 15 digit FIPS code. Definition [here](https://www.census.gov/programs-surveys/geography/guidance/geo-identifiers.html). |                                                                                                                                                                                        |
+| census_block_group_code | VARCHAR   | 12 digit FIPS code. Definition [here](https://www.census.gov/programs-surveys/geography/guidance/geo-identifiers.html). |                                                                                                                                                                                        |
+| census_tract            | VARCHAR   | 11 digit FIPS code. Definition [here](https://www.census.gov/programs-surveys/geography/guidance/geo-identifiers.html). |                                                                                                                                                                                        |
+| state_code              | VARCHAR   | 2 digit FIPS code. Definition [here](https://www.census.gov/programs-surveys/geography/guidance/geo-identifiers.html).  |                                                                                                                                                                                        |
+| county_code             | VARCHAR   | 5 digit FIPS code. Definition [here](https://www.census.gov/programs-surveys/geography/guidance/geo-identifiers.html).  |                                                                                                                                                                                        |
+
+**Notes**: 
+
+1. If a patient is discharged to Home/Hospice, then `discharge_category == Hospice`. 
+
+2. The geographical indicators(`zipcode_nine_digit`, `zipcode_five_digit`, `census_block_code`, `census_block_group_code`, `census_tract`, `state_code`, `county_code`) should be added if they are available in your source dataset. `zipcode_nine_digit` is preferred over `zipcode_five_digit`, and `census_block_code` is ideal for census based indicators.The choice of geographical indicators may differ depending on the project.
+
 
 ## ADT
 
-The admission, discharge, and transfer (ADT) table is a start-stop longitudinal dataset that contains information about each patient's movement within the hospital. It also has a `hospital_id` field to distinguish between different hospitals in the same CLIF dataset.
+The admission, discharge, and transfer (ADT) table is a start-stop longitudinal dataset that contains information about each patient's movement within the hospital. It also has a `hospital_id` field to distinguish between different hospitals at one CLIF site.
 
 [![](https://img.shields.io/badge/Maturity-Beta-yellow)](#maturity-levels-for-clif-tables)
 
-+--------------------+-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------+
 | Variable Name      | Data Type | Definition                                                                                                                                               | Permissible Values                          |
-+====================+===========+==========================================================================================================================================================+=============================================+
+|--------------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------|
 | hospitalization_id | VARCHAR   | ID variable for each patient encounter                                                                                                                   | No restriction                              |
-+--------------------+-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------+
 | hospital_id        | VARCHAR   | Assign an ID to each hospital in the hospital system                                                                                                     | No restriction                              |
-+--------------------+-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------+
 | in_dttm            | DATETIME  | Start date and time at a particular location                                                                                                             | Datetime format should be `%Y-%m-%d %H:%M:%S` |
-+--------------------+-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------+
 | out_dttm           | DATETIME  | End date and time at a particular location                                                                                                               | Datetime format should be `%Y-%m-%d %H:%M:%S` |
-+--------------------+-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------+
 | location_name      | VARCHAR   | Location of the patient inside the hospital. This field is used to store the patient location from the source data. This field is not used for analysis. | No restriction                              |
-+--------------------+-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------+
 | location_category  | VARCHAR   | Map location_name from the source data to categories identified under CLIF.                                                                              | `ER`, `Procedural`, `ICU`, `Ward`, `Other`  |
-+--------------------+-----------+----------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------+
 
-Note: Procedural areas and operating rooms should be mapped to `Procedural`. Pre/Intra/Post-procedural/OR EHR data (such as anesthesia flowsheet records from Labs, Vitals, Scores, Respiratory Support) **are not currently** represented in CLIF
+**Note**: Procedural areas and operating rooms should be mapped to `Procedural`. Pre/Intra/Post-procedural/OR EHR data (such as anesthesia flowsheet records from Labs, Vitals, Scores, Respiratory Support) **are not currently** represented in CLIF.
+
 
 ## Vitals
 
-The vitals table is a long form (one vital sign per row) longitudinal table.
+The vitals table is a long-form (one vital sign per row) longitudinal table.
 
 [![](https://img.shields.io/badge/Maturity-Beta-yellow)](#maturity-levels-for-clif-tables)
 
-+--------------------+-----------+---------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------+
 | Variable Name      | Data Type | Definition                                                                                                                      | Permissible Values                                                                                |
-+====================+===========+=================================================================================================================================+===================================================================================================+
+|--------------------|-----------|---------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
 | hospitalization_id | VARCHAR   | ID variable for each patient encounter.                                                                                         | No restriction                                                                                    |
-+--------------------+-----------+---------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------+
-| recorded_dttm      | DATETIME  | Date and time when the vital is recorded.                                                                                       | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                       |
-+--------------------+-----------+---------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------+
+| recorded_dttm      | DATETIME  | Date and time when the vital is recorded.                                                                                       | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                     |
 | vital_name         | VARCHAR   | This field is used to store the description of the flowsheet measure from the source data. This field is not used for analysis. | No restriction                                                                                    |
-+--------------------+-----------+---------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------+
-| vital_category     | VARCHAR   | Map flowsheet measures stored in vital_name to the to categories identified under CLIF.                                         | `temp_c`, `heart_rate`, `sbp`, `dbp`, `spo2`, `respiratory_rate`, `map`, `height_cm`, `weight_kg` |
-+--------------------+-----------+---------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------+
-| vital_value        | DOUBLE    | Recorded value of the vital. Ensure that the measurement unit is aligned with the permissible units of measurements.            | `temp_c = Celsius`, `height_cm = Centimeters`, `weight_kg = Kg`, `map = mm/Hg`, `spo2 = %`,       |
-|                    |           |                                                                                                                                 |                                                                                                   |
-|                    |           |                                                                                                                                 | No unit for `heart_rate`, `sbp`, `dbp`, and `respiratory_rate`                                    |
-+--------------------+-----------+---------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------+
-| meas_site_name     | VARCHAR   | Site where vital is recorded. No CDE corresponding to this variable (Optional field)                                            | No restrictions. Note: no \_category CDE variable exists yet                                      |
-+--------------------+-----------+---------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------+
+| vital_category     | VARCHAR   | Map flowsheet measures stored in vital_name to the categories identified under CLIF.                                             | `temp_c`, `heart_rate`, `sbp`, `dbp`, `spo2`, `respiratory_rate`, `map`, `height_cm`, `weight_kg` |
+| vital_value        | DOUBLE    | Recorded value of the vital. Ensure that the measurement unit is aligned with the permissible units of measurements.            | `temp_c = Celsius`, `height_cm = Centimeters`, `weight_kg = Kg`, `map = mm/Hg`, `spo2 = %`. No unit for `heart_rate`, `sbp`, `dbp`, and `respiratory_rate` |
+| meas_site_name     | VARCHAR   | Site where the vital is recorded. No CDE corresponding to this variable (Optional field)                                        | No restrictions. Note: no \_category CDE variable exists yet                                      |
+
 
 ## Labs
 
@@ -156,37 +168,43 @@ The labs table is a long form (one lab result per row) longitudinal table.
 
 [![](https://img.shields.io/badge/Maturity-Beta-yellow)](#maturity-levels-for-clif-tables)
 
-+--------------------+-----------+----------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-| Variable Name      | Data Type | Definition                                                                                                                                   | Permissible Values                                                                                                                          |
-+====================+===========+==============================================================================================================================================+=============================================================================================================================================+
-| hospitalization_id | VARCHAR   | ID variable for each patient encounter.                                                                                                      | No restriction                                                                                                                              |
-+--------------------+-----------+----------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-| lab_order_dttm     | DATETIME  | Date and time when the lab is ordered.                                                                                                       | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                                                 |
-+--------------------+-----------+----------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-| lab_collect_dttm   | DATETIME  | Date and time when the specimen is collected.                                                                                                | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                                                 |
-+--------------------+-----------+----------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-| lab_result_dttm    | DATETIME  | Date and time when the lab results are available.                                                                                            | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                                                 |
-+--------------------+-----------+----------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-| lab_order_name     | VARCHAR   | Procedure name for the lab. This field is not used for analysis.                                                                             | No restriction                                                                                                                              |
-+--------------------+-----------+----------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-| lab_order_category | VARCHAR   | Permissible CDE values for lab order names.                                                                                                  | CDE under development                                                                                                                       |
-+--------------------+-----------+----------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-| lab_name           | VARCHAR   | Original lab name string recorded in the raw data. This field is not used for analysis.                                                      | No restriction                                                                                                                              |
-+--------------------+-----------+----------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-| lab_category       | VARCHAR   | Limited labs identified by the CLIF consortium as minimum necessary labs for the study of critical illness.                                  | [List of lab categories in CLIF](https://github.com/clif-consortium/CLIF/blob/main/mCIDE/clif_labs_categories.csv)                           |
-+--------------------+-----------+----------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-| lab_value          | VARCHAR   | Recorded value corresponding to a lab. Lab values are often string which can contain non-numeric results (e.g. \> upper limit of detection”) | No restriction                                                                                                                              |
-+--------------------+-----------+----------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-| lab_value_numeric  | DOUBLE    | Parse out numeric part of the lab_value variable.                                                                                            | Numeric                                                                                                                                     |
-+--------------------+-----------+----------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-| reference_unit     | VARCHAR   | Unit of measurement for that lab .                                                                                                           | Permissible reference values for each `lab_category` listed [here](https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/clif_vocab_labs.csv) |
-+--------------------+-----------+----------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
-| lab_type_name      | VARCHAR   | Type of lab. (e.g. standard, POC)                                                                                                            | No restrictions.                                                                                                                            |
-+--------------------+-----------+----------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| Variable Name      | Data Type  | Definition                                                                                                                                   | Permissible Values                                                                                                                          |
+|--------------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| hospitalization_id | VARCHAR    | ID variable for each patient encounter.                                                                                                      | No restriction                                                                                                                              |
+| lab_order_dttm     | DATETIME   | Date and time when the lab is ordered.                                                                                                       | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                                               |
+| lab_collect_dttm   | DATETIME   | Date and time when the specimen is collected.                                                                                                | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                                               |
+| lab_result_dttm    | DATETIME   | Date and time when the lab results are available.                                                                                            | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                                               |
+| lab_order_name     | VARCHAR    | Procedure name for the lab. This field is not used for analysis.                                                                             | No restriction                                                                                                                              |
+| lab_order_category | VARCHAR    | Permissible CDE values for lab order names.                                                                                                  | CDE under development                                                                                                                       |
+| lab_name           | VARCHAR    | Original lab name string recorded in the raw data. This field is not used for analysis.                                                      | No restriction                                                                                                                              |
+| lab_category       | VARCHAR    | Limited labs identified by the CLIF consortium as minimum necessary labs for the study of critical illness.                                  | [List of lab categories in CLIF](https://github.com/clif-consortium/CLIF/blob/main/mCIDE/clif_lab_categories.csv)                           |
+| lab_value          | VARCHAR    | Recorded value corresponding to a lab. Lab values are often strings that can contain non-numeric results (e.g. "> upper limit of detection"). | No restriction                                                                                                                              |
+| lab_value_numeric  | DOUBLE     | Parse out numeric part of the lab_value variable.                                                                                            | Numeric                                                                                                                                     |
+| reference_unit     | VARCHAR    | Unit of measurement for that lab.                                                                                                            | Permissible reference values for each `lab_category` listed [here](https://github.com/clif-consortium/CLIF/blob/main/mCIDE/clif_lab_categories.csv) |
+| lab_type_name      | VARCHAR    | Type of lab. (e.g. standard, POC)                                                                                                            | No restrictions                                                                                                                             |
+| lab_loinc_code     | VARCHAR    | LOINC code corresponding to the lab_name.                                                                                                    | No restrictions                                                                                                                             |
 
-**Example:**
 
-*Note*: The `lab_value` field often has non-numeric entries that are useful to make project-specific decisions. A site may choose to keep the `lab_value` field as a character and create a new field `lab_value_numeric` that only parses the character field to extract the numeric part of the string.
+
+**Note**: The `lab_value` field often has non-numeric entries that are useful to make project-specific decisions. A site may choose to keep the `lab_value` field as a character and create a new field `lab_value_numeric` that only parses the character field to extract the numeric part of the string.
+
+## Patient Assessments
+
+[![](https://img.shields.io/badge/Maturity-Beta-yellow)](#maturity-levels-for-clif-tables)
+
+The patient_assessments table captures various assessments performed on patients across different domains, including neurological status, sedation levels, pain, and withdrawal. The table is designed to provide detailed information about the assessments, such as the name of the assessment, the category, and the recorded values.
+
+
+| Variable Name         | Data Type | Definition                                                                                      | Permissible Values                                                                                          |
+|-----------------------|-----------|-------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| hospitalization_id     | VARCHAR   | Primary Identifier. Unique identifier linking assessments to a specific patient hospitalization. |                                                                                                              |
+| recorded_dttm          | DATETIME |  The exact date and time when the assessment was recorded, ensuring temporal accuracy.  | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                 |
+| assessment_name        | VARCHAR      | Assessment Tool Name. The primary name of the assessment tool used (e.g., GCS, NRS, SAT Screen). | No restriction                                                                                               |
+| assessment_category    | VARCHAR      | The mCIDE corresponding to assessment_name. | List of permissible assessment categories [here](https://github.com/clif-consortium/CLIF/blob/main/mCIDE/clif_patient_assessment_categories.csv)                                                                          |
+| assessment_group       | VARCHAR      | Broader Assessment Group. This groups the assessments into categories such as "Sedation," "Neurologic," "Pain," etc. | List of permissible assessment groups [here](https://github.com/clif-consortium/CLIF/blob/main/mCIDE/clif_patient_assessment_categories.csv)                                                                                               |
+| numerical_value        | DOUBLE     | Numerical Assessment Result. The numerical result or score from the assessment component.        | Applicable for assessments with numerical outcomes (e.g., 0-10, 3-15).                                        |
+| categorical_value      | VARCHAR      | Categorical Assessment Result. The categorical outcome from the assessment component.            | Applicable for assessments with categorical outcomes (e.g., Pass/Fail, Yes/No).                               |
+| text_value             | VARCHAR      | Textual Assessment Result. The textual explanation or notes from the assessment component.       | Applicable for assessments requiring textual data.                                                            |
 
 ## Provider
 
@@ -234,105 +252,74 @@ Record of all diagnoses associated with the hospitalization. Expect breaking cha
 
 ## Medication Admin Intermittent
 
+
 [![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
 
-This table has exactly the same schema as [`medication_admin_continuous`](#medication-admin-continuous) described below. The consortium decided to separate the medications that are administered intermittenly from the continuously administered medications. However, the CDE for `medication_category` remains undefined for \`medication_admin_intermittent.
+This table has exactly the same schema as [`medication_admin_continuous`](#medication-admin-continuous) described below. The consortium decided to separate the medications that are administered intermittently from the continuously administered medications. However, the CDE for `medication_category` remains undefined for `medication_admin_intermittent`.
 
 ## Medication Orders
 
-this table records the ordering (not adminstration) of medications. The table is a long form (one medication order per row) longitudinal table. Linkage to the `medication_admin_continuous` and `medication_admin_intermittent` tables is through the `med_order_id` field.
 
 [![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
 
-+--------------------+-----------+-----------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
+This table records the ordering (not administration) of medications. The table is in long form (one medication order per row) longitudinal table. Linkage to the `medication_admin_continuous` and `medication_admin_intermittent` tables is through the `med_order_id` field.
+
+
 | Variable Name      | Data Type | Definition                                                                                    | Permissible Values                                                                                             |
-+====================+===========+===============================================================================================+================================================================================================================+
+|--------------------|-----------|-----------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
 | hospitalization_id | VARCHAR   | Unique identifier for each hospitalization, linking medication orders to a specific encounter | No restrictions                                                                                                |
-+--------------------+-----------+-----------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
 | med_order_id       | VARCHAR   | Unique identifier for each medication order                                                   | No restrictions                                                                                                |
-+--------------------+-----------+-----------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
 | order_start_dttm   | DATETIME  | Date and time when the medication order was initiated                                         | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                  |
-+--------------------+-----------+-----------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
 | order_end_dttm     | DATETIME  | Date and time when the medication order ended or was discontinued                             | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                  |
-+--------------------+-----------+-----------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
 | ordered_dttm       | DATETIME  | Date and time when the medication was actually ordered                                        | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                  |
-+--------------------+-----------+-----------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
 | med_name           | VARCHAR   | Name of the medication ordered                                                                | No restrictions                                                                                                |
-+--------------------+-----------+-----------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
+| med_order_status_name | VARCHAR   | Name of the medication order                                                               | No restrictions                                                                                                |
+| med_order_status_category  | VARCHAR   | mCIDE corresponding med order status                                             | Under-development                                                                                                |
 | med_category       | VARCHAR   | Category of the medication, typically indicating the drug class or type                       |                                                                                                                |
-+--------------------+-----------+-----------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
+| med_group          | VARCHAR   | Limited number of medication groups identified by the CLIF consortium                         |  |
 | med_route          | VARCHAR   | Route of administration for the medication                                                    | No restrictions, Examples include `Oral`, `Intravenous`                                                        |
-+--------------------+-----------+-----------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
 | med_dose           | DOUBLE    | Dosage of the medication ordered                                                              | Numeric                                                                                                        |
-+--------------------+-----------+-----------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
 | med_dose_unit      | VARCHAR   | Unit of measurement for the medication dosage                                                 | Examples include `mg`, `mL`, `units`                                                                           |
-+--------------------+-----------+-----------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
 | med_frequency      | VARCHAR   | Frequency with which the medication is administered, as per the order                         | Examples include `Once Daily`, `Every 6 hours`                                                                 |
-+--------------------+-----------+-----------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
 | prn                | BOOLEAN   | Indicates whether the medication is to be given "as needed" (PRN)                             | `0` (No), `1` (Yes)                                                                                            |
-+--------------------+-----------+-----------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
+
 
 # Critical illness specific tables
 
-## Respiratory Support
-
-The respiratory support table is a wider longitudinal table that captures simultaneously recorded ventilator settings and observed ventilator parameters. The table is designed to capture the most common respiratory support devices and modes used in the ICU. It will be sparse for patients who are not on mechanical ventilation.
+### Respiratory Support
 
 [![](https://img.shields.io/badge/Maturity-Beta-yellow)](#maturity-levels-for-clif-tables)
 
-+-------------------------------+-------------+-----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+
-| # Variable Name               | # Data Type | # Definition                                              | # Permissible Values                                                                                                                                                                                                     |               |
-|                               |             |                                                           |                                                                                                                                                                                                                          |               |
-| hospitalization_id            | VARCHAR     | ID variable for each patient encounter                    |                                                                                                                                                                                                                          |               |
-+-------------------------------+-------------+-----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+
-|                               |             |                                                           |                                                                                                                                                                                                                          |               |
-+-------------------------------+-------------+-----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+
-| recorded_dttm                 | DATETIME    | Date and time when the device started                     | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                                                                                                                            |               |
-+-------------------------------+-------------+-----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+
-| device_name                   | VARCHAR     | Includes raw string of the devices. Not used for analysis |                                                                                                                                                                                                                          |               |
-+-------------------------------+-------------+-----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+
-| device_category               | VARCHAR     | Categorization of respiratory support device              | `IMV`, `NIPPV`, `CPAP`, `High Flow NC`, `Face Mask`, `Trach Collar`, `Nasal Cannula`, `Room Air`, `Other`                                                                                                                |               |
-+-------------------------------+-------------+-----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+
-| mode_name                     | VARCHAR     | Includes raw string of the modes. Not used for analysis   |                                                                                                                                                                                                                          |               |
-+-------------------------------+-------------+-----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+
-| mode_category                 | VARCHAR     | Categorization of mode of mechanical ventilation          | `Assist Control-Volume Control`, `Pressure Control`, `Pressure-Regulated Volume Control`, `SIMV`, `Pressure Support/CPAP`, `Volume Support`, `Other`                                                                     |               |
-+-------------------------------+-------------+-----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+
-| tracheostomy                  | BOOLEAN     | Indicates if tracheostomy is performed                    | 0 = No, 1 = Yes                                                                                                                                                                                                          |               |
-+-------------------------------+-------------+-----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+
-| fio2_set                      | DOUBLE      | Fraction of inspired oxygen set in decimals (e.g. 0.21)   | No restriction, see [Expected \*\_set values for each device_category and mode_category](https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category) |               |
-+-------------------------------+-------------+-----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+
-| lpm_set                       | DOUBLE      | Liters per minute set                                     | No restriction, see [Expected \*\_set values for each device_category and mode_category](https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category) |               |
-+-------------------------------+-------------+-----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+
-| tidal_volume_set              | DOUBLE      | Tidal volume set (in mL)                                  | No restriction, see [Expected \*\_set values for each device_category and mode_category](https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category) |               |
-+-------------------------------+-------------+-----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+
-| resp_rate_set                 | DOUBLE      | Respiratory rate set (in bpm)                             | No restriction, see [Expected \*\_set values for each device_category and mode_category](https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category) |               |
-+-------------------------------+-------------+-----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+
-| pressure_control_set          | DOUBLE      | Pressure control set (in cmH2O)                           | No restriction, see [Expected \*\_set values for each device_category and mode_category](https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category) |               |
-+-------------------------------+-------------+-----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+
-| pressure_support_set          | DOUBLE      | Pressure support set (in cmH2O)                           | No restriction, see [Expected \*\_set values for each device_category and mode_category](https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category) |               |
-+-------------------------------+-------------+-----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+
-| flow_rate_set                 | DOUBLE      | Flow rate set                                             | No restriction, see [Expected \*\_set values for each device_category and mode_category](https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category) |               |
-+-------------------------------+-------------+-----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+
-| peak_inspiratory_pressure_set | DOUBLE      | Peak inspiratory pressure set (in cmH2O)                  | No restriction, see [Expected \*\_set values for each device_category and mode_category](https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category) |               |
-+-------------------------------+-------------+-----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+
-| inspiratory_time_set          | DOUBLE      | Inspiratory time set (in seconds)                         | No restriction, see [Expected \*\_set values for each device_category and mode_category](https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category) |               |
-+-------------------------------+-------------+-----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+
-| peep_set                      | DOUBLE      | Positive-end-expiratory pressure set (in cmH2O)           | No restriction, see [Expected \*\_set values for each device_category and mode_category](https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category) |               |
-+-------------------------------+-------------+-----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+
-| tidal_volume_obs              | DOUBLE      | Observed tidal volume (in mL)                             | No restriction                                                                                                                                                                                                           |               |
-+-------------------------------+-------------+-----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+
-| resp_rate_obs                 | DOUBLE      | Observed respiratory rate (in bpm)                        | No restriction                                                                                                                                                                                                           |               |
-+-------------------------------+-------------+-----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+
-| plateau_pressure_obs          | DOUBLE      | Observed plateau pressure (in cmH2O)                      | No restriction                                                                                                                                                                                                           |               |
-+-------------------------------+-------------+-----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+
-| peak_inspiratory_pressure_obs | DOUBLE      | Observed peak inspiratory pressure (in cmH2O)             | No restriction                                                                                                                                                                                                           |               |
-+-------------------------------+-------------+-----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+
-| peep_obs                      | DOUBLE      | Observed positive-end-expiratory pressure (in cmH2O)      | No restriction                                                                                                                                                                                                           |               |
-+-------------------------------+-------------+-----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+
-| minute_vent_obs               | DOUBLE      | Observed minute ventilation (in liters)                   | No restriction                                                                                                                                                                                                           |               |
-+-------------------------------+-------------+-----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+
-| mean_airway_pressure_obs      | DOUBLE      | Observed mean airway pressure                             | No restriction                                                                                                                                                                                                           |               |
-+-------------------------------+-------------+-----------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+
+The respiratory support table is a wider longitudinal table that captures simultaneously recorded ventilator settings and observed ventilator parameters. The table is designed to capture the most common respiratory support devices and modes used in the ICU. It will be sparse for patients who are not on mechanical ventilation.
+
+
+| Variable Name               | Data Type  | Definition                                              | Permissible Values                                                                                                                                                                                                     |
+|-----------------------------|------------|---------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| hospitalization_id           | VARCHAR    | ID variable for each patient encounter                  |                                                                                                                                                                                                                       |
+| recorded_dttm                | DATETIME   | Date and time when the device started                   | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                                                                                                                         |
+| device_name                  | VARCHAR    | Includes raw string of the devices. Not used for analysis |                                                                                                                                                                                                                       |
+| device_category              | VARCHAR    | Categorization of respiratory support device            | `IMV`, `NIPPV`, `CPAP`, `High Flow NC`, `Face Mask`, `Trach Collar`, `Nasal Cannula`, `Room Air`, `Other`                                                                                                             |
+| mode_name                    | VARCHAR    | Includes raw string of the modes. Not used for analysis |                                                                                                                                                                                                                       |
+| mode_category                | VARCHAR    | Categorization of mode of mechanical ventilation        | `Assist Control-Volume Control`, `Pressure Control`, `Pressure-Regulated Volume Control`, `SIMV`, `Pressure Support/CPAP`, `Volume Support`, `Other`                                                                  |
+| tracheostomy                 | BOOLEAN    | Indicates if tracheostomy is performed                  | 0 = No, 1 = Yes                                                                                                                                                                                                       |
+| fio2_set                     | DOUBLE     | Fraction of inspired oxygen set in decimals (e.g. 0.21) | No restriction, see [Expected \_set values for each device_category and mode_category](https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category) |
+| lpm_set                      | DOUBLE     | Liters per minute set                                   | No restriction, see [Expected \_set values for each device_category and mode_category](https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category) |
+| tidal_volume_set             | DOUBLE     | Tidal volume set (in mL)                                | No restriction, see [Expected \_set values for each device_category and mode_category](https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category) |
+| resp_rate_set                | DOUBLE     | Respiratory rate set (in bpm)                           | No restriction, see [Expected \_set values for each device_category and mode_category](https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category) |
+| pressure_control_set         | DOUBLE     | Pressure control set (in cmH2O)                         | No restriction, see [Expected \_set values for each device_category and mode_category](https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category) |
+| pressure_support_set         | DOUBLE     | Pressure support set (in cmH2O)                         | No restriction, see [Expected \_set values for each device_category and mode_category](https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category) |
+| flow_rate_set                | DOUBLE     | Flow rate set                                           | No restriction, see [Expected \_set values for each device_category and mode_category](https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category) |
+| peak_inspiratory_pressure_set| DOUBLE     | Peak inspiratory pressure set (in cmH2O)                | No restriction, see [Expected \_set values for each device_category and mode_category](https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category) |
+| inspiratory_time_set         | DOUBLE     | Inspiratory time set (in seconds)                       | No restriction, see [Expected \_set values for each device_category and mode_category](https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category) |
+| peep_set                     | DOUBLE     | Positive-end-expiratory pressure set (in cmH2O)         | No restriction, see [Expected \_set values for each device_category and mode_category](https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category) |
+| tidal_volume_obs             | DOUBLE     | Observed tidal volume (in mL)                           | No restriction                                                                                                                                                                                                        |
+| resp_rate_obs                | DOUBLE     | Observed respiratory rate (in bpm)                      | No restriction                                                                                                                                                                                                        |
+| plateau_pressure_obs         | DOUBLE     | Observed plateau pressure (in cmH2O)                    | No restriction                                                                                                                                                                                                        |
+| peak_inspiratory_pressure_obs| DOUBLE     | Observed peak inspiratory pressure (in cmH2O)           | No restriction                                                                                                                                                                                                        |
+| peep_obs                     | DOUBLE     | Observed positive-end-expiratory pressure (in cmH2O)    | No restriction                                                                                                                                                                                                        |
+| minute_vent_obs              | DOUBLE     | Observed minute ventilation (in liters)                 | No restriction                                                                                                                                                                                                        |
+| mean_airway_pressure_obs     | DOUBLE     | Observed mean airway pressure                           | No restriction                                                                                                                                                                                                        |
+
 
 ### Expected `*_set` values for each `device_category` and `mode_category`
 
@@ -382,37 +369,31 @@ E = Expected ventilator setting for the mode, P = possible ventilator setting fo
 
 ## Medication Admin Continuous {#medication-admin-continuous}
 
-The medication admin continuous table is a long form (one medication administration per row) longitudinal table. Note that it only reflects dose changes of the continuous medication and does not have a specific "end_time" variable to indicate the medication being stopped
-
 [![](https://img.shields.io/badge/Maturity-Beta-yellow)](#maturity-levels-for-clif-tables)
 
-+--------------------+-----------+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+The medication admin continuous table is a long-form (one medication administration per row) longitudinal table. Note that it only reflects dose changes of the continuous medication and does not have a specific "end_time" variable to indicate the medication being stopped.
+
 | Variable Name      | Data Type | Definition                                                                                                       | Permissible Values                                                                                                                                                        |
-+====================+===========+==================================================================================================================+===========================================================================================================================================================================+
+|--------------------|-----------|------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | hospitalization_id | VARCHAR   | ID variable for each patient encounter                                                                           |                                                                                                                                                                           |
-+--------------------+-----------+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| med_order_id       | VARCHAR   | Medication order id. Foreign key to link this table to other medication tables                                   |                                                                                                                                                                           |
-+--------------------+-----------+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| med_order_id       | VARCHAR   | Medication order ID. Foreign key to link this table to other medication tables                                    |                                                                                                                                                                           |
 | admin_dttm         | DATETIME  | Date and time when the medicine was administered                                                                 | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                                                                             |
-+--------------------+-----------+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| med_name           | VARCHAR   | Original med name string recorded in the raw data for a limited number of labs identified by the CLIF consortium |                                                                                                                                                                           |
-+--------------------+-----------+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| med_name           | VARCHAR   | Original med name string recorded in the raw data for a limited number of labs identified by the CLIF consortium  |                                                                                                                                                                           |
 | med_category       | VARCHAR   | Limited number of medication categories identified by the CLIF consortium                                        | [List of continuous medication categories in CLIF](https://github.com/clif-consortium/CLIF/blob/main/mCIDE/clif_medication_admin_continuous_med_categories.csv)           |
-+--------------------+-----------+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | med_group          | VARCHAR   | Limited number of medication groups identified by the CLIF consortium                                            | [List of continuous medication groups in CLIF](https://github.com/clif-consortium/CLIF/blob/main/mCIDE/clif_medication_admin_continuous_med_categories.csv)               |
-+--------------------+-----------+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| med_route          | VARCHAR   | medicine delivery route                                                                                          | e.g. IV, enteral                                                                                                                                                          |
-+--------------------+-----------+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| med_dose           | DOUBLE    | quantity taken in dose                                                                                           |                                                                                                                                                                           |
-+--------------------+-----------+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| med_dose_unit      | VARCHAR   | unit of dose                                                                                                     |                                                                                                                                                                           |
-+--------------------+-----------+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| med_route_name     | VARCHAR   | Medicine delivery route                                                                                          | e.g. IV, enteral                                                                                                                                                          |
+| med_route_category | VARCHAR   | mCIDE corresponding medicine delivery route name                                                                 | Under-development                                                                                                                                                         |
+| med_dose           | DOUBLE    | Quantity taken in dose                                                                                           |                                                                                                                                                                           |
+| med_dose_unit      | VARCHAR   | Unit of dose                                                                                                     |                                                                                                                                                                           |
+| mar_action_name      | VARCHAR   | MAR action                                                                                                     |                                                                                                                                                                           |
+| mar_action_category      | VARCHAR   | mCIDE corresponding MAR action name                                                                       |    Under-development                                                                                                                                                                       |
+
 
 ## Position
 
-The position table is a long form (one position per row) longitudinal table that captures all documented position changes of the patient. The table is designed for the explicit purpose of constructing the `position_category` CDE and identifying patients in prone position
-
 [![](https://img.shields.io/badge/Maturity-Beta-yellow)](#maturity-levels-for-clif-tables)
+
+The position table is a long form (one position per row) longitudinal table that captures all documented position changes of the patient. The table is designed for the explicit purpose of constructing the `position_category` CDE and identifying patients in prone position.
 
 +--------------------+-----------+------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
 | Variable Name      | Data Type | Definition                                                                                                             | Permissible Values                            |
@@ -428,31 +409,30 @@ The position table is a long form (one position per row) longitudinal table that
 
 ## Dialysis
 
-The dialysis table is a wider longitudinal table that captures the start and stop times of dialysis sessions, the type of dialysis performed, and the amount of dialysate flow and ultrafiltration.
-
 [![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
 
-+------------------------+-------------+-----------------------------------------+--------------------------------------+
-| Variable Name          | Data Type   | Definition                              | Permissible values                   |
-+========================+=============+=========================================+======================================+
-| hospitalization_id     | VARCHAR     | ID variable for each patient encounter  |                                      |
-+------------------------+-------------+-----------------------------------------+--------------------------------------+
-| start_dttm             | DATETIME    | Start date and time of dialysis session | Datetime format `%Y-%m-%d %H:%M:%S`  |
-+------------------------+-------------+-----------------------------------------+--------------------------------------+
-| stop_dttm              | DATETIME    | Stop date and time of dialysis session  | Datetime format `%Y-%m-%d %H:%M:%S`  |
-+------------------------+-------------+-----------------------------------------+--------------------------------------+
-| dialysis_type          | VARCHAR     | Type of dialysis performed              | `intermittent`, `peritoneal`, `crrt` |
-+------------------------+-------------+-----------------------------------------+--------------------------------------+
-| dialysate_flow_amount  | DOUBLE      | Amount of dialysate flow                |                                      |
-+------------------------+-------------+-----------------------------------------+--------------------------------------+
-| ultrafiltration_amount | DOUBLE      | Amount of ultrafiltration               |                                      |
-+------------------------+-------------+-----------------------------------------+--------------------------------------+
+The dialysis table is a wider longitudinal table that captures the start and stop times of dialysis sessions, the type of dialysis performed, and the amount of dialysate flow and ultrafiltration.
+
+| Variable Name          | Data Type  | Definition                                      | Permissible values                     |
+|------------------------|------------|-------------------------------------------------|----------------------------------------|
+| hospitalization_id      | VARCHAR    | ID variable for each patient encounter          |                                        |
+| start_dttm             | DATETIME   | Start date and time of dialysis session         | Datetime format `%Y-%m-%d %H:%M:%S`    |
+| stop_dttm              | DATETIME   | Stop date and time of dialysis session          | Datetime format `%Y-%m-%d %H:%M:%S`    |
+| dialysis_type_name     | VARCHAR    | Name of dialysis type                           | No restriction                         |
+| dialysis_type_category | VARCHAR    | Category of dialysis type                       | `intermittent`, `peritoneal`, `crrt`   |
+| crrt_mode_name         | VARCHAR    | Name of the CRRT mode                           | No restriction                         |
+| crrt_mode_category     | VARCHAR    | Category of the CRRT mode                       | No restriction                         |
+| fluid_removal_amt      | DOUBLE     | Amount of fluid removed during dialysis         | Numeric                                |
+| dialysate_flow_rate    | DOUBLE     | Rate of dialysate flow                          | Numeric                                |
+
 
 ## ECMO_MCS
 
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+
 The ECMO/MCS table is a wider longitudinal table that captures the start and stop times of ECMO/MCS support, the type of device used, and the work rate of the device.
 
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+
 
 +--------------------+--------------------------------------------------------------------------+
 | Variable Name      | Description                                                              |
@@ -478,9 +458,11 @@ The ECMO/MCS table is a wider longitudinal table that captures the start and sto
 
 ## Intake_Output
 
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+
 The intake_output table is long form table that captures the times intake and output events were recorded, the type of fluid administered or recorded as "out", and the amount of fluid.
 
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+
 
 +--------------------+--------------------------------------------------------------+
 | Variable Name      | Description                                                  |
@@ -496,47 +478,27 @@ The intake_output table is long form table that captures the times intake and ou
 | in_out_flag        | Indicator for intake or output (1 for intake, 0 for output). |
 +--------------------+--------------------------------------------------------------+
 
-## Therapy_Session
-
-The `therapy_session` table is a longitudinal table that captures the start and stop times of therapy sessions.
-
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
-
-+--------------------+--------------------------------------------------+
-| Variable Name      | Description                                      |
-+====================+==================================================+
-| hospitalization_id | Unique identifier for the hospitalization event. |
-+--------------------+--------------------------------------------------+
-| session_id         | Unique identifier for the therapy session.       |
-+--------------------+--------------------------------------------------+
-| session_start_dttm | Date and time when the therapy session started.  |
-+--------------------+--------------------------------------------------+
-| session_end_dttm   | Date and time when the therapy session ended.    |
-+--------------------+--------------------------------------------------+
 
 ## Therapy_Details
 
-the `therapy_details` table is a wide longitudinal table that captures the details of therapy sessions. The table is designed to capture and categorize the most common therapy elements used in the ICU.
-
 [![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
 
-+--------------------------+--------------------------------------------+
-| Variable Name            | Description                                |
-+==========================+============================================+
-| session_id               | Unique identifier for the therapy session. |
-+--------------------------+--------------------------------------------+
-| therapy_element_name     | Name of the therapy element.               |
-+--------------------------+--------------------------------------------+
-| therapy_element_category | Category of the therapy element.           |
-+--------------------------+--------------------------------------------+
-| therapy_element_value    | Value associated with the therapy element. |
-+--------------------------+--------------------------------------------+
+The `therapy_details` table is a wide longitudinal table that captures the details of therapy sessions. The table is designed to capture and categorize the most common therapy elements used in the ICU.
+
+| Variable Name            | Description                                      |
+|--------------------------|--------------------------------------------------|
+| hospitalization_id        | Unique identifier for the hospitalization event.|
+| session_start_dttm        | Date and time when the therapy session started.  |
+| therapy_element_name      | Name of the therapy element.                     |
+| therapy_element_category  | Category of the therapy element.                 |
+| therapy_element_value     | Value associated with the therapy element.       |
+
 
 ## Microbiology Culture
 
-The microbiology culture table is a wide longitudinal table that captures the order and result times of microbiology culture tests, the type of fluid collected, the component of the test, and the organism identified.
-
 [![](https://img.shields.io/badge/Maturity-Beta-yellow)](#maturity-levels-for-clif-tables)
+
+The microbiology culture table is a wide longitudinal table that captures the order and result times of microbiology culture tests, the type of fluid collected, the component of the test, and the organism identified.
 
 +--------------------+-----------+--------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Variable Name      | Data Type | Definition                                                                           | Permissible Values                                                                                                                                                                            |
@@ -582,9 +544,9 @@ This table is used to store the susceptibility results of the organisms identifi
 
 ## Microbiology_Nonculture
 
-The microbiology non-culture table is a wide longitudinal table that captures the order and result times of non-culture microbiology tests, the type of fluid collected, the component of the test, and the result of the test.
-
 [![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+
+The microbiology non-culture table is a wide longitudinal table that captures the order and result times of non-culture microbiology tests, the type of fluid collected, the component of the test, and the result of the test.
 
 +----------------------+---------------------------------------------------------+
 | Variable Name        | Description                                             |
@@ -606,31 +568,12 @@ The microbiology non-culture table is a wide longitudinal table that captures th
 | result_category      | Category of the test result.                            |
 +----------------------+---------------------------------------------------------+
 
-## Scores
-
-The scores table is a wide longitudinal table that captures the scores of various scoring systems used in the ICU, such as the Glasgow Coma Scale or Richmond Agitation-Sedation Scale.
-
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
-
-+--------------------+-----------+---------------------------------------------------------------------------------------+---------------------------------------+
-| Variable Name      | Data Type | Definition                                                                            | Permissible Values                    |
-+====================+===========+=======================================================================================+=======================================+
-| hospitalization_id | VARCHAR   | Unique identifier for each hospitalization, linking the score to a specific encounter |                                       |
-+--------------------+-----------+---------------------------------------------------------------------------------------+---------------------------------------+
-| score_dttm         | DATETIME  | Date and time when the score was recorded                                             |                                       |
-+--------------------+-----------+---------------------------------------------------------------------------------------+---------------------------------------+
-| score_name         | VARCHAR   | Name of the score or scale used to assess the patient                                 | No restriction \|                     |
-+--------------------+-----------+---------------------------------------------------------------------------------------+---------------------------------------+
-| score_category     | VARCHAR   | Category of the score, typically indicating the type of assessment                    | Examples include `GCS_eye`, `RASS` \| |
-+--------------------+-----------+---------------------------------------------------------------------------------------+---------------------------------------+
-| score_value        | VARCHAR   | The numerical value or level of the recorded score                                    |                                       |
-+--------------------+-----------+---------------------------------------------------------------------------------------+---------------------------------------+
 
 ## Procedures
 
-A longitudinal record of each bedside ICU procedure performed on the patient (e.g. central line placement, chest tube placement). Note that this table is not intended to capture the full set of procedures performed on inpatients.
-
 [![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+
+A longitudinal record of each bedside ICU procedure performed on the patient (e.g. central line placement, chest tube placement). Note that this table is not intended to capture the full set of procedures performed on inpatients.
 
 +--------------------+-----------+-------------------------------------------------------------------------------------------+----------------------------------------------+
 | Variable Name      | Data Type | Definition                                                                                | Permissible Values                           |
