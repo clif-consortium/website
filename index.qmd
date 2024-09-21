@@ -1,19 +1,106 @@
 ---
-title: "Common Longitudinal ICU data Format"
-image: images/clif_logo.png
 about:
     template: jolla
     image-shape: rectangle
 ---
 
+<style>
+  /* General styling for fonts and colors */
+  body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
 
+  .text-box {
+    background-color: #f7f7f7;
+    padding: 40px;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 800px;
+  }
+
+  /* CLIF Logo Styling */
+  .clif-logo {
+    display: block;
+    margin: 20px auto;
+    max-width: 600px; /* Set to match the text-box */
+    height: auto;
+  }
+
+  h1, h2, h3 {
+    text-align: center;
+    color: #333; /* Accent color */
+  }
+  
+  p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  /* Call-to-Action Button */
+  .cta-button {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 20px 0;
+    background-color: #983232;
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background-color: #218838;
+  }
+
+  /* Participating Sites Section */
+  .site-logos {
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  .site-logos img {
+    max-width: 1000px;
+    border-radius: 20px;
+  }
+
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .cta-button {
+      font-size: 16px;
+      padding: 10px 20px;
+    }
+
+    .text-box {
+      padding: 20px;
+    }
+
+    .clif-logo {
+      max-width: 100%; /* Ensure logo scales on smaller devices */
+    }
+  }
+</style>
+
+<!-- Main Title Section -->
+
+<img src="images/clif_logo.png" alt="CLIF Logo" class="clif-logo">
+<h1>Common Longitudinal ICU Data Format</h1>
 <div class="text-box">
-  <p><strong>Federated Critical Care Research</strong></p>
-  <p>Multicenter critical care research often relies on sharing sensitive patient data across sites, requiring complex data use agreements (DUAs) and yielding redundant work to account for diverse data infrastructures. To overcome these barriers, we present CLIF, designed specifically for observational studies of critically ill patients across multiple centres. Through CLIF, we aim to streamline data organization into a longitudinal format and establish standard vocabularies to facilitate federated analytics and improve data readability for researchers and clinicians.</p>
+  <h2>Federated Critical Care Research</h2>
+  <p>Multicenter critical care research often relies on sharing sensitive patient data across sites, requiring complex data use agreements (DUAs) and yielding redundant work to account for diverse data infrastructures. To overcome these barriers, we present CLIF, designed specifically for observational studies of critically ill patients across multiple centres.</p>
+  <p>Through CLIF, we aim to streamline data organization into a longitudinal format and establish standard vocabularies to facilitate federated analytics and improve data readability for researchers and clinicians.</p>
   <p>The CLIF consortium, comprising critical care researchers from eight US academic health systems, collaboratively developed CLIF's schema, clinical vocabularies, and "proof of concept" datasets. CLIF’s tables emphasize care processes, clinical outcomes, and granular clinical physiology measures.</p>
-<a>Read the CLIF Concept [here](https://www.medrxiv.org/content/10.1101/2024.09.04.24313058v1)</a>
+  <!-- CTA Button for CLIF Concept -->
+  <a href="https://www.medrxiv.org/content/10.1101/2024.09.04.24313058v1" class="cta-button" target="_blank">Read the CLIF Concept Paper</a>
 </div>
 
-<p><strong>Participating sites</strong></p>
-
-![](images/member_logos.png)
+<!-- Participating Sites Logos Section -->
+<h3>Participating Sites</h3>
+<div class="site-logos">
+  <img src="images/member_logos.png" alt="Participating Sites Logos">
+</div>

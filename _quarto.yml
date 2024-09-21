@@ -6,17 +6,6 @@ website:
   title: "CLIF Consortium"
   description: "Website and blog for the CLIF Consortium"
   page-footer: 
-    # background: "#F6F5F3"
-    # left: 🔒 
-    #   <a href="https://docs.google.com/spreadsheets/d/1l8nvjHmmf4lxCviPp12rxafRo2zNApKGOGK126Tn2_s/edit?usp=sharing">CLIF Internal Tracker</a> <br>
-    #   🖌️
-    #   <a href="https://redcap.uchicago.edu/surveys/?s=7FMNPWTXKP3P3ANW">CLIF Project Proposal Application</a> 
-    # center: © 2024  &middot; Made with
-    #   [![](https://quarto.org/quarto.png){fig-alt="Quarto" width=65px}](https://quarto.org/) <br> 
-    #   Contact us  ✉️   <a href="mailto:clif_consortium@uchicago.edu">clif_consortium@uchicago.edu</a>
-    # right:
-    #   - icon: github
-    #     href: https://github.com/clif-consortium/website
     background: "#F6F5F3"
     left: |
       Want to Join the Consortium? <br>
@@ -46,8 +35,6 @@ website:
           text: minimum Common ICU Data Elements
         - href: faqs.qmd
           text: FAQs
-     # - href: publications.qmd
-      #  text: Publications
 
     right:
       - icon: github
