@@ -203,7 +203,7 @@ ul.task-list li input[type="checkbox"] {
 
 <p>Below is the entity-relationship diagram (ERD) that provides an overview of the relational CLIF database structure.</p>
 <div id="erd-container" style="max-width: 100%; overflow: hidden;">
-<p><img id="erd" src="images/ERD.png" alt="ERD" usemap="#clif-map" style="width: 100%;"></p>
+<p><img src="images/ERD.png" alt="ERD" id="erd" usemap="#clif-map" style="width: 100%;"></p>
 </div>
 <map name="clif-map">
 <area shape="rect" coords="34,44,400,400" alt="Patient" href="#patient">
@@ -241,14 +241,15 @@ ul.task-list li input[type="checkbox"] {
 <p>You can use our custom GPT- <a href="https://chatgpt.com/g/g-h1nk6d3eR-clif-assistant">CLIF Assistant</a> to learn more about CLIF and develop analysis scripts.</p>
 <section id="clif-maturity" class="level1">
 <h1>CLIF maturity</h1>
-<p>CLIF is an evolving format, and some parts of the format are more mature than others. The consortium has two different maturity concepts: one for the overall ER model and one for the individual tables.</p>
+<p>CLIF is still under development and some parts of the format are more mature than others. CLIF will also need to evolve as the set of minimum Common Data Elements for studying critical illness expands or changes over time.</p>
+<p>The consortium has two different maturity concepts: one for the overall ER model and one for the individual tables.</p>
 <section id="overall-maturity-level-for-clif" class="level2">
 <h2 class="anchored" data-anchor-id="overall-maturity-level-for-clif">Overall Maturity Level for CLIF</h2>
 <ul>
 <li><img src="https://img.shields.io/badge/Maturity-Experimental-red.png" class="img-fluid" alt="Experimental"> <strong>Experimental</strong>: Majority of critical illness and hospital course not represented in Entity-Relationship (ER) model, expect frequent breaking changes.</li>
-<li><img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid" alt="Beta"> <strong>Beta</strong>: ER model complete and breaking changes to the existing structure unlikely. Actively seeking feedback about new tables to add to the ER model to fully capture critical illness.</li>
+<li><img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid" alt="Beta"> <strong>Beta</strong>: Core ER model complete and breaking changes to the existing structure unlikely. Actively seeking feedback about new tables to add to the ER model to fully capture critical illness.</li>
 <li><img src="https://img.shields.io/badge/Maturity-Stable-brightgreen.png" class="img-fluid" alt="Stable"> <strong>Stable</strong>: Tested and recommended for general use. EHR data not currently represented in CLIF outside the scope of the format.</li>
-<li><img src="https://img.shields.io/badge/Maturity-Mature-blue.png" class="img-fluid" alt="Mature"> <strong>Mature</strong>: Widely adopted across majority of consoritium sites with majority of tables in stable or mature (see maturity levels for CLIF Tables). ER model very stable.</li>
+<li><img src="https://img.shields.io/badge/Maturity-Mature-blue.png" class="img-fluid" alt="Mature"> <strong>Mature</strong>: Widely adopted across majority of consortium sites with majority of tables in stable or mature (see maturity levels for CLIF Tables). ER model very stable.</li>
 <li><img src="https://img.shields.io/badge/Maturity-Deprecated-lightgrey.png" class="img-fluid" alt="Deprecated"> <strong>Deprecated</strong>: No longer maintained.</li>
 </ul>
 <p>The entity-relationship model for this project is currently at the <img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid" alt="Beta"> <strong>Beta</strong> level for adult patients in a general medical intensive care unit. Major breaking changes to the existing structure are unlikely. The consortium is actively seeking feedback about new tables and fields to add to the ER model to achieve the goal of representing developing a <a href="https://clif-consortium.github.io/website/mcide.html">minimum Common ICU Data Elements (mCIDE)</a></p>
@@ -260,7 +261,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid" alt="Concept"> <strong>Concept</strong>: Placeholder for future CLIF table. Majority of table structure and CDE elements incomplete. Expect breaking changes.</li>
 <li><img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid" alt="Beta"> <strong>Beta</strong>: Table structure and field names complete, but not fully tested. CDE for category variables underdevelopment. Actively seeking feedback.</li>
-<li><img src="https://img.shields.io/badge/Maturity-Stable-brightgreen.png" class="img-fluid" alt="Stable"> <strong>Stable</strong>: Tested and recommended for general use. CDE stable with permissible values for all category variables precisely defined and locked. Fully implemented at at least two consortium sites</li>
+<li><img src="https://img.shields.io/badge/Maturity-Stable-brightgreen.png" class="img-fluid" alt="Stable"> <strong>Stable</strong>: Tested and recommended for general use. CDE stable with permissible values for all category variables precisely defined and locked. Fully implemented at multiple consortium sites and used in a peer-reviewed publication.</li>
 <li><img src="https://img.shields.io/badge/Maturity-Mature-blue.png" class="img-fluid" alt="Mature"> <strong>Mature</strong>: Adopted across a majority of the CLIF consortium sites and very stable.</li>
 <li><img src="https://img.shields.io/badge/Maturity-Deprecated-lightgrey.png" class="img-fluid" alt="Deprecated"> <strong>Deprecated</strong>: No longer maintained.</li>
 </ul>
@@ -269,17 +270,17 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="general-inpatient-tables" class="level1">
 <h1>General inpatient tables</h1>
-<p>The data in these tables are typically of most electronic data warehouse systems and are not specific to critical illness. The CLIF versions of these general tables are designed to ensure that they satisfy the minimum requirements for critical illness research.</p>
+<p>The data in these tables are typically of most electronic data warehouse systems and are not specific to critical illness. The CLIF versions of these general tables are designed to ensure that they clearly represent the minimum set of data required for critical illness research. Whenever possible, CLIF seeks compatibility with existing EHR data standards.</p>
 <section id="patient" class="level2">
 <h2 class="anchored" data-anchor-id="patient">Patient</h2>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid"></a></p>
-<p>This table contains demographic information about the patient that does not vary between hospitalizations.</p>
+<p>This table contains demographic information about the patient that does not vary between hospitalizations. It is inspired by the OMOP <a href="https://ohdsi.github.io/CommonDataModel/cdm54.html#person">Person</a> table</p>
 <table class="table">
 <colgroup>
-<col style="width: 7%">
+<col style="width: 6%">
 <col style="width: 3%">
-<col style="width: 35%">
-<col style="width: 53%">
+<col style="width: 44%">
+<col style="width: 45%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -299,13 +300,13 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>race_category</td>
 <td>VARCHAR</td>
-<td>Description of patient’s race. The source data may contain different strings for race.</td>
+<td>A standardized CDE description of patient’s race per the US Census permissible values. The source data may contain different strings for race.</td>
 <td><code>Black or African American</code>, <code>White</code>, <code>American Indian or Alaska Native</code>, <code>Asian</code>, <code>Native Hawaiian or Other Pacific Islander</code>, <code>Unknown</code>, <code>Other</code></td>
 </tr>
 <tr class="odd">
 <td>ethnicity_category</td>
 <td>VARCHAR</td>
-<td>Description of patient’s ethnicity. The source data may contain different strings for ethnicity.</td>
+<td>Description of patient’s ethnicity per the US census definition. The source data may contain different strings for ethnicity.</td>
 <td><code>Hispanic</code>, <code>Non-Hispanic</code>, <code>Unknown</code></td>
 </tr>
 <tr class="even">
@@ -335,7 +336,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>language_category</td>
 <td>VARCHAR</td>
-<td>mCIDE for language name</td>
+<td>Maps <code>language_name</code> to a standardized list of spoken languages</td>
 <td>Under-development</td>
 </tr>
 </tbody>
@@ -343,7 +344,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="hospitalization" class="level2">
 <h2 class="anchored" data-anchor-id="hospitalization">Hospitalization</h2>
-<p>The hospitalization table contains information about each hospitalization event. Each row in this table represents a unique hospitalization event for a patient.</p>
+<p>The hospitalization table contains information about each hospitalization event. Each row in this table represents a unique hospitalization event for a patient. This table is inspired by the <a href="https://ohdsi.github.io/CommonDataModel/cdm54.html#visit_occurrence">visit_occurance</a> OMOP table but is specific to inpatient hospitalizations (including those that begin in the emergency room).</p>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid"></a></p>
 <table class="table">
 <thead>
@@ -388,8 +389,8 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>admission_type_name</td>
 <td>VARCHAR</td>
-<td>Disposition when admitted. Original string from the source data</td>
-<td></td>
+<td>Type of inpatient admission. Original string from the source data</td>
+<td>e.g.&nbsp;“Direct admission”, “Transfer”, “Pre-op surgical”</td>
 </tr>
 <tr class="odd">
 <td>admission_type_category</td>
@@ -401,12 +402,14 @@ ul.task-list li input[type="checkbox"] {
 <td>discharge_name</td>
 <td>VARCHAR</td>
 <td>Original discharge disposition name string recorded in the raw data.</td>
-<td>No restriction. Example mapping from <code>discharge_name</code> to <code>discharge_category</code> <a href="https://github.com/clif-consortium/CLIF/blob/main/mCIDE/mCIDE_mapping_examples/clif_hospitalization_discharge_categories_UMN.csv">here</a></td>
+<td>No restriction, e.g.&nbsp;“home”.<br>
+</td>
 </tr>
 <tr class="odd">
 <td>discharge_category</td>
 <td>VARCHAR</td>
-<td>Description of the patient’s disposition when discharged, mapped to mCIDE categories.</td>
+<td><p>Maps <code>discharge_name</code> to a standardized list of discharge categories.</p>
+<p>Example mapping from <code>discharge_name</code> to <code>discharge_category</code> <a href="https://github.com/clif-consortium/CLIF/blob/main/mCIDE/mCIDE_mapping_examples/clif_hospitalization_discharge_categories_UMN.csv">here</a></p></td>
 <td><code>Home</code>, <code>Skilled Nursing Facility (SNF)</code>, <code>Expired</code>, <code>Acute Inpatient Rehab Facility</code>, <code>Hospice</code>, <code>Long Term Care Hospital (LTACH)</code>, <code>Acute Care Hospital</code>, <code>Group Home</code>, <code>Chemical Dependency</code>, <code>Against Medical Advice (AMA)</code>, <code>Assisted Living</code>, <code>Still Admitted</code>, <code>Missing</code>, <code>Other</code>, <code>Psychiatric Hospital</code>, <code>Shelter</code>, <code>Jail</code></td>
 </tr>
 <tr class="even">
@@ -457,18 +460,19 @@ ul.task-list li input[type="checkbox"] {
 <ol type="1">
 <li><p>If a patient is discharged to Home/Hospice, then <code>discharge_category == Hospice</code>.</p></li>
 <li><p>The geographical indicators(<code>zipcode_nine_digit</code>, <code>zipcode_five_digit</code>, <code>census_block_code</code>, <code>census_block_group_code</code>, <code>census_tract</code>, <code>state_code</code>, <code>county_code</code>) should be added if they are available in your source dataset. <code>zipcode_nine_digit</code> is preferred over <code>zipcode_five_digit</code>, and <code>census_block_code</code> is ideal for census based indicators.The choice of geographical indicators may differ depending on the project.</p></li>
+<li><p>If a patient is transferred between different hospitals within a health system, a new <code>hospitalization_id</code> should be created</p></li>
 </ol>
 </section>
 <section id="adt" class="level2">
 <h2 class="anchored" data-anchor-id="adt">ADT</h2>
-<p>The admission, discharge, and transfer (ADT) table is a start-stop longitudinal dataset that contains information about each patient’s movement within the hospital. It also has a <code>hospital_id</code> field to distinguish between different hospitals at one CLIF site.</p>
+<p>The admission, discharge, and transfer (ADT) table is a start-stop longitudinal dataset that contains information about each patient’s movement within the hospital. It also has a <code>hospital_id</code> field to distinguish between different hospitals within a healthsystem.</p>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid"></a></p>
 <table class="table">
 <colgroup>
 <col style="width: 8%">
-<col style="width: 4%">
-<col style="width: 66%">
-<col style="width: 19%">
+<col style="width: 5%">
+<col style="width: 65%">
+<col style="width: 20%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -488,7 +492,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>hospital_id</td>
 <td>VARCHAR</td>
-<td>Assign an ID to each hospital in the hospital system</td>
+<td>Assign a unique ID to each hospital within a healthsystem</td>
 <td>No restriction</td>
 </tr>
 <tr class="odd">
@@ -512,7 +516,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>location_category</td>
 <td>VARCHAR</td>
-<td>Map location_name from the source data to categories identified under CLIF.</td>
+<td>Maps <code>location_name</code> to a standardized list of ADT location categories</td>
 <td><code>ER</code>, <code>Procedural</code>, <code>ICU</code>, <code>Ward</code>, <code>Other</code></td>
 </tr>
 </tbody>
@@ -525,10 +529,10 @@ ul.task-list li input[type="checkbox"] {
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid"></a></p>
 <table class="table">
 <colgroup>
-<col style="width: 7%">
-<col style="width: 4%">
-<col style="width: 49%">
-<col style="width: 38%">
+<col style="width: 6%">
+<col style="width: 3%">
+<col style="width: 40%">
+<col style="width: 48%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -560,7 +564,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>vital_category</td>
 <td>VARCHAR</td>
-<td>Map flowsheet measures stored in vital_name to the categories identified under CLIF.</td>
+<td>Maps <code>vital_name</code> to a list standard vital sign categories</td>
 <td><code>temp_c</code>, <code>heart_rate</code>, <code>sbp</code>, <code>dbp</code>, <code>spo2</code>, <code>respiratory_rate</code>, <code>map</code>, <code>height_cm</code>, <code>weight_kg</code></td>
 </tr>
 <tr class="odd">
@@ -580,7 +584,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="labs" class="level2">
 <h2 class="anchored" data-anchor-id="labs">Labs</h2>
-<p>The labs table is a long form (one lab result per row) longitudinal table.</p>
+<p>The labs table is a long form (one lab result per row) longitudinal table. Each lab result</p>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid"></a></p>
 <table class="table">
 <thead>
@@ -619,25 +623,25 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td>lab_order_name</td>
 <td>VARCHAR</td>
-<td>Procedure name for the lab. This field is not used for analysis.</td>
+<td>Procedure name for the lab, e.g.&nbsp;“Complete blood count w/ diff”</td>
 <td>No restriction</td>
 </tr>
 <tr class="even">
 <td>lab_order_category</td>
 <td>VARCHAR</td>
-<td>Permissible CDE values for lab order names.</td>
+<td>Maps <code>lab_order_name</code>to standardized list of common lab order names, e.g.&nbsp;“CBC”</td>
 <td>CDE under development</td>
 </tr>
 <tr class="odd">
 <td>lab_name</td>
 <td>VARCHAR</td>
-<td>Original lab name string recorded in the raw data. This field is not used for analysis.</td>
+<td>Original lab component as recorded in the raw data, e.g.&nbsp;“AST (SGOT)”.</td>
 <td>No restriction</td>
 </tr>
 <tr class="even">
 <td>lab_category</td>
 <td>VARCHAR</td>
-<td>Limited labs identified by the CLIF consortium as minimum necessary labs for the study of critical illness.</td>
+<td>Maps <code>lab_name</code> to a minimum set of standardized labs identified by the CLIF consortium as minimum necessary labs for the study of critical illness.</td>
 <td><a href="https://github.com/clif-consortium/CLIF/blob/main/mCIDE/clif_lab_categories.csv">List of lab categories in CLIF</a></td>
 </tr>
 <tr class="odd">
@@ -649,7 +653,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>lab_value_numeric</td>
 <td>DOUBLE</td>
-<td>Parse out numeric part of the lab_value variable.</td>
+<td>Parse out numeric part of the lab_value variable (optional).</td>
 <td>Numeric</td>
 </tr>
 <tr class="odd">
@@ -659,15 +663,15 @@ ul.task-list li input[type="checkbox"] {
 <td>Permissible reference values for each <code>lab_category</code> listed <a href="https://github.com/clif-consortium/CLIF/blob/main/mCIDE/clif_lab_categories.csv">here</a></td>
 </tr>
 <tr class="even">
-<td>lab_type_name</td>
+<td>lab_specimen_category</td>
 <td>VARCHAR</td>
-<td>Type of lab. (e.g.&nbsp;standard, POC)</td>
-<td>No restrictions</td>
+<td>fluid or tissue the lab was collected from, analogous to the LOINC “system” component.</td>
+<td>working CDE <code>c(blood/plasma/serum, urine, csf, other)</code>.</td>
 </tr>
 <tr class="odd">
 <td>lab_loinc_code</td>
 <td>VARCHAR</td>
-<td>LOINC code corresponding to the lab_name.</td>
+<td><a href="https://loinc.org/get-started/loinc-term-basics/">LOINC</a> code for the lab</td>
 <td>No restrictions</td>
 </tr>
 </tbody>
@@ -709,7 +713,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>assessment_category</td>
 <td>VARCHAR</td>
-<td>The mCIDE corresponding to assessment_name.</td>
+<td>Maps <code>assessment_name</code> to a standardized list of patient assessments</td>
 <td>List of permissible assessment categories <a href="https://github.com/clif-consortium/CLIF/blob/main/mCIDE/clif_patient_assessment_categories.csv">here</a></td>
 </tr>
 <tr class="odd">
@@ -792,7 +796,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>provider_role_category</td>
 <td>VARCHAR</td>
-<td>the categorized role of the provider</td>
+<td>Maps <code>provider_role_name</code> to list of standardized provider roles</td>
 <td>under development</td>
 </tr>
 </tbody>
@@ -804,10 +808,10 @@ ul.task-list li input[type="checkbox"] {
 <p>Record of all diagnoses associated with the hospitalization. Expect breaking changes to this table as we seek to align it with existing diagnosis ontologies</p>
 <table class="table">
 <colgroup>
-<col style="width: 12%">
-<col style="width: 7%">
-<col style="width: 60%">
-<col style="width: 18%">
+<col style="width: 16%">
+<col style="width: 8%">
+<col style="width: 42%">
+<col style="width: 31%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -819,35 +823,34 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td>hospitalization_id</td>
+<td>patient_id</td>
 <td>VARCHAR</td>
-<td>Unique identifier for each hospitalization, linking the provider to a specific encounter</td>
+<td>Unique identifier for each patient</td>
 <td>No restriction</td>
 </tr>
 <tr class="even">
-<td>diagnosis_name</td>
-<td>VARCHAR</td>
-<td>original string description of the diagnosis</td>
-<td>No restriction</td>
-</tr>
-<tr class="odd">
-<td>diagnosis_category</td>
-<td>VARCHAR</td>
-<td>the categorized diagnosis</td>
-<td>under development</td>
-</tr>
-<tr class="even">
-<td>icd10_code</td>
+<td>diagnostic_code</td>
 <td>DOUBLE</td>
-<td>International Classification of Diseases, Tenth Revision, Clinical Modification</td>
-<td>valid ICD 10 code</td>
+<td>numeric diagnosis code</td>
+<td>valid code in the <code>diagnositic_code_format</code></td>
 </tr>
 <tr class="odd">
-<td>pta</td>
-<td>BOOLEAN</td>
-<td>“prior to admission” flag indicating whether or not the diagnosis was recorded prior to admission</td>
-<td><p>0 = not present on admission</p>
-<p>1 = present on admission</p></td>
+<td>diagnosis_code_format</td>
+<td>VARCHAR</td>
+<td>description of the diagnostic code format</td>
+<td><code>icd9</code> ,<code>icd10</code></td>
+</tr>
+<tr class="even">
+<td>start_dttm</td>
+<td>DATETIME</td>
+<td>date time the diagnosis was recorded</td>
+<td>Datetime format should be %Y-%m-%d %H:%M:%S</td>
+</tr>
+<tr class="odd">
+<td>end_dttm</td>
+<td>DATETIME</td>
+<td>date time the diagnosis was noted as resolved (if resolved)</td>
+<td>Datetime format should be %Y-%m-%d %H:%M:%S</td>
 </tr>
 </tbody>
 </table>
@@ -863,10 +866,10 @@ ul.task-list li input[type="checkbox"] {
 <p>This table records the ordering (not administration) of medications. The table is in long form (one medication order per row) longitudinal table. Linkage to the <code>medication_admin_continuous</code> and <code>medication_admin_intermittent</code> tables is through the <code>med_order_id</code> field.</p>
 <table class="table">
 <colgroup>
-<col style="width: 8%">
+<col style="width: 11%">
 <col style="width: 4%">
 <col style="width: 39%">
-<col style="width: 47%">
+<col style="width: 43%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -914,22 +917,10 @@ ul.task-list li input[type="checkbox"] {
 <td>No restrictions</td>
 </tr>
 <tr class="odd">
-<td>med_order_status_name</td>
-<td>VARCHAR</td>
-<td>Name of the medication order</td>
-<td>No restrictions</td>
-</tr>
-<tr class="even">
-<td>med_order_status_category</td>
-<td>VARCHAR</td>
-<td>mCIDE corresponding med order status</td>
-<td>Under-development</td>
-</tr>
-<tr class="odd">
 <td>med_category</td>
 <td>VARCHAR</td>
-<td>Category of the medication, typically indicating the drug class or type</td>
-<td></td>
+<td>Maps <code>med_name</code> to a list of permissible medication names</td>
+<td>Combined CDE of <code>medication_admin_continuous</code> and <code>medication_admin_intermittent</code> , under development</td>
 </tr>
 <tr class="even">
 <td>med_group</td>
@@ -938,7 +929,19 @@ ul.task-list li input[type="checkbox"] {
 <td></td>
 </tr>
 <tr class="odd">
-<td>med_route</td>
+<td>med_order_status_name</td>
+<td>VARCHAR</td>
+<td>Status of the medication order, e.g.&nbsp;“held”, or “given”</td>
+<td>No restrictions</td>
+</tr>
+<tr class="even">
+<td>med_order_status_category</td>
+<td>VARCHAR</td>
+<td>Maps <code>med_order_status_name</code> to a standardized list of medication order statuses</td>
+<td>Under-development</td>
+</tr>
+<tr class="odd">
+<td>med_route_name</td>
 <td>VARCHAR</td>
 <td>Route of administration for the medication</td>
 <td>No restrictions, Examples include <code>Oral</code>, <code>Intravenous</code></td>
@@ -1003,30 +1006,30 @@ ul.task-list li input[type="checkbox"] {
 <td>device_name</td>
 <td>VARCHAR</td>
 <td>Includes raw string of the devices. Not used for analysis</td>
-<td></td>
+<td>No restriction</td>
 </tr>
 <tr class="even">
 <td>device_category</td>
 <td>VARCHAR</td>
-<td>Categorization of respiratory support device</td>
+<td>Maps <code>device_name</code> to a standardized list of respiratory support device categories</td>
 <td><code>IMV</code>, <code>NIPPV</code>, <code>CPAP</code>, <code>High Flow NC</code>, <code>Face Mask</code>, <code>Trach Collar</code>, <code>Nasal Cannula</code>, <code>Room Air</code>, <code>Other</code></td>
 </tr>
 <tr class="odd">
 <td>mode_name</td>
 <td>VARCHAR</td>
-<td>Includes raw string of the modes. Not used for analysis</td>
-<td></td>
+<td>Includes raw string of the modes, e.g.&nbsp;“CMV volume control”</td>
+<td>No restriction</td>
 </tr>
 <tr class="even">
 <td>mode_category</td>
 <td>VARCHAR</td>
-<td>Categorization of mode of mechanical ventilation</td>
+<td>Maps <code>mode_name</code> to a standardized list of modes of mechanical ventilation</td>
 <td><code>Assist Control-Volume Control</code>, <code>Pressure Control</code>, <code>Pressure-Regulated Volume Control</code>, <code>SIMV</code>, <code>Pressure Support/CPAP</code>, <code>Volume Support</code>, <code>Other</code></td>
 </tr>
 <tr class="odd">
 <td>tracheostomy</td>
 <td>BOOLEAN</td>
-<td>Indicates if tracheostomy is performed</td>
+<td>Indicates if tracheostomy is present</td>
 <td>0 = No, 1 = Yes</td>
 </tr>
 <tr class="even">
@@ -1290,19 +1293,19 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>med_name</td>
 <td>VARCHAR</td>
-<td>Original med name string recorded in the raw data for a limited number of labs identified by the CLIF consortium</td>
+<td>Original med name string recorded in the raw data which often contains concentration e.g.&nbsp;“NOREPInephrine 8 mg/250 mL”</td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>med_category</td>
 <td>VARCHAR</td>
-<td>Limited number of medication categories identified by the CLIF consortium</td>
+<td>Maps <code>med_name</code> to a limited set of active ingredients for important ICU medications, e.g.&nbsp;“norepinephrine”</td>
 <td><a href="https://github.com/clif-consortium/CLIF/blob/main/mCIDE/clif_medication_admin_continuous_med_categories.csv">List of continuous medication categories in CLIF</a></td>
 </tr>
 <tr class="even">
 <td>med_group</td>
 <td>VARCHAR</td>
-<td>Limited number of medication groups identified by the CLIF consortium</td>
+<td>Limited number of ICU medication groups identified by the CLIF consortium, e.g.&nbsp;“vasoactives”</td>
 <td><a href="https://github.com/clif-consortium/CLIF/blob/main/mCIDE/clif_medication_admin_continuous_med_categories.csv">List of continuous medication groups in CLIF</a></td>
 </tr>
 <tr class="odd">
@@ -1314,7 +1317,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>med_route_category</td>
 <td>VARCHAR</td>
-<td>mCIDE corresponding medicine delivery route name</td>
+<td>Maps <code>med_route_name</code> to a standardized list of medication delivery routes</td>
 <td>Under-development</td>
 </tr>
 <tr class="odd">
@@ -1332,13 +1335,13 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td>mar_action_name</td>
 <td>VARCHAR</td>
-<td>MAR action</td>
+<td>MAR (medication administration record) action, e.g.&nbsp;“stopped”</td>
 <td></td>
 </tr>
 <tr class="even">
 <td>mar_action_category</td>
 <td>VARCHAR</td>
-<td>mCIDE corresponding MAR action name</td>
+<td>Maps <code>mar_action_name</code> to a standardized list of MAR actions</td>
 <td>Under-development</td>
 </tr>
 </tbody>
@@ -1385,7 +1388,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>position_category</td>
 <td>VARCHAR</td>
-<td>Map position_name to the categories identified under CLIF.</td>
+<td>Maps <code>position_name</code> to either prone or not prone.</td>
 <td><code>prone</code>, <code>not_prone</code></td>
 </tr>
 </tbody>
@@ -1397,10 +1400,10 @@ ul.task-list li input[type="checkbox"] {
 <p>The dialysis table is a wider longitudinal table that captures the start and stop times of dialysis sessions, the type of dialysis performed, and the amount of dialysate flow and ultrafiltration.</p>
 <table class="table">
 <colgroup>
-<col style="width: 19%">
+<col style="width: 16%">
 <col style="width: 9%">
-<col style="width: 39%">
-<col style="width: 32%">
+<col style="width: 46%">
+<col style="width: 26%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1438,20 +1441,20 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td>dialysis_type_category</td>
 <td>VARCHAR</td>
-<td>Category of dialysis type</td>
+<td>Maps <code>dialysis_type_name</code> to a list of standardized dialysis types</td>
 <td><code>intermittent</code>, <code>peritoneal</code>, <code>crrt</code></td>
 </tr>
 <tr class="even">
 <td>crrt_mode_name</td>
 <td>VARCHAR</td>
-<td>Name of the CRRT mode</td>
+<td>Name of the CRRT mode, e.g.&nbsp;“CVVHD”</td>
 <td>No restriction</td>
 </tr>
 <tr class="odd">
 <td>crrt_mode_category</td>
 <td>VARCHAR</td>
-<td>Category of the CRRT mode</td>
-<td>No restriction</td>
+<td>Maps <code>crrt_mode_name</code> to a standardized list of CRRT modes</td>
+<td>under development</td>
 </tr>
 <tr class="even">
 <td>fluid_removal_amt</td>
@@ -1474,8 +1477,8 @@ ul.task-list li input[type="checkbox"] {
 <p>The ECMO/MCS table is a wider longitudinal table that captures the start and stop times of ECMO/MCS support, the type of device used, and the work rate of the device.</p>
 <table class="table">
 <colgroup>
-<col style="width: 21%">
-<col style="width: 78%">
+<col style="width: 20%">
+<col style="width: 79%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1498,11 +1501,11 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>device_name</td>
-<td>Name of the ECMO/MCS device used including brand information.</td>
+<td>Name of the ECMO/MCS device used including brand information, e.g.&nbsp;“Centrimag”</td>
 </tr>
 <tr class="odd">
 <td>device_category</td>
-<td>Category of the ECMO/MCS device.</td>
+<td>Maps <code>device_name</code> to a standardized list of ECMO or MCS</td>
 </tr>
 <tr class="even">
 <td>device_metric_name</td>
@@ -1660,7 +1663,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>component_category</td>
 <td>VARCHAR</td>
-<td>Map component names to the categories identified under CLIF.</td>
+<td>Maps <code>component_name</code> to a standardized list of component categories</td>
 <td><code>culture</code>, <code>gram stain</code>, <code>smear</code></td>
 </tr>
 <tr class="odd">
@@ -1672,7 +1675,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>organism_category</td>
 <td>VARCHAR</td>
-<td>Organism categories defined according to the NIH common data elements.</td>
+<td>Maps <code>organism_name</code> to the standardized list of organisms in the NIH CDE</td>
 <td><a href="https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/clif_nih_vocab_microbiology_organism.csv">CDE NIH Organism</a></td>
 </tr>
 </tbody>
@@ -1811,7 +1814,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td>procedure_category</td>
 <td>VARCHAR</td>
-<td>Category or type of procedure</td>
+<td>Maps <code>procedure_name</code> to a list of standardized procedures</td>
 <td>CDE under development</td>
 </tr>
 <tr class="even">
@@ -1834,9 +1837,12 @@ ul.task-list li input[type="checkbox"] {
 <h1>Future proposed tables</h1>
 <p>These are tables without any defined structure that the consortium has not yet committed to implementing.</p>
 <ul>
-<li><p><strong>ICU bestpractice</strong>: This table will capture the best practices followed in the ICU (e.g.&nbsp;orders for physical and occupational therapy. The table will have the following fields: <code>best_practice_name</code>, <code>best_practice_category</code>, <code>occurance_ddtm</code>.</p></li>
-<li><p><strong>Urinalysis</strong>: The lab table was designed for standard blood tests, but urinalysis results should ideally be represented in a separate table</p></li>
-<li><p><strong>Clinical Decision Support</strong>: This table will capture the actions of clinical decision support tools used in the ICU. The table will have the following fields: <code>cds_name</code>, <code>cds_category</code>, <code>cds_value</code>, <code>cds_trigger_ddtm</code>.</p></li>
+<li><p><strong>Code_status:</strong> longitudinal record containing changes in the patient’s code status during the hospitalization over time<br>
+<code>hospitalization_id</code><br>
+<code>start_dttm</code><br>
+<code>code_status_name</code><br>
+<code>code_status_category</code> with levels <code>c(DNR, UDNR, DNR/DNI, Full, Presume Full, Other)</code></p></li>
+<li><p><strong>Clinical Decision Support</strong>: This table will capture the actions of clinical decision support tools embedded in the EHR. The table will have the following fields: <code>cds_name</code>, <code>cds_category</code>, <code>cds_value</code>, <code>cds_trigger_ddtm</code>.</p></li>
 </ul>
 
 
