@@ -298,10 +298,22 @@ ul.task-list li input[type="checkbox"] {
 <td></td>
 </tr>
 <tr class="even">
+<td>race_name</td>
+<td>VARCHAR</td>
+<td>Patient race string from source data</td>
+<td>No restriction</td>
+</tr>
+<tr class="odd">
 <td>race_category</td>
 <td>VARCHAR</td>
 <td>A standardized CDE description of patient’s race per the US Census permissible values. The source data may contain different strings for race.</td>
 <td><code>Black or African American</code>, <code>White</code>, <code>American Indian or Alaska Native</code>, <code>Asian</code>, <code>Native Hawaiian or Other Pacific Islander</code>, <code>Unknown</code>, <code>Other</code></td>
+</tr>
+<tr class="even">
+<td>ethnicity_name</td>
+<td>VARCHAR</td>
+<td>Patient ethnicity string from source data</td>
+<td>No restriction</td>
 </tr>
 <tr class="odd">
 <td>ethnicity_category</td>
@@ -310,30 +322,36 @@ ul.task-list li input[type="checkbox"] {
 <td><code>Hispanic</code>, <code>Non-Hispanic</code>, <code>Unknown</code></td>
 </tr>
 <tr class="even">
+<td>sex_name</td>
+<td>VARCHAR</td>
+<td>Patient’s biological sex as given in the source data.</td>
+<td>No restriction</td>
+</tr>
+<tr class="odd">
 <td>sex_category</td>
 <td>VARCHAR</td>
 <td>Patient’s biological sex.</td>
 <td><code>Male</code>, <code>Female</code>, <code>Unknown</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>birth_date</td>
 <td>DATETIME</td>
 <td>Patient’s date of birth.</td>
 <td>Date format should be <code>%Y-%m-%d</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>death_dttm</td>
 <td>DATETIME</td>
 <td>Patient’s death date, including time.</td>
 <td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>language_name</td>
 <td>VARCHAR</td>
 <td>Patient’s preferred language.</td>
 <td>Original string from the source data</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>language_category</td>
 <td>VARCHAR</td>
 <td>Maps <code>language_name</code> to a standardized list of spoken languages</td>
@@ -663,12 +681,18 @@ ul.task-list li input[type="checkbox"] {
 <td>Permissible reference values for each <code>lab_category</code> listed <a href="https://github.com/clif-consortium/CLIF/blob/main/mCIDE/clif_lab_categories.csv">here</a></td>
 </tr>
 <tr class="even">
+<td>lab_specimen_name</td>
+<td>VARCHAR</td>
+<td>Original fluid or tissue name the lab was collected from as given in the source data</td>
+<td>No restriction</td>
+</tr>
+<tr class="odd">
 <td>lab_specimen_category</td>
 <td>VARCHAR</td>
 <td>fluid or tissue the lab was collected from, analogous to the LOINC “system” component.</td>
 <td>working CDE <code>c(blood/plasma/serum, urine, csf, other)</code>.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>lab_loinc_code</td>
 <td>VARCHAR</td>
 <td><a href="https://loinc.org/get-started/loinc-term-basics/">LOINC</a> code for the lab</td>
