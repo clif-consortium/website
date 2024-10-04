@@ -174,6 +174,10 @@ The hospitalization table contains information about each hospitalization event.
 
 3.  If a patient is transferred between different hospitals within a health system, a new `hospitalization_id` should be created
 
+4.  If a patient is initially seen in an ER in hospital A and then admitted to inpatient status in hospital B, one `hospitalization_id` should be created for data from both stays
+
+5.  A `hospitalization_joined_id` can also be created from a CLIF table from contiguous `hospitalization_id` s
+
 ## ADT
 
 The admission, discharge, and transfer (ADT) table is a start-stop longitudinal dataset that contains information about each patient's movement within the hospital. It also has a `hospital_id` field to distinguish between different hospitals within a health system.
