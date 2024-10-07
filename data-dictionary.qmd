@@ -68,6 +68,8 @@ Relational CLIF (RCLIF) is a database that is organized into clinically relevant
 
 You can use our custom GPT- [CLIF Assistant](https://chatgpt.com/g/g-h1nk6d3eR-clif-assistant) to learn more about CLIF and develop analysis scripts.
 
+**Notice a typo, inconsistency, broken link, or other bug in the data dictionary? Please add to our [issues page](https://github.com/clif-consortium/CLIF/issues/29) so we can correct it!**
+
 # CLIF maturity
 
 CLIF is still under development and some parts of the format are more mature than others. CLIF will also need to evolve as the set of minimum Common Data Elements for studying critical illness expands or changes over time.
