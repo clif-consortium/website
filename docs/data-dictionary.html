@@ -1051,120 +1051,126 @@ ul.task-list li input[type="checkbox"] {
 <td><code>IMV</code>, <code>NIPPV</code>, <code>CPAP</code>, <code>High Flow NC</code>, <code>Face Mask</code>, <code>Trach Collar</code>, <code>Nasal Cannula</code>, <code>Room Air</code>, <code>Other</code></td>
 </tr>
 <tr class="odd">
+<td>vent_brand_name</td>
+<td>VARCHAR</td>
+<td>Ventilator model name when <code>device_category</code> is <code>IMV</code> or <code>NIPPV</code></td>
+<td>No restriction</td>
+</tr>
+<tr class="even">
 <td>mode_name</td>
 <td>VARCHAR</td>
 <td>Includes raw string of the modes, e.g.&nbsp;“CMV volume control”</td>
 <td>No restriction</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>mode_category</td>
 <td>VARCHAR</td>
 <td>Maps <code>mode_name</code> to a standardized list of modes of mechanical ventilation</td>
 <td><code>Assist Control-Volume Control</code>, <code>Pressure Control</code>, <code>Pressure-Regulated Volume Control</code>, <code>SIMV</code>, <code>Pressure Support/CPAP</code>, <code>Volume Support</code>, <code>Other</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>tracheostomy</td>
 <td>BOOLEAN</td>
 <td>Indicates if tracheostomy is present</td>
 <td>0 = No, 1 = Yes</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>fio2_set</td>
 <td>DOUBLE</td>
 <td>Fraction of inspired oxygen set in decimals (e.g.&nbsp;0.21)</td>
 <td>No restriction, see <a href="https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category">Expected _set values for each device_category and mode_category</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>lpm_set</td>
 <td>DOUBLE</td>
 <td>Liters per minute set</td>
 <td>No restriction, see <a href="https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category">Expected _set values for each device_category and mode_category</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>tidal_volume_set</td>
 <td>DOUBLE</td>
 <td>Tidal volume set (in mL)</td>
 <td>No restriction, see <a href="https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category">Expected _set values for each device_category and mode_category</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>resp_rate_set</td>
 <td>DOUBLE</td>
 <td>Respiratory rate set (in bpm)</td>
 <td>No restriction, see <a href="https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category">Expected _set values for each device_category and mode_category</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>pressure_control_set</td>
 <td>DOUBLE</td>
 <td>Pressure control set (in cmH2O)</td>
 <td>No restriction, see <a href="https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category">Expected _set values for each device_category and mode_category</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>pressure_support_set</td>
 <td>DOUBLE</td>
 <td>Pressure support set (in cmH2O)</td>
 <td>No restriction, see <a href="https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category">Expected _set values for each device_category and mode_category</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>flow_rate_set</td>
 <td>DOUBLE</td>
 <td>Flow rate set</td>
 <td>No restriction, see <a href="https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category">Expected _set values for each device_category and mode_category</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>peak_inspiratory_pressure_set</td>
 <td>DOUBLE</td>
 <td>Peak inspiratory pressure set (in cmH2O)</td>
 <td>No restriction, see <a href="https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category">Expected _set values for each device_category and mode_category</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>inspiratory_time_set</td>
 <td>DOUBLE</td>
 <td>Inspiratory time set (in seconds)</td>
 <td>No restriction, see <a href="https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category">Expected _set values for each device_category and mode_category</a></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>peep_set</td>
 <td>DOUBLE</td>
 <td>Positive-end-expiratory pressure set (in cmH2O)</td>
 <td>No restriction, see <a href="https://clif-consortium.github.io/website/data-dictionary.html#expected-_set-values-for-each-device_category-and-mode_category">Expected _set values for each device_category and mode_category</a></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>tidal_volume_obs</td>
 <td>DOUBLE</td>
 <td>Observed tidal volume (in mL)</td>
 <td>No restriction</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>resp_rate_obs</td>
 <td>DOUBLE</td>
 <td>Observed respiratory rate (in bpm)</td>
 <td>No restriction</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>plateau_pressure_obs</td>
 <td>DOUBLE</td>
 <td>Observed plateau pressure (in cmH2O)</td>
 <td>No restriction</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>peak_inspiratory_pressure_obs</td>
 <td>DOUBLE</td>
 <td>Observed peak inspiratory pressure (in cmH2O)</td>
 <td>No restriction</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>peep_obs</td>
 <td>DOUBLE</td>
 <td>Observed positive-end-expiratory pressure (in cmH2O)</td>
 <td>No restriction</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>minute_vent_obs</td>
 <td>DOUBLE</td>
 <td>Observed minute ventilation (in liters)</td>
 <td>No restriction</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>mean_airway_pressure_obs</td>
 <td>DOUBLE</td>
 <td>Observed mean airway pressure</td>
@@ -1682,13 +1688,13 @@ ul.task-list li input[type="checkbox"] {
 <td>fluid_name</td>
 <td>VARCHAR</td>
 <td>Cleaned fluid name string from the raw data. This field is not used for analysis.</td>
-<td>No restriction. Check this file for examples: <a href="https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/ucmc/clif_vocab_microbiology_fluid_ucmc.csv">clif_vocab_microbiology_fluid_ucmc.csv</a></td>
+<td>No restriction. Check this <a href="https://github.com/clif-consortium/CLIF/blob/main/mCIDE/mCIDE_mapping_examples/clif_vocab_microbiology_culture_fluid_ucmc.csv">file for examples</a></td>
 </tr>
 <tr class="even">
 <td>fluid_category</td>
 <td>VARCHAR</td>
 <td>Fluid categories defined according to the NIH common data elements.</td>
-<td><a href="https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/clif_nih_vocab_microbiology_fluid.csv">CDE NIH Infection Site</a></td>
+<td><a href="https://github.com/clif-consortium/CLIF/blob/main/mCIDE/clif_microbiology_culture_fluid_categories.csv">CDE NIH Infection Site</a></td>
 </tr>
 <tr class="odd">
 <td>component_name</td>
@@ -1706,13 +1712,13 @@ ul.task-list li input[type="checkbox"] {
 <td>organism_name</td>
 <td>VARCHAR</td>
 <td>Cleaned organism name string from the raw data. This field is not used for analysis.</td>
-<td>No restriction. Check this file for examples: <a href="https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/ucmc/clif_vocab_microbiology_organism_ucmc.csv">clif_vocab_microbiology_organism_ucmc.csv</a></td>
+<td>No restriction. Check this <a href="https://github.com/clif-consortium/CLIF/blob/main/mCIDE/mCIDE_mapping_examples/clif_vocab_microbiology_name_organism_ucmc.csv">file for examples</a></td>
 </tr>
 <tr class="even">
 <td>organism_category</td>
 <td>VARCHAR</td>
 <td>Maps <code>organism_name</code> to the standardized list of organisms in the NIH CDE</td>
-<td><a href="https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/clif_nih_vocab_microbiology_organism.csv">CDE NIH Organism</a></td>
+<td><a href="https://github.com/clif-consortium/CLIF/blob/main/mCIDE/clif_microbiology_culture_organism_categories.csv">CDE NIH Organism</a></td>
 </tr>
 </tbody>
 </table>

@@ -309,6 +309,7 @@ The respiratory support table is a wider longitudinal table that captures simult
 | recorded_dttm | DATETIME | Date and time when the device started | Datetime format should be `%Y-%m-%d %H:%M:%S` |
 | device_name | VARCHAR | Includes raw string of the devices. Not used for analysis | No restriction |
 | device_category | VARCHAR | Maps `device_name` to a standardized list of respiratory support device categories | `IMV`, `NIPPV`, `CPAP`, `High Flow NC`, `Face Mask`, `Trach Collar`, `Nasal Cannula`, `Room Air`, `Other` |
+| vent_brand_name | VARCHAR | Ventilator model name when `device_category` is `IMV` or `NIPPV` | No restriction |
 | mode_name | VARCHAR | Includes raw string of the modes, e.g. "CMV volume control" | No restriction |
 | mode_category | VARCHAR | Maps `mode_name` to a standardized list of modes of mechanical ventilation | `Assist Control-Volume Control`, `Pressure Control`, `Pressure-Regulated Volume Control`, `SIMV`, `Pressure Support/CPAP`, `Volume Support`, `Other` |
 | tracheostomy | BOOLEAN | Indicates if tracheostomy is present | 0 = No, 1 = Yes |
@@ -478,12 +479,12 @@ The microbiology culture table is a wide longitudinal table that captures the or
 | order_dttm | DATETIME | Date and time when the test is ordered. | Datetime format should be `%Y-%m-%d %H:%M:%S` |
 | collect_dttm | DATETIME | Date and time when the specimen is collected. | Datetime format should be `%Y-%m-%d %H:%M:%S` |
 | result_dttm | DATETIME | Date and time when the results are available. | Datetime format should be `%Y-%m-%d %H:%M:%S` |
-| fluid_name | VARCHAR | Cleaned fluid name string from the raw data. This field is not used for analysis. | No restriction. Check this file for examples: [clif_vocab_microbiology_fluid_ucmc.csv](https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/ucmc/clif_vocab_microbiology_fluid_ucmc.csv) |
-| fluid_category | VARCHAR | Fluid categories defined according to the NIH common data elements. | [CDE NIH Infection Site](https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/clif_nih_vocab_microbiology_fluid.csv) |
+| fluid_name | VARCHAR | Cleaned fluid name string from the raw data. This field is not used for analysis. | No restriction. Check this [file for examples](https://github.com/clif-consortium/CLIF/blob/main/mCIDE/mCIDE_mapping_examples/clif_vocab_microbiology_culture_fluid_ucmc.csv) |
+| fluid_category | VARCHAR | Fluid categories defined according to the NIH common data elements. | [CDE NIH Infection Site](https://github.com/clif-consortium/CLIF/blob/main/mCIDE/clif_microbiology_culture_fluid_categories.csv) |
 | component_name | VARCHAR | Original component names from the source data. | No restriction |
 | component_category | VARCHAR | Maps `component_name` to a standardized list of component categories | `culture`, `gram stain`, `smear` |
-| organism_name | VARCHAR | Cleaned organism name string from the raw data. This field is not used for analysis. | No restriction. Check this file for examples: [clif_vocab_microbiology_organism_ucmc.csv](https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/ucmc/clif_vocab_microbiology_organism_ucmc.csv) |
-| organism_category | VARCHAR | Maps `organism_name` to the standardized list of organisms in the NIH CDE | [CDE NIH Organism](https://github.com/kaveriC/CLIF-1.0/blob/main/mCIDE/clif_nih_vocab_microbiology_organism.csv) |
+| organism_name | VARCHAR | Cleaned organism name string from the raw data. This field is not used for analysis. | No restriction. Check this [file for examples](https://github.com/clif-consortium/CLIF/blob/main/mCIDE/mCIDE_mapping_examples/clif_vocab_microbiology_name_organism_ucmc.csv) |
+| organism_category | VARCHAR | Maps `organism_name` to the standardized list of organisms in the NIH CDE | [CDE NIH Organism](https://github.com/clif-consortium/CLIF/blob/main/mCIDE/clif_microbiology_culture_organism_categories.csv) |
 
 ## Sensitivity
 
