@@ -68,8 +68,6 @@ Relational CLIF (RCLIF) is a database that is organized into clinically relevant
 
 You can use our custom GPT- [CLIF Assistant](https://chatgpt.com/g/g-h1nk6d3eR-clif-assistant) to learn more about CLIF and develop analysis scripts.
 
-**Notice a typo, inconsistency, broken link, or other bug in the data dictionary? Please add to our [issues page](https://github.com/clif-consortium/CLIF/issues/29) so we can correct it!**
-
 # CLIF maturity
 
 CLIF is still under development and some parts of the format are more mature than others. CLIF will also need to evolve as the set of minimum Common Data Elements for studying critical illness expands or changes over time.
@@ -175,7 +173,7 @@ The admission, discharge, and transfer (ADT) table is a start-stop longitudinal 
 | in_dttm | DATETIME | Start date and time at a particular location | Datetime format should be `%Y-%m-%d %H:%M:%S` |
 | out_dttm | DATETIME | End date and time at a particular location | Datetime format should be `%Y-%m-%d %H:%M:%S` |
 | location_name | VARCHAR | Location of the patient inside the hospital. This field is used to store the patient location from the source data. This field is not used for analysis. | No restriction |
-| location_category | VARCHAR | Maps `location_name` to a standardized list of ADT location categories | `ER`, `Procedural`, `ICU`, `Ward`, `Other` |
+| location_category | VARCHAR | Maps `location_name` to a standardized list of ADT location categories | `ed`, `ward`, `stepdown`, `icu`, `procedural`, `l&d`, `hospice`, `psych`, `rehab`, `radiology`, `dialysis`, `other` |
 
 **Note**: Procedural areas and operating rooms should be mapped to `Procedural`. Pre/Intra/Post-procedural/OR EHR data (such as anesthesia flowsheet records from Labs, Vitals, Scores, Respiratory Support) **are not currently** represented in CLIF.
 
@@ -483,7 +481,7 @@ The microbiology culture table is a wide longitudinal table that captures the or
 | fluid_category | VARCHAR | Fluid categories defined according to the NIH common data elements. | [CDE NIH Infection Site](https://github.com/clif-consortium/CLIF/blob/main/mCIDE/clif_microbiology_culture_fluid_categories.csv) |
 | component_name | VARCHAR | Original component names from the source data. | No restriction |
 | component_category | VARCHAR | Maps `component_name` to a standardized list of component categories | `culture`, `gram stain`, `smear` |
-| organism_name | VARCHAR | Cleaned organism name string from the raw data. This field is not used for analysis. | No restriction. Check this [file for examples](https://github.com/clif-consortium/CLIF/blob/main/mCIDE/mCIDE_mapping_examples/clif_vocab_microbiology_name_organism_ucmc.csv) |
+| organism_name | VARCHAR | Cleaned organism name string from the raw data. This field is not used for analysis. | No restriction. Check this file for examples](https://github.com/clif-consortium/CLIF/blob/main/mCIDE/mCIDE_mapping_examples/clif_vocab_microbiology_name_organism_ucmc.csv) |
 | organism_category | VARCHAR | Maps `organism_name` to the standardized list of organisms in the NIH CDE | [CDE NIH Organism](https://github.com/clif-consortium/CLIF/blob/main/mCIDE/clif_microbiology_culture_organism_categories.csv) |
 
 ## Sensitivity
