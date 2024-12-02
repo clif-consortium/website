@@ -103,7 +103,7 @@ title: "Meet the CLIF Team"
     <a href="https://scholar.google.com/citations?user=1S-Nm9cAAAAJ&hl=en&oi=sra" target="_blank">
       <img src="images/scholar_icon.png" alt="Google Scholar" class="icon">
     </a></p></div>
-  <div><img src="headshots/placeholder.jpg" alt="Brenna Park-Egan" class="team-img">
+  <div><img src="headshots/brenna_parkegan.jpeg" alt="Brenna Park-Egan" class="team-img">
     <p><strong>Brenna Park-Egan, MS </strong><br>
     </p></div>
 </div>
