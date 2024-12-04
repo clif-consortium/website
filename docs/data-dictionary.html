@@ -162,8 +162,10 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#critical-illness-specific-tables" id="toc-critical-illness-specific-tables" class="nav-link" data-scroll-target="#critical-illness-specific-tables">Critical illness specific tables</a>
   <ul class="collapse">
-  <li><a href="#respiratory-support" id="toc-respiratory-support" class="nav-link" data-scroll-target="#respiratory-support">Respiratory Support</a></li>
+  <li><a href="#respiratory-support" id="toc-respiratory-support" class="nav-link" data-scroll-target="#respiratory-support">Respiratory Support</a>
+  <ul class="collapse">
   <li><a href="#expected-_set-values-for-each-device_category-and-mode_category" id="toc-expected-_set-values-for-each-device_category-and-mode_category" class="nav-link" data-scroll-target="#expected-_set-values-for-each-device_category-and-mode_category">Expected <code>*_set</code> values for each <code>device_category</code> and <code>mode_category</code></a></li>
+  </ul></li>
   <li><a href="#medication-admin-continuous" id="toc-medication-admin-continuous" class="nav-link" data-scroll-target="#medication-admin-continuous">Medication Admin Continuous</a></li>
   <li><a href="#position" id="toc-position" class="nav-link" data-scroll-target="#position">Position</a></li>
   <li><a href="#dialysis" id="toc-dialysis" class="nav-link" data-scroll-target="#dialysis">Dialysis</a></li>
@@ -175,6 +177,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#microbiology_nonculture" id="toc-microbiology_nonculture" class="nav-link" data-scroll-target="#microbiology_nonculture">Microbiology_Nonculture</a></li>
   <li><a href="#procedures" id="toc-procedures" class="nav-link" data-scroll-target="#procedures">Procedures</a></li>
   <li><a href="#transfusion" id="toc-transfusion" class="nav-link" data-scroll-target="#transfusion">Transfusion</a></li>
+  <li><a href="#code-status" id="toc-code-status" class="nav-link" data-scroll-target="#code-status">Code Status</a></li>
   </ul></li>
   <li><a href="#future-proposed-tables" id="toc-future-proposed-tables" class="nav-link" data-scroll-target="#future-proposed-tables">Future proposed tables</a></li>
   </ul>
@@ -360,6 +363,99 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+<p><strong>Example</strong>:</p>
+<div class="scrollable-table">
+<table class="table-striped table-hover table">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 11%">
+<col style="width: 12%">
+<col style="width: 21%">
+<col style="width: 9%">
+<col style="width: 6%">
+<col style="width: 5%">
+<col style="width: 10%">
+<col style="width: 7%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>patient_id</th>
+<th>race_name</th>
+<th>race_category</th>
+<th>ethnicity_name</th>
+<th>ethnicity_category</th>
+<th>sex_category</th>
+<th>birth_date</th>
+<th>death_dttm</th>
+<th>language_name</th>
+<th>language_category</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>132424</td>
+<td>Black or African-American</td>
+<td>Black or African American</td>
+<td>Not Hispanic, Latino/a, or Spanish origin</td>
+<td>Non-Hispanic</td>
+<td>Male</td>
+<td>2145-05-09</td>
+<td>NA</td>
+<td>English</td>
+<td>English</td>
+</tr>
+<tr class="even">
+<td>132384</td>
+<td>White</td>
+<td>White</td>
+<td>Not Hispanic, Latino/a, or Spanish origin</td>
+<td>Non-Hispanic</td>
+<td>Female</td>
+<td>2145-03-30</td>
+<td>NA</td>
+<td>English</td>
+<td>English</td>
+</tr>
+<tr class="odd">
+<td>542367</td>
+<td>Black or African-American</td>
+<td>Black or African American</td>
+<td>Not Hispanic, Latino/a, or Spanish origin</td>
+<td>Non-Hispanic</td>
+<td>Male</td>
+<td>2145-01-29</td>
+<td>NA</td>
+<td>English</td>
+<td>English</td>
+</tr>
+<tr class="even">
+<td>989862</td>
+<td>White</td>
+<td>White</td>
+<td>Not Hispanic, Latino/a, or Spanish origin</td>
+<td>Non-Hispanic</td>
+<td>Female</td>
+<td>2145-11-06</td>
+<td>NA</td>
+<td>English</td>
+<td>English</td>
+</tr>
+<tr class="odd">
+<td>428035</td>
+<td>More than one Race</td>
+<td>Other</td>
+<td>Not Hispanic, Latino/a, or Spanish origin</td>
+<td>Non-Hispanic</td>
+<td>Male</td>
+<td>2145-10-13</td>
+<td>NA</td>
+<td>English</td>
+<td>English</td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 <section id="hospitalization" class="level2">
 <h2 class="anchored" data-anchor-id="hospitalization">Hospitalization</h2>
@@ -493,6 +589,100 @@ ul.task-list li input[type="checkbox"] {
 <li><p>If a patient is initially seen in an ER in hospital A and then admitted to inpatient status in hospital B, one <code>hospitalization_id</code> should be created for data from both stays</p></li>
 <li><p>A <code>hospitalization_joined_id</code> can also be created from a CLIF table from contiguous <code>hospitalization_ids</code></p></li>
 </ol>
+<p><strong>Example</strong>:</p>
+<div class="scrollable-table">
+<table class="table-striped table-hover table">
+<colgroup>
+<col style="width: 3%">
+<col style="width: 6%">
+<col style="width: 7%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 7%">
+<col style="width: 14%">
+<col style="width: 7%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 7%">
+<col style="width: 3%">
+<col style="width: 3%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>patient_id</th>
+<th>hospitalization_id</th>
+<th>hospitalization_joined_id</th>
+<th>admission_dttm</th>
+<th>discharge_dttm</th>
+<th>age_at_admission</th>
+<th>admission_type_name</th>
+<th>admission_type_category</th>
+<th>discharge_name</th>
+<th>discharge_category</th>
+<th>zipcode_five_digit</th>
+<th>zipcode_nine_digit</th>
+<th>census_block_group_code</th>
+<th>latitude</th>
+<th>longitude</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>101001</td>
+<td>12345678</td>
+<td>22334455</td>
+<td>2024-11-01 08:15:00</td>
+<td>2024-11-04 14:30:00</td>
+<td>65</td>
+<td>Direct admission</td>
+<td>Inpatient</td>
+<td>Discharged to Home or Self Care (Routine Discharge)</td>
+<td>Home</td>
+<td>60637</td>
+<td>606370000</td>
+<td>170313202001</td>
+<td>41.81030</td>
+<td>-87.59697</td>
+</tr>
+<tr class="even">
+<td>101002</td>
+<td>87654321</td>
+<td>22334455</td>
+<td>2024-11-04 15:00:00</td>
+<td>2024-11-07 11:00:00</td>
+<td>72</td>
+<td>Transfer from another hospital</td>
+<td>Acute Care Transfer</td>
+<td>Transferred to Acute Inpatient Rehab Facility</td>
+<td>Acute Inpatient Rehab Facility</td>
+<td>46311</td>
+<td>463110000</td>
+<td>170313301002</td>
+<td>41.55030</td>
+<td>-87.30101</td>
+</tr>
+<tr class="odd">
+<td>101003</td>
+<td>11223344</td>
+<td>11223344</td>
+<td>2024-10-20 07:45:00</td>
+<td>2024-10-22 10:20:00</td>
+<td>59</td>
+<td>Pre-op surgical</td>
+<td>Pre-op</td>
+<td>Expired</td>
+<td>Expired</td>
+<td>60446</td>
+<td>604460000</td>
+<td>170313401003</td>
+<td>41.70010</td>
+<td>-87.60315</td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 <section id="adt" class="level2">
 <h2 class="anchored" data-anchor-id="adt">ADT</h2>
@@ -553,6 +743,71 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 <p><strong>Note</strong>: Procedural areas and operating rooms should be mapped to <code>Procedural</code>. Pre/Intra/Post-procedural/OR EHR data (such as anesthesia flowsheet records from Labs, Vitals, Scores, Respiratory Support) <strong>are not currently</strong> represented in CLIF.</p>
+<p><strong>Example</strong>:</p>
+<div class="scrollable-table">
+<table class="table-striped table-hover table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 11%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 13%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>hospitalization_id</th>
+<th>hospital_id</th>
+<th>in_dttm</th>
+<th>out_dttm</th>
+<th>location_name</th>
+<th>location_category</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>20010012</td>
+<td>ABC</td>
+<td>2024-12-01 10:00:00</td>
+<td>2024-12-01 14:00:00</td>
+<td>N04E</td>
+<td>icu</td>
+</tr>
+<tr class="even">
+<td>20010012</td>
+<td>ABC</td>
+<td>2024-12-01 14:30:00</td>
+<td>2024-12-02 08:00:00</td>
+<td>N05W</td>
+<td>ward</td>
+</tr>
+<tr class="odd">
+<td>20010015</td>
+<td>ABC</td>
+<td>2024-11-30 16:45:00</td>
+<td>2024-12-01 12:00:00</td>
+<td>N03E</td>
+<td>icu</td>
+</tr>
+<tr class="even">
+<td>20010015</td>
+<td>ABC</td>
+<td>2024-12-01 12:30:00</td>
+<td>2024-12-02 07:00:00</td>
+<td>N07S</td>
+<td>procedural</td>
+</tr>
+<tr class="odd">
+<td>20010020</td>
+<td>ABC</td>
+<td>2024-11-28 09:00:00</td>
+<td>2024-11-29 17:00:00</td>
+<td>N06N</td>
+<td>ward</td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 <section id="vitals" class="level2">
 <h2 class="anchored" data-anchor-id="vitals">Vitals</h2>
@@ -612,6 +867,103 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+<p><strong>Example</strong>:</p>
+<div class="scrollable-table">
+<table class="table-striped table-hover table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 15%">
+<col style="width: 26%">
+<col style="width: 17%">
+<col style="width: 10%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>hospitalization_id</th>
+<th>recorded_dttm</th>
+<th>vital_name</th>
+<th>vital_category</th>
+<th>vital_value</th>
+<th>meas_site_name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>20010012</td>
+<td>2024-12-01 08:00</td>
+<td>HEIGHT</td>
+<td>height_cm</td>
+<td>170.0</td>
+<td>unspecified</td>
+</tr>
+<tr class="even">
+<td>20010012</td>
+<td>2024-12-01 08:15</td>
+<td>WEIGHT</td>
+<td>weight_kg</td>
+<td>70.0</td>
+<td>unspecified</td>
+</tr>
+<tr class="odd">
+<td>20010012</td>
+<td>2024-12-01 08:30</td>
+<td>PULSE</td>
+<td>heart_rate</td>
+<td>72.0</td>
+<td>unspecified</td>
+</tr>
+<tr class="even">
+<td>20010012</td>
+<td>2024-12-01 08:45</td>
+<td>BLOOD PRESSURE (SYSTOLIC)</td>
+<td>sbp</td>
+<td>120.0</td>
+<td>unspecified</td>
+</tr>
+<tr class="odd">
+<td>20010012</td>
+<td>2024-12-01 08:45</td>
+<td>BLOOD PRESSURE (DIASTOLIC)</td>
+<td>dbp</td>
+<td>80.0</td>
+<td>unspecified</td>
+</tr>
+<tr class="even">
+<td>20010012</td>
+<td>2024-12-01 08:50</td>
+<td>RESPIRATORY RATE</td>
+<td>respiratory_rate</td>
+<td>16.0</td>
+<td>unspecified</td>
+</tr>
+<tr class="odd">
+<td>20010012</td>
+<td>2024-12-01 09:00</td>
+<td>TEMPERATURE</td>
+<td>temp_c</td>
+<td>36.8</td>
+<td>unspecified</td>
+</tr>
+<tr class="even">
+<td>20010012</td>
+<td>2024-12-01 09:15</td>
+<td>SPO2</td>
+<td>spo2</td>
+<td>98.0</td>
+<td>unspecified</td>
+</tr>
+<tr class="odd">
+<td>20010013</td>
+<td>2024-12-01 09:30</td>
+<td>MEAN ARTERIAL PRESSURE (MAP)</td>
+<td>map</td>
+<td>85.0</td>
+<td>arterial</td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 <section id="labs" class="level2">
 <h2 class="anchored" data-anchor-id="labs">Labs</h2>
@@ -714,6 +1066,155 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 <p><strong>Note</strong>: The <code>lab_value</code> field often has non-numeric entries that are useful to make project-specific decisions. A site may choose to keep the <code>lab_value</code> field as a character and create a new field <code>lab_value_numeric</code> that only parses the character field to extract the numeric part of the string.</p>
+<p><strong>Example</strong>:</p>
+<div class="scrollable-table">
+<table class="table-striped table-hover table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 10%">
+<col style="width: 11%">
+<col style="width: 8%">
+<col style="width: 4%">
+<col style="width: 8%">
+<col style="width: 7%">
+<col style="width: 6%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>hospitalization_id</th>
+<th>lab_order_dttm</th>
+<th>lab_collect_dttm</th>
+<th>lab_result_dttm</th>
+<th>lab_order_name</th>
+<th>lab_name</th>
+<th>lab_category</th>
+<th>lab_value</th>
+<th>lab_value_numeric</th>
+<th>reference_unit</th>
+<th>lab_type_name</th>
+<th>lab_loinc_code</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>12345</td>
+<td>2024-12-01 08:15</td>
+<td>2024-12-01 08:30</td>
+<td>2024-12-01 09:00</td>
+<td>Complete Blood Count</td>
+<td>Hemoglobin</td>
+<td>hemoglobin</td>
+<td>12.3</td>
+<td>12.3</td>
+<td>g/dL</td>
+<td>standard</td>
+<td>718-7</td>
+</tr>
+<tr class="even">
+<td>12345</td>
+<td>2024-12-01 08:15</td>
+<td>2024-12-01 08:30</td>
+<td>2024-12-01 09:05</td>
+<td>Complete Blood Count</td>
+<td>White Blood Cell Count</td>
+<td>wbc</td>
+<td>5.6</td>
+<td>5.6</td>
+<td>10^3/uL</td>
+<td>standard</td>
+<td>6690-2</td>
+</tr>
+<tr class="odd">
+<td>12345</td>
+<td>2024-12-01 08:15</td>
+<td>2024-12-01 08:30</td>
+<td>2024-12-01 09:10</td>
+<td>Metabolic Panel</td>
+<td>Sodium</td>
+<td>sodium</td>
+<td>138</td>
+<td>138</td>
+<td>mmol/L</td>
+<td>standard</td>
+<td>2951-2</td>
+</tr>
+<tr class="even">
+<td>12345</td>
+<td>2024-12-01 08:15</td>
+<td>2024-12-01 08:30</td>
+<td>2024-12-01 09:20</td>
+<td>Metabolic Panel</td>
+<td>Potassium</td>
+<td>potassium</td>
+<td>4.1</td>
+<td>4.1</td>
+<td>mmol/L</td>
+<td>standard</td>
+<td>2823-3</td>
+</tr>
+<tr class="odd">
+<td>67890</td>
+<td>2024-12-01 09:30</td>
+<td>2024-12-01 09:45</td>
+<td>2024-12-01 10:15</td>
+<td>Arterial Blood Gas</td>
+<td>pH</td>
+<td>ph</td>
+<td>7.35</td>
+<td>7.35</td>
+<td></td>
+<td>standard</td>
+<td>2744-1</td>
+</tr>
+<tr class="even">
+<td>67890</td>
+<td>2024-12-01 09:30</td>
+<td>2024-12-01 09:45</td>
+<td>2024-12-01 10:20</td>
+<td>Arterial Blood Gas</td>
+<td>pCO2</td>
+<td>pco2</td>
+<td>40</td>
+<td>40</td>
+<td>mmHg</td>
+<td>standard</td>
+<td>2019-8</td>
+</tr>
+<tr class="odd">
+<td>67890</td>
+<td>2024-12-01 09:30</td>
+<td>2024-12-01 09:45</td>
+<td>2024-12-01 10:25</td>
+<td>Arterial Blood Gas</td>
+<td>pO2</td>
+<td>po2</td>
+<td>90</td>
+<td>90</td>
+<td>mmHg</td>
+<td>standard</td>
+<td>2703-7</td>
+</tr>
+<tr class="even">
+<td>67890</td>
+<td>2024-12-01 09:30</td>
+<td>2024-12-01 09:45</td>
+<td>2024-12-01 10:30</td>
+<td>Arterial Blood Gas</td>
+<td>Bicarbonate</td>
+<td>bicarbonate</td>
+<td>24</td>
+<td>24</td>
+<td>mmol/L</td>
+<td>standard</td>
+<td>2028-3</td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 <section id="patient-assessments" class="level2">
 <h2 class="anchored" data-anchor-id="patient-assessments">Patient Assessments</h2>
@@ -779,6 +1280,95 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+<p><strong>Example</strong>:</p>
+<div class="scrollable-table">
+<table class="table-striped table-hover table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 11%">
+<col style="width: 24%">
+<col style="width: 12%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 11%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>hospitalization_id</th>
+<th>recorded_dttm</th>
+<th>assessment_name</th>
+<th>assessment_category</th>
+<th>assessment_group</th>
+<th>numerical_value</th>
+<th>categorical_value</th>
+<th>text_value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>12345</td>
+<td>2024-12-01 08:15</td>
+<td>NUR RA GLASGOW ADULT EYE OPENING</td>
+<td>gcs_eye</td>
+<td>Neurological</td>
+<td>4</td>
+<td>NA</td>
+<td>NA</td>
+</tr>
+<tr class="even">
+<td>12345</td>
+<td>2024-12-01 08:15</td>
+<td>NUR RA GLASGOW ADULT VERBAL RESPONSE</td>
+<td>gcs_verbal</td>
+<td>Neurological</td>
+<td>5</td>
+<td>NA</td>
+<td>NA</td>
+</tr>
+<tr class="odd">
+<td>12345</td>
+<td>2024-12-01 08:15</td>
+<td>NUR RA GLASGOW ADULT BEST MOTOR RESPONSE</td>
+<td>gcs_motor</td>
+<td>Neurological</td>
+<td>6</td>
+<td>NA</td>
+<td>NA</td>
+</tr>
+<tr class="even">
+<td>12345</td>
+<td>2024-12-01 08:15</td>
+<td>NUR RA GLASGOW ADULT SCORING</td>
+<td>gcs_total</td>
+<td>Neurological</td>
+<td>15</td>
+<td>NA</td>
+<td>NA</td>
+</tr>
+<tr class="odd">
+<td>67890</td>
+<td>2024-12-01 10:30</td>
+<td>BRADEN ASSESSMENT</td>
+<td>braden_total</td>
+<td>Nursing Risk</td>
+<td>18</td>
+<td>NA</td>
+<td>NA</td>
+</tr>
+<tr class="even">
+<td>67890</td>
+<td>2024-12-01 10:30</td>
+<td>SAT SCREEN</td>
+<td>sat_delivery_pass_fail</td>
+<td>Sedation</td>
+<td>NA</td>
+<td>Pass</td>
+<td>NA</td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 <section id="provider" class="level2">
 <h2 class="anchored" data-anchor-id="provider">Provider</h2>
@@ -1013,8 +1603,8 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="critical-illness-specific-tables" class="level1">
 <h1>Critical illness specific tables</h1>
-<section id="respiratory-support" class="level3">
-<h3 class="anchored" data-anchor-id="respiratory-support">Respiratory Support</h3>
+<section id="respiratory-support" class="level2">
+<h2 class="anchored" data-anchor-id="respiratory-support">Respiratory Support</h2>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid"></a></p>
 <p>The respiratory support table is a wider longitudinal table that captures simultaneously recorded ventilator settings and observed ventilator parameters. The table is designed to capture the most common respiratory support devices and modes used in the ICU. It will be sparse for patients who are not on mechanical ventilation.</p>
 <table class="table">
@@ -1179,7 +1769,6 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-</section>
 <section id="expected-_set-values-for-each-device_category-and-mode_category" class="level3">
 <h3 class="anchored" data-anchor-id="expected-_set-values-for-each-device_category-and-mode_category">Expected <code>*_set</code> values for each <code>device_category</code> and <code>mode_category</code></h3>
 <section id="device_category-imv" class="level4">
@@ -1299,6 +1888,160 @@ ul.task-list li input[type="checkbox"] {
 <section id="device_category-trach-collar-or-nasal-cannula" class="level4">
 <h4 class="anchored" data-anchor-id="device_category-trach-collar-or-nasal-cannula"><code>device_category</code> == “Trach Collar” or “Nasal Cannula”</h4>
 <p><code>mode_category</code> is NA and <code>lpm_set</code> is required.</p>
+<p><strong>Example</strong>:</p>
+<div class="scrollable-table">
+<table class="table-striped table-hover table">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 5%">
+<col style="width: 7%">
+<col style="width: 2%">
+<col style="width: 4%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>hospitalization_id</th>
+<th>recorded_dttm</th>
+<th>device_name</th>
+<th>device_category</th>
+<th>mode_name</th>
+<th>mode_category</th>
+<th>vent_brand_name</th>
+<th>tracheostomy</th>
+<th>fio2_set</th>
+<th>lpm_set</th>
+<th>tidal_volume_set</th>
+<th>resp_rate_set</th>
+<th>pressure_control_set</th>
+<th>pressure_support_set</th>
+<th>flow_rate_set</th>
+<th>tidal_volume_obs</th>
+<th>resp_rate_obs</th>
+<th>plateau_pressure_obs</th>
+<th>peak_inspiratory_pressure_obs</th>
+<th>peep_obs</th>
+<th>minute_vent_obs</th>
+<th>mean_airway_pressure_obs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>12345</td>
+<td>2024-12-01 08:00</td>
+<td>Ventilator</td>
+<td>IMV</td>
+<td>CMV Volume Ctrl</td>
+<td>Assist Control-Volume Control</td>
+<td>Vent A</td>
+<td>1</td>
+<td>0.50</td>
+<td>40</td>
+<td>500</td>
+<td>18</td>
+<td>15</td>
+<td>5</td>
+<td>50</td>
+<td>450</td>
+<td>18</td>
+<td>20</td>
+<td>25</td>
+<td>5</td>
+<td>9.0</td>
+<td>12.0</td>
+</tr>
+<tr class="even">
+<td>12345</td>
+<td>2024-12-01 09:00</td>
+<td>Ventilator</td>
+<td>IMV</td>
+<td>SIMV</td>
+<td>SIMV</td>
+<td>Vent A</td>
+<td>1</td>
+<td>0.45</td>
+<td>35</td>
+<td>480</td>
+<td>20</td>
+<td>18</td>
+<td>8</td>
+<td>55</td>
+<td>470</td>
+<td>20</td>
+<td>21</td>
+<td>28</td>
+<td>6</td>
+<td>10.5</td>
+<td>14.0</td>
+</tr>
+<tr class="odd">
+<td>67890</td>
+<td>2024-12-01 10:30</td>
+<td>HFNC</td>
+<td>High Flow NC</td>
+<td>N/A</td>
+<td>Other</td>
+<td>N/A</td>
+<td>0</td>
+<td>0.30</td>
+<td>60</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>60</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+</tr>
+<tr class="even">
+<td>67890</td>
+<td>2024-12-01 11:00</td>
+<td>CPAP</td>
+<td>CPAP</td>
+<td>CPAP</td>
+<td>Pressure Support/CPAP</td>
+<td>CPAP X</td>
+<td>0</td>
+<td>0.40</td>
+<td>50</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>10</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>NA</td>
+<td>8</td>
+<td>NA</td>
+<td>NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
 </section>
 </section>
 <section id="medication-admin-continuous" class="level2">
@@ -1389,6 +2132,135 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+<p><strong>Example</strong>:</p>
+<div class="scrollable-table">
+<table class="table-striped table-hover table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 23%">
+<col style="width: 8%">
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 10%">
+<col style="width: 5%">
+<col style="width: 7%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>hospitalization_id</th>
+<th>admin_dttm</th>
+<th>med_name</th>
+<th>med_category</th>
+<th>med_group</th>
+<th>med_route_name</th>
+<th>med_route_category</th>
+<th>med_dose</th>
+<th>med_dose_unit</th>
+<th>mar_action_name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>792391</td>
+<td>2123-11-13 12:28:00</td>
+<td>PROPOFOL 10 MG/ML INTRAVENOUS EMULSION</td>
+<td>propofol</td>
+<td>sedation</td>
+<td>Intravenous</td>
+<td>NA</td>
+<td>75.0000</td>
+<td>mcg/kg/min</td>
+<td>New Bag</td>
+</tr>
+<tr class="even">
+<td>792391</td>
+<td>2123-11-13 13:49:00</td>
+<td>REMIFENTANIL CONTINUOUS IV (ANESTHESIA)</td>
+<td>remifentanil</td>
+<td>sedation</td>
+<td>NA</td>
+<td>NA</td>
+<td>0.0500</td>
+<td>mcg/kg/min</td>
+<td>New Bag</td>
+</tr>
+<tr class="odd">
+<td>792391</td>
+<td>2123-11-13 14:03:00</td>
+<td>PROPOFOL 10 MG/ML INTRAVENOUS EMULSION</td>
+<td>propofol</td>
+<td>sedation</td>
+<td>Intravenous</td>
+<td>NA</td>
+<td>0.0000</td>
+<td>mcg/kg/min</td>
+<td>Stopped</td>
+</tr>
+<tr class="even">
+<td>370921</td>
+<td>2123-02-12 00:00:00</td>
+<td>OXYTOCIN 30 UNIT/500 ML IN 0.9 % SODIUM CHLORIDE</td>
+<td>oxytocin</td>
+<td>endocrine</td>
+<td>Intravenous</td>
+<td>NA</td>
+<td>4.0000</td>
+<td>milli-units/min</td>
+<td>Restarted</td>
+</tr>
+<tr class="odd">
+<td>370921</td>
+<td>2123-02-12 00:10:00</td>
+<td>OXYTOCIN 30 UNIT/500 ML IN 0.9 % SODIUM CHLORIDE</td>
+<td>oxytocin</td>
+<td>endocrine</td>
+<td>Intravenous</td>
+<td>NA</td>
+<td>0.0000</td>
+<td>milli-units/min</td>
+<td>Stopped</td>
+</tr>
+<tr class="even">
+<td>370921</td>
+<td>2123-02-12 03:07:00</td>
+<td>PHENYLEPHRINE 5 MG/50 ML (100 MCG/ML) IN 0.9 % SODIUM CHLORIDE</td>
+<td>phenylephrine</td>
+<td>vasoactives</td>
+<td>Intravenous</td>
+<td>NA</td>
+<td>20.0000</td>
+<td>mcg/min</td>
+<td>New Bag</td>
+</tr>
+<tr class="odd">
+<td>370921</td>
+<td>2123-02-12 03:14:00</td>
+<td>PHENYLEPHRINE 5 MG/50 ML (100 MCG/ML) IN 0.9 % SODIUM CHLORIDE</td>
+<td>phenylephrine</td>
+<td>vasoactives</td>
+<td>Intravenous</td>
+<td>NA</td>
+<td>50.0000</td>
+<td>mcg/min</td>
+<td>Rate Change</td>
+</tr>
+<tr class="even">
+<td>702344</td>
+<td>2123-04-27 04:30:00</td>
+<td>HEPARIN (PORCINE) 25,000 UNIT/250 ML IN 0.45 % SODIUM CHLORIDE</td>
+<td>heparin</td>
+<td>anticoagulation</td>
+<td>Intravenous</td>
+<td>NA</td>
+<td>18.0000</td>
+<td>Units/kg/hr</td>
+<td>New Bag</td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 <section id="position" class="level2">
 <h2 class="anchored" data-anchor-id="position">Position</h2>
@@ -1436,6 +2308,75 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+<p><strong>Example</strong>:</p>
+<div class="scrollable-table">
+<table class="table-striped table-hover table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 21%">
+<col style="width: 38%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>hospitalization_id</th>
+<th>recorded_dttm</th>
+<th>position_name</th>
+<th>position_category</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>84</td>
+<td>2123-06-20 00:00:00</td>
+<td>Supine–turn R</td>
+<td>not_prone</td>
+</tr>
+<tr class="even">
+<td>84</td>
+<td>2123-06-20 06:00:00</td>
+<td>Supine–turn L</td>
+<td>not_prone</td>
+</tr>
+<tr class="odd">
+<td>84</td>
+<td>2123-06-20 12:00:00</td>
+<td>Supine–back</td>
+<td>not_prone</td>
+</tr>
+<tr class="even">
+<td>84</td>
+<td>2123-06-20 16:00:00</td>
+<td>Supine–turn R</td>
+<td>not_prone</td>
+</tr>
+<tr class="odd">
+<td>84</td>
+<td>2123-06-20 20:00:00</td>
+<td>Supine–back;Supine–turn intolerant</td>
+<td>not_prone</td>
+</tr>
+<tr class="even">
+<td>84</td>
+<td>2123-06-20 22:00:00</td>
+<td>Supine–turn intolerant,microturn L</td>
+<td>not_prone</td>
+</tr>
+<tr class="odd">
+<td>84</td>
+<td>2123-06-20 00:00:00</td>
+<td>Supine–turn intolerant,microturn L;Supine–back</td>
+<td>not_prone</td>
+</tr>
+<tr class="even">
+<td>84</td>
+<td>2123-06-20 01:10:00</td>
+<td>30 Degrees</td>
+<td>not_prone</td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 <section id="dialysis" class="level2">
 <h2 class="anchored" data-anchor-id="dialysis">Dialysis</h2>
@@ -1945,6 +2886,96 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+</section>
+<section id="code-status" class="level2">
+<h2 class="anchored" data-anchor-id="code-status">Code Status</h2>
+<p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
+<p>This table provides a longitudinal record of changes in a patient’s code status during their hospitalization. It tracks the timeline and categorization of code status updates, facilitating the analysis of care preferences and decisions.</p>
+<table class="table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 8%">
+<col style="width: 55%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Variable Name</strong></th>
+<th><strong>Data Type</strong></th>
+<th><strong>Definition</strong></th>
+<th><strong>Permissible Values</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>hospitalization_id</td>
+<td>VARCHAR</td>
+<td>Unique identifier linking the code status event to a specific hospitalization in the CLIF database.</td>
+<td>Unique identifier, e.g., <code>123456</code></td>
+</tr>
+<tr class="even">
+<td>start_dttm</td>
+<td>DATETIME</td>
+<td>The date and time when the specific code status was initiated.</td>
+<td>Example: <code>2024-12-03 08:30:00</code></td>
+</tr>
+<tr class="odd">
+<td>code_status_name</td>
+<td>VARCHAR</td>
+<td>The name/description of the code status.</td>
+<td>Free text to describe the code status.</td>
+</tr>
+<tr class="even">
+<td>code_status_category</td>
+<td>VARCHAR</td>
+<td>Categorical variable specifying the code status during the hospitalization.</td>
+<td>E.g., <code>DNR</code>, <code>UDNR</code>, <code>DNR/DNI</code>, <code>Full</code>, <code>Presume Full</code>, <code>Other</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Notes</strong>:</p>
+<ul>
+<li>The <code>code_status_category</code> set of permissible values is under development</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<div class="scrollable-table">
+<table class="table-striped table-hover table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 25%">
+<col style="width: 26%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>hospitalization_id</th>
+<th>start_dttm</th>
+<th>code_status_name</th>
+<th>code_status_category</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>12345</td>
+<td>2024-12-01T08:30:00</td>
+<td>Do Not Resuscitate</td>
+<td>DNR</td>
+</tr>
+<tr class="even">
+<td>12345</td>
+<td>2024-12-02T14:00:00</td>
+<td>Do Not Intubate</td>
+<td>DNR/DNI</td>
+</tr>
+<tr class="odd">
+<td>12345</td>
+<td>2024-12-03T10:15:00</td>
+<td>Full Code</td>
+<td>Full</td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 </section>
 <section id="future-proposed-tables" class="level1">
