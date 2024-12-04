@@ -409,12 +409,11 @@ This table records the ordering (not administration) of medications. The table i
 | med_frequency | VARCHAR | Frequency with which the medication is administered, as per the order | Examples include `Once Daily`, `Every 6 hours` |
 | prn | BOOLEAN | Indicates whether the medication is to be given "as needed" (PRN) | `0` (No), `1` (Yes) |
 
-**Example**:
+<!-- **Example**:
 
 ::: {.scrollable-table}
-
 : {.striped .hover}
-:::
+::: -->
 
 # Critical illness specific tables
 
