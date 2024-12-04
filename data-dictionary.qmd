@@ -481,7 +481,7 @@ The microbiology culture table is a wide longitudinal table that captures the or
 | fluid_category | VARCHAR | Fluid categories defined according to the NIH common data elements. | [CDE NIH Infection Site](https://github.com/clif-consortium/CLIF/blob/main/mCIDE/clif_microbiology_culture_fluid_categories.csv) |
 | component_name | VARCHAR | Original component names from the source data. | No restriction |
 | component_category | VARCHAR | Maps `component_name` to a standardized list of component categories | `culture`, `gram stain`, `smear` |
-| organism_name | VARCHAR | Cleaned organism name string from the raw data. This field is not used for analysis. | No restriction. Check this file for examples](https://github.com/clif-consortium/CLIF/blob/main/mCIDE/mCIDE_mapping_examples/clif_vocab_microbiology_name_organism_ucmc.csv) |
+| organism_name | VARCHAR | Cleaned organism name string from the raw data. This field is not used for analysis. | No restriction. [Check this file for examples](https://github.com/clif-consortium/CLIF/blob/main/mCIDE/mCIDE_mapping_examples/clif_vocab_microbiology_name_organism_ucmc.csv) |
 | organism_category | VARCHAR | Maps `organism_name` to the standardized list of organisms in the NIH CDE | [CDE NIH Organism](https://github.com/clif-consortium/CLIF/blob/main/mCIDE/clif_microbiology_culture_organism_categories.csv) |
 
 ## Sensitivity
@@ -527,6 +527,24 @@ A longitudinal record of each bedside ICU procedure performed on the patient (e.
 | procedure_category | VARCHAR | Maps `procedure_name` to a list of standardized procedures | CDE under development |
 | diagnosis | VARCHAR | The diagnosis or reason for performing the procedure |  |
 | start_dttm | DATETIME | Date and time when the procedure was initiated |  |
+
+## Transfusion
+
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+
+This table provides detailed information about transfusion events linked to specific hospitalizations.
+
+| **Variable Name**        | **Data Type** | **Definition**                                                                                  | **Permissible Values**          |
+|---------------------------|---------------|--------------------------------------------------------------------------------------------------|---------------------------------|
+| hospitalization_id      | VARCHAR       | Unique identifier linking the transfusion event to a specific hospitalization in the CLIF database. | Unique identifier, e.g., `123456` |
+| transfusion_start_dttm  | DATETIME      | The date and time the transfusion of the blood component began.                                   | Example: `2024-12-03 08:30:00` |
+| transfusion_end_dttm    | DATETIME      | The date and time the transfusion of the blood component ended.                                   | Example: `2024-12-03 10:00:00` |
+| component_name          | VARCHAR       | The name of the blood component transfused.                                                      | E.g., `Red Blood Cells`, `Plasma`, `Platelets` |
+| attribute_name          | VARCHAR       | Attributes describing modifications to the component.                                             | E.g., `Leukocyte Reduced`, `Irradiated` |
+| volume_transfused       | DOUBLE        | The volume of the blood component transfused.                                                    | Example: `300`                 |
+| volume_units            | VARCHAR       | The unit of measurement for the transfused volume.                                               | Example: `mL`                  |
+| product_code            | VARCHAR       | ISBT 128 Product Description Code representing the specific blood product.                       | Example: `E0382`               |
+
 
 # Future proposed tables
 

@@ -174,6 +174,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#sensitivity" id="toc-sensitivity" class="nav-link" data-scroll-target="#sensitivity">Sensitivity</a></li>
   <li><a href="#microbiology_nonculture" id="toc-microbiology_nonculture" class="nav-link" data-scroll-target="#microbiology_nonculture">Microbiology_Nonculture</a></li>
   <li><a href="#procedures" id="toc-procedures" class="nav-link" data-scroll-target="#procedures">Procedures</a></li>
+  <li><a href="#transfusion" id="toc-transfusion" class="nav-link" data-scroll-target="#transfusion">Transfusion</a></li>
   </ul></li>
   <li><a href="#future-proposed-tables" id="toc-future-proposed-tables" class="nav-link" data-scroll-target="#future-proposed-tables">Future proposed tables</a></li>
   </ul>
@@ -1712,7 +1713,7 @@ ul.task-list li input[type="checkbox"] {
 <td>organism_name</td>
 <td>VARCHAR</td>
 <td>Cleaned organism name string from the raw data. This field is not used for analysis.</td>
-<td>No restriction. Check this file for examples](https://github.com/clif-consortium/CLIF/blob/main/mCIDE/mCIDE_mapping_examples/clif_vocab_microbiology_name_organism_ucmc.csv)</td>
+<td>No restriction. <a href="https://github.com/clif-consortium/CLIF/blob/main/mCIDE/mCIDE_mapping_examples/clif_vocab_microbiology_name_organism_ucmc.csv">Check this file for examples</a></td>
 </tr>
 <tr class="even">
 <td>organism_category</td>
@@ -1870,6 +1871,77 @@ ul.task-list li input[type="checkbox"] {
 <td>DATETIME</td>
 <td>Date and time when the procedure was initiated</td>
 <td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="transfusion" class="level2">
+<h2 class="anchored" data-anchor-id="transfusion">Transfusion</h2>
+<p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
+<p>This table provides detailed information about transfusion events linked to specific hospitalizations.</p>
+<table class="table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 8%">
+<col style="width: 56%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Variable Name</strong></th>
+<th><strong>Data Type</strong></th>
+<th><strong>Definition</strong></th>
+<th><strong>Permissible Values</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>hospitalization_id</td>
+<td>VARCHAR</td>
+<td>Unique identifier linking the transfusion event to a specific hospitalization in the CLIF database.</td>
+<td>Unique identifier, e.g., <code>123456</code></td>
+</tr>
+<tr class="even">
+<td>transfusion_start_dttm</td>
+<td>DATETIME</td>
+<td>The date and time the transfusion of the blood component began.</td>
+<td>Example: <code>2024-12-03 08:30:00</code></td>
+</tr>
+<tr class="odd">
+<td>transfusion_end_dttm</td>
+<td>DATETIME</td>
+<td>The date and time the transfusion of the blood component ended.</td>
+<td>Example: <code>2024-12-03 10:00:00</code></td>
+</tr>
+<tr class="even">
+<td>component_name</td>
+<td>VARCHAR</td>
+<td>The name of the blood component transfused.</td>
+<td>E.g., <code>Red Blood Cells</code>, <code>Plasma</code>, <code>Platelets</code></td>
+</tr>
+<tr class="odd">
+<td>attribute_name</td>
+<td>VARCHAR</td>
+<td>Attributes describing modifications to the component.</td>
+<td>E.g., <code>Leukocyte Reduced</code>, <code>Irradiated</code></td>
+</tr>
+<tr class="even">
+<td>volume_transfused</td>
+<td>DOUBLE</td>
+<td>The volume of the blood component transfused.</td>
+<td>Example: <code>300</code></td>
+</tr>
+<tr class="odd">
+<td>volume_units</td>
+<td>VARCHAR</td>
+<td>The unit of measurement for the transfused volume.</td>
+<td>Example: <code>mL</code></td>
+</tr>
+<tr class="even">
+<td>product_code</td>
+<td>VARCHAR</td>
+<td>ISBT 128 Product Description Code representing the specific blood product.</td>
+<td>Example: <code>E0382</code></td>
 </tr>
 </tbody>
 </table>
