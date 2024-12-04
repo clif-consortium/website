@@ -1428,6 +1428,95 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+<p><strong>Example</strong>:</p>
+<div class="scrollable-table">
+<table class="table-striped table-hover table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 10%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 21%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>hospitalization_id</th>
+<th>provider_id</th>
+<th>start_dttm</th>
+<th>stop_dttm</th>
+<th>provider_role_name</th>
+<th>provider_role_category</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1001014</td>
+<td>P12345</td>
+<td>2023-05-01 08:00:00</td>
+<td>2023-05-01 20:00:00</td>
+<td>Attending Physician</td>
+<td>Attending</td>
+</tr>
+<tr class="even">
+<td>1001014</td>
+<td>P54321</td>
+<td>2023-05-01 08:00:00</td>
+<td>2023-05-02 08:00:00</td>
+<td>Resident Physician</td>
+<td>Resident</td>
+</tr>
+<tr class="odd">
+<td>1001014</td>
+<td>P67890</td>
+<td>2023-05-01 08:00:00</td>
+<td>2023-05-03 08:00:00</td>
+<td>Nurse Practitioner</td>
+<td>Nurse Practitioner</td>
+</tr>
+<tr class="even">
+<td>1002025</td>
+<td>P11223</td>
+<td>2023-06-10 09:00:00</td>
+<td>2023-06-10 21:00:00</td>
+<td>Critical Care Specialist</td>
+<td>Critical Care</td>
+</tr>
+<tr class="odd">
+<td>1002025</td>
+<td>P44556</td>
+<td>2023-06-10 09:00:00</td>
+<td>2023-06-11 09:00:00</td>
+<td>Respiratory Therapist</td>
+<td>Respiratory Therapy</td>
+</tr>
+<tr class="even">
+<td>1003036</td>
+<td>P33445</td>
+<td>2023-07-15 07:30:00</td>
+<td>2023-07-15 19:30:00</td>
+<td>Attending Physician</td>
+<td>Attending</td>
+</tr>
+<tr class="odd">
+<td>1003036</td>
+<td>P66789</td>
+<td>2023-07-15 07:30:00</td>
+<td>2023-07-16 07:30:00</td>
+<td>Charge Nurse</td>
+<td>Nurse</td>
+</tr>
+<tr class="even">
+<td>1004047</td>
+<td>P99887</td>
+<td>2023-08-20 10:00:00</td>
+<td>2023-08-20 22:00:00</td>
+<td>Physical Therapist</td>
+<td>Therapy</td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 <section id="admission-diagnosis" class="level2">
 <h2 class="anchored" data-anchor-id="admission-diagnosis">Admission Diagnosis</h2>
@@ -1481,6 +1570,85 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+<p><strong>Example</strong>:</p>
+<div class="scrollable-table">
+<table class="table-striped table-hover table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 18%">
+<col style="width: 24%">
+<col style="width: 22%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>patient_id</th>
+<th>diagnostic_code</th>
+<th>diagnosis_code_format</th>
+<th>start_dttm</th>
+<th>end_dttm</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1001014</td>
+<td>250.00</td>
+<td>icd9</td>
+<td>2023-05-01 08:00:00</td>
+<td>2023-05-10 08:00:00</td>
+</tr>
+<tr class="even">
+<td>1001014</td>
+<td>J45.909</td>
+<td>icd10</td>
+<td>2023-05-01 08:00:00</td>
+<td>2023-05-15 08:00:00</td>
+</tr>
+<tr class="odd">
+<td>1002025</td>
+<td>401.9</td>
+<td>icd9</td>
+<td>2023-06-10 09:00:00</td>
+<td>2023-06-12 09:00:00</td>
+</tr>
+<tr class="even">
+<td>1002025</td>
+<td>E11.9</td>
+<td>icd10</td>
+<td>2023-06-10 09:00:00</td>
+<td>2023-06-20 09:00:00</td>
+</tr>
+<tr class="odd">
+<td>1003036</td>
+<td>414.01</td>
+<td>icd9</td>
+<td>2023-07-15 07:30:00</td>
+<td>2023-07-30 07:30:00</td>
+</tr>
+<tr class="even">
+<td>1003036</td>
+<td>I25.10</td>
+<td>icd10</td>
+<td>2023-07-15 07:30:00</td>
+<td>2023-07-25 07:30:00</td>
+</tr>
+<tr class="odd">
+<td>1004047</td>
+<td>530.81</td>
+<td>icd9</td>
+<td>2023-08-20 10:00:00</td>
+<td>2023-08-22 10:00:00</td>
+</tr>
+<tr class="even">
+<td>1004047</td>
+<td>K21.9</td>
+<td>icd10</td>
+<td>2023-08-20 10:00:00</td>
+<td>2023-08-24 10:00:00</td>
+</tr>
+</tbody>
+</table>
+</div>
 </section>
 <section id="medication-admin-intermittent" class="level2">
 <h2 class="anchored" data-anchor-id="medication-admin-intermittent">Medication Admin Intermittent</h2>
@@ -1599,6 +1767,10 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+<p><strong>Example</strong>:</p>
+<div class="scrollable-table">
+<p>: {.striped .hover}</p>
+</div>
 </section>
 </section>
 <section id="critical-illness-specific-tables" class="level1">

@@ -333,6 +333,22 @@ Continuous start stop record of every provider who cared for the patient.
 | provider_role_name | VARCHAR | The original string describing the role or specialty of the provider during the hospitalization | No restriction |
 | provider_role_category | VARCHAR | Maps `provider_role_name` to list of standardized provider roles | under development |
 
+**Example**:
+
+::: {.scrollable-table}
+| hospitalization_id | provider_id | start_dttm         | stop_dttm          | provider_role_name        | provider_role_category |
+|--------------------|-------------|---------------------|---------------------|---------------------------|------------------------|
+| 1001014            | P12345      | 2023-05-01 08:00:00 | 2023-05-01 20:00:00 | Attending Physician       | Attending             |
+| 1001014            | P54321      | 2023-05-01 08:00:00 | 2023-05-02 08:00:00 | Resident Physician        | Resident              |
+| 1001014            | P67890      | 2023-05-01 08:00:00 | 2023-05-03 08:00:00 | Nurse Practitioner        | Nurse Practitioner    |
+| 1002025            | P11223      | 2023-06-10 09:00:00 | 2023-06-10 21:00:00 | Critical Care Specialist  | Critical Care         |
+| 1002025            | P44556      | 2023-06-10 09:00:00 | 2023-06-11 09:00:00 | Respiratory Therapist     | Respiratory Therapy   |
+| 1003036            | P33445      | 2023-07-15 07:30:00 | 2023-07-15 19:30:00 | Attending Physician       | Attending             |
+| 1003036            | P66789      | 2023-07-15 07:30:00 | 2023-07-16 07:30:00 | Charge Nurse              | Nurse                 |
+| 1004047            | P99887      | 2023-08-20 10:00:00 | 2023-08-20 22:00:00 | Physical Therapist        | Therapy               |
+: {.striped .hover}
+:::
+
 ## Admission Diagnosis
 
 [![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
@@ -346,6 +362,22 @@ Record of all diagnoses associated with the hospitalization. Expect breaking cha
 | diagnosis_code_format | VARCHAR | description of the diagnostic code format | `icd9` ,`icd10` |
 | start_dttm | DATETIME | date time the diagnosis was recorded | Datetime format should be %Y-%m-%d %H:%M:%S |
 | end_dttm | DATETIME | date time the diagnosis was noted as resolved (if resolved) | Datetime format should be %Y-%m-%d %H:%M:%S |
+
+**Example**:
+
+::: {.scrollable-table}
+| patient_id | diagnostic_code | diagnosis_code_format | start_dttm         | end_dttm           |
+|------------|-----------------|-----------------------|---------------------|---------------------|
+| 1001014    | 250.00          | icd9                 | 2023-05-01 08:00:00 | 2023-05-10 08:00:00 |
+| 1001014    | J45.909         | icd10                | 2023-05-01 08:00:00 | 2023-05-15 08:00:00 |
+| 1002025    | 401.9           | icd9                 | 2023-06-10 09:00:00 | 2023-06-12 09:00:00 |
+| 1002025    | E11.9           | icd10                | 2023-06-10 09:00:00 | 2023-06-20 09:00:00 |
+| 1003036    | 414.01          | icd9                 | 2023-07-15 07:30:00 | 2023-07-30 07:30:00 |
+| 1003036    | I25.10          | icd10                | 2023-07-15 07:30:00 | 2023-07-25 07:30:00 |
+| 1004047    | 530.81          | icd9                 | 2023-08-20 10:00:00 | 2023-08-22 10:00:00 |
+| 1004047    | K21.9           | icd10                | 2023-08-20 10:00:00 | 2023-08-24 10:00:00 |
+: {.striped .hover}
+:::
 
 ## Medication Admin Intermittent
 
@@ -376,6 +408,13 @@ This table records the ordering (not administration) of medications. The table i
 | med_dose_unit | VARCHAR | Unit of measurement for the medication dosage | Examples include `mg`, `mL`, `units` |
 | med_frequency | VARCHAR | Frequency with which the medication is administered, as per the order | Examples include `Once Daily`, `Every 6 hours` |
 | prn | BOOLEAN | Indicates whether the medication is to be given "as needed" (PRN) | `0` (No), `1` (Yes) |
+
+**Example**:
+
+::: {.scrollable-table}
+
+: {.striped .hover}
+:::
 
 # Critical illness specific tables
 
