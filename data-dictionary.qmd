@@ -409,11 +409,21 @@ This table records the ordering (not administration) of medications. The table i
 | med_frequency | VARCHAR | Frequency with which the medication is administered, as per the order | Examples include `Once Daily`, `Every 6 hours` |
 | prn | BOOLEAN | Indicates whether the medication is to be given "as needed" (PRN) | `0` (No), `1` (Yes) |
 
-<!-- **Example**:
+**Example**:
 
 ::: {.scrollable-table}
+| hospitalization_id | med_order_id | order_start_dttm    | order_end_dttm      | ordered_dttm        | med_name                           | med_category  | med_group    | med_order_status_name | med_order_status_category | med_route_name | med_dose | med_dose_unit | med_frequency    | prn |
+|---------------------|--------------|----------------------|---------------------|---------------------|------------------------------------|---------------|-------------|-----------------------|--------------------------|----------------|----------|---------------|-----------------|-----|
+| 12345              | 456789        | 2023-10-01 14:00:00 | 2023-10-02 14:00:00 | 2023-10-01 13:30:00 | Norepinephrine 8 mg/250 mL         | norepinephrine | vasoactives | active                | ongoing                  | Intravenous    | 8.0      | mg/mL         | Continuous       | 0   |
+| 12346              | 456790        | 2023-10-01 16:00:00 | 2023-10-02 10:00:00 | 2023-10-01 15:30:00 | Vancomycin 1 g IV                  | vancomycin     | antibiotics  | active                | ongoing                  | Intravenous    | 1.0      | g             | Every 12 hours   | 0   |
+| 12347              | 456791        | 2023-10-02 08:00:00 | 2023-10-03 08:00:00 | 2023-10-02 07:30:00 | Furosemide 40 mg IV                | furosemide     | diuretics    | discontinued          | discontinued             | Intravenous    | 40.0     | mg            | Once Daily       | 0   |
+| 12348              | 456792        | 2023-10-02 12:00:00 | 2023-10-02 18:00:00 | 2023-10-02 11:45:00 | Insulin Regular 100 units/mL SC    | insulin        | endocrine    | held                  | held                     | Subcutaneous   | 100.0    | units/mL      | As Needed        | 1   |
+| 12349              | 456793        | 2023-10-03 08:00:00 | 2023-10-03 20:00:00 | 2023-10-03 07:30:00 | Acetaminophen 1 g PO               | acetaminophen  | analgesics   | active                | ongoing                  | Oral           | 1.0      | g             | Every 6 hours    | 0   |
+| 12350              | 456794        | 2023-10-03 10:00:00 | 2023-10-03 18:00:00 | 2023-10-03 09:45:00 | Heparin 5,000 units SC             | heparin        | anticoagulant| active                | ongoing                  | Subcutaneous   | 5000.0   | units         | Every 8 hours    | 0   |
+| 12351              | 456795        | 2023-10-03 14:00:00 | 2023-10-03 22:00:00 | 2023-10-03 13:30:00 | Morphine Sulfate 2 mg IV           | morphine       | analgesics   | active                | ongoing                  | Intravenous    | 2.0      | mg            | As Needed        | 1   |
+| 12352              | 456796        | 2023-10-03 20:00:00 | 2023-10-04 08:00:00 | 2023-10-03 19:45:00 | Dexamethasone 10 mg IV             | dexamethasone  | steroids     | active                | ongoing                  | Intravenous    | 10.0     | mg            | Once Daily       | 0   |
 : {.striped .hover}
-::: -->
+:::
 
 # Critical illness specific tables
 
@@ -586,6 +596,18 @@ The dialysis table is a wider longitudinal table that captures the start and sto
 | fluid_removal_amt | DOUBLE | Amount of fluid removed during dialysis | Numeric |
 | dialysate_flow_rate | DOUBLE | Rate of dialysate flow | Numeric |
 
+**Example**:
+
+::: {.scrollable-table}
+| hospitalization_id | start_dttm          | stop_dttm           | dialysis_type_name | dialysis_type_category | crrt_mode_name | crrt_mode_category | fluid_removal_amt | dialysate_flow_rate |
+|---------------------|---------------------|---------------------|--------------------|------------------------|----------------|--------------------|-------------------|---------------------|
+| 101                 | 2024-01-01 08:00:00 | 2024-01-01 12:00:00 | Hemodialysis       | intermittent           | NA             | NA                 | 2500.0            | 500.0               |
+| 102                 | 2024-01-02 10:00:00 | 2024-01-02 14:30:00 | CRRT               | crrt                   | CVVHD          | continuous venovenous hemodialysis | 1500.0            | 700.0               |
+| 103                 | 2024-01-03 09:30:00 | 2024-01-03 13:30:00 | Peritoneal Dialysis| peritoneal             | NA             | NA                 | 2000.0            | NA                  |
+| 104                 | 2024-01-04 11:00:00 | 2024-01-04 15:00:00 | CRRT               | crrt                   | CVVHDF         | continuous venovenous hemodiafiltration | 1800.0            | 600.0               |
+: {.striped .hover}
+:::
+
 ## ECMO_MCS
 
 [![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
@@ -604,6 +626,18 @@ The ECMO/MCS table is a wider longitudinal table that captures the start and sto
 | flow | Blood flow in L/min. |
 | sweep | Gas flow rate in L/min. |
 
+**Example**:
+
+::: {.scrollable-table}
+| hospitalization_id | start_dttm          | end_dttm            | device_name        | device_category | device_metric_name | device_rate | flow | sweep |
+|---------------------|---------------------|---------------------|--------------------|-----------------|--------------------|-------------|------|-------|
+| 1001                | 2024-01-01 08:00:00 | 2024-01-03 10:00:00 | Centrimag          | MCS             | RPMs               | 3000        | 4.5  | NA    |
+| 1002                | 2024-01-05 12:00:00 | 2024-01-07 14:30:00 | ECMO VV            | ECMO            | Flow Rate          | NA          | 5.2  | 2.0   |
+| 1003                | 2024-01-10 09:00:00 | 2024-01-12 15:45:00 | TandemHeart        | MCS             | RPMs               | 2800        | 3.8  | NA    |
+| 1004                | 2024-01-15 14:00:00 | 2024-01-17 16:00:00 | ECMO VA            | ECMO            | Sweep              | NA          | 4.1  | 3.5   |
+: {.striped .hover}
+:::
+
 ## Intake_Output
 
 [![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
@@ -618,6 +652,20 @@ The intake_output table is long form table that captures the times intake and ou
 | amount | Amount of fluid administered (in mL). |
 | in_out_flag | Indicator for intake or output (1 for intake, 0 for output). |
 
+**Example**:
+
+::: {.scrollable-table}
+| hospitalization_id | intake_dttm         | fluid_name         | amount | in_out_flag |
+|---------------------|---------------------|--------------------|--------|-------------|
+| 1001                | 2024-01-01 08:00:00 | Normal Saline      | 500    | 1           |
+| 1001                | 2024-01-01 10:30:00 | Urine              | 300    | 0           |
+| 1002                | 2024-01-05 09:15:00 | Dextrose           | 250    | 1           |
+| 1002                | 2024-01-05 14:00:00 | Urine              | 400    | 0           |
+| 1003                | 2024-01-10 07:45:00 | Lactated Ringer's  | 600    | 1           |
+| 1003                | 2024-01-10 12:00:00 | Drainage           | 200    | 0           |
+: {.striped .hover}
+:::
+
 ## Therapy_Details
 
 [![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
@@ -631,6 +679,19 @@ The `therapy_details` table is a wide longitudinal table that captures the detai
 | therapy_element_name     | Name of the therapy element.                     |
 | therapy_element_category | Category of the therapy element.                 |
 | therapy_element_value    | Value associated with the therapy element.       |
+
+**Example**:
+
+::: {.scrollable-table}
+| hospitalization_id | session_start_dttm  | therapy_element_name  | therapy_element_category | therapy_element_value |
+|---------------------|---------------------|-----------------------|--------------------------|-----------------------|
+| 1001                | 2024-01-01 08:00:00 | Physical Therapy      | Rehabilitation           | 45.0                 |
+| 1001                | 2024-01-01 10:00:00 | Respiratory Therapy   | Respiratory Support      | 3.0                  |
+| 1002                | 2024-01-05 09:30:00 | Occupational Therapy  | Rehabilitation           | 60.0                 |
+| 1002                | 2024-01-05 11:00:00 | Speech Therapy        | Rehabilitation           | 30.0                 |
+| 1003                | 2024-01-10 07:00:00 | Ventilation Support   | Respiratory Support      | 2.5                  |
+: {.striped .hover}
+:::
 
 ## Microbiology Culture
 
@@ -651,6 +712,22 @@ The microbiology culture table is a wide longitudinal table that captures the or
 | organism_name | VARCHAR | Cleaned organism name string from the raw data. This field is not used for analysis. | No restriction. [Check this file for examples](https://github.com/clif-consortium/CLIF/blob/main/mCIDE/mCIDE_mapping_examples/clif_vocab_microbiology_name_organism_ucmc.csv) |
 | organism_category | VARCHAR | Maps `organism_name` to the standardized list of organisms in the NIH CDE | [CDE NIH Organism](https://github.com/clif-consortium/CLIF/blob/main/mCIDE/clif_microbiology_culture_organism_categories.csv) |
 
+**Example**:
+
+::: {.scrollable-table}
+| hospitalization_id | order_dttm          | collect_dttm        | result_dttm         | fluid_name                          | fluid_category            | component_name      | component_category | organism_name         | organism_category          |
+|---------------------|---------------------|---------------------|---------------------|-------------------------------------|---------------------------|---------------------|--------------------|-----------------------|----------------------------|
+| 12345              | 2023-10-01 14:00:00 | 2023-10-01 15:00:00 | 2023-10-03 10:00:00 | culture, blood (bacterial & fungal) | blood/buffy coat          | culture             | culture            | no growth             | no growth                  |
+| 12345              | 2023-10-01 16:00:00 | 2023-10-01 17:00:00 | 2023-10-03 12:00:00 | culture, urine                     | genito-urinary tract      | culture             | culture            | escherichia_coli      | escherichia (also e. coli) |
+| 12346              | 2023-11-01 10:30:00 | 2023-11-01 11:15:00 | 2023-11-02 09:00:00 | culture & stain, respiratory        | lower respiratory tract   | gram stain          | gram stain         | gram positive cocci   | gram positive cocci (nos) |
+| 12346              | 2023-11-02 12:00:00 | 2023-11-02 12:45:00 | 2023-11-03 08:30:00 | culture, cerebrospinal fluid        | csf                       | culture             | culture            | no growth             | no growth                  |
+| 12347              | 2023-09-15 14:20:00 | 2023-09-15 15:00:00 | 2023-09-17 11:30:00 | culture & stain, afb                | other unspecified         | afb smear           | smear              | no growth             | no growth                  |
+| 12348              | 2023-08-10 09:00:00 | 2023-08-10 09:45:00 | 2023-08-12 08:00:00 | culture, blood (bacterial & fungal) | blood/buffy coat          | culture             | culture            | staphylococcus_aureus | staphylococcus (all)       |
+| 12349              | 2023-07-25 11:00:00 | 2023-07-25 11:30:00 | 2023-07-27 10:15:00 | culture, urine                     | genito-urinary tract      | culture             | culture            | enterococcus_faecium  | enterococcus (all species) |
+| 12350              | 2023-06-15 13:30:00 | 2023-06-15 14:00:00 | 2023-06-17 09:45:00 | culture & stain, respiratory        | lower respiratory tract   | gram stain          | gram stain         | gram negative rod     | gram negative rod (nos)    |
+: {.striped .hover}
+:::
+
 ## Sensitivity
 
 [![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
@@ -663,6 +740,19 @@ This table is used to store the susceptibility results of the organisms identifi
 | antibiotic | VARCHAR | Name of the antibiotic tested for sensitivity | Examples include `Penicillin`, `Vancomycin` |
 | sensitivity | VARCHAR | The result of the sensitivity test, indicating the organism's resistance or susceptibility | `Resistant`, `Intermediate`, `Susceptible` |
 | mic | DOUBLE | Minimum Inhibitory Concentration (MIC) value, which measures the lowest concentration of an antibiotic needed to inhibit growth |  |
+
+**Example**:
+
+::: {.scrollable-table}
+| culture_id | antibiotic  | sensitivity  | mic   |
+|------------|-------------|--------------|-------|
+| 1001       | Penicillin  | Susceptible  | 0.25  |
+| 1001       | Vancomycin  | Resistant    | 8.0   |
+| 1002       | Amoxicillin | Intermediate | 4.0   |
+| 1003       | Ciprofloxacin | Susceptible | 0.5   |
+| 1004       | Gentamicin  | Resistant    | 16.0  |
+: {.striped .hover}
+:::
 
 ## Microbiology_Nonculture
 
@@ -681,6 +771,19 @@ The microbiology non-culture table is a wide longitudinal table that captures th
 | result_unit_category | Unit category of the test result. |
 | result_category | Category of the test result. |
 
+**Example**:
+
+::: {.scrollable-table}
+| hospitalization_id | result_dttm          | collect_dttm         | order_dttm          | fluid_name              | component_category     | result_unit_category | result_category      |
+|--------------------|----------------------|----------------------|---------------------|-------------------------|------------------------|----------------------|----------------------|
+| 101                | 2024-01-01 10:00:00 | 2024-01-01 08:00:00 | 2024-01-01 07:30:00 | Blood                  | PCR                   | Units/mL            | Positive            |
+| 102                | 2024-01-02 11:30:00 | 2024-01-02 09:30:00 | 2024-01-02 08:15:00 | Cerebrospinal Fluid    | Antigen Detection     | mg/L                | Negative            |
+| 103                | 2024-01-03 15:00:00 | 2024-01-03 13:00:00 | 2024-01-03 12:45:00 | Sputum                 | Gene Amplification    | copies/mL           | Detected            |
+| 104                | 2024-01-04 09:45:00 | 2024-01-04 07:15:00 | 2024-01-04 06:30:00 | Urine                  | Molecular Pathogen ID | ng/mL               | Not Detected        |
+| 105                | 2024-01-05 18:00:00 | 2024-01-05 16:00:00 | 2024-01-05 15:00:00 | Pleural Fluid          | Protein Quantification| g/dL                | Elevated            |
+: {.striped .hover}
+:::
+
 ## Procedures
 
 [![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
@@ -694,6 +797,19 @@ A longitudinal record of each bedside ICU procedure performed on the patient (e.
 | procedure_category | VARCHAR | Maps `procedure_name` to a list of standardized procedures | CDE under development |
 | diagnosis | VARCHAR | The diagnosis or reason for performing the procedure |  |
 | start_dttm | DATETIME | Date and time when the procedure was initiated |  |
+
+**Example**:
+
+::: {.scrollable-table}
+| hospitalization_id | procedure_name         | procedure_category  | diagnosis                  | start_dttm          |
+|--------------------|------------------------|---------------------|---------------------------|---------------------|
+| 1001               | Central Line Placement | Vascular Access     | Sepsis with hypotension   | 2024-01-01 08:00:00 |
+| 1001               | Chest Tube Placement   | Respiratory Support | Pneumothorax              | 2024-01-01 10:00:00 |
+| 1002               | Endotracheal Intubation| Airway Management   | Acute Respiratory Failure | 2024-01-05 09:30:00 |
+| 1002               | Paracentesis           | Diagnostic Procedure| Suspected peritonitis     | 2024-01-05 11:00:00 |
+| 1003               | Arterial Line Placement| Vascular Access     | Hemodynamic Monitoring    | 2024-01-10 07:00:00 |
+: {.striped .hover}
+:::
 
 ## Transfusion
 
@@ -712,6 +828,16 @@ This table provides detailed information about transfusion events linked to spec
 | volume_units            | VARCHAR       | The unit of measurement for the transfused volume.                                               | Example: `mL`                  |
 | product_code            | VARCHAR       | ISBT 128 Product Description Code representing the specific blood product.                       | Example: `E0382`               |
 
+**Example**:
+
+::: {.scrollable-table}
+| hospitalization_id | transfusion_start_dttm | transfusion_end_dttm | component_name   | attribute_name     | volume_transfused | volume_units | product_code |
+|---------------------|-------------------------|-----------------------|------------------|--------------------|-------------------|--------------|--------------|
+| 123456             | 2024-12-03 08:30:00    | 2024-12-03 10:00:00   | Red Blood Cells  | Leukocyte Reduced  | 300               | mL           | E0382        |
+| 789012             | 2024-12-04 14:00:00    | 2024-12-04 16:30:00   | Platelets        | Irradiated         | 250               | mL           | P0205        |
+| 456789             | 2024-12-05 12:15:00    | 2024-12-05 13:45:00   | Plasma           |                    | 200               | mL           | F0781        |
+: {.striped .hover}
+:::
 
 ## Code Status
 
@@ -741,14 +867,46 @@ This table provides a longitudinal record of changes in a patient's code status 
 : {.striped .hover}
 :::
 
+## Invasive Hemodynamics
+
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+
+The `invasive_hemodynamics` table records invasive hemodynamic measurements during a patient’s hospitalization. These measurements represent pressures recorded via invasive monitoring and are expressed in millimeters of mercury (mmHg).
+
+| Column Name          | Data Type     | Description                                                                                       | Permissible Values                              |
+|----------------------|---------------|---------------------------------------------------------------------------------------------------|------------------------------------------------|
+| hospitalization_id  | VARCHAR    | Unique identifier linking to the specific hospitalization.                                        | N/A                                            |
+| recorded_dttm       | DATETIME    | The date and time when the measurement was recorded.                                              | N/A                                            |
+| measure_name        | VARCHAR    | Description of the site or context of the invasive hemodynamic measurement.                      | Free text (e.g., "Right Atrium")               |
+| measure_category    | VARCHAR    | Categorical variable specifying the type of invasive hemodynamic measurement.                     | `CVP`, `RA`, `RV`, `PA_systolic`, `PA_diastolic`, `PA_mean`, `PCWP` |
+| measure_value       | DDOUBLE    | The numerical value of the invasive hemodynamic measurement in mmHg.                              | Positive decimal values (e.g., `5.00`, `25.65`)|
+
+**Notes**: 
+
+- All `measure_value` entries should be recorded in mmHg.
+- The `measure_category` field ensures standardization of invasive hemodynamic data.
+  - `CVP` - Central Venous Pressure
+  - `RA` - Right Atrial Pressure
+  - `RV` - Right Ventricular Pressure
+  - `PA_systolic` - Pulmonary Artery Systolic Pressure
+  - `PA_diastolic` - Pulmonary Artery Diastolic Pressure
+  - `PA_mean` - Pulmonary Artery Mean Pressure
+  - `PCWP` - Pulmonary Capillary Wedge Pressure
+
+**Example**:
+
+::: {.scrollable-table}
+| hospitalization_id | recorded_dttm       | measure_name   | measure_category | measure_value |
+|--------------------|---------------------|----------------|------------------|---------------|
+| 12345              | 2024-12-01T08:30:00 | CVP  | CVP              | 12.50         |
+| 12345              | 2024-12-01T09:00:00 | Pulmonary Artery-Sys | PA_systolic    | 25.00         |
+| 12345              | 2024-12-01T09:30:00 | Wedge | PCWP             | 18.75         |
+: {.striped .hover}
+:::
+
+
 # Future proposed tables
 
 These are tables without any defined structure that the consortium has not yet committed to implementing.
-
--   **Code_status:** longitudinal record containing changes in the patient's code status during the hospitalization over time\
-    `hospitalization_id`\
-    `start_dttm`\
-    `code_status_name`\
-    `code_status_category` with levels `c(DNR, UDNR, DNR/DNI, Full, Presume Full, Other)`
 
 -   **Clinical Decision Support**: This table will capture the actions of clinical decision support tools embedded in the EHR. The table will have the following fields: `cds_name`, `cds_category`, `cds_value`, `cds_trigger_ddtm`.
