@@ -617,8 +617,7 @@ The ECMO/MCS table is a wider longitudinal table that captures the start and sto
 | Variable Name | Description |
 |----|----|
 | hospitalization_id | Unique identifier for the hospitalization event. |
-| start_dttm | Date and time when ECMO/MCS support started. |
-| end_dttm | Date and time when ECMO/MCS support ended. |
+| recorded_dttm | Date and time when ECMO/MCS support started. |
 | device_name | Name of the ECMO/MCS device used including brand information, e.g. "Centrimag" |
 | device_category | Maps `device_name` to a standardized list of ECMO or MCS |
 | device_metric_name | String that captures the measure of work rate of the device, e.g., RPMs. |
