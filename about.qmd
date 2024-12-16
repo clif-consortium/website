@@ -51,7 +51,7 @@ title: "Meet the CLIF Team"
       <img src="images/linkedin_icon.png" alt="LinkedIn" class="icon">
     </a></p></div>
   <div><img src="headshots/zewei_liao.jpg" alt="Zewei Liao" class="team-img">
-    <p><strong>Zewei Liao, BA</strong><br>
+    <p><strong>Zewei ("Whiskey") Liao, BA</strong><br>
      <a href="https://www.linkedin.com/in/zewei-whiskey-liao" target="_blank">
       <img src="images/linkedin_icon.png" alt="LinkedIn" class="icon">
     </a></p></div>
