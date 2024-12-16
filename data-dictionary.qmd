@@ -436,7 +436,7 @@ The respiratory support table is a wider longitudinal table that captures simult
 | Variable Name | Data Type | Definition | Permissible Values |
 |----|----|----|----|
 | hospitalization_id | VARCHAR | ID variable for each patient encounter |  |
-| recorded_dttm | DATETIME | Date and time when the device started | Datetime format should be `%Y-%m-%d %H:%M:%S` |
+| recorded_dttm | DATETIME | Date and time when the device settings and/or measurement was recorded. | Datetime format should be `%Y-%m-%d %H:%M:%S` |
 | device_name | VARCHAR | Includes raw string of the devices. Not used for analysis | No restriction |
 | device_category | VARCHAR | Maps `device_name` to a standardized list of respiratory support device categories | `IMV`, `NIPPV`, `CPAP`, `High Flow NC`, `Face Mask`, `Trach Collar`, `Nasal Cannula`, `Room Air`, `Other` |
 | vent_brand_name | VARCHAR | Ventilator model name when `device_category` is `IMV` or `NIPPV` | No restriction |
@@ -516,7 +516,7 @@ E = Expected ventilator setting for the mode, P = possible ventilator setting fo
 
 [![](https://img.shields.io/badge/Maturity-Beta-yellow)](#maturity-levels-for-clif-tables)
 
-The medication admin continuous table is a long-form (one medication administration per row) longitudinal table. Note that it only reflects dose changes of the continuous medication and does not have a specific "end_time" variable to indicate the medication being stopped.
+The medication admin continuous table is a long-form (one medication administration record per) longitudinal table designed for continuous infusions of common ICU medications such as vasopressors and sedation (Boluses of these drugs should be recorded in `med_admin_intermittent`). Note that it only reflects dose changes of the continuous medication and does not have a specific “end_time” variable to indicate the medication being stopped. The end of a continuous infusion should be recorded as a new row with med_dose = 0 and an appropriate mar_action_name (e.g. "stopped" or "paused").
 
 | Variable Name | Data Type | Definition | Permissible Values |
 |----|----|----|----|
@@ -529,7 +529,7 @@ The medication admin continuous table is a long-form (one medication administrat
 | med_route_name | VARCHAR | Medicine delivery route | e.g. IV, enteral |
 | med_route_category | VARCHAR | Maps `med_route_name` to a standardized list of medication delivery routes | Under-development |
 | med_dose | DOUBLE | Quantity taken in dose |  |
-| med_dose_unit | VARCHAR | Unit of dose |  |
+| med_dose_unit | VARCHAR | Unit of dose. It must be a rate, e.g. mcg/min. Boluses should be mapped to `med_admin_intermittent` |  |
 | mar_action_name | VARCHAR | MAR (medication administration record) action, e.g. "stopped" |  |
 | mar_action_category | VARCHAR | Maps `mar_action_name` to a standardized list of MAR actions | Under-development |
 
@@ -541,8 +541,6 @@ The medication admin continuous table is a long-form (one medication administrat
 | 792391             | 2123-11-13 12:28:00 | PROPOFOL 10 MG/ML INTRAVENOUS EMULSION       | propofol       | sedation      | Intravenous    | NA                  | 75.0000  | mcg/kg/min    | New Bag         |
 | 792391             | 2123-11-13 13:49:00 | REMIFENTANIL CONTINUOUS IV (ANESTHESIA)      | remifentanil   | sedation      | NA             | NA                  | 0.0500   | mcg/kg/min    | New Bag         |
 | 792391             | 2123-11-13 14:03:00 | PROPOFOL 10 MG/ML INTRAVENOUS EMULSION       | propofol       | sedation      | Intravenous    | NA                  | 0.0000   | mcg/kg/min    | Stopped         |
-| 370921             | 2123-02-12 00:00:00 | OXYTOCIN 30 UNIT/500 ML IN 0.9 % SODIUM CHLORIDE | oxytocin    | endocrine     | Intravenous    | NA                  | 4.0000   | milli-units/min | Restarted       |
-| 370921             | 2123-02-12 00:10:00 | OXYTOCIN 30 UNIT/500 ML IN 0.9 % SODIUM CHLORIDE | oxytocin    | endocrine     | Intravenous    | NA                  | 0.0000   | milli-units/min | Stopped         |
 | 370921             | 2123-02-12 03:07:00 | PHENYLEPHRINE 5 MG/50 ML (100 MCG/ML) IN 0.9 % SODIUM CHLORIDE | phenylephrine | vasoactives   | Intravenous    | NA                  | 20.0000  | mcg/min       | New Bag         |
 | 370921             | 2123-02-12 03:14:00 | PHENYLEPHRINE 5 MG/50 ML (100 MCG/ML) IN 0.9 % SODIUM CHLORIDE | phenylephrine | vasoactives   | Intravenous    | NA                  | 50.0000  | mcg/min       | Rate Change     |
 | 702344             | 2123-04-27 04:30:00 | HEPARIN (PORCINE) 25,000 UNIT/250 ML IN 0.45 % SODIUM CHLORIDE | heparin      | anticoagulation | Intravenous | NA                  | 18.0000  | Units/kg/hr   | New Bag         |
@@ -617,7 +615,7 @@ The ECMO/MCS table is a wider longitudinal table that captures the start and sto
 | Variable Name | Description |
 |----|----|
 | hospitalization_id | Unique identifier for the hospitalization event. |
-| recorded_dttm | Date and time when ECMO/MCS support started. |
+| recorded_dttm | Date and time when the device settings and/or measurement was recorded. |
 | device_name | Name of the ECMO/MCS device used including brand information, e.g. "Centrimag" |
 | device_category | Maps `device_name` to a standardized list of ECMO or MCS |
 | device_metric_name | String that captures the measure of work rate of the device, e.g., RPMs. |
@@ -900,6 +898,34 @@ The `invasive_hemodynamics` table records invasive hemodynamic measurements duri
 | 12345              | 2024-12-01T08:30:00 | CVP  | CVP              | 12.50         |
 | 12345              | 2024-12-01T09:00:00 | Pulmonary Artery-Sys | PA_systolic    | 25.00         |
 | 12345              | 2024-12-01T09:30:00 | Wedge | PCWP             | 18.75         |
+: {.striped .hover}
+:::
+
+
+## Key ICU orders 
+
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+
+The `key_icu_orders` table captures key orders related to physical therapy (PT) and occupational therapy (OT) during ICU stays. It includes details about the hospitalization, the timing of the order, the specific name of the order, its category, and the status of the order (completed or sent).
+
+
+| Column Name         | Data Type          | Description                                                                              | Permissible Values                             |
+|---------------------|--------------------|------------------------------------------------------------------------------------------|------------------------------------------------|
+| hospitalization_id  | VARCHAR  | Unique identifier linking the order to a specific hospitalization.                                 | N/A                                            |
+| order_dttm          | DATETIME           | Date and time when the order was placed.                                                 | Datetime format should be `%Y-%m-%d %H:%M:%S`  |
+| order_name          | VARCHAR    | Name of the specific order (e.g., "PT Evaluation", "OT Treatment").                              | N/A                                            |
+| order_category      | VARCHAR               | Category of the order. Permissible values are:                                           | Under-development. Some examples include: `PT_evaluation`, `PT_treat`, `OT_evaluation`, `OT_treat` |
+| order_status_name   | VARCHAR               | Status of the order. Permissible values are:                                             | `sent`, `completed`                             |
+
+**Example**:
+
+::: {.scrollable-table}
+| hospitalization_id | order_dttm          | order_name                   | order_category   | order_status_name |
+|---------------------|---------------------|------------------------------|------------------|--------------------|
+| 12345              | 2024-12-15 10:00:00| PT Initial Evaluation        | PT_evaluation    | completed          |
+| 67890              | 2024-12-16 14:30:00| OT Follow-up Treatment       | OT_treat         | sent               |
+| 54321              | 2024-12-16 08:00:00| PT Mobility Session          | PT_treat         | completed          |
+| 98765              | 2024-12-15 11:15:00| OT Cognitive Assessment      | OT_evaluation    | sent               |
 : {.striped .hover}
 :::
 

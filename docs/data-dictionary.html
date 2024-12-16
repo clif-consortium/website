@@ -179,6 +179,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#transfusion" id="toc-transfusion" class="nav-link" data-scroll-target="#transfusion">Transfusion</a></li>
   <li><a href="#code-status" id="toc-code-status" class="nav-link" data-scroll-target="#code-status">Code Status</a></li>
   <li><a href="#invasive-hemodynamics" id="toc-invasive-hemodynamics" class="nav-link" data-scroll-target="#invasive-hemodynamics">Invasive Hemodynamics</a></li>
+  <li><a href="#key-icu-orders" id="toc-key-icu-orders" class="nav-link" data-scroll-target="#key-icu-orders">Key ICU orders</a></li>
   </ul></li>
   <li><a href="#future-proposed-tables" id="toc-future-proposed-tables" class="nav-link" data-scroll-target="#future-proposed-tables">Future proposed tables</a></li>
   </ul>
@@ -1974,7 +1975,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>recorded_dttm</td>
 <td>DATETIME</td>
-<td>Date and time when the device started</td>
+<td>Date and time when the device settings and/or measurement was recorded.</td>
 <td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
 </tr>
 <tr class="odd">
@@ -2395,7 +2396,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="medication-admin-continuous" class="level2">
 <h2 class="anchored" data-anchor-id="medication-admin-continuous">Medication Admin Continuous</h2>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid"></a></p>
-<p>The medication admin continuous table is a long-form (one medication administration per row) longitudinal table. Note that it only reflects dose changes of the continuous medication and does not have a specific “end_time” variable to indicate the medication being stopped.</p>
+<p>The medication admin continuous table is a long-form (one medication administration record per) longitudinal table designed for continuous infusions of common ICU medications such as vasopressors and sedation (Boluses of these drugs should be recorded in <code>med_admin_intermittent</code>). Note that it only reflects dose changes of the continuous medication and does not have a specific “end_time” variable to indicate the medication being stopped. The end of a continuous infusion should be recorded as a new row with med_dose = 0 and an appropriate mar_action_name (e.g.&nbsp;“stopped” or “paused”).</p>
 <table class="table">
 <thead>
 <tr class="header">
@@ -2463,7 +2464,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>med_dose_unit</td>
 <td>VARCHAR</td>
-<td>Unit of dose</td>
+<td>Unit of dose. It must be a rate, e.g.&nbsp;mcg/min. Boluses should be mapped to <code>med_admin_intermittent</code></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -2544,30 +2545,6 @@ ul.task-list li input[type="checkbox"] {
 <td>NA</td>
 <td>0.0000</td>
 <td>mcg/kg/min</td>
-<td>Stopped</td>
-</tr>
-<tr class="even">
-<td>370921</td>
-<td>2123-02-12 00:00:00</td>
-<td>OXYTOCIN 30 UNIT/500 ML IN 0.9 % SODIUM CHLORIDE</td>
-<td>oxytocin</td>
-<td>endocrine</td>
-<td>Intravenous</td>
-<td>NA</td>
-<td>4.0000</td>
-<td>milli-units/min</td>
-<td>Restarted</td>
-</tr>
-<tr class="odd">
-<td>370921</td>
-<td>2123-02-12 00:10:00</td>
-<td>OXYTOCIN 30 UNIT/500 ML IN 0.9 % SODIUM CHLORIDE</td>
-<td>oxytocin</td>
-<td>endocrine</td>
-<td>Intravenous</td>
-<td>NA</td>
-<td>0.0000</td>
-<td>milli-units/min</td>
 <td>Stopped</td>
 </tr>
 <tr class="even">
@@ -2900,7 +2877,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>recorded_dttm</td>
-<td>Date and time when ECMO/MCS support started.</td>
+<td>Date and time when the device settings and/or measurement was recorded.</td>
 </tr>
 <tr class="odd">
 <td>device_name</td>
@@ -4070,6 +4047,110 @@ ul.task-list li input[type="checkbox"] {
 <td>Wedge</td>
 <td>PCWP</td>
 <td>18.75</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="key-icu-orders" class="level2">
+<h2 class="anchored" data-anchor-id="key-icu-orders">Key ICU orders</h2>
+<p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
+<p>The <code>key_icu_orders</code> table captures key orders related to physical therapy (PT) and occupational therapy (OT) during ICU stays. It includes details about the hospitalization, the timing of the order, the specific name of the order, its category, and the status of the order (completed or sent).</p>
+<table class="table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 50%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Column Name</th>
+<th>Data Type</th>
+<th>Description</th>
+<th>Permissible Values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>hospitalization_id</td>
+<td>VARCHAR</td>
+<td>Unique identifier linking the order to a specific hospitalization.</td>
+<td>N/A</td>
+</tr>
+<tr class="even">
+<td>order_dttm</td>
+<td>DATETIME</td>
+<td>Date and time when the order was placed.</td>
+<td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
+</tr>
+<tr class="odd">
+<td>order_name</td>
+<td>VARCHAR</td>
+<td>Name of the specific order (e.g., “PT Evaluation”, “OT Treatment”).</td>
+<td>N/A</td>
+</tr>
+<tr class="even">
+<td>order_category</td>
+<td>VARCHAR</td>
+<td>Category of the order. Permissible values are:</td>
+<td>Under-development. Some examples include: <code>PT_evaluation</code>, <code>PT_treat</code>, <code>OT_evaluation</code>, <code>OT_treat</code></td>
+</tr>
+<tr class="odd">
+<td>order_status_name</td>
+<td>VARCHAR</td>
+<td>Status of the order. Permissible values are:</td>
+<td><code>sent</code>, <code>completed</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>:</p>
+<div class="scrollable-table">
+<table class="table-striped table-hover table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 27%">
+<col style="width: 16%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>hospitalization_id</th>
+<th>order_dttm</th>
+<th>order_name</th>
+<th>order_category</th>
+<th>order_status_name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>12345</td>
+<td>2024-12-15 10:00:00</td>
+<td>PT Initial Evaluation</td>
+<td>PT_evaluation</td>
+<td>completed</td>
+</tr>
+<tr class="even">
+<td>67890</td>
+<td>2024-12-16 14:30:00</td>
+<td>OT Follow-up Treatment</td>
+<td>OT_treat</td>
+<td>sent</td>
+</tr>
+<tr class="odd">
+<td>54321</td>
+<td>2024-12-16 08:00:00</td>
+<td>PT Mobility Session</td>
+<td>PT_treat</td>
+<td>completed</td>
+</tr>
+<tr class="even">
+<td>98765</td>
+<td>2024-12-15 11:15:00</td>
+<td>OT Cognitive Assessment</td>
+<td>OT_evaluation</td>
+<td>sent</td>
 </tr>
 </tbody>
 </table>
