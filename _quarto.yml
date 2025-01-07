@@ -38,7 +38,7 @@ website:
 
     right:
       - icon: github
-        href: https://github.com/clif-consortium/CLIF
+        href: https://github.com/Common-Longitudinal-ICU-data-Format
     twitter-card: true
 
 format:

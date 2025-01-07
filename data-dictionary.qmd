@@ -692,7 +692,7 @@ The `therapy_details` table is a wide longitudinal table that captures the detai
 
 ## Microbiology Culture
 
-[![](https://img.shields.io/badge/Maturity-Beta-yellow)](#maturity-levels-for-clif-tables)
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
 
 The microbiology culture table is a wide longitudinal table that captures the order and result times of microbiology culture tests, the type of fluid collected, the component of the test, and the organism identified.
 
