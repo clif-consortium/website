@@ -261,7 +261,7 @@ The admission, discharge, and transfer (ADT) table is a start-stop longitudinal 
 | hospital_type      | VARCHAR         | Maps `hospital_id` to a standardized list of hospital types                                                                                              | `academic`, `community`                                                                                             |
 +--------------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
 
-**Note**: Procedural areas and operating rooms should be mapped to `Procedural`. Pre/Intra/Post-procedural/OR EHR data (such as anesthesia flowsheet records from Labs, Vitals, Scores, Respiratory Support) **are not currently** represented in CLIF. For `location_type`, All `_icu` variables should be used for **closed** ICUs, all open ICUs should be labeled as `general_icu` .
+**Note**: Procedural areas and operating rooms should be mapped to `Procedural`. Pre/Intra/Post-procedural/OR EHR data (such as anesthesia flowsheet records from Labs, Vitals, Scores, Respiratory Support) **are not currently** represented in CLIF. For `location_type`, All `_icu` variables should be used for **closed** ICUs, all open ICUs should be labeled as `general_icu` !
 
 **Example**:
 
