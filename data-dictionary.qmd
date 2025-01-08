@@ -234,6 +234,8 @@ The admission, discharge, and transfer (ADT) table is a start-stop longitudinal 
 +--------------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
 | hospital_id        | VARCHAR         | Assign a unique ID to each hospital within a healthsystem                                                                                                | No restriction                                                                                                      |
 +--------------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
+| hospital_type      | VARCHAR         | Maps `hospital_id` to a standardized list of hospital types                                                                                              | `academic`, `community`                                                                                             |
++--------------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
 | in_dttm            | DATETIME        | Start date and time at a particular location                                                                                                             | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                       |
 +--------------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
 | out_dttm           | DATETIME        | End date and time at a particular location                                                                                                               | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                       |
@@ -242,44 +244,40 @@ The admission, discharge, and transfer (ADT) table is a start-stop longitudinal 
 +--------------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
 | location_category  | VARCHAR         | Maps `location_name` to a standardized list of ADT location categories                                                                                   | `ed`, `ward`, `stepdown`, `icu`, `procedural`, `l&d`, `hospice`, `psych`, `rehab`, `radiology`, `dialysis`, `other` |
 +--------------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
-| location_type      | VARCHAR         | Maps `location_name` to a standardized list of ADT location types                                                                                        | `general_icu` (default if unknown & default if its an open ICU)                                                     |
-|                    |                 |                                                                                                                                                          |                                                                                                                     |
-|                    |                 |                                                                                                                                                          | `medical_icu`                                                                                                       |
-|                    |                 |                                                                                                                                                          |                                                                                                                     |
-|                    |                 |                                                                                                                                                          | `surgical_icu`                                                                                                      |
-|                    |                 |                                                                                                                                                          |                                                                                                                     |
-|                    |                 |                                                                                                                                                          | `cardiac_icu` (without surgical patients)                                                                           |
-|                    |                 |                                                                                                                                                          |                                                                                                                     |
-|                    |                 |                                                                                                                                                          | `mixed_cardiac_icu` (includes cardiac surgery patients)                                                             |
-|                    |                 |                                                                                                                                                          |                                                                                                                     |
-|                    |                 |                                                                                                                                                          | `cvicu_icu` (surgical cardiovascular only)                                                                          |
-|                    |                 |                                                                                                                                                          |                                                                                                                     |
-|                    |                 |                                                                                                                                                          | `neuro_icu` (neuro only, without surgery                                                                            |
-|                    |                 |                                                                                                                                                          |                                                                                                                     |
-|                    |                 |                                                                                                                                                          | `mixed_neuro_icu` (neuro + neurosurgery).                                                                           |
-+--------------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
-| hospital_type      | VARCHAR         | Maps `hospital_id` to a standardized list of hospital types                                                                                              | `academic`, `community`                                                                                             |
+| location_type      | VARCHAR         | Maps `location_name` to a standardized list of ADT location types                                                                                        | `general_icu`, `medical_icu`, `surgical_icu`, `cardiac_icu`, `mixed_cardiac_icu`, `cvicu_icu`, `neuro_icu`, `mixed_neuro_icu` |
 +--------------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------+
 
-**Note**: Procedural areas and operating rooms should be mapped to `Procedural`. Pre/Intra/Post-procedural/OR EHR data (such as anesthesia flowsheet records from Labs, Vitals, Scores, Respiratory Support) **are not currently** represented in CLIF. For `location_type`, All `_icu` variables should be used for **closed** ICUs, all open ICUs should be labeled as `general_icu` !
+
+**Note**: 
+
+* Procedural areas and operating rooms should be mapped to `Procedural`. Pre/Intra/Post-procedural/OR EHR data (such as anesthesia flowsheet records from Labs, Vitals, Scores, Respiratory Support) **are not currently** represented in CLIF. 
+* For `location_type`, the following ICU types should be used:
+	+ `general_icu`: Default if unknown or if it's an open ICU.
+	+ `medical_icu`: For medical intensive care units.
+	+ `surgical_icu`: For surgical intensive care units.
+	+ `cardiac_icu`: For cardiac intensive care units without surgical patients.
+	+ `mixed_cardiac_icu`: For mixed cardiac intensive care units that include cardiac surgery patients.
+	+ `cvicu_icu`: For surgical cardiovascular intensive care units.
+	+ `neuro_icu`: For neuro intensive care units without surgery.
+	+ `mixed_neuro_icu`: For mixed neuro intensive care units that include neurosurgery patients.
+All `_icu` variables should be used for **closed** ICUs, and all open ICUs should be labeled as `general_icu`.
 
 **Example**:
 
 ::: scrollable-table
-+--------------------+-------------+---------------------+---------------------+---------------+-------------------+
-| hospitalization_id | hospital_id | in_dttm             | out_dttm            | location_name | location_category |
-+====================+=============+=====================+=====================+===============+===================+
-| 20010012           | ABC         | 2024-12-01 10:00:00 | 2024-12-01 14:00:00 | N04E          | icu               |
-+--------------------+-------------+---------------------+---------------------+---------------+-------------------+
-| 20010012           | ABC         | 2024-12-01 14:30:00 | 2024-12-02 08:00:00 | N05W          | ward              |
-+--------------------+-------------+---------------------+---------------------+---------------+-------------------+
-| 20010015           | ABC         | 2024-11-30 16:45:00 | 2024-12-01 12:00:00 | N03E          | icu               |
-+--------------------+-------------+---------------------+---------------------+---------------+-------------------+
-| 20010015           | ABC         | 2024-12-01 12:30:00 | 2024-12-02 07:00:00 | N07S          | procedural        |
-+--------------------+-------------+---------------------+---------------------+---------------+-------------------+
-| 20010020           | ABC         | 2024-11-28 09:00:00 | 2024-11-29 17:00:00 | N06N          | ward              |
-+--------------------+-------------+---------------------+---------------------+---------------+-------------------+
-
++--------------------+-------------+----------------+---------------------+---------------------+---------------+-------------------+-------------------+
+| hospitalization_id | hospital_id | hospital_type  | in_dttm             | out_dttm            | location_name | location_category | location_type     |
++====================+=============+================+=====================+=====================+===============+===================+===================+
+| 20010012           | ABC         | academic       | 2024-12-01 10:00:00 | 2024-12-01 14:00:00 | B06F          | icu               | general_icu       |
++--------------------+-------------+----------------+---------------------+---------------------+---------------+-------------------+-------------------+
+| 20010012           | ABC         | academic       | 2024-12-01 14:30:00 | 2024-12-02 08:00:00 | B78D          | ward              |                   |
++--------------------+-------------+----------------+---------------------+---------------------+---------------+-------------------+-------------------+
+| 20010015           | ABC         | academic       | 2024-11-30 16:45:00 | 2024-12-01 12:00:00 | B06T          | icu               | medical_icu       |
++--------------------+-------------+----------------+---------------------+---------------------+---------------+-------------------+-------------------+
+| 20010015           | ABC         | academic       | 2024-12-01 12:30:00 | 2024-12-02 07:00:00 | N23E          | procedural        |                   |
++--------------------+-------------+----------------+---------------------+---------------------+---------------+-------------------+-------------------+
+| 20010020           | EFG         | community      | 2024-11-28 09:00:00 | 2024-11-29 17:00:00 | B78D          | ward              |                   |
++--------------------+-------------+----------------+---------------------+---------------------+---------------+-------------------+-------------------+
 : {.striped .hover}
 :::
 

@@ -283,10 +283,10 @@ ul.task-list li input[type="checkbox"] {
 <p>This table contains demographic information about the patient that does not vary between hospitalizations. It is inspired by the OMOP <a href="https://ohdsi.github.io/CommonDataModel/cdm54.html#person">Person</a> table</p>
 <table class="table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 6%">
+<col style="width: 5%">
+<col style="width: 43%">
+<col style="width: 44%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -369,16 +369,16 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 5%">
-<col style="width: 11%">
-<col style="width: 12%">
-<col style="width: 21%">
-<col style="width: 9%">
-<col style="width: 6%">
-<col style="width: 5%">
 <col style="width: 10%">
-<col style="width: 7%">
-<col style="width: 9%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -465,10 +465,10 @@ ul.task-list li input[type="checkbox"] {
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid"></a></p>
 <table class="table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 5%">
+<col style="width: 3%">
+<col style="width: 24%">
+<col style="width: 65%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -595,21 +595,21 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 3%">
-<col style="width: 6%">
-<col style="width: 7%">
 <col style="width: 6%">
 <col style="width: 6%">
-<col style="width: 5%">
-<col style="width: 8%">
-<col style="width: 7%">
-<col style="width: 14%">
-<col style="width: 7%">
-<col style="width: 5%">
-<col style="width: 5%">
-<col style="width: 7%">
-<col style="width: 3%">
-<col style="width: 3%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -692,120 +692,167 @@ ul.task-list li input[type="checkbox"] {
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid"></a></p>
 <table class="table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 6%">
+<col style="width: 5%">
+<col style="width: 47%">
+<col style="width: 36%">
+<col style="width: 3%">
 </colgroup>
-<thead>
-<tr class="header">
-<th>Variable Name</th>
-<th>Data Type</th>
-<th>Definition</th>
-<th>Permissible Values</th>
-</tr>
-</thead>
 <tbody>
 <tr class="odd">
-<td>hospitalization_id</td>
-<td>VARCHAR</td>
-<td>ID variable for each patient encounter</td>
-<td>No restriction</td>
+<td rowspan="2"><h1 id="variable-name">Variable Name</h1>
+<p>hospitalization_id</p></td>
+<td rowspan="2"><h1 id="data-type">Data Type</h1>
+<p>VARCHAR</p></td>
+<td rowspan="2"><h1 id="definition">Definition</h1>
+<p>ID variable for each patient encounter</p></td>
+<td rowspan="2"><h1 id="permissible-values">Permissible Values</h1>
+<p>No restriction</p></td>
+<td></td>
 </tr>
 <tr class="even">
+<td></td>
+</tr>
+<tr class="odd">
 <td>hospital_id</td>
 <td>VARCHAR</td>
 <td>Assign a unique ID to each hospital within a healthsystem</td>
 <td>No restriction</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>hospital_type</td>
+<td>VARCHAR</td>
+<td>Maps <code>hospital_id</code> to a standardized list of hospital types</td>
+<td><code>academic</code>, <code>community</code></td>
+<td></td>
 </tr>
 <tr class="odd">
 <td>in_dttm</td>
 <td>DATETIME</td>
 <td>Start date and time at a particular location</td>
 <td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
+<td></td>
 </tr>
 <tr class="even">
 <td>out_dttm</td>
 <td>DATETIME</td>
 <td>End date and time at a particular location</td>
 <td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
+<td></td>
 </tr>
 <tr class="odd">
 <td>location_name</td>
 <td>VARCHAR</td>
 <td>Location of the patient inside the hospital. This field is used to store the patient location from the source data. This field is not used for analysis.</td>
 <td>No restriction</td>
+<td></td>
 </tr>
 <tr class="even">
 <td>location_category</td>
 <td>VARCHAR</td>
 <td>Maps <code>location_name</code> to a standardized list of ADT location categories</td>
 <td><code>ed</code>, <code>ward</code>, <code>stepdown</code>, <code>icu</code>, <code>procedural</code>, <code>l&amp;d</code>, <code>hospice</code>, <code>psych</code>, <code>rehab</code>, <code>radiology</code>, <code>dialysis</code>, <code>other</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>location_type</td>
+<td>VARCHAR</td>
+<td>Maps <code>location_name</code> to a standardized list of ADT location types</td>
+<td colspan="2"><code>general_icu</code>, <code>medical_icu</code>, <code>surgical_icu</code>, <code>cardiac_icu</code>, <code>mixed_cardiac_icu</code>, <code>cvicu_icu</code>, <code>neuro_icu</code>, <code>mixed_neuro_icu</code></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Note</strong>: Procedural areas and operating rooms should be mapped to <code>Procedural</code>. Pre/Intra/Post-procedural/OR EHR data (such as anesthesia flowsheet records from Labs, Vitals, Scores, Respiratory Support) <strong>are not currently</strong> represented in CLIF.</p>
+<p><strong>Note</strong>:</p>
+<ul>
+<li>Procedural areas and operating rooms should be mapped to <code>Procedural</code>. Pre/Intra/Post-procedural/OR EHR data (such as anesthesia flowsheet records from Labs, Vitals, Scores, Respiratory Support) <strong>are not currently</strong> represented in CLIF.</li>
+<li>For <code>location_type</code>, the following ICU types should be used:
+<ul>
+<li><code>general_icu</code>: Default if unknown or if it’s an open ICU.</li>
+<li><code>medical_icu</code>: For medical intensive care units.</li>
+<li><code>surgical_icu</code>: For surgical intensive care units.</li>
+<li><code>cardiac_icu</code>: For cardiac intensive care units without surgical patients.</li>
+<li><code>mixed_cardiac_icu</code>: For mixed cardiac intensive care units that include cardiac surgery patients.</li>
+<li><code>cvicu_icu</code>: For surgical cardiovascular intensive care units.</li>
+<li><code>neuro_icu</code>: For neuro intensive care units without surgery.</li>
+<li><code>mixed_neuro_icu</code>: For mixed neuro intensive care units that include neurosurgery patients. All <code>_icu</code> variables should be used for <strong>closed</strong> ICUs, and all open ICUs should be labeled as <code>general_icu</code>.</li>
+</ul></li>
+</ul>
 <p><strong>Example</strong>:</p>
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 19%">
-<col style="width: 11%">
-<col style="width: 19%">
-<col style="width: 19%">
 <col style="width: 13%">
-<col style="width: 17%">
+<col style="width: 8%">
+<col style="width: 10%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 10%">
+<col style="width: 12%">
+<col style="width: 12%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>hospitalization_id</th>
 <th>hospital_id</th>
+<th>hospital_type</th>
 <th>in_dttm</th>
 <th>out_dttm</th>
 <th>location_name</th>
 <th>location_category</th>
+<th>location_type</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>20010012</td>
 <td>ABC</td>
+<td>academic</td>
 <td>2024-12-01 10:00:00</td>
 <td>2024-12-01 14:00:00</td>
-<td>N04E</td>
+<td>B06F</td>
 <td>icu</td>
+<td>general_icu</td>
 </tr>
 <tr class="even">
 <td>20010012</td>
 <td>ABC</td>
+<td>academic</td>
 <td>2024-12-01 14:30:00</td>
 <td>2024-12-02 08:00:00</td>
-<td>N05W</td>
+<td>B78D</td>
 <td>ward</td>
+<td></td>
 </tr>
 <tr class="odd">
 <td>20010015</td>
 <td>ABC</td>
+<td>academic</td>
 <td>2024-11-30 16:45:00</td>
 <td>2024-12-01 12:00:00</td>
-<td>N03E</td>
+<td>B06T</td>
 <td>icu</td>
+<td>medical_icu</td>
 </tr>
 <tr class="even">
 <td>20010015</td>
 <td>ABC</td>
+<td>academic</td>
 <td>2024-12-01 12:30:00</td>
 <td>2024-12-02 07:00:00</td>
-<td>N07S</td>
+<td>N23E</td>
 <td>procedural</td>
+<td></td>
 </tr>
 <tr class="odd">
 <td>20010020</td>
-<td>ABC</td>
+<td>EFG</td>
+<td>community</td>
 <td>2024-11-28 09:00:00</td>
 <td>2024-11-29 17:00:00</td>
-<td>N06N</td>
+<td>B78D</td>
 <td>ward</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -817,10 +864,10 @@ ul.task-list li input[type="checkbox"] {
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid"></a></p>
 <table class="table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 6%">
+<col style="width: 5%">
+<col style="width: 39%">
+<col style="width: 47%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -873,11 +920,11 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 17%">
+<col style="width: 16%">
 <col style="width: 15%">
-<col style="width: 26%">
-<col style="width: 17%">
-<col style="width: 10%">
+<col style="width: 24%">
+<col style="width: 15%">
+<col style="width: 11%">
 <col style="width: 13%">
 </colgroup>
 <thead>
@@ -1074,16 +1121,16 @@ ul.task-list li input[type="checkbox"] {
 <colgroup>
 <col style="width: 8%">
 <col style="width: 8%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 10%">
-<col style="width: 11%">
 <col style="width: 8%">
-<col style="width: 4%">
 <col style="width: 8%">
-<col style="width: 7%">
-<col style="width: 6%">
-<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1286,13 +1333,13 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 12%">
 <col style="width: 11%">
-<col style="width: 24%">
-<col style="width: 12%">
 <col style="width: 10%">
+<col style="width: 23%">
+<col style="width: 13%">
 <col style="width: 10%">
-<col style="width: 11%">
+<col style="width: 9%">
+<col style="width: 10%">
 <col style="width: 7%">
 </colgroup>
 <thead>
@@ -1378,10 +1425,10 @@ ul.task-list li input[type="checkbox"] {
 <p>Continuous start stop record of every provider who cared for the patient.</p>
 <table class="table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 13%">
+<col style="width: 9%">
+<col style="width: 51%">
+<col style="width: 24%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1438,8 +1485,8 @@ ul.task-list li input[type="checkbox"] {
 <col style="width: 10%">
 <col style="width: 16%">
 <col style="width: 16%">
-<col style="width: 21%">
-<col style="width: 19%">
+<col style="width: 20%">
+<col style="width: 18%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1526,10 +1573,10 @@ ul.task-list li input[type="checkbox"] {
 <p>Record of all diagnoses associated with the hospitalization. Expect breaking changes to this table as we seek to align it with existing diagnosis ontologies</p>
 <table class="table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 15%">
+<col style="width: 11%">
+<col style="width: 40%">
+<col style="width: 30%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1576,11 +1623,11 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 12%">
-<col style="width: 18%">
-<col style="width: 24%">
-<col style="width: 22%">
-<col style="width: 22%">
+<col style="width: 13%">
+<col style="width: 17%">
+<col style="width: 23%">
+<col style="width: 21%">
+<col style="width: 21%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1663,10 +1710,10 @@ ul.task-list li input[type="checkbox"] {
 <p>This table records the ordering (not administration) of medications. The table is in long form (one medication order per row) longitudinal table. Linkage to the <code>medication_admin_continuous</code> and <code>medication_admin_intermittent</code> tables is through the <code>med_order_id</code> field.</p>
 <table class="table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 11%">
+<col style="width: 7%">
+<col style="width: 38%">
+<col style="width: 41%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1773,21 +1820,21 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 7%">
-<col style="width: 5%">
-<col style="width: 8%">
-<col style="width: 7%">
-<col style="width: 7%">
-<col style="width: 13%">
-<col style="width: 5%">
-<col style="width: 4%">
-<col style="width: 8%">
-<col style="width: 9%">
-<col style="width: 5%">
-<col style="width: 3%">
-<col style="width: 5%">
 <col style="width: 6%">
-<col style="width: 1%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -2124,13 +2171,13 @@ ul.task-list li input[type="checkbox"] {
 <h4 class="anchored" data-anchor-id="device_category-imv"><code>device_category</code> == “IMV”</h4>
 <table class="table">
 <colgroup>
+<col style="width: 13%">
+<col style="width: 19%">
 <col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
+<col style="width: 11%">
+<col style="width: 21%">
+<col style="width: 5%">
+<col style="width: 10%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -2241,28 +2288,28 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 5%">
-<col style="width: 4%">
-<col style="width: 3%">
 <col style="width: 4%">
 <col style="width: 4%">
-<col style="width: 3%">
 <col style="width: 4%">
-<col style="width: 3%">
-<col style="width: 2%">
-<col style="width: 2%">
 <col style="width: 4%">
-<col style="width: 3%">
-<col style="width: 5%">
-<col style="width: 5%">
-<col style="width: 3%">
 <col style="width: 4%">
-<col style="width: 3%">
-<col style="width: 5%">
-<col style="width: 7%">
-<col style="width: 2%">
 <col style="width: 4%">
-<col style="width: 6%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -2487,14 +2534,14 @@ ul.task-list li input[type="checkbox"] {
 <colgroup>
 <col style="width: 10%">
 <col style="width: 10%">
-<col style="width: 23%">
-<col style="width: 8%">
-<col style="width: 7%">
-<col style="width: 8%">
 <col style="width: 10%">
-<col style="width: 5%">
-<col style="width: 7%">
-<col style="width: 8%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -2593,10 +2640,10 @@ ul.task-list li input[type="checkbox"] {
 <p>The position table is a long form (one position per row) longitudinal table that captures all documented position changes of the patient. The table is designed for the explicit purpose of constructing the <code>position_category</code> CDE and identifying patients in prone position.</p>
 <table class="table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 10%">
+<col style="width: 8%">
+<col style="width: 57%">
+<col style="width: 22%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -2637,10 +2684,10 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 20%">
-<col style="width: 21%">
-<col style="width: 38%">
+<col style="width: 18%">
 <col style="width: 19%">
+<col style="width: 42%">
+<col style="width: 17%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -2709,9 +2756,9 @@ ul.task-list li input[type="checkbox"] {
 <p>The dialysis table is a wider longitudinal table that captures the start and stop times of dialysis sessions, the type of dialysis performed, and the amount of dialysate flow and ultrafiltration.</p>
 <table class="table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 16%">
+<col style="width: 11%">
+<col style="width: 45%">
 <col style="width: 25%">
 </colgroup>
 <thead>
@@ -2783,15 +2830,15 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
+<col style="width: 9%">
 <col style="width: 10%">
-<col style="width: 13%">
-<col style="width: 8%">
 <col style="width: 10%">
 <col style="width: 10%">
 <col style="width: 11%">
+<col style="width: 7%">
+<col style="width: 19%">
+<col style="width: 9%">
+<col style="width: 10%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -2861,8 +2908,8 @@ ul.task-list li input[type="checkbox"] {
 <p>The ECMO/MCS table is a wider longitudinal table that captures the start and stop times of ECMO/MCS support, the type of device used, and the work rate of the device.</p>
 <table class="table">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 30%">
+<col style="width: 69%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -2909,15 +2956,15 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 14%">
 <col style="width: 13%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 9%">
 <col style="width: 11%">
 <col style="width: 13%">
-<col style="width: 8%">
+<col style="width: 9%">
 <col style="width: 4%">
-<col style="width: 4%">
+<col style="width: 5%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -2987,8 +3034,8 @@ ul.task-list li input[type="checkbox"] {
 <p>The intake_output table is long form table that captures the times intake and output events were recorded, the type of fluid administered or recorded as “out”, and the amount of fluid.</p>
 <table class="table">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 36%">
+<col style="width: 63%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -3023,11 +3070,11 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 24%">
-<col style="width: 9%">
-<col style="width: 15%">
+<col style="width: 22%">
+<col style="width: 23%">
+<col style="width: 21%">
+<col style="width: 14%">
+<col style="width: 14%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -3127,9 +3174,9 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
+<col style="width: 17%">
 <col style="width: 18%">
-<col style="width: 18%">
-<col style="width: 20%">
+<col style="width: 19%">
 <col style="width: 22%">
 <col style="width: 20%">
 </colgroup>
@@ -3262,16 +3309,16 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 15%">
-<col style="width: 11%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 9%">
-<col style="width: 11%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -3394,10 +3441,10 @@ ul.task-list li input[type="checkbox"] {
 <p>This table is used to store the susceptibility results of the organisms identified in the <code>Microbiology Culture</code> table and may be renamed to <code>Microbiology_Susceptibility</code></p>
 <table class="table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 60%">
+<col style="width: 21%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -3486,8 +3533,8 @@ ul.task-list li input[type="checkbox"] {
 <p>The microbiology non-culture table is a wide longitudinal table that captures the order and result times of non-culture microbiology tests, the type of fluid collected, the component of the test, and the result of the test.</p>
 <table class="table">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 38%">
+<col style="width: 61%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -3537,11 +3584,11 @@ ul.task-list li input[type="checkbox"] {
 <col style="width: 11%">
 <col style="width: 12%">
 <col style="width: 12%">
-<col style="width: 11%">
-<col style="width: 14%">
+<col style="width: 12%">
+<col style="width: 12%">
 <col style="width: 13%">
 <col style="width: 12%">
-<col style="width: 12%">
+<col style="width: 9%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -3616,10 +3663,10 @@ ul.task-list li input[type="checkbox"] {
 <p>A longitudinal record of each bedside ICU procedure performed on the patient (e.g.&nbsp;central line placement, chest tube placement). Note that this table is not intended to capture the full set of procedures performed on inpatients.</p>
 <table class="table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
+<col style="width: 11%">
+<col style="width: 10%">
+<col style="width: 51%">
+<col style="width: 26%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -3669,8 +3716,8 @@ ul.task-list li input[type="checkbox"] {
 <col style="width: 17%">
 <col style="width: 21%">
 <col style="width: 18%">
-<col style="width: 23%">
-<col style="width: 18%">
+<col style="width: 22%">
+<col style="width: 17%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -3727,10 +3774,10 @@ ul.task-list li input[type="checkbox"] {
 <p>This table provides detailed information about transfusion events linked to specific hospitalizations.</p>
 <table class="table">
 <colgroup>
-<col style="width: 15%">
+<col style="width: 12%">
 <col style="width: 8%">
-<col style="width: 56%">
-<col style="width: 19%">
+<col style="width: 52%">
+<col style="width: 25%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -3795,8 +3842,8 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 13%">
-<col style="width: 16%">
+<col style="width: 12%">
+<col style="width: 15%">
 <col style="width: 14%">
 <col style="width: 11%">
 <col style="width: 12%">
@@ -3857,10 +3904,10 @@ ul.task-list li input[type="checkbox"] {
 <p>This table provides a longitudinal record of changes in a patient’s code status during their hospitalization. It tracks the timeline and categorization of code status updates, facilitating the analysis of care preferences and decisions.</p>
 <table class="table">
 <colgroup>
-<col style="width: 14%">
-<col style="width: 8%">
-<col style="width: 55%">
-<col style="width: 22%">
+<col style="width: 11%">
+<col style="width: 7%">
+<col style="width: 48%">
+<col style="width: 31%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -3905,9 +3952,9 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 22%">
-<col style="width: 25%">
-<col style="width: 26%">
+<col style="width: 23%">
+<col style="width: 24%">
+<col style="width: 23%">
 <col style="width: 25%">
 </colgroup>
 <thead>
@@ -3948,9 +3995,9 @@ ul.task-list li input[type="checkbox"] {
 <table class="table">
 <colgroup>
 <col style="width: 11%">
-<col style="width: 8%">
-<col style="width: 53%">
-<col style="width: 26%">
+<col style="width: 6%">
+<col style="width: 43%">
+<col style="width: 37%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -4011,11 +4058,11 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 22%">
-<col style="width: 23%">
-<col style="width: 17%">
 <col style="width: 20%">
-<col style="width: 16%">
+<col style="width: 21%">
+<col style="width: 22%">
+<col style="width: 18%">
+<col style="width: 15%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -4058,10 +4105,10 @@ ul.task-list li input[type="checkbox"] {
 <p>The <code>key_icu_orders</code> table captures key orders related to physical therapy (PT) and occupational therapy (OT) during ICU stays. It includes details about the hospitalization, the timing of the order, the specific name of the order, its category, and the status of the order (completed or sent).</p>
 <table class="table">
 <colgroup>
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 50%">
-<col style="width: 26%">
+<col style="width: 10%">
+<col style="width: 6%">
+<col style="width: 33%">
+<col style="width: 48%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -4109,9 +4156,9 @@ ul.task-list li input[type="checkbox"] {
 <table class="table-striped table-hover table">
 <colgroup>
 <col style="width: 19%">
-<col style="width: 19%">
-<col style="width: 27%">
-<col style="width: 16%">
+<col style="width: 20%">
+<col style="width: 23%">
+<col style="width: 15%">
 <col style="width: 18%">
 </colgroup>
 <thead>
