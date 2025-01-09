@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.543">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CLIF Consortium - CLIF-2.0 Data Dictionary</title>
+<title>CLIF-2.0 Data Dictionary – CLIF Consortium</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -83,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -101,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Resources</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-resources">    
@@ -128,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -281,7 +281,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="patient">Patient</h2>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid"></a></p>
 <p>This table contains demographic information about the patient that does not vary between hospitalizations. It is inspired by the OMOP <a href="https://ohdsi.github.io/CommonDataModel/cdm54.html#person">Person</a> table</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 6%">
 <col style="width: 5%">
@@ -367,7 +367,7 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <p><strong>Example</strong>:</p>
 <div class="scrollable-table">
-<table class="table-striped table-hover table">
+<table class="table-striped table-hover caption-top table">
 <colgroup>
 <col style="width: 10%">
 <col style="width: 10%">
@@ -463,7 +463,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="hospitalization">Hospitalization</h2>
 <p>The hospitalization table contains information about each hospitalization event. Each row in this table represents a unique hospitalization event for a patient. This table is inspired by the <a href="https://ohdsi.github.io/CommonDataModel/cdm54.html#visit_occurrence">visit_occurance</a> OMOP table but is specific to inpatient hospitalizations (including those that begin in the emergency room).</p>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid"></a></p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 5%">
 <col style="width: 3%">
@@ -593,7 +593,7 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <p><strong>Example</strong>:</p>
 <div class="scrollable-table">
-<table class="table-striped table-hover table">
+<table class="table-striped table-hover caption-top table">
 <colgroup>
 <col style="width: 6%">
 <col style="width: 6%">
@@ -690,27 +690,31 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="adt">ADT</h2>
 <p>The admission, discharge, and transfer (ADT) table is a start-stop longitudinal dataset that contains information about each patient’s movement within the hospital. It also has a <code>hospital_id</code> field to distinguish between different hospitals within a health system.</p>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid"></a></p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 6%">
-<col style="width: 5%">
+<col style="width: 4%">
 <col style="width: 47%">
-<col style="width: 36%">
-<col style="width: 3%">
+<col style="width: 38%">
+<col style="width: 2%">
 </colgroup>
 <tbody>
 <tr class="odd">
-<td rowspan="2"><h1 id="variable-name">Variable Name</h1>
+<td><h1 id="variable-name">Variable Name</h1>
 <p>hospitalization_id</p></td>
-<td rowspan="2"><h1 id="data-type">Data Type</h1>
+<td><h1 id="data-type">Data Type</h1>
 <p>VARCHAR</p></td>
-<td rowspan="2"><h1 id="definition">Definition</h1>
+<td><h1 id="definition">Definition</h1>
 <p>ID variable for each patient encounter</p></td>
-<td rowspan="2"><h1 id="permissible-values">Permissible Values</h1>
+<td><h1 id="permissible-values">Permissible Values</h1>
 <p>No restriction</p></td>
 <td></td>
 </tr>
 <tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -759,37 +763,40 @@ ul.task-list li input[type="checkbox"] {
 <td>location_type</td>
 <td>VARCHAR</td>
 <td>Maps <code>location_name</code> to a standardized list of ADT location types</td>
-<td colspan="2"><code>general_icu</code>, <code>medical_icu</code>, <code>surgical_icu</code>, <code>cardiac_icu</code>, <code>mixed_cardiac_icu</code>, <code>cvicu_icu</code>, <code>neuro_icu</code>, <code>mixed_neuro_icu</code></td>
+<td><code>general_icu</code>, <code>medical_icu</code>, <code>surgical_icu</code>, <code>cardiac_icu</code>, <code>mixed_cardiac_icu</code>, <code>cvicu_icu</code>, <code>neuro_icu</code>, <code>mixed_neuro_icu</code></td>
+<td></td>
 </tr>
 </tbody>
 </table>
 <p><strong>Note</strong>:</p>
 <ul>
 <li>Procedural areas and operating rooms should be mapped to <code>Procedural</code>. Pre/Intra/Post-procedural/OR EHR data (such as anesthesia flowsheet records from Labs, Vitals, Scores, Respiratory Support) <strong>are not currently</strong> represented in CLIF.</li>
-<li>For <code>location_type</code>, the following ICU types should be used:
+<li>For <code>location_type</code>, this is currently limited to <code>location_category</code> = <code>icu</code> and the following ICU types should be used:
 <ul>
-<li><code>general_icu</code>: Default if unknown or if it’s an open ICU.</li>
+<li><code>general_icu</code>: Default if unknown type.</li>
 <li><code>medical_icu</code>: For medical intensive care units.</li>
 <li><code>surgical_icu</code>: For surgical intensive care units.</li>
 <li><code>cardiac_icu</code>: For cardiac intensive care units without surgical patients.</li>
 <li><code>mixed_cardiac_icu</code>: For mixed cardiac intensive care units that include cardiac surgery patients.</li>
 <li><code>cvicu_icu</code>: For surgical cardiovascular intensive care units.</li>
 <li><code>neuro_icu</code>: For neuro intensive care units without surgery.</li>
-<li><code>mixed_neuro_icu</code>: For mixed neuro intensive care units that include neurosurgery patients. All <code>_icu</code> variables should be used for <strong>closed</strong> ICUs, and all open ICUs should be labeled as <code>general_icu</code>.</li>
+<li><code>mixed_neuro_icu</code>: For mixed neuro intensive care units that include neurosurgery patients.</li>
 </ul></li>
+<li>If location type is unknown and location category is <code>icu</code>, location_type should be labeled as <code>general_icu</code>.</li>
+<li>Future iterations may expand <code>location_type</code> to descripe other location categories</li>
 </ul>
 <p><strong>Example</strong>:</p>
 <div class="scrollable-table">
-<table class="table-striped table-hover table">
+<table class="table-striped table-hover caption-top table">
 <colgroup>
 <col style="width: 13%">
-<col style="width: 8%">
+<col style="width: 9%">
+<col style="width: 10%">
+<col style="width: 14%">
+<col style="width: 14%">
 <col style="width: 10%">
 <col style="width: 13%">
-<col style="width: 13%">
 <col style="width: 10%">
-<col style="width: 12%">
-<col style="width: 12%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -862,7 +869,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="vitals">Vitals</h2>
 <p>The vitals table is a long-form (one vital sign per row) longitudinal table.</p>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid"></a></p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 6%">
 <col style="width: 5%">
@@ -918,7 +925,7 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <p><strong>Example</strong>:</p>
 <div class="scrollable-table">
-<table class="table-striped table-hover table">
+<table class="table-striped table-hover caption-top table">
 <colgroup>
 <col style="width: 16%">
 <col style="width: 15%">
@@ -1018,7 +1025,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="labs">Labs</h2>
 <p>The labs table is a long form (one lab result per row) longitudinal table. Each lab result</p>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid"></a></p>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>Variable Name</th>
@@ -1117,7 +1124,7 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Note</strong>: The <code>lab_value</code> field often has non-numeric entries that are useful to make project-specific decisions. A site may choose to keep the <code>lab_value</code> field as a character and create a new field <code>lab_value_numeric</code> that only parses the character field to extract the numeric part of the string.</p>
 <p><strong>Example</strong>:</p>
 <div class="scrollable-table">
-<table class="table-striped table-hover table">
+<table class="table-striped table-hover caption-top table">
 <colgroup>
 <col style="width: 8%">
 <col style="width: 8%">
@@ -1269,7 +1276,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="patient-assessments">Patient Assessments</h2>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid"></a></p>
 <p>The patient_assessments table captures various assessments performed on patients across different domains, including neurological status, sedation levels, pain, and withdrawal. The table is designed to provide detailed information about the assessments, such as the name of the assessment, the category, and the recorded values.</p>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>Variable Name</th>
@@ -1331,7 +1338,7 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <p><strong>Example</strong>:</p>
 <div class="scrollable-table">
-<table class="table-striped table-hover table">
+<table class="table-striped table-hover caption-top table">
 <colgroup>
 <col style="width: 11%">
 <col style="width: 10%">
@@ -1423,7 +1430,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="provider">Provider</h2>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
 <p>Continuous start stop record of every provider who cared for the patient.</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 13%">
 <col style="width: 9%">
@@ -1479,7 +1486,7 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <p><strong>Example</strong>:</p>
 <div class="scrollable-table">
-<table class="table-striped table-hover table">
+<table class="table-striped table-hover caption-top table">
 <colgroup>
 <col style="width: 15%">
 <col style="width: 10%">
@@ -1571,7 +1578,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="admission-diagnosis">Admission Diagnosis</h2>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
 <p>Record of all diagnoses associated with the hospitalization. Expect breaking changes to this table as we seek to align it with existing diagnosis ontologies</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 15%">
 <col style="width: 11%">
@@ -1621,7 +1628,7 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <p><strong>Example</strong>:</p>
 <div class="scrollable-table">
-<table class="table-striped table-hover table">
+<table class="table-striped table-hover caption-top table">
 <colgroup>
 <col style="width: 13%">
 <col style="width: 17%">
@@ -1708,7 +1715,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="medication-orders">Medication Orders</h2>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
 <p>This table records the ordering (not administration) of medications. The table is in long form (one medication order per row) longitudinal table. Linkage to the <code>medication_admin_continuous</code> and <code>medication_admin_intermittent</code> tables is through the <code>med_order_id</code> field.</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 11%">
 <col style="width: 7%">
@@ -1818,7 +1825,7 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <p><strong>Example</strong>:</p>
 <div class="scrollable-table">
-<table class="table-striped table-hover table">
+<table class="table-striped table-hover caption-top table">
 <colgroup>
 <col style="width: 6%">
 <col style="width: 6%">
@@ -2003,7 +2010,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="respiratory-support">Respiratory Support</h2>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid"></a></p>
 <p>The respiratory support table is a wider longitudinal table that captures simultaneously recorded ventilator settings and observed ventilator parameters. The table is designed to capture the most common respiratory support devices and modes used in the ICU. It will be sparse for patients who are not on mechanical ventilation.</p>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>Variable Name</th>
@@ -2169,7 +2176,7 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="expected-_set-values-for-each-device_category-and-mode_category">Expected <code>*_set</code> values for each <code>device_category</code> and <code>mode_category</code></h3>
 <section id="device_category-imv" class="level4">
 <h4 class="anchored" data-anchor-id="device_category-imv"><code>device_category</code> == “IMV”</h4>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 13%">
 <col style="width: 19%">
@@ -2286,7 +2293,7 @@ ul.task-list li input[type="checkbox"] {
 <p><code>mode_category</code> is NA and <code>lpm_set</code> is required.</p>
 <p><strong>Example</strong>:</p>
 <div class="scrollable-table">
-<table class="table-striped table-hover table">
+<table class="table-striped table-hover caption-top table">
 <colgroup>
 <col style="width: 4%">
 <col style="width: 4%">
@@ -2444,7 +2451,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="medication-admin-continuous">Medication Admin Continuous</h2>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid"></a></p>
 <p>The medication admin continuous table is a long-form (one medication administration record per) longitudinal table designed for continuous infusions of common ICU medications such as vasopressors and sedation (Boluses of these drugs should be recorded in <code>med_admin_intermittent</code>). Note that it only reflects dose changes of the continuous medication and does not have a specific “end_time” variable to indicate the medication being stopped. The end of a continuous infusion should be recorded as a new row with med_dose = 0 and an appropriate mar_action_name (e.g.&nbsp;“stopped” or “paused”).</p>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>Variable Name</th>
@@ -2530,7 +2537,7 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <p><strong>Example</strong>:</p>
 <div class="scrollable-table">
-<table class="table-striped table-hover table">
+<table class="table-striped table-hover caption-top table">
 <colgroup>
 <col style="width: 10%">
 <col style="width: 10%">
@@ -2638,7 +2645,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="position">Position</h2>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid"></a></p>
 <p>The position table is a long form (one position per row) longitudinal table that captures all documented position changes of the patient. The table is designed for the explicit purpose of constructing the <code>position_category</code> CDE and identifying patients in prone position.</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 10%">
 <col style="width: 8%">
@@ -2682,7 +2689,7 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <p><strong>Example</strong>:</p>
 <div class="scrollable-table">
-<table class="table-striped table-hover table">
+<table class="table-striped table-hover caption-top table">
 <colgroup>
 <col style="width: 18%">
 <col style="width: 19%">
@@ -2754,7 +2761,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="dialysis">Dialysis</h2>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
 <p>The dialysis table is a wider longitudinal table that captures the start and stop times of dialysis sessions, the type of dialysis performed, and the amount of dialysate flow and ultrafiltration.</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 16%">
 <col style="width: 11%">
@@ -2828,7 +2835,7 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <p><strong>Example</strong>:</p>
 <div class="scrollable-table">
-<table class="table-striped table-hover table">
+<table class="table-striped table-hover caption-top table">
 <colgroup>
 <col style="width: 9%">
 <col style="width: 10%">
@@ -2906,7 +2913,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="ecmo_mcs">ECMO_MCS</h2>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
 <p>The ECMO/MCS table is a wider longitudinal table that captures the start and stop times of ECMO/MCS support, the type of device used, and the work rate of the device.</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 30%">
 <col style="width: 69%">
@@ -2954,7 +2961,7 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <p><strong>Example</strong>:</p>
 <div class="scrollable-table">
-<table class="table-striped table-hover table">
+<table class="table-striped table-hover caption-top table">
 <colgroup>
 <col style="width: 13%">
 <col style="width: 14%">
@@ -3032,7 +3039,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="intake_output">Intake_Output</h2>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
 <p>The intake_output table is long form table that captures the times intake and output events were recorded, the type of fluid administered or recorded as “out”, and the amount of fluid.</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 36%">
 <col style="width: 63%">
@@ -3068,7 +3075,7 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <p><strong>Example</strong>:</p>
 <div class="scrollable-table">
-<table class="table-striped table-hover table">
+<table class="table-striped table-hover caption-top table">
 <colgroup>
 <col style="width: 22%">
 <col style="width: 23%">
@@ -3136,7 +3143,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="therapy_details">Therapy_Details</h2>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
 <p>The <code>therapy_details</code> table is a wide longitudinal table that captures the details of therapy sessions. The table is designed to capture and categorize the most common therapy elements used in the ICU.</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 34%">
 <col style="width: 65%">
@@ -3172,7 +3179,7 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <p><strong>Example</strong>:</p>
 <div class="scrollable-table">
-<table class="table-striped table-hover table">
+<table class="table-striped table-hover caption-top table">
 <colgroup>
 <col style="width: 17%">
 <col style="width: 18%">
@@ -3233,7 +3240,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="microbiology-culture">Microbiology Culture</h2>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
 <p>The microbiology culture table is a wide longitudinal table that captures the order and result times of microbiology culture tests, the type of fluid collected, the component of the test, and the organism identified.</p>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>Variable Name</th>
@@ -3307,7 +3314,7 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <p><strong>Example</strong>:</p>
 <div class="scrollable-table">
-<table class="table-striped table-hover table">
+<table class="table-striped table-hover caption-top table">
 <colgroup>
 <col style="width: 10%">
 <col style="width: 10%">
@@ -3439,7 +3446,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="sensitivity">Sensitivity</h2>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
 <p>This table is used to store the susceptibility results of the organisms identified in the <code>Microbiology Culture</code> table and may be renamed to <code>Microbiology_Susceptibility</code></p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 8%">
 <col style="width: 8%">
@@ -3483,7 +3490,7 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <p><strong>Example</strong>:</p>
 <div class="scrollable-table">
-<table class="table-striped table-hover table">
+<table class="table-striped table-hover caption-top table">
 <thead>
 <tr class="header">
 <th>culture_id</th>
@@ -3531,7 +3538,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="microbiology_nonculture">Microbiology_Nonculture</h2>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
 <p>The microbiology non-culture table is a wide longitudinal table that captures the order and result times of non-culture microbiology tests, the type of fluid collected, the component of the test, and the result of the test.</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 38%">
 <col style="width: 61%">
@@ -3579,7 +3586,7 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <p><strong>Example</strong>:</p>
 <div class="scrollable-table">
-<table class="table-striped table-hover table">
+<table class="table-striped table-hover caption-top table">
 <colgroup>
 <col style="width: 11%">
 <col style="width: 12%">
@@ -3661,7 +3668,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="procedures">Procedures</h2>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
 <p>A longitudinal record of each bedside ICU procedure performed on the patient (e.g.&nbsp;central line placement, chest tube placement). Note that this table is not intended to capture the full set of procedures performed on inpatients.</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 11%">
 <col style="width: 10%">
@@ -3711,7 +3718,7 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <p><strong>Example</strong>:</p>
 <div class="scrollable-table">
-<table class="table-striped table-hover table">
+<table class="table-striped table-hover caption-top table">
 <colgroup>
 <col style="width: 17%">
 <col style="width: 21%">
@@ -3772,10 +3779,10 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="transfusion">Transfusion</h2>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
 <p>This table provides detailed information about transfusion events linked to specific hospitalizations.</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 12%">
-<col style="width: 8%">
+<col style="width: 9%">
 <col style="width: 52%">
 <col style="width: 25%">
 </colgroup>
@@ -3840,7 +3847,7 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <p><strong>Example</strong>:</p>
 <div class="scrollable-table">
-<table class="table-striped table-hover table">
+<table class="table-striped table-hover caption-top table">
 <colgroup>
 <col style="width: 12%">
 <col style="width: 15%">
@@ -3902,10 +3909,10 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="code-status">Code Status</h2>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
 <p>This table provides a longitudinal record of changes in a patient’s code status during their hospitalization. It tracks the timeline and categorization of code status updates, facilitating the analysis of care preferences and decisions.</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
-<col style="width: 11%">
-<col style="width: 7%">
+<col style="width: 10%">
+<col style="width: 8%">
 <col style="width: 48%">
 <col style="width: 31%">
 </colgroup>
@@ -3950,7 +3957,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p><strong>Example</strong>:</p>
 <div class="scrollable-table">
-<table class="table-striped table-hover table">
+<table class="table-striped table-hover caption-top table">
 <colgroup>
 <col style="width: 23%">
 <col style="width: 24%">
@@ -3992,12 +3999,12 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="invasive-hemodynamics">Invasive Hemodynamics</h2>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
 <p>The <code>invasive_hemodynamics</code> table records invasive hemodynamic measurements during a patient’s hospitalization. These measurements represent pressures recorded via invasive monitoring and are expressed in millimeters of mercury (mmHg).</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
-<col style="width: 11%">
-<col style="width: 6%">
-<col style="width: 43%">
-<col style="width: 37%">
+<col style="width: 10%">
+<col style="width: 9%">
+<col style="width: 41%">
+<col style="width: 36%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -4056,7 +4063,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p><strong>Example</strong>:</p>
 <div class="scrollable-table">
-<table class="table-striped table-hover table">
+<table class="table-striped table-hover caption-top table">
 <colgroup>
 <col style="width: 20%">
 <col style="width: 21%">
@@ -4103,12 +4110,12 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="key-icu-orders">Key ICU orders</h2>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
 <p>The <code>key_icu_orders</code> table captures key orders related to physical therapy (PT) and occupational therapy (OT) during ICU stays. It includes details about the hospitalization, the timing of the order, the specific name of the order, its category, and the status of the order (completed or sent).</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
-<col style="width: 10%">
-<col style="width: 6%">
+<col style="width: 9%">
+<col style="width: 8%">
 <col style="width: 33%">
-<col style="width: 48%">
+<col style="width: 47%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -4153,7 +4160,7 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <p><strong>Example</strong>:</p>
 <div class="scrollable-table">
-<table class="table-striped table-hover table">
+<table class="table-striped table-hover caption-top table">
 <colgroup>
 <col style="width: 19%">
 <col style="width: 20%">
@@ -4250,18 +4257,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -4293,7 +4289,47 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -4328,7 +4364,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
