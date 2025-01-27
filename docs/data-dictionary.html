@@ -693,73 +693,71 @@ ul.task-list li input[type="checkbox"] {
 <table class="table">
 <colgroup>
 <col style="width: 6%">
-<col style="width: 4%">
-<col style="width: 47%">
+<col style="width: 5%">
+<col style="width: 46%">
 <col style="width: 38%">
 <col style="width: 2%">
 </colgroup>
+<thead>
+<tr class="header">
+<th>Variable Name</th>
+<th>Data Type</th>
+<th>Definition</th>
+<th>Permissible Values</th>
+<th></th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td><h1 id="variable-name">Variable Name</h1>
-<p>hospitalization_id</p></td>
-<td><h1 id="data-type">Data Type</h1>
-<p>VARCHAR</p></td>
-<td><h1 id="definition">Definition</h1>
-<p>ID variable for each patient encounter</p></td>
-<td><h1 id="permissible-values">Permissible Values</h1>
-<p>No restriction</p></td>
+<td>hospitalization_id</td>
+<td>VARCHAR</td>
+<td>ID variable for each patient encounter</td>
+<td>No restriction</td>
 <td></td>
 </tr>
 <tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>hospital_id</td>
 <td>VARCHAR</td>
 <td>Assign a unique ID to each hospital within a healthsystem</td>
 <td>No restriction</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>hospital_type</td>
 <td>VARCHAR</td>
 <td>Maps <code>hospital_id</code> to a standardized list of hospital types</td>
 <td><code>academic</code>, <code>community</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>in_dttm</td>
 <td>DATETIME</td>
 <td>Start date and time at a particular location</td>
 <td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>out_dttm</td>
 <td>DATETIME</td>
 <td>End date and time at a particular location</td>
 <td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>location_name</td>
 <td>VARCHAR</td>
-<td>Location of the patient inside the hospital. This field is used to store the patient location from the source data. This field is not used for analysis.</td>
+<td>Location of the patient inside the hospital. This field is used to store the patient location from the source data. It is not used for analysis.</td>
 <td>No restriction</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>location_category</td>
 <td>VARCHAR</td>
 <td>Maps <code>location_name</code> to a standardized list of ADT location categories</td>
 <td><code>ed</code>, <code>ward</code>, <code>stepdown</code>, <code>icu</code>, <code>procedural</code>, <code>l&amp;d</code>, <code>hospice</code>, <code>psych</code>, <code>rehab</code>, <code>radiology</code>, <code>dialysis</code>, <code>other</code></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>location_type</td>
 <td>VARCHAR</td>
 <td>Maps <code>location_name</code> to a standardized list of ADT location types</td>
