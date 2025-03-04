@@ -13,30 +13,6 @@ format:
 
 ```{=html}
 <div class="leadership-card">
-  <img src="headshots/will_parker.jpeg" alt="William Parker" class="team-img">
-  <div class="leadership-info">
-    <h4><strong>William Parker, MD, PhD</strong></h4>
-    <h4><strong>Founding Executive Director</strong></h4>
-  </div>
-</div>
-
-<div class="leadership-card">
-  <img src="headshots/pat_lyons.jpeg" alt="Pat Lyons" class="team-img">
-  <div class="leadership-info">
-    <h4><strong>Pat Lyons, MD</strong></h4>
-    <h4><strong>Founding Vice-Chair</strong></h4>
-  </div>
-</div>
-
-<div class="leadership-card">
-  <img src="headshots/jc_rojas.jpeg" alt="J.C. Rojas" class="team-img">
-  <div class="leadership-info">
-    <h4><strong>J.C. Rojas, MD</strong></h4>
-    <h4><strong>Founding Vice-Chair</strong></h4>
-  </div>
-</div>
-
-<div class="leadership-card">
   <img src="headshots/nick_ingrahm.jpg" alt="Nicholas Ingraham" class="team-img">
   <div class="leadership-info">
     <h4><strong>Nicholas Ingraham, MD</strong></h4>
@@ -76,6 +52,29 @@ format:
   </div>
 </div>
 
+<div class="leadership-card">
+  <img src="headshots/pat_lyons.jpeg" alt="Pat Lyons" class="team-img">
+  <div class="leadership-info">
+    <h4><strong>Pat Lyons, MD</strong></h4>
+    <h4><strong>Founding Vice-Chair</strong></h4>
+  </div>
+</div>
+
+<div class="leadership-card">
+  <img src="headshots/jc_rojas.jpeg" alt="J.C. Rojas" class="team-img">
+  <div class="leadership-info">
+    <h4><strong>J.C. Rojas, MD</strong></h4>
+    <h4><strong>Founding Vice-Chair</strong></h4>
+  </div>
+</div>
+
+<div class="leadership-card">
+  <img src="headshots/will_parker.jpeg" alt="William Parker" class="team-img">
+  <div class="leadership-info">
+    <h4><strong>William Parker, MD, PhD</strong></h4>
+    <h4><strong>Founding Executive Director</strong></h4>
+  </div>
+</div>
 ```
 
 
@@ -219,7 +218,7 @@ format:
       <img src="images/scholar_icon.png" alt="Google Scholar" class="icon">
     </a></p></div>
   <div><img src="headshots/casey_eddington.jpeg" alt="Nathan Mesfin" class="team-img">
-    <p><strong>Casey Eddington, MD</strong><br>
+    <p><strong>Casey Eddington, PhD</strong><br>
     <a href="https://www.linkedin.com/in/casey-eddington/" target="_blank">
       <img src="images/linkedin_icon.png" alt="LinkedIn" class="icon">
     </a></p></div>
@@ -232,11 +231,6 @@ format:
     <p><strong>Siva Bhavani, MD</strong><br>
     <a href="https://scholar.google.com/citations?user=xSuWGTIAAAAJ&hl=en" target="_blank">
       <img src="images/scholar_icon.png" alt="Google Scholar" class="icon">
-    </a></p></div>
-  <div><img src="headshots/muna_nour.jpeg" alt="Muna Nour" class="team-img">
-    <p><strong>Muna Nour, MPH</strong><br>
-    <a href="https://www.linkedin.com/in/muna-nour-a51661202/" target="_blank">
-      <img src="images/linkedin_icon.png" alt="LinkedIn" class="icon">
     </a></p></div>
 </div>
 

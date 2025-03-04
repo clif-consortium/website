@@ -59,7 +59,7 @@ The CLIF-1.0 data dictionary is [available here](archive/data-dictionary-1.0.qmd
 
 # Beta tables
 
-The data in these tables are typically of most electronic data warehouse systems and are not specific to critical illness. The CLIF versions of these general tables are designed to ensure that they clearly represent the minimum set of data required for critical illness research. Whenever possible, CLIF seeks compatibility with existing EHR data standards.
+The table purpose, structure, and field names for  beta tables is complete and used in at least one federated CLIF project. The minimum Common ICU Data Elements (mCIDE) for category variables is defined. Actively testing the table’s practical use in projects. Breaking changes unlikely, but backward compatible updates in future minor versions possible
 
 
 ## ADT
@@ -597,6 +597,8 @@ The vitals table is a long-form (one vital sign per row) longitudinal table.
 :::
 
 # Concept tables
+
+A planned future CLIF table that has yet to be used in a federated project. The table structure and CDE elements are in draft form. Permissible values of category variables may still need to be defined. Seeking conceptual feedback. Significant changes to all aspects of the table are possible.
 
 ## Dialysis
 
