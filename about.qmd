@@ -9,7 +9,7 @@ format:
 
 
 
-## CLIF Steering Committee
+# CLIF Steering Committee
 
 ```{=html}
 <div class="leadership-card">
@@ -77,6 +77,7 @@ format:
 </div>
 ```
 
+# CLIF Collaborators
 
 ## University of Chicago
 
