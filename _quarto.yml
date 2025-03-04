@@ -22,11 +22,13 @@ website:
       👩🏻‍💻Access <a href="https://docs.google.com/spreadsheets/d/1l8nvjHmmf4lxCviPp12rxafRo2zNApKGOGK126Tn2_s/edit?usp=sharing">CLIF Tracker</a> <br>
   navbar:
     left:
+      - href: mission.qmd
+        text: About
       - href: about.qmd
         text: TEAM
       - href: data-dictionary.qmd
         text: Data Dictionary
-      - posts.qmd # add your posts.qmd file to your navbar!
+      # - posts.qmd # add your posts.qmd file to your navbar!
       - text: Resources
         menu: 
         - href: projects.qmd

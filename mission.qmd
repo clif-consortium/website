@@ -1,0 +1,38 @@
+
+
+## Mission
+
+Promote transparency, interoperability, and innovation in critical care data science by developing a consistent and comprehensive ecosystem of essential data elements that describe critical illness.
+
+## Vision
+
+The Common Longitudinal ICU data Format (CLIF) will be adopted worldwide as a research and operational database format, facilitating transformative life-saving breakthroughs in critical care medicine.
+
+## Values
+
+:::{.values-grid}
+::: {.value-card}
+### Open Collaboration & Access
+We encourage diverse researchers, clinicians, and developers to contribute to CLIF's growth through high-quality ICU data science.
+:::
+
+::: {.value-card}
+### Data Privacy & Security
+Patient confidentiality is central. CLIF uses federated analysis, ensuring patient data is never transferred between sites.
+:::
+
+::: {.value-card}
+### Scientific Integrity
+We uphold rigorous research standards and assert that mCIDE is essential for scientific integrity.
+:::
+
+::: {.value-card}
+### Transparency & Reproducibility
+CLIF code is publicly accessible under FAIR principles while respecting proprietary data protection.
+:::
+
+::: {.value-card}
+### Encouraging Partnerships
+We provide open-source tools under permissive licenses to encourage global adoption.
+:::
+:::

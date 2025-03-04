@@ -89,7 +89,7 @@ about:
 <!-- Main Title Section -->
 
 <img src="images/clif_logo.png" alt="CLIF Logo" class="clif-logo">
-<h1>Common Longitudinal ICU Data Format</h1>
+<h1>Common Longitudinal ICU data Format</h1>
 <div class="text-box">
   <h2>Federated Critical Care Research</h2>
   <p>Multicenter critical care research often relies on sharing sensitive patient data across sites, requiring complex data use agreements (DUAs) and yielding redundant work to account for diverse data infrastructures. To overcome these barriers, we present CLIF, designed specifically for observational studies of critically ill patients across multiple centres.</p>
