@@ -301,14 +301,14 @@ ul.task-list li input[type="checkbox"] {
 <td>in_dttm</td>
 <td>DATETIME</td>
 <td>Start date and time at a particular location</td>
-<td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
+<td>Datetime format should be <code>YYYY-MM-DD HH:MM:SS+00:00</code></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>out_dttm</td>
 <td>DATETIME</td>
 <td>End date and time at a particular location</td>
-<td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
+<td>Datetime format should be <code>YYYY-MM-DD HH:MM:SS+00:00</code></td>
 <td></td>
 </tr>
 <tr class="even">
@@ -335,13 +335,13 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 15%">
-<col style="width: 10%">
-<col style="width: 11%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 11%">
 <col style="width: 14%">
+<col style="width: 9%">
+<col style="width: 10%">
+<col style="width: 18%">
+<col style="width: 18%">
+<col style="width: 10%">
+<col style="width: 13%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -359,8 +359,8 @@ ul.task-list li input[type="checkbox"] {
 <td>20010012</td>
 <td>ABC</td>
 <td>academic</td>
-<td>2024-12-01 10:00:00</td>
-<td>2024-12-01 14:00:00</td>
+<td>2024-12-01 10:00:00+00:00</td>
+<td>2024-12-01 14:00:00+00:00</td>
 <td>B06F</td>
 <td>icu</td>
 </tr>
@@ -368,8 +368,8 @@ ul.task-list li input[type="checkbox"] {
 <td>20010012</td>
 <td>ABC</td>
 <td>academic</td>
-<td>2024-12-01 14:30:00</td>
-<td>2024-12-02 08:00:00</td>
+<td>2024-12-01 14:30:00+00:00</td>
+<td>2024-12-02 08:00:00+00:00</td>
 <td>B78D</td>
 <td>ward</td>
 </tr>
@@ -377,8 +377,8 @@ ul.task-list li input[type="checkbox"] {
 <td>20010015</td>
 <td>ABC</td>
 <td>academic</td>
-<td>2024-11-30 16:45:00</td>
-<td>2024-12-01 12:00:00</td>
+<td>2024-11-30 16:45:00+00:00</td>
+<td>2024-12-01 12:00:00+00:00</td>
 <td>B06T</td>
 <td>icu</td>
 </tr>
@@ -386,8 +386,8 @@ ul.task-list li input[type="checkbox"] {
 <td>20010015</td>
 <td>ABC</td>
 <td>academic</td>
-<td>2024-12-01 12:30:00</td>
-<td>2024-12-02 07:00:00</td>
+<td>2024-12-01 12:30:00+00:00</td>
+<td>2024-12-02 07:00:00+00:00</td>
 <td>N23E</td>
 <td>procedural</td>
 </tr>
@@ -395,8 +395,8 @@ ul.task-list li input[type="checkbox"] {
 <td>20010020</td>
 <td>EFG</td>
 <td>community</td>
-<td>2024-11-28 09:00:00</td>
-<td>2024-11-29 17:00:00</td>
+<td>2024-11-28 09:00:00+00:00</td>
+<td>2024-11-29 17:00:00+00:00</td>
 <td>B78D</td>
 <td>ward</td>
 </tr>
@@ -446,13 +446,13 @@ ul.task-list li input[type="checkbox"] {
 <td>admission_dttm</td>
 <td>DATETIME</td>
 <td>Date and time the patient is admitted to the hospital</td>
-<td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
+<td>Datetime format should be <code>YYYY-MM-DD HH:MM:SS+00:00</code></td>
 </tr>
 <tr class="odd">
 <td>discharge_dttm</td>
 <td>DATETIME</td>
 <td>Date and time the patient is discharged from the hospital</td>
-<td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
+<td>Datetime format should be <code>YYYY-MM-DD HH:MM:SS+00:00</code></td>
 </tr>
 <tr class="even">
 <td>age_at_admission</td>
@@ -580,8 +580,8 @@ ul.task-list li input[type="checkbox"] {
 <td>101001</td>
 <td>12345678</td>
 <td>22334455</td>
-<td>2024-11-01 08:15:00</td>
-<td>2024-11-04 14:30:00</td>
+<td>2024-11-01 08:15:00+00:00</td>
+<td>2024-11-04 14:30:00+00:00</td>
 <td>65</td>
 <td>Direct admission</td>
 <td>Inpatient</td>
@@ -597,8 +597,8 @@ ul.task-list li input[type="checkbox"] {
 <td>101002</td>
 <td>87654321</td>
 <td>22334455</td>
-<td>2024-11-04 15:00:00</td>
-<td>2024-11-07 11:00:00</td>
+<td>2024-11-04 15:00:00+00:00</td>
+<td>2024-11-07 11:00:00+00:00</td>
 <td>72</td>
 <td>Transfer from another hospital</td>
 <td>Acute Care Transfer</td>
@@ -614,8 +614,8 @@ ul.task-list li input[type="checkbox"] {
 <td>101003</td>
 <td>11223344</td>
 <td>11223344</td>
-<td>2024-10-20 07:45:00</td>
-<td>2024-10-22 10:20:00</td>
+<td>2024-10-20 07:45:00+00:00</td>
+<td>2024-10-22 10:20:00+00:00</td>
 <td>59</td>
 <td>Pre-op surgical</td>
 <td>Pre-op</td>
@@ -655,19 +655,19 @@ ul.task-list li input[type="checkbox"] {
 <td>lab_order_dttm</td>
 <td>DATETIME</td>
 <td>Date and time when the lab is ordered.</td>
-<td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
+<td>Datetime format should be <code>YYYY-MM-DD HH:MM:SS+00:00</code></td>
 </tr>
 <tr class="odd">
 <td>lab_collect_dttm</td>
 <td>DATETIME</td>
 <td>Date and time when the specimen is collected.</td>
-<td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
+<td>Datetime format should be <code>YYYY-MM-DD HH:MM:SS+00:00</code></td>
 </tr>
 <tr class="even">
 <td>lab_result_dttm</td>
 <td>DATETIME</td>
 <td>Date and time when the lab results are available.</td>
-<td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
+<td>Datetime format should be <code>YYYY-MM-DD HH:MM:SS+00:00</code></td>
 </tr>
 <tr class="odd">
 <td>lab_order_name</td>
@@ -768,9 +768,9 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td>12345</td>
-<td>2024-12-01 08:15</td>
-<td>2024-12-01 08:30</td>
-<td>2024-12-01 09:00</td>
+<td>2024-12-01 08:15:00+00:00</td>
+<td>2024-12-01 08:30:00+00:00</td>
+<td>2024-12-01 09:00:00+00:00</td>
 <td>Complete Blood Count</td>
 <td>Hemoglobin</td>
 <td>hemoglobin</td>
@@ -782,9 +782,9 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>12345</td>
-<td>2024-12-01 08:15</td>
-<td>2024-12-01 08:30</td>
-<td>2024-12-01 09:05</td>
+<td>2024-12-01 08:15:00+00:00</td>
+<td>2024-12-01 08:30:00+00:00</td>
+<td>2024-12-01 09:05:00+00:00</td>
 <td>Complete Blood Count</td>
 <td>White Blood Cell Count</td>
 <td>wbc</td>
@@ -796,9 +796,9 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td>12345</td>
-<td>2024-12-01 08:15</td>
-<td>2024-12-01 08:30</td>
-<td>2024-12-01 09:10</td>
+<td>2024-12-01 08:15:00+00:00</td>
+<td>2024-12-01 08:30:00+00:00</td>
+<td>2024-12-01 09:10:00+00:00</td>
 <td>Metabolic Panel</td>
 <td>Sodium</td>
 <td>sodium</td>
@@ -810,9 +810,9 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>12345</td>
-<td>2024-12-01 08:15</td>
-<td>2024-12-01 08:30</td>
-<td>2024-12-01 09:20</td>
+<td>2024-12-01 08:15:00+00:00</td>
+<td>2024-12-01 08:30:00+00:00</td>
+<td>2024-12-01 09:20:00+00:00</td>
 <td>Metabolic Panel</td>
 <td>Potassium</td>
 <td>potassium</td>
@@ -824,9 +824,9 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td>67890</td>
-<td>2024-12-01 09:30</td>
-<td>2024-12-01 09:45</td>
-<td>2024-12-01 10:15</td>
+<td>2024-12-01 09:30:00+00:00</td>
+<td>2024-12-01 09:45:00+00:00</td>
+<td>2024-12-01 10:15:00+00:00</td>
 <td>Arterial Blood Gas</td>
 <td>pH</td>
 <td>ph</td>
@@ -838,9 +838,9 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>67890</td>
-<td>2024-12-01 09:30</td>
-<td>2024-12-01 09:45</td>
-<td>2024-12-01 10:20</td>
+<td>2024-12-01 09:30:00+00:00</td>
+<td>2024-12-01 09:45:00+00:00</td>
+<td>2024-12-01 10:20:00+00:00</td>
 <td>Arterial Blood Gas</td>
 <td>pCO2</td>
 <td>pco2</td>
@@ -852,9 +852,9 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td>67890</td>
-<td>2024-12-01 09:30</td>
-<td>2024-12-01 09:45</td>
-<td>2024-12-01 10:25</td>
+<td>2024-12-01 09:30:00+00:00</td>
+<td>2024-12-01 09:45:00+00:00</td>
+<td>2024-12-01 10:25:00+00:00</td>
 <td>Arterial Blood Gas</td>
 <td>pO2</td>
 <td>po2</td>
@@ -866,9 +866,9 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>67890</td>
-<td>2024-12-01 09:30</td>
-<td>2024-12-01 09:45</td>
-<td>2024-12-01 10:30</td>
+<td>2024-12-01 09:30:00+00:00</td>
+<td>2024-12-01 09:45:00+00:00</td>
+<td>2024-12-01 10:30:00+00:00</td>
 <td>Arterial Blood Gas</td>
 <td>Bicarbonate</td>
 <td>bicarbonate</td>
@@ -912,7 +912,7 @@ ul.task-list li input[type="checkbox"] {
 <td>admin_dttm</td>
 <td>DATETIME</td>
 <td>Date and time when the medicine was administered</td>
-<td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
+<td>Datetime format should be <code>YYYY-MM-DD HH:MM:SS+00:00</code></td>
 </tr>
 <tr class="even">
 <td>med_name</td>
@@ -974,16 +974,16 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
+<col style="width: 8%">
+<col style="width: 12%">
+<col style="width: 31%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 4%">
+<col style="width: 6%">
+<col style="width: 7%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1002,7 +1002,7 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td>792391</td>
-<td>2123-11-13 12:28:00</td>
+<td>2123-11-13 12:28:00+00:00</td>
 <td>PROPOFOL 10 MG/ML INTRAVENOUS EMULSION</td>
 <td>propofol</td>
 <td>sedation</td>
@@ -1014,7 +1014,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>792391</td>
-<td>2123-11-13 13:49:00</td>
+<td>2123-11-13 13:49:00+00:00</td>
 <td>REMIFENTANIL CONTINUOUS IV (ANESTHESIA)</td>
 <td>remifentanil</td>
 <td>sedation</td>
@@ -1026,7 +1026,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td>792391</td>
-<td>2123-11-13 14:03:00</td>
+<td>2123-11-13 14:03:00+00:00</td>
 <td>PROPOFOL 10 MG/ML INTRAVENOUS EMULSION</td>
 <td>propofol</td>
 <td>sedation</td>
@@ -1038,7 +1038,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>370921</td>
-<td>2123-02-12 03:07:00</td>
+<td>2123-02-12 03:07:00+00:00</td>
 <td>PHENYLEPHRINE 5 MG/50 ML (100 MCG/ML) IN 0.9 % SODIUM CHLORIDE</td>
 <td>phenylephrine</td>
 <td>vasoactives</td>
@@ -1050,7 +1050,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td>370921</td>
-<td>2123-02-12 03:14:00</td>
+<td>2123-02-12 03:14:00+00:00</td>
 <td>PHENYLEPHRINE 5 MG/50 ML (100 MCG/ML) IN 0.9 % SODIUM CHLORIDE</td>
 <td>phenylephrine</td>
 <td>vasoactives</td>
@@ -1062,7 +1062,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>702344</td>
-<td>2123-04-27 04:30:00</td>
+<td>2123-04-27 04:30:00+00:00</td>
 <td>HEPARIN (PORCINE) 25,000 UNIT/250 ML IN 0.45 % SODIUM CHLORIDE</td>
 <td>heparin</td>
 <td>anticoagulation</td>
@@ -1142,13 +1142,13 @@ ul.task-list li input[type="checkbox"] {
 <td>birth_date</td>
 <td>DATETIME</td>
 <td>Patient’s date of birth.</td>
-<td>Date format should be <code>%Y-%m-%d</code></td>
+<td>Date format should be <code>YYYY-MM-DD</code></td>
 </tr>
 <tr class="odd">
 <td>death_dttm</td>
 <td>DATETIME</td>
 <td>Patient’s death date, including time.</td>
-<td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
+<td>Datetime format should be <code>YYYY-MM-DD HH:MM:SS+00:00</code></td>
 </tr>
 <tr class="even">
 <td>language_name</td>
@@ -1168,16 +1168,16 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
+<col style="width: 5%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 24%">
+<col style="width: 9%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 5%">
+<col style="width: 7%">
+<col style="width: 8%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1282,7 +1282,7 @@ ul.task-list li input[type="checkbox"] {
 <td>recorded_dttm</td>
 <td>DATETIME</td>
 <td>The exact date and time when the assessment was recorded, ensuring temporal accuracy.</td>
-<td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
+<td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
 </tr>
 <tr class="odd">
 <td>assessment_name</td>
@@ -1326,14 +1326,14 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 11%">
 <col style="width: 10%">
-<col style="width: 23%">
-<col style="width: 13%">
-<col style="width: 10%">
+<col style="width: 16%">
+<col style="width: 26%">
+<col style="width: 12%">
 <col style="width: 9%">
-<col style="width: 10%">
-<col style="width: 7%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 6%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1350,7 +1350,7 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td>12345</td>
-<td>2024-12-01 08:15</td>
+<td>2024-12-01 08:15:00+00:00</td>
 <td>NUR RA GLASGOW ADULT EYE OPENING</td>
 <td>gcs_eye</td>
 <td>Neurological</td>
@@ -1360,7 +1360,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>12345</td>
-<td>2024-12-01 08:15</td>
+<td>2024-12-01 08:15:00+00:00</td>
 <td>NUR RA GLASGOW ADULT VERBAL RESPONSE</td>
 <td>gcs_verbal</td>
 <td>Neurological</td>
@@ -1370,7 +1370,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td>12345</td>
-<td>2024-12-01 08:15</td>
+<td>2024-12-01 08:15:00+00:00</td>
 <td>NUR RA GLASGOW ADULT BEST MOTOR RESPONSE</td>
 <td>gcs_motor</td>
 <td>Neurological</td>
@@ -1380,7 +1380,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>12345</td>
-<td>2024-12-01 08:15</td>
+<td>2024-12-01 08:15:00+00:00</td>
 <td>NUR RA GLASGOW ADULT SCORING</td>
 <td>gcs_total</td>
 <td>Neurological</td>
@@ -1390,7 +1390,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td>67890</td>
-<td>2024-12-01 10:30</td>
+<td>2024-12-01 10:30:00+00:00</td>
 <td>BRADEN ASSESSMENT</td>
 <td>braden_total</td>
 <td>Nursing Risk</td>
@@ -1400,7 +1400,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>67890</td>
-<td>2024-12-01 10:30</td>
+<td>2024-12-01 10:30:00+00:00</td>
 <td>SAT SCREEN</td>
 <td>sat_delivery_pass_fail</td>
 <td>Sedation</td>
@@ -1418,10 +1418,10 @@ ul.task-list li input[type="checkbox"] {
 <p>The position table is a long form (one position per row) longitudinal table that captures all documented position changes of the patient. The table is designed for the explicit purpose of constructing the <code>position_category</code> CDE and identifying patients in prone position.</p>
 <table class="table">
 <colgroup>
-<col style="width: 10%">
+<col style="width: 9%">
 <col style="width: 8%">
-<col style="width: 57%">
-<col style="width: 22%">
+<col style="width: 55%">
+<col style="width: 25%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1442,7 +1442,7 @@ ul.task-list li input[type="checkbox"] {
 <td>recorded_dttm</td>
 <td>DATETIME</td>
 <td>Date and time when the vital is recorded.</td>
-<td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
+<td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
 </tr>
 <tr class="odd">
 <td>position_name</td>
@@ -1462,10 +1462,10 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 18%">
-<col style="width: 19%">
-<col style="width: 42%">
-<col style="width: 17%">
+<col style="width: 15%">
+<col style="width: 22%">
+<col style="width: 48%">
+<col style="width: 14%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1478,49 +1478,49 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td>84</td>
-<td>2123-06-20 00:00:00</td>
+<td>2123-06-20 00:00:00+00:00</td>
 <td>Supine–turn R</td>
 <td>not_prone</td>
 </tr>
 <tr class="even">
 <td>84</td>
-<td>2123-06-20 06:00:00</td>
+<td>2123-06-20 06:00:00+00:00</td>
 <td>Supine–turn L</td>
 <td>not_prone</td>
 </tr>
 <tr class="odd">
 <td>84</td>
-<td>2123-06-20 12:00:00</td>
+<td>2123-06-20 12:00:00+00:00</td>
 <td>Supine–back</td>
 <td>not_prone</td>
 </tr>
 <tr class="even">
 <td>84</td>
-<td>2123-06-20 16:00:00</td>
+<td>2123-06-20 16:00:00+00:00</td>
 <td>Supine–turn R</td>
 <td>not_prone</td>
 </tr>
 <tr class="odd">
 <td>84</td>
-<td>2123-06-20 20:00:00</td>
+<td>2123-06-20 20:00:00+00:00</td>
 <td>Supine–back;Supine–turn intolerant</td>
 <td>not_prone</td>
 </tr>
 <tr class="even">
 <td>84</td>
-<td>2123-06-20 22:00:00</td>
+<td>2123-06-20 22:00:00+00:00</td>
 <td>Supine–turn intolerant,microturn L</td>
 <td>not_prone</td>
 </tr>
 <tr class="odd">
 <td>84</td>
-<td>2123-06-20 00:00:00</td>
+<td>2123-06-20 00:00:00+00:00</td>
 <td>Supine–turn intolerant,microturn L;Supine–back</td>
 <td>not_prone</td>
 </tr>
 <tr class="even">
 <td>84</td>
-<td>2123-06-20 01:10:00</td>
+<td>2123-06-20 01:10:00+00:00</td>
 <td>30 Degrees</td>
 <td>not_prone</td>
 </tr>
@@ -1552,7 +1552,7 @@ ul.task-list li input[type="checkbox"] {
 <td>recorded_dttm</td>
 <td>DATETIME</td>
 <td>Date and time when the device settings and/or measurement was recorded.</td>
-<td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
+<td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
 </tr>
 <tr class="odd">
 <td>device_name</td>
@@ -1818,27 +1818,27 @@ ul.task-list li input[type="checkbox"] {
 <table class="table-striped table-hover table">
 <colgroup>
 <col style="width: 4%">
+<col style="width: 7%">
+<col style="width: 3%">
 <col style="width: 4%">
 <col style="width: 4%">
+<col style="width: 7%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 4%">
+<col style="width: 3%">
 <col style="width: 4%">
 <col style="width: 4%">
+<col style="width: 3%">
 <col style="width: 4%">
+<col style="width: 3%">
 <col style="width: 4%">
+<col style="width: 7%">
+<col style="width: 2%">
 <col style="width: 4%">
-<col style="width: 4%">
-<col style="width: 4%">
-<col style="width: 4%">
-<col style="width: 4%">
-<col style="width: 4%">
-<col style="width: 4%">
-<col style="width: 4%">
-<col style="width: 4%">
-<col style="width: 4%">
-<col style="width: 4%">
-<col style="width: 4%">
-<col style="width: 4%">
-<col style="width: 4%">
-<col style="width: 4%">
+<col style="width: 6%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1869,7 +1869,7 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td>12345</td>
-<td>2024-12-01 08:00</td>
+<td>2024-12-01 08:00:00+00:00</td>
 <td>Ventilator</td>
 <td>IMV</td>
 <td>CMV Volume Ctrl</td>
@@ -1893,7 +1893,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>12345</td>
-<td>2024-12-01 09:00</td>
+<td>2024-12-01 09:00:00+00:00</td>
 <td>Ventilator</td>
 <td>IMV</td>
 <td>SIMV</td>
@@ -1917,7 +1917,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td>67890</td>
-<td>2024-12-01 10:30</td>
+<td>2024-12-01 10:30:00+00:00</td>
 <td>HFNC</td>
 <td>High Flow NC</td>
 <td>N/A</td>
@@ -1941,7 +1941,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>67890</td>
-<td>2024-12-01 11:00</td>
+<td>2024-12-01 11:00:00+00:00</td>
 <td>CPAP</td>
 <td>CPAP</td>
 <td>CPAP</td>
@@ -1999,7 +1999,7 @@ ul.task-list li input[type="checkbox"] {
 <td>recorded_dttm</td>
 <td>DATETIME</td>
 <td>Date and time when the vital is recorded.</td>
-<td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
+<td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
 </tr>
 <tr class="odd">
 <td>vital_name</td>
@@ -2031,11 +2031,11 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 16%">
 <col style="width: 15%">
+<col style="width: 22%">
 <col style="width: 24%">
-<col style="width: 15%">
-<col style="width: 11%">
+<col style="width: 13%">
+<col style="width: 10%">
 <col style="width: 13%">
 </colgroup>
 <thead>
@@ -2051,7 +2051,7 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td>20010012</td>
-<td>2024-12-01 08:00</td>
+<td>2024-12-01 08:00:00+00:00</td>
 <td>HEIGHT</td>
 <td>height_cm</td>
 <td>170.0</td>
@@ -2059,7 +2059,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>20010012</td>
-<td>2024-12-01 08:15</td>
+<td>2024-12-01 08:15:00+00:00</td>
 <td>WEIGHT</td>
 <td>weight_kg</td>
 <td>70.0</td>
@@ -2067,7 +2067,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td>20010012</td>
-<td>2024-12-01 08:30</td>
+<td>2024-12-01 08:30:00+00:00</td>
 <td>PULSE</td>
 <td>heart_rate</td>
 <td>72.0</td>
@@ -2075,7 +2075,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>20010012</td>
-<td>2024-12-01 08:45</td>
+<td>2024-12-01 08:45:00+00:00</td>
 <td>BLOOD PRESSURE (SYSTOLIC)</td>
 <td>sbp</td>
 <td>120.0</td>
@@ -2083,7 +2083,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td>20010012</td>
-<td>2024-12-01 08:45</td>
+<td>2024-12-01 08:45:00+00:00</td>
 <td>BLOOD PRESSURE (DIASTOLIC)</td>
 <td>dbp</td>
 <td>80.0</td>
@@ -2091,7 +2091,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>20010012</td>
-<td>2024-12-01 08:50</td>
+<td>2024-12-01 08:50:00+00:00</td>
 <td>RESPIRATORY RATE</td>
 <td>respiratory_rate</td>
 <td>16.0</td>
@@ -2099,7 +2099,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td>20010012</td>
-<td>2024-12-01 09:00</td>
+<td>2024-12-01 09:00:00+00:00</td>
 <td>TEMPERATURE</td>
 <td>temp_c</td>
 <td>36.8</td>
@@ -2107,7 +2107,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>20010012</td>
-<td>2024-12-01 09:15</td>
+<td>2024-12-01 09:15:00+00:00</td>
 <td>SPO2</td>
 <td>spo2</td>
 <td>98.0</td>
@@ -2115,7 +2115,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td>20010013</td>
-<td>2024-12-01 09:30</td>
+<td>2024-12-01 09:30:00+00:00</td>
 <td>MEAN ARTERIAL PRESSURE (MAP)</td>
 <td>map</td>
 <td>85.0</td>
@@ -2135,10 +2135,10 @@ ul.task-list li input[type="checkbox"] {
 <p>The dialysis table is a wider longitudinal table that captures the start and stop times of dialysis sessions, the type of dialysis performed, and the amount of dialysate flow and ultrafiltration.</p>
 <table class="table">
 <colgroup>
-<col style="width: 16%">
-<col style="width: 11%">
-<col style="width: 45%">
-<col style="width: 25%">
+<col style="width: 15%">
+<col style="width: 10%">
+<col style="width: 41%">
+<col style="width: 30%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -2159,13 +2159,13 @@ ul.task-list li input[type="checkbox"] {
 <td>start_dttm</td>
 <td>DATETIME</td>
 <td>Start date and time of dialysis session</td>
-<td>Datetime format <code>%Y-%m-%d %H:%M:%S</code></td>
+<td>Datetime format <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
 </tr>
 <tr class="odd">
 <td>stop_dttm</td>
 <td>DATETIME</td>
 <td>Stop date and time of dialysis session</td>
-<td>Datetime format <code>%Y-%m-%d %H:%M:%S</code></td>
+<td>Datetime format <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
 </tr>
 <tr class="even">
 <td>dialysis_type_name</td>
@@ -2210,14 +2210,14 @@ ul.task-list li input[type="checkbox"] {
 <table class="table-striped table-hover table">
 <colgroup>
 <col style="width: 9%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 11%">
-<col style="width: 7%">
-<col style="width: 19%">
+<col style="width: 12%">
+<col style="width: 12%">
 <col style="width: 9%">
 <col style="width: 10%">
+<col style="width: 7%">
+<col style="width: 18%">
+<col style="width: 8%">
+<col style="width: 9%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -2235,8 +2235,8 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td>101</td>
-<td>2024-01-01 08:00:00</td>
-<td>2024-01-01 12:00:00</td>
+<td>2024-01-01 08:00:00+00:00</td>
+<td>2024-01-01 12:00:00+00:00</td>
 <td>Hemodialysis</td>
 <td>intermittent</td>
 <td>NA</td>
@@ -2246,8 +2246,8 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>102</td>
-<td>2024-01-02 10:00:00</td>
-<td>2024-01-02 14:30:00</td>
+<td>2024-01-02 10:00:00+00:00</td>
+<td>2024-01-02 14:30:00+00:00</td>
 <td>CRRT</td>
 <td>crrt</td>
 <td>CVVHD</td>
@@ -2257,8 +2257,8 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td>103</td>
-<td>2024-01-03 09:30:00</td>
-<td>2024-01-03 13:30:00</td>
+<td>2024-01-03 09:30:00+00:00</td>
+<td>2024-01-03 13:30:00+00:00</td>
 <td>Peritoneal Dialysis</td>
 <td>peritoneal</td>
 <td>NA</td>
@@ -2268,8 +2268,8 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>104</td>
-<td>2024-01-04 11:00:00</td>
-<td>2024-01-04 15:00:00</td>
+<td>2024-01-04 11:00:00+00:00</td>
+<td>2024-01-04 15:00:00+00:00</td>
 <td>CRRT</td>
 <td>crrt</td>
 <td>CVVHDF</td>
@@ -2335,15 +2335,15 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 13%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 9%">
-<col style="width: 11%">
-<col style="width: 13%">
-<col style="width: 9%">
+<col style="width: 12%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 8%">
+<col style="width: 10%">
+<col style="width: 12%">
+<col style="width: 8%">
 <col style="width: 4%">
-<col style="width: 5%">
+<col style="width: 4%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -2361,8 +2361,8 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td>1001</td>
-<td>2024-01-01 08:00:00</td>
-<td>2024-01-03 10:00:00</td>
+<td>2024-01-01 08:00:00+00:00</td>
+<td>2024-01-03 10:00:00+00:00</td>
 <td>Centrimag</td>
 <td>MCS</td>
 <td>RPMs</td>
@@ -2372,8 +2372,8 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>1002</td>
-<td>2024-01-05 12:00:00</td>
-<td>2024-01-07 14:30:00</td>
+<td>2024-01-05 12:00:00+00:00</td>
+<td>2024-01-07 14:30:00+00:00</td>
 <td>ECMO VV</td>
 <td>ECMO</td>
 <td>Flow Rate</td>
@@ -2383,8 +2383,8 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td>1003</td>
-<td>2024-01-10 09:00:00</td>
-<td>2024-01-12 15:45:00</td>
+<td>2024-01-10 09:00:00+00:00</td>
+<td>2024-01-12 15:45:00+00:00</td>
 <td>TandemHeart</td>
 <td>MCS</td>
 <td>RPMs</td>
@@ -2394,8 +2394,8 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>1004</td>
-<td>2024-01-15 14:00:00</td>
-<td>2024-01-17 16:00:00</td>
+<td>2024-01-15 14:00:00+00:00</td>
+<td>2024-01-17 16:00:00+00:00</td>
 <td>ECMO VA</td>
 <td>ECMO</td>
 <td>Sweep</td>
@@ -2413,10 +2413,10 @@ ul.task-list li input[type="checkbox"] {
 <p>Continuous start stop record of every provider who cared for the patient.</p>
 <table class="table">
 <colgroup>
-<col style="width: 13%">
-<col style="width: 9%">
-<col style="width: 51%">
-<col style="width: 24%">
+<col style="width: 12%">
+<col style="width: 8%">
+<col style="width: 48%">
+<col style="width: 28%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -2443,13 +2443,13 @@ ul.task-list li input[type="checkbox"] {
 <td>start_dttm</td>
 <td>DATETIME</td>
 <td>Date and time when the provider’s care or involvement in the patient’s case began</td>
-<td>Datetime format should be %Y-%m-%d %H:%M:%S</td>
+<td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
 </tr>
 <tr class="even">
 <td>stop_dttm</td>
 <td>DATETIME</td>
 <td>Date and time when the provider’s care or involvement in the patient’s case ended</td>
-<td>Datetime format should be %Y-%m-%d %H:%M:%S</td>
+<td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
 </tr>
 <tr class="odd">
 <td>provider_role_name</td>
@@ -2470,16 +2470,14 @@ ul.task-list li input[type="checkbox"] {
 <table class="table-striped table-hover table">
 <colgroup>
 <col style="width: 15%">
-<col style="width: 10%">
-<col style="width: 16%">
-<col style="width: 16%">
+<col style="width: 21%">
+<col style="width: 21%">
 <col style="width: 20%">
 <col style="width: 18%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>hospitalization_id</th>
-<th>provider_id</th>
 <th>start_dttm</th>
 <th>stop_dttm</th>
 <th>provider_role_name</th>
@@ -2489,65 +2487,57 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td>1001014</td>
-<td>P12345</td>
-<td>2023-05-01 08:00:00</td>
-<td>2023-05-01 20:00:00</td>
+<td>2023-05-01 08:00:00+00:00</td>
+<td>2023-05-01 20:00:00+00:00</td>
 <td>Attending Physician</td>
 <td>Attending</td>
 </tr>
 <tr class="even">
 <td>1001014</td>
-<td>P54321</td>
-<td>2023-05-01 08:00:00</td>
-<td>2023-05-02 08:00:00</td>
+<td>2023-05-01 08:00:00+00:00</td>
+<td>2023-05-02 08:00:00+00:00</td>
 <td>Resident Physician</td>
 <td>Resident</td>
 </tr>
 <tr class="odd">
 <td>1001014</td>
-<td>P67890</td>
-<td>2023-05-01 08:00:00</td>
-<td>2023-05-03 08:00:00</td>
+<td>2023-05-01 08:00:00+00:00</td>
+<td>2023-05-03 08:00:00+00:00</td>
 <td>Nurse Practitioner</td>
 <td>Nurse Practitioner</td>
 </tr>
 <tr class="even">
 <td>1002025</td>
-<td>P11223</td>
-<td>2023-06-10 09:00:00</td>
-<td>2023-06-10 21:00:00</td>
+<td>2023-06-10 09:00:00+00:00</td>
+<td>2023-06-10 21:00:00+00:00</td>
 <td>Critical Care Specialist</td>
 <td>Critical Care</td>
 </tr>
 <tr class="odd">
 <td>1002025</td>
-<td>P44556</td>
-<td>2023-06-10 09:00:00</td>
-<td>2023-06-11 09:00:00</td>
+<td>2023-06-10 09:00:00+00:00</td>
+<td>2023-06-11 09:00:00+00:00</td>
 <td>Respiratory Therapist</td>
 <td>Respiratory Therapy</td>
 </tr>
 <tr class="even">
 <td>1003036</td>
-<td>P33445</td>
-<td>2023-07-15 07:30:00</td>
-<td>2023-07-15 19:30:00</td>
+<td>2023-07-15 07:30:00+00:00</td>
+<td>2023-07-15 19:30:00+00:00</td>
 <td>Attending Physician</td>
 <td>Attending</td>
 </tr>
 <tr class="odd">
 <td>1003036</td>
-<td>P66789</td>
-<td>2023-07-15 07:30:00</td>
-<td>2023-07-16 07:30:00</td>
+<td>2023-07-15 07:30:00+00:00</td>
+<td>2023-07-16 07:30:00+00:00</td>
 <td>Charge Nurse</td>
 <td>Nurse</td>
 </tr>
 <tr class="even">
 <td>1004047</td>
-<td>P99887</td>
-<td>2023-08-20 10:00:00</td>
-<td>2023-08-20 22:00:00</td>
+<td>2023-08-20 10:00:00+00:00</td>
+<td>2023-08-20 22:00:00+00:00</td>
 <td>Physical Therapist</td>
 <td>Therapy</td>
 </tr>
@@ -2561,10 +2551,10 @@ ul.task-list li input[type="checkbox"] {
 <p>Record of all diagnoses associated with the hospitalization. Expect breaking changes to this table as we seek to align it with existing diagnosis ontologies</p>
 <table class="table">
 <colgroup>
-<col style="width: 15%">
-<col style="width: 11%">
-<col style="width: 40%">
-<col style="width: 30%">
+<col style="width: 14%">
+<col style="width: 10%">
+<col style="width: 37%">
+<col style="width: 35%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -2597,13 +2587,13 @@ ul.task-list li input[type="checkbox"] {
 <td>start_dttm</td>
 <td>DATETIME</td>
 <td>date time the diagnosis was recorded</td>
-<td>Datetime format should be %Y-%m-%d %H:%M:%S</td>
+<td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
 </tr>
 <tr class="odd">
 <td>end_dttm</td>
 <td>DATETIME</td>
 <td>date time the diagnosis was noted as resolved (if resolved)</td>
-<td>Datetime format should be %Y-%m-%d %H:%M:%S</td>
+<td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
 </tr>
 </tbody>
 </table>
@@ -2611,15 +2601,15 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 13%">
-<col style="width: 17%">
-<col style="width: 23%">
-<col style="width: 21%">
-<col style="width: 21%">
+<col style="width: 16%">
+<col style="width: 15%">
+<col style="width: 19%">
+<col style="width: 24%">
+<col style="width: 24%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>patient_id</th>
+<th>hospitalization_id</th>
 <th>diagnostic_code</th>
 <th>diagnosis_code_format</th>
 <th>start_dttm</th>
@@ -2631,57 +2621,57 @@ ul.task-list li input[type="checkbox"] {
 <td>1001014</td>
 <td>250.00</td>
 <td>icd9</td>
-<td>2023-05-01 08:00:00</td>
-<td>2023-05-10 08:00:00</td>
+<td>2023-05-01 08:00:00+00:00</td>
+<td>2023-05-10 08:00:00+00:00</td>
 </tr>
 <tr class="even">
 <td>1001014</td>
 <td>J45.909</td>
 <td>icd10</td>
-<td>2023-05-01 08:00:00</td>
-<td>2023-05-15 08:00:00</td>
+<td>2023-05-01 08:00:00+00:00</td>
+<td>2023-05-15 08:00:00+00:00</td>
 </tr>
 <tr class="odd">
 <td>1002025</td>
 <td>401.9</td>
 <td>icd9</td>
-<td>2023-06-10 09:00:00</td>
-<td>2023-06-12 09:00:00</td>
+<td>2023-06-10 09:00:00+00:00</td>
+<td>2023-06-12 09:00:00+00:00</td>
 </tr>
 <tr class="even">
 <td>1002025</td>
 <td>E11.9</td>
 <td>icd10</td>
-<td>2023-06-10 09:00:00</td>
-<td>2023-06-20 09:00:00</td>
+<td>2023-06-10 09:00:00+00:00</td>
+<td>2023-06-20 09:00:00+00:00</td>
 </tr>
 <tr class="odd">
 <td>1003036</td>
 <td>414.01</td>
 <td>icd9</td>
-<td>2023-07-15 07:30:00</td>
-<td>2023-07-30 07:30:00</td>
+<td>2023-07-15 07:30:00+00:00</td>
+<td>2023-07-30 07:30:00+00:00</td>
 </tr>
 <tr class="even">
 <td>1003036</td>
 <td>I25.10</td>
 <td>icd10</td>
-<td>2023-07-15 07:30:00</td>
-<td>2023-07-25 07:30:00</td>
+<td>2023-07-15 07:30:00+00:00</td>
+<td>2023-07-25 07:30:00+00:00</td>
 </tr>
 <tr class="odd">
 <td>1004047</td>
 <td>530.81</td>
 <td>icd9</td>
-<td>2023-08-20 10:00:00</td>
-<td>2023-08-22 10:00:00</td>
+<td>2023-08-20 10:00:00+00:00</td>
+<td>2023-08-22 10:00:00+00:00</td>
 </tr>
 <tr class="even">
 <td>1004047</td>
 <td>K21.9</td>
 <td>icd10</td>
-<td>2023-08-20 10:00:00</td>
-<td>2023-08-24 10:00:00</td>
+<td>2023-08-20 10:00:00+00:00</td>
+<td>2023-08-24 10:00:00+00:00</td>
 </tr>
 </tbody>
 </table>
@@ -2728,19 +2718,19 @@ ul.task-list li input[type="checkbox"] {
 <td>order_start_dttm</td>
 <td>DATETIME</td>
 <td>Date and time when the medication order was initiated</td>
-<td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
+<td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
 </tr>
 <tr class="even">
 <td>order_end_dttm</td>
 <td>DATETIME</td>
 <td>Date and time when the medication order ended or was discontinued</td>
-<td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
+<td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
 </tr>
 <tr class="odd">
 <td>ordered_dttm</td>
 <td>DATETIME</td>
 <td>Date and time when the medication was actually ordered</td>
-<td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
+<td>Datetime format should be `<code>YYY-MM-DD HH:MM:SS+00:00</code></td>
 </tr>
 <tr class="even">
 <td>med_name</td>
@@ -2808,21 +2798,21 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
+<col style="width: 5%">
+<col style="width: 4%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 20%">
+<col style="width: 4%">
+<col style="width: 4%">
 <col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
+<col style="width: 7%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 1%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -2847,9 +2837,9 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td>12345</td>
 <td>456789</td>
-<td>2023-10-01 14:00:00</td>
-<td>2023-10-02 14:00:00</td>
-<td>2023-10-01 13:30:00</td>
+<td>2023-10-01 14:00:00+00:00</td>
+<td>2023-10-02 14:00:00+00:00</td>
+<td>2023-10-01 13:30:00+00:00</td>
 <td>Norepinephrine 8 mg/250 mL</td>
 <td>norepinephrine</td>
 <td>vasoactives</td>
@@ -2864,9 +2854,9 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>12346</td>
 <td>456790</td>
-<td>2023-10-01 16:00:00</td>
-<td>2023-10-02 10:00:00</td>
-<td>2023-10-01 15:30:00</td>
+<td>2023-10-01 16:00:00+00:00</td>
+<td>2023-10-02 10:00:00+00:00</td>
+<td>2023-10-01 15:30:00+00:00</td>
 <td>Vancomycin 1 g IV</td>
 <td>vancomycin</td>
 <td>antibiotics</td>
@@ -2881,9 +2871,9 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td>12347</td>
 <td>456791</td>
-<td>2023-10-02 08:00:00</td>
-<td>2023-10-03 08:00:00</td>
-<td>2023-10-02 07:30:00</td>
+<td>2023-10-02 08:00:00+00:00</td>
+<td>2023-10-03 08:00:00+00:00</td>
+<td>2023-10-02 07:30:00+00:00</td>
 <td>Furosemide 40 mg IV</td>
 <td>furosemide</td>
 <td>diuretics</td>
@@ -2898,9 +2888,9 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>12348</td>
 <td>456792</td>
-<td>2023-10-02 12:00:00</td>
-<td>2023-10-02 18:00:00</td>
-<td>2023-10-02 11:45:00</td>
+<td>2023-10-02 12:00:00+00:00</td>
+<td>2023-10-02 18:00:00+00:00</td>
+<td>2023-10-02 11:45:00+00:00</td>
 <td>Insulin Regular 100 units/mL SC</td>
 <td>insulin</td>
 <td>endocrine</td>
@@ -2915,9 +2905,9 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td>12349</td>
 <td>456793</td>
-<td>2023-10-03 08:00:00</td>
-<td>2023-10-03 20:00:00</td>
-<td>2023-10-03 07:30:00</td>
+<td>2023-10-03 08:00:00+00:00</td>
+<td>2023-10-03 20:00:00+00:00</td>
+<td>2023-10-03 07:30:00+00:00</td>
 <td>Acetaminophen 1 g PO</td>
 <td>acetaminophen</td>
 <td>analgesics</td>
@@ -2932,9 +2922,9 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>12350</td>
 <td>456794</td>
-<td>2023-10-03 10:00:00</td>
-<td>2023-10-03 18:00:00</td>
-<td>2023-10-03 09:45:00</td>
+<td>2023-10-03 10:00:00+00:00</td>
+<td>2023-10-03 18:00:00+00:00</td>
+<td>2023-10-03 09:45:00+00:00</td>
 <td>Heparin 5,000 units SC</td>
 <td>heparin</td>
 <td>anticoagulant</td>
@@ -2949,9 +2939,9 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td>12351</td>
 <td>456795</td>
-<td>2023-10-03 14:00:00</td>
-<td>2023-10-03 22:00:00</td>
-<td>2023-10-03 13:30:00</td>
+<td>2023-10-03 14:00:00+00:00</td>
+<td>2023-10-03 22:00:00+00:00</td>
+<td>2023-10-03 13:30:00+00:00</td>
 <td>Morphine Sulfate 2 mg IV</td>
 <td>morphine</td>
 <td>analgesics</td>
@@ -2966,9 +2956,9 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>12352</td>
 <td>456796</td>
-<td>2023-10-03 20:00:00</td>
-<td>2023-10-04 08:00:00</td>
-<td>2023-10-03 19:45:00</td>
+<td>2023-10-03 20:00:00+00:00</td>
+<td>2023-10-04 08:00:00+00:00</td>
+<td>2023-10-03 19:45:00+00:00</td>
 <td>Dexamethasone 10 mg IV</td>
 <td>dexamethasone</td>
 <td>steroids</td>
@@ -3026,10 +3016,10 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 22%">
-<col style="width: 23%">
 <col style="width: 21%">
-<col style="width: 14%">
+<col style="width: 33%">
+<col style="width: 20%">
+<col style="width: 10%">
 <col style="width: 14%">
 </colgroup>
 <thead>
@@ -3044,42 +3034,42 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td>1001</td>
-<td>2024-01-01 08:00:00</td>
+<td>2024-01-01 08:00:00+00:00</td>
 <td>Normal Saline</td>
 <td>500</td>
 <td>1</td>
 </tr>
 <tr class="even">
 <td>1001</td>
-<td>2024-01-01 10:30:00</td>
+<td>2024-01-01 10:30:00+00:00</td>
 <td>Urine</td>
 <td>300</td>
 <td>0</td>
 </tr>
 <tr class="odd">
 <td>1002</td>
-<td>2024-01-05 09:15:00</td>
+<td>2024-01-05 09:15:00+00:00</td>
 <td>Dextrose</td>
 <td>250</td>
 <td>1</td>
 </tr>
 <tr class="even">
 <td>1002</td>
-<td>2024-01-05 14:00:00</td>
+<td>2024-01-05 14:00:00+00:00</td>
 <td>Urine</td>
 <td>400</td>
 <td>0</td>
 </tr>
 <tr class="odd">
 <td>1003</td>
-<td>2024-01-10 07:45:00</td>
+<td>2024-01-10 07:45:00+00:00</td>
 <td>Lactated Ringer’s</td>
 <td>600</td>
 <td>1</td>
 </tr>
 <tr class="even">
 <td>1003</td>
-<td>2024-01-10 12:00:00</td>
+<td>2024-01-10 12:00:00+00:00</td>
 <td>Drainage</td>
 <td>200</td>
 <td>0</td>
@@ -3130,11 +3120,11 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 17%">
-<col style="width: 18%">
-<col style="width: 19%">
-<col style="width: 22%">
+<col style="width: 16%">
+<col style="width: 25%">
 <col style="width: 20%">
+<col style="width: 21%">
+<col style="width: 16%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -3148,35 +3138,35 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td>1001</td>
-<td>2024-01-01 08:00:00</td>
+<td>2024-01-01 08:00:00+00:00</td>
 <td>Physical Therapy</td>
 <td>Rehabilitation</td>
 <td>45.0</td>
 </tr>
 <tr class="even">
 <td>1001</td>
-<td>2024-01-01 10:00:00</td>
+<td>2024-01-01 10:00:00+00:00</td>
 <td>Respiratory Therapy</td>
 <td>Respiratory Support</td>
 <td>3.0</td>
 </tr>
 <tr class="odd">
 <td>1002</td>
-<td>2024-01-05 09:30:00</td>
+<td>2024-01-05 09:30:00+00:00</td>
 <td>Occupational Therapy</td>
 <td>Rehabilitation</td>
 <td>60.0</td>
 </tr>
 <tr class="even">
 <td>1002</td>
-<td>2024-01-05 11:00:00</td>
+<td>2024-01-05 11:00:00+00:00</td>
 <td>Speech Therapy</td>
 <td>Rehabilitation</td>
 <td>30.0</td>
 </tr>
 <tr class="odd">
 <td>1003</td>
-<td>2024-01-10 07:00:00</td>
+<td>2024-01-10 07:00:00+00:00</td>
 <td>Ventilation Support</td>
 <td>Respiratory Support</td>
 <td>2.5</td>
@@ -3209,19 +3199,19 @@ ul.task-list li input[type="checkbox"] {
 <td>order_dttm</td>
 <td>DATETIME</td>
 <td>Date and time when the test is ordered.</td>
-<td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
+<td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
 </tr>
 <tr class="odd">
 <td>collect_dttm</td>
 <td>DATETIME</td>
 <td>Date and time when the specimen is collected.</td>
-<td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
+<td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
 </tr>
 <tr class="even">
 <td>result_dttm</td>
 <td>DATETIME</td>
 <td>Date and time when the results are available.</td>
-<td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
+<td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
 </tr>
 <tr class="odd">
 <td>fluid_name</td>
@@ -3265,16 +3255,16 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
+<col style="width: 7%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 14%">
+<col style="width: 9%">
+<col style="width: 6%">
+<col style="width: 7%">
+<col style="width: 9%">
+<col style="width: 11%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -3293,9 +3283,9 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td>12345</td>
-<td>2023-10-01 14:00:00</td>
-<td>2023-10-01 15:00:00</td>
-<td>2023-10-03 10:00:00</td>
+<td>2023-10-01 14:00:00+00:00</td>
+<td>2023-10-01 15:00:00+00:00</td>
+<td>2023-10-03 10:00:00+00:00</td>
 <td>culture, blood (bacterial &amp; fungal)</td>
 <td>blood/buffy coat</td>
 <td>culture</td>
@@ -3305,9 +3295,9 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>12345</td>
-<td>2023-10-01 16:00:00</td>
-<td>2023-10-01 17:00:00</td>
-<td>2023-10-03 12:00:00</td>
+<td>2023-10-01 16:00:00+00:00</td>
+<td>2023-10-01 17:00:00+00:00</td>
+<td>2023-10-03 12:00:00+00:00</td>
 <td>culture, urine</td>
 <td>genito-urinary tract</td>
 <td>culture</td>
@@ -3317,9 +3307,9 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td>12346</td>
-<td>2023-11-01 10:30:00</td>
-<td>2023-11-01 11:15:00</td>
-<td>2023-11-02 09:00:00</td>
+<td>2023-11-01 10:30:00+00:00</td>
+<td>2023-11-01 11:15:00+00:00</td>
+<td>2023-11-02 09:00:00+00:00</td>
 <td>culture &amp; stain, respiratory</td>
 <td>lower respiratory tract</td>
 <td>gram stain</td>
@@ -3329,9 +3319,9 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>12346</td>
-<td>2023-11-02 12:00:00</td>
-<td>2023-11-02 12:45:00</td>
-<td>2023-11-03 08:30:00</td>
+<td>2023-11-02 12:00:00+00:00</td>
+<td>2023-11-02 12:45:00+00:00</td>
+<td>2023-11-03 08:30:00+00:00</td>
 <td>culture, cerebrospinal fluid</td>
 <td>csf</td>
 <td>culture</td>
@@ -3341,9 +3331,9 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td>12347</td>
-<td>2023-09-15 14:20:00</td>
-<td>2023-09-15 15:00:00</td>
-<td>2023-09-17 11:30:00</td>
+<td>2023-09-15 14:20:00+00:00</td>
+<td>2023-09-15 15:00:00+00:00</td>
+<td>2023-09-17 11:30:00+00:00</td>
 <td>culture &amp; stain, afb</td>
 <td>other unspecified</td>
 <td>afb smear</td>
@@ -3353,9 +3343,9 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>12348</td>
-<td>2023-08-10 09:00:00</td>
-<td>2023-08-10 09:45:00</td>
-<td>2023-08-12 08:00:00</td>
+<td>2023-08-10 09:00:00+00:00</td>
+<td>2023-08-10 09:45:00+00:00</td>
+<td>2023-08-12 08:00:00+00:00</td>
 <td>culture, blood (bacterial &amp; fungal)</td>
 <td>blood/buffy coat</td>
 <td>culture</td>
@@ -3365,9 +3355,9 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td>12349</td>
-<td>2023-07-25 11:00:00</td>
-<td>2023-07-25 11:30:00</td>
-<td>2023-07-27 10:15:00</td>
+<td>2023-07-25 11:00:00+00:00</td>
+<td>2023-07-25 11:30:00+00:00</td>
+<td>2023-07-27 10:15:00+00:00</td>
 <td>culture, urine</td>
 <td>genito-urinary tract</td>
 <td>culture</td>
@@ -3377,9 +3367,9 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>12350</td>
-<td>2023-06-15 13:30:00</td>
-<td>2023-06-15 14:00:00</td>
-<td>2023-06-17 09:45:00</td>
+<td>2023-06-15 13:30:00+00:00</td>
+<td>2023-06-15 14:00:00+00:00</td>
+<td>2023-06-17 09:45:00+00:00</td>
 <td>culture &amp; stain, respiratory</td>
 <td>lower respiratory tract</td>
 <td>gram stain</td>
@@ -3537,14 +3527,14 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
+<col style="width: 10%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 15%">
 <col style="width: 11%">
 <col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 13%">
-<col style="width: 12%">
-<col style="width: 9%">
+<col style="width: 10%">
+<col style="width: 8%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -3561,9 +3551,9 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td>101</td>
-<td>2024-01-01 10:00:00</td>
-<td>2024-01-01 08:00:00</td>
-<td>2024-01-01 07:30:00</td>
+<td>2024-01-01 10:00:00+00:00</td>
+<td>2024-01-01 08:00:00+00:00</td>
+<td>2024-01-01 07:30:00+00:00</td>
 <td>Blood</td>
 <td>PCR</td>
 <td>Units/mL</td>
@@ -3571,9 +3561,9 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>102</td>
-<td>2024-01-02 11:30:00</td>
-<td>2024-01-02 09:30:00</td>
-<td>2024-01-02 08:15:00</td>
+<td>2024-01-02 11:30:00+00:00</td>
+<td>2024-01-02 09:30:00+00:00</td>
+<td>2024-01-02 08:15:00+00:00</td>
 <td>Cerebrospinal Fluid</td>
 <td>Antigen Detection</td>
 <td>mg/L</td>
@@ -3581,9 +3571,9 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td>103</td>
-<td>2024-01-03 15:00:00</td>
-<td>2024-01-03 13:00:00</td>
-<td>2024-01-03 12:45:00</td>
+<td>2024-01-03 15:00:00+00:00</td>
+<td>2024-01-03 13:00:00+00:00</td>
+<td>2024-01-03 12:45:00+00:00</td>
 <td>Sputum</td>
 <td>Gene Amplification</td>
 <td>copies/mL</td>
@@ -3591,9 +3581,9 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>104</td>
-<td>2024-01-04 09:45:00</td>
-<td>2024-01-04 07:15:00</td>
-<td>2024-01-04 06:30:00</td>
+<td>2024-01-04 09:45:00+00:00</td>
+<td>2024-01-04 07:15:00+00:00</td>
+<td>2024-01-04 06:30:00+00:00</td>
 <td>Urine</td>
 <td>Molecular Pathogen ID</td>
 <td>ng/mL</td>
@@ -3601,9 +3591,9 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td>105</td>
-<td>2024-01-05 18:00:00</td>
-<td>2024-01-05 16:00:00</td>
-<td>2024-01-05 15:00:00</td>
+<td>2024-01-05 18:00:00+00:00</td>
+<td>2024-01-05 16:00:00+00:00</td>
+<td>2024-01-05 15:00:00+00:00</td>
 <td>Pleural Fluid</td>
 <td>Protein Quantification</td>
 <td>g/dL</td>
@@ -3754,13 +3744,13 @@ ul.task-list li input[type="checkbox"] {
 <td>transfusion_start_dttm</td>
 <td>DATETIME</td>
 <td>The date and time the transfusion of the blood component began.</td>
-<td>Example: <code>2024-12-03 08:30:00</code></td>
+<td>Example: <code>2024-12-03 08:30:00+00:00</code></td>
 </tr>
 <tr class="odd">
 <td>transfusion_end_dttm</td>
 <td>DATETIME</td>
 <td>The date and time the transfusion of the blood component ended.</td>
-<td>Example: <code>2024-12-03 10:00:00</code></td>
+<td>Example: <code>2024-12-03 10:00:00+00:00</code></td>
 </tr>
 <tr class="even">
 <td>component_name</td>
@@ -3798,14 +3788,14 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 12%">
-<col style="width: 15%">
-<col style="width: 14%">
 <col style="width: 11%">
-<col style="width: 12%">
-<col style="width: 12%">
+<col style="width: 20%">
+<col style="width: 20%">
 <col style="width: 9%">
-<col style="width: 9%">
+<col style="width: 11%">
+<col style="width: 10%">
+<col style="width: 8%">
+<col style="width: 8%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -3822,8 +3812,8 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td>123456</td>
-<td>2024-12-03 08:30:00</td>
-<td>2024-12-03 10:00:00</td>
+<td>2024-12-03 08:30:00+00:00</td>
+<td>2024-12-03 10:00:00+00:00</td>
 <td>Red Blood Cells</td>
 <td>Leukocyte Reduced</td>
 <td>300</td>
@@ -3832,8 +3822,8 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>789012</td>
-<td>2024-12-04 14:00:00</td>
-<td>2024-12-04 16:30:00</td>
+<td>2024-12-04 14:00:00+00:00</td>
+<td>2024-12-04 16:30:00+00:00</td>
 <td>Platelets</td>
 <td>Irradiated</td>
 <td>250</td>
@@ -3842,8 +3832,8 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td>456789</td>
-<td>2024-12-05 12:15:00</td>
-<td>2024-12-05 13:45:00</td>
+<td>2024-12-05 12:15:00+00:00</td>
+<td>2024-12-05 13:45:00+00:00</td>
 <td>Plasma</td>
 <td></td>
 <td>200</td>
@@ -3884,7 +3874,7 @@ ul.task-list li input[type="checkbox"] {
 <td>start_dttm</td>
 <td>DATETIME</td>
 <td>The date and time when the specific code status was initiated.</td>
-<td>Example: <code>2024-12-03 08:30:00</code></td>
+<td>Example: <code>2024-12-03 08:30:00+00:00</code></td>
 </tr>
 <tr class="odd">
 <td>code_status_name</td>
@@ -3908,10 +3898,10 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 23%">
-<col style="width: 24%">
-<col style="width: 23%">
-<col style="width: 25%">
+<col style="width: 22%">
+<col style="width: 32%">
+<col style="width: 22%">
+<col style="width: 22%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -3924,19 +3914,19 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td>12345</td>
-<td>2024-12-01 08:30:00</td>
+<td>2024-12-01 08:30:00+00:00</td>
 <td>Do Not Resuscitate</td>
 <td>DNR</td>
 </tr>
 <tr class="even">
 <td>12345</td>
-<td>2024-12-02 14:00:00</td>
+<td>2024-12-02 14:00:00+00:00</td>
 <td>Do Not Intubate</td>
 <td>DNR/DNI</td>
 </tr>
 <tr class="odd">
 <td>12345</td>
-<td>2024-12-03 10:15:00</td>
+<td>2024-12-03 10:15:00+00:00</td>
 <td>Full Code</td>
 <td>Full</td>
 </tr>
@@ -4014,11 +4004,11 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 20%">
-<col style="width: 21%">
-<col style="width: 22%">
-<col style="width: 18%">
-<col style="width: 15%">
+<col style="width: 19%">
+<col style="width: 28%">
+<col style="width: 19%">
+<col style="width: 17%">
+<col style="width: 14%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -4032,21 +4022,21 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td>12345</td>
-<td>2024-12-01 08:30:00</td>
+<td>2024-12-01 08:30:00+00:00</td>
 <td>CVP</td>
 <td>CVP</td>
 <td>12.50</td>
 </tr>
 <tr class="even">
 <td>12345</td>
-<td>2024-12-01 09:00:00</td>
+<td>2024-12-01 09:00:00+00:00</td>
 <td>Pulmonary Artery-Sys</td>
 <td>PA_systolic</td>
 <td>25.00</td>
 </tr>
 <tr class="odd">
 <td>12345</td>
-<td>2024-12-01 09:30:00</td>
+<td>2024-12-01 09:30:00+00:00</td>
 <td>Wedge</td>
 <td>PCWP</td>
 <td>18.75</td>
@@ -4085,7 +4075,7 @@ ul.task-list li input[type="checkbox"] {
 <td>order_dttm</td>
 <td>DATETIME</td>
 <td>Date and time when the order was placed.</td>
-<td>Datetime format should be <code>%Y-%m-%d %H:%M:%S</code></td>
+<td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
 </tr>
 <tr class="odd">
 <td>order_name</td>
@@ -4111,11 +4101,11 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 19%">
-<col style="width: 20%">
-<col style="width: 23%">
-<col style="width: 15%">
 <col style="width: 18%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 14%">
+<col style="width: 16%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -4129,28 +4119,28 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td>12345</td>
-<td>2024-12-15 10:00:00</td>
+<td>2024-12-15 10:00:00+00:00</td>
 <td>PT Initial Evaluation</td>
 <td>PT_evaluation</td>
 <td>completed</td>
 </tr>
 <tr class="even">
 <td>67890</td>
-<td>2024-12-16 14:30:00</td>
+<td>2024-12-16 14:30:00+00:00</td>
 <td>OT Follow-up Treatment</td>
 <td>OT_treat</td>
 <td>sent</td>
 </tr>
 <tr class="odd">
 <td>54321</td>
-<td>2024-12-16 08:00:00</td>
+<td>2024-12-16 08:00:00+00:00</td>
 <td>PT Mobility Session</td>
 <td>PT_treat</td>
 <td>completed</td>
 </tr>
 <tr class="even">
 <td>98765</td>
-<td>2024-12-15 11:15:00</td>
+<td>2024-12-15 11:15:00+00:00</td>
 <td>OT Cognitive Assessment</td>
 <td>OT_evaluation</td>
 <td>sent</td>

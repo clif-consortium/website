@@ -77,9 +77,9 @@ The admission, discharge, and transfer (ADT) table is a start-stop longitudinal 
 +--------------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------+-------+
 | hospital_type      | VARCHAR         | Maps `hospital_id` to a standardized list of hospital types                                                                                              | `academic`, `community`                                                                                                       |       |
 +--------------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------+-------+
-| in_dttm            | DATETIME        | Start date and time at a particular location                                                                                                             | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                                 |       |
+| in_dttm            | DATETIME        | Start date and time at a particular location                                                                                                             | Datetime format should be `YYYY-MM-DD HH:MM:SS+00:00`                                                                         |       |
 +--------------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------+-------+
-| out_dttm           | DATETIME        | End date and time at a particular location                                                                                                               | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                                 |       |
+| out_dttm           | DATETIME        | End date and time at a particular location                                                                                                               | Datetime format should be `YYYY-MM-DD HH:MM:SS+00:00`                                                                         |       |
 +--------------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------+-------+
 | location_name      | VARCHAR         | Location of the patient inside the hospital. This field is used to store the patient location from the source data. It is not used for analysis.         | No restriction                                                                                                                |       |
 +--------------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------+-------+
@@ -94,19 +94,19 @@ The admission, discharge, and transfer (ADT) table is a start-stop longitudinal 
 **Example**:
 
 ::: scrollable-table
-+--------------------+-------------+---------------+---------------------+---------------------+---------------+-------------------+
-| hospitalization_id | hospital_id | hospital_type | in_dttm             | out_dttm            | location_name | location_category |
-+====================+=============+===============+=====================+=====================+===============+===================+
-| 20010012           | ABC         | academic      | 2024-12-01 10:00:00 | 2024-12-01 14:00:00 | B06F          | icu               |
-+--------------------+-------------+---------------+---------------------+---------------------+---------------+-------------------+
-| 20010012           | ABC         | academic      | 2024-12-01 14:30:00 | 2024-12-02 08:00:00 | B78D          | ward              |
-+--------------------+-------------+---------------+---------------------+---------------------+---------------+-------------------+
-| 20010015           | ABC         | academic      | 2024-11-30 16:45:00 | 2024-12-01 12:00:00 | B06T          | icu               |
-+--------------------+-------------+---------------+---------------------+---------------------+---------------+-------------------+
-| 20010015           | ABC         | academic      | 2024-12-01 12:30:00 | 2024-12-02 07:00:00 | N23E          | procedural        |
-+--------------------+-------------+---------------+---------------------+---------------------+---------------+-------------------+
-| 20010020           | EFG         | community     | 2024-11-28 09:00:00 | 2024-11-29 17:00:00 | B78D          | ward              |
-+--------------------+-------------+---------------+---------------------+---------------------+---------------+-------------------+
++--------------------+-------------+---------------+---------------------------+---------------------------+---------------+-------------------+
+| hospitalization_id | hospital_id | hospital_type |in_dttm                    |out_dttm                   | location_name | location_category |
++====================+=============+===============+===========================+===========================+===============+===================+
+| 20010012           | ABC         | academic      | 2024-12-01 10:00:00+00:00 | 2024-12-01 14:00:00+00:00 | B06F          | icu               |
++--------------------+-------------+---------------+---------------------------+---------------------------+---------------+-------------------+
+| 20010012           | ABC         | academic      | 2024-12-01 14:30:00+00:00 | 2024-12-02 08:00:00+00:00 | B78D          | ward              |
++--------------------+-------------+---------------+---------------------------+---------------------------+---------------+-------------------+
+| 20010015           | ABC         | academic      | 2024-11-30 16:45:00+00:00 | 2024-12-01 12:00:00+00:00 | B06T          | icu               |
++--------------------+-------------+---------------+---------------------------+---------------------------+---------------+-------------------+
+| 20010015           | ABC         | academic      | 2024-12-01 12:30:00+00:00 | 2024-12-02 07:00:00+00:00 | N23E          | procedural        |
++--------------------+-------------+---------------+---------------------------+---------------------------+---------------+-------------------+
+| 20010020           | EFG         | community     | 2024-11-28 09:00:00+00:00 | 2024-11-29 17:00:00+00:00 | B78D          | ward              |
++--------------------+-------------+---------------+---------------------------+---------------------------+---------------+-------------------+
 
 : {.striped .hover}
 :::
@@ -127,9 +127,9 @@ The hospitalization table contains information about each hospitalization event.
 +---------------------------+-----------------+------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | hospitalization_joined_id | VARCHAR         | Unique identifier for each continuous inpatient stay in a health system which may span different hospitals (Optional)  | No restriction                                                                                                                                                                                                                                                                                                                      |
 +---------------------------+-----------------+------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| admission_dttm            | DATETIME        | Date and time the patient is admitted to the hospital                                                                  | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                                                                                                                                                                                                                                       |
+| admission_dttm            | DATETIME        | Date and time the patient is admitted to the hospital                                                                  | Datetime format should be `YYYY-MM-DD HH:MM:SS+00:00`                                                                                                                                                                                                                                                                               |
 +---------------------------+-----------------+------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| discharge_dttm            | DATETIME        | Date and time the patient is discharged from the hospital                                                              | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                                                                                                                                                                                                                                       |
+| discharge_dttm            | DATETIME        | Date and time the patient is discharged from the hospital                                                              | Datetime format should be `YYYY-MM-DD HH:MM:SS+00:00`                                                                                                                                                                                                                                                                               |
 +---------------------------+-----------------+------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | age_at_admission          | INT             | Age of the patient at the time of admission, in years                                                                  | No restriction                                                                                                                                                                                                                                                                                                                      |
 +---------------------------+-----------------+------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -173,9 +173,9 @@ The hospitalization table contains information about each hospitalization event.
 ::: scrollable-table
 | patient_id | hospitalization_id | hospitalization_joined_id | admission_dttm | discharge_dttm | age_at_admission | admission_type_name | admission_type_category | discharge_name | discharge_category | zipcode_five_digit | zipcode_nine_digit | census_block_group_code | latitude | longitude |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-| 101001 | 12345678 | 22334455 | 2024-11-01 08:15:00 | 2024-11-04 14:30:00 | 65 | Direct admission | Inpatient | Discharged to Home or Self Care (Routine Discharge) | Home | 60637 | 606370000 | 170313202001 | 41.81030 | -87.59697 |
-| 101002 | 87654321 | 22334455 | 2024-11-04 15:00:00 | 2024-11-07 11:00:00 | 72 | Transfer from another hospital | Acute Care Transfer | Transferred to Acute Inpatient Rehab Facility | Acute Inpatient Rehab Facility | 46311 | 463110000 | 170313301002 | 41.55030 | -87.30101 |
-| 101003 | 11223344 | 11223344 | 2024-10-20 07:45:00 | 2024-10-22 10:20:00 | 59 | Pre-op surgical | Pre-op | Expired | Expired | 60446 | 604460000 | 170313401003 | 41.70010 | -87.60315 |
+| 101001 | 12345678 | 22334455 | 2024-11-01 08:15:00+00:00 | 2024-11-04 14:30:00+00:00 | 65 | Direct admission | Inpatient | Discharged to Home or Self Care (Routine Discharge) | Home | 60637 | 606370000 | 170313202001 | 41.81030 | -87.59697 |
+| 101002 | 87654321 | 22334455 | 2024-11-04 15:00:00+00:00 | 2024-11-07 11:00:00+00:00 | 72 | Transfer from another hospital | Acute Care Transfer | Transferred to Acute Inpatient Rehab Facility | Acute Inpatient Rehab Facility | 46311 | 463110000 | 170313301002 | 41.55030 | -87.30101 |
+| 101003 | 11223344 | 11223344 | 2024-10-20 07:45:00+00:00 | 2024-10-22 10:20:00+00:00 | 59 | Pre-op surgical | Pre-op | Expired | Expired | 60446 | 604460000 | 170313401003 | 41.70010 | -87.60315 |
 
 : {.striped .hover}
 :::
@@ -192,11 +192,11 @@ The labs table is a long form (one lab result per row) longitudinal table. Each 
 +=======================+=================+======================================================================================================================================================+=====================================================================================================================================================+
 | hospitalization_id    | VARCHAR         | ID variable for each patient encounter.                                                                                                              | No restriction                                                                                                                                      |
 +-----------------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-| lab_order_dttm        | DATETIME        | Date and time when the lab is ordered.                                                                                                               | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                                                       |
+| lab_order_dttm        | DATETIME        | Date and time when the lab is ordered.                                                                                                               | Datetime format should be `YYYY-MM-DD HH:MM:SS+00:00`                                                                                               |
 +-----------------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-| lab_collect_dttm      | DATETIME        | Date and time when the specimen is collected.                                                                                                        | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                                                       |
+| lab_collect_dttm      | DATETIME        | Date and time when the specimen is collected.                                                                                                        | Datetime format should be `YYYY-MM-DD HH:MM:SS+00:00`                                                                                               |
 +-----------------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-| lab_result_dttm       | DATETIME        | Date and time when the lab results are available.                                                                                                    | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                                                       |
+| lab_result_dttm       | DATETIME        | Date and time when the lab results are available.                                                                                                    | Datetime format should be `YYYY-MM-DD HH:MM:SS+00:00`                                                                                               |
 +-----------------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
 | lab_order_name        | VARCHAR         | Procedure name for the lab, e.g. "Complete blood count w/ diff"                                                                                      | No restriction                                                                                                                                      |
 +-----------------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -226,15 +226,14 @@ The labs table is a long form (one lab result per row) longitudinal table. Each 
 ::: scrollable-table
 | hospitalization_id | lab_order_dttm | lab_collect_dttm | lab_result_dttm | lab_order_name | lab_name | lab_category | lab_value | lab_value_numeric | reference_unit | lab_type_name | lab_loinc_code |
 |------|------|------|------|------|------|------|------|------|------|------|------|
-| 12345 | 2024-12-01 08:15 | 2024-12-01 08:30 | 2024-12-01 09:00 | Complete Blood Count | Hemoglobin | hemoglobin | 12.3 | 12.3 | g/dL | standard | 718-7 |
-| 12345 | 2024-12-01 08:15 | 2024-12-01 08:30 | 2024-12-01 09:05 | Complete Blood Count | White Blood Cell Count | wbc | 5.6 | 5.6 | 10\^3/uL | standard | 6690-2 |
-| 12345 | 2024-12-01 08:15 | 2024-12-01 08:30 | 2024-12-01 09:10 | Metabolic Panel | Sodium | sodium | 138 | 138 | mmol/L | standard | 2951-2 |
-| 12345 | 2024-12-01 08:15 | 2024-12-01 08:30 | 2024-12-01 09:20 | Metabolic Panel | Potassium | potassium | 4.1 | 4.1 | mmol/L | standard | 2823-3 |
-| 67890 | 2024-12-01 09:30 | 2024-12-01 09:45 | 2024-12-01 10:15 | Arterial Blood Gas | pH | ph | 7.35 | 7.35 |  | standard | 2744-1 |
-| 67890 | 2024-12-01 09:30 | 2024-12-01 09:45 | 2024-12-01 10:20 | Arterial Blood Gas | pCO2 | pco2 | 40 | 40 | mmHg | standard | 2019-8 |
-| 67890 | 2024-12-01 09:30 | 2024-12-01 09:45 | 2024-12-01 10:25 | Arterial Blood Gas | pO2 | po2 | 90 | 90 | mmHg | standard | 2703-7 |
-| 67890 | 2024-12-01 09:30 | 2024-12-01 09:45 | 2024-12-01 10:30 | Arterial Blood Gas | Bicarbonate | bicarbonate | 24 | 24 | mmol/L | standard | 2028-3 |
-
+| 12345 | 2024-12-01 08:15:00+00:00 | 2024-12-01 08:30:00+00:00 | 2024-12-01 09:00:00+00:00 | Complete Blood Count | Hemoglobin | hemoglobin | 12.3 | 12.3 | g/dL | standard | 718-7 |
+| 12345 | 2024-12-01 08:15:00+00:00 | 2024-12-01 08:30:00+00:00 | 2024-12-01 09:05:00+00:00 | Complete Blood Count | White Blood Cell Count | wbc | 5.6 | 5.6 | 10\^3/uL | standard | 6690-2 |
+| 12345 | 2024-12-01 08:15:00+00:00 | 2024-12-01 08:30:00+00:00 | 2024-12-01 09:10:00+00:00 | Metabolic Panel | Sodium | sodium | 138 | 138 | mmol/L | standard | 2951-2 |
+| 12345 | 2024-12-01 08:15:00+00:00 | 2024-12-01 08:30:00+00:00 | 2024-12-01 09:20:00+00:00 | Metabolic Panel | Potassium | potassium | 4.1 | 4.1 | mmol/L | standard | 2823-3 |
+| 67890 | 2024-12-01 09:30:00+00:00 | 2024-12-01 09:45:00+00:00 | 2024-12-01 10:15:00+00:00 | Arterial Blood Gas | pH | ph | 7.35 | 7.35 |  | standard | 2744-1 |
+| 67890 | 2024-12-01 09:30:00+00:00 | 2024-12-01 09:45:00+00:00 | 2024-12-01 10:20:00+00:00 | Arterial Blood Gas | pCO2 | pco2 | 40 | 40 | mmHg | standard | 2019-8 |
+| 67890 | 2024-12-01 09:30:00+00:00 | 2024-12-01 09:45:00+00:00 | 2024-12-01 10:25:00+00:00 | Arterial Blood Gas | pO2 | po2 | 90 | 90 | mmHg | standard | 2703-7 |
+| 67890 | 2024-12-01 09:30:00+00:00 | 2024-12-01 09:45:00+00:00 | 2024-12-01 10:30:00+00:00 | Arterial Blood Gas | Bicarbonate | bicarbonate | 24 | 24 | mmol/L | standard | 2028-3 |
 : {.striped .hover}
 :::
 
@@ -251,7 +250,7 @@ The medication admin continuous table is a long-form (one medication administrat
 +---------------------+-----------------+------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | med_order_id        | VARCHAR         | Medication order ID. Foreign key to link this table to other medication tables                                         |                                                                                                                                                                 |
 +---------------------+-----------------+------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| admin_dttm          | DATETIME        | Date and time when the medicine was administered                                                                       | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                                                                   |
+| admin_dttm          | DATETIME        | Date and time when the medicine was administered                                                                       | Datetime format should be `YYYY-MM-DD HH:MM:SS+00:00`                                                                                                           |
 +---------------------+-----------------+------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | med_name            | VARCHAR         | Original med name string recorded in the raw data which often contains concentration e.g. "NOREPInephrine 8 mg/250 mL" |                                                                                                                                                                 |
 +---------------------+-----------------+------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -275,15 +274,14 @@ The medication admin continuous table is a long-form (one medication administrat
 **Example**:
 
 ::: scrollable-table
-| hospitalization_id | admin_dttm | med_name | med_category | med_group | med_route_name | med_route_category | med_dose | med_dose_unit | mar_action_name |
-|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-| 792391 | 2123-11-13 12:28:00 | PROPOFOL 10 MG/ML INTRAVENOUS EMULSION | propofol | sedation | Intravenous | NA | 75.0000 | mcg/kg/min | New Bag |
-| 792391 | 2123-11-13 13:49:00 | REMIFENTANIL CONTINUOUS IV (ANESTHESIA) | remifentanil | sedation | NA | NA | 0.0500 | mcg/kg/min | New Bag |
-| 792391 | 2123-11-13 14:03:00 | PROPOFOL 10 MG/ML INTRAVENOUS EMULSION | propofol | sedation | Intravenous | NA | 0.0000 | mcg/kg/min | Stopped |
-| 370921 | 2123-02-12 03:07:00 | PHENYLEPHRINE 5 MG/50 ML (100 MCG/ML) IN 0.9 % SODIUM CHLORIDE | phenylephrine | vasoactives | Intravenous | NA | 20.0000 | mcg/min | New Bag |
-| 370921 | 2123-02-12 03:14:00 | PHENYLEPHRINE 5 MG/50 ML (100 MCG/ML) IN 0.9 % SODIUM CHLORIDE | phenylephrine | vasoactives | Intravenous | NA | 50.0000 | mcg/min | Rate Change |
-| 702344 | 2123-04-27 04:30:00 | HEPARIN (PORCINE) 25,000 UNIT/250 ML IN 0.45 % SODIUM CHLORIDE | heparin | anticoagulation | Intravenous | NA | 18.0000 | Units/kg/hr | New Bag |
-
+| hospitalization_id | admin_dttm                | med_name                                                           | med_category  | med_group     | med_route_name | med_route_category | med_dose | med_dose_unit | mar_action_name |
+|-------------------|---------------------------|-----------------------------------------------------------------------|---------------|---------------|----------------|-------------------|-----------|---------------|----------------|
+| 792391            | 2123-11-13 12:28:00+00:00 | PROPOFOL 10 MG/ML INTRAVENOUS EMULSION                              | propofol      | sedation      | Intravenous    | NA                | 75.0000   | mcg/kg/min    | New Bag        |
+| 792391            | 2123-11-13 13:49:00+00:00 | REMIFENTANIL CONTINUOUS IV (ANESTHESIA)                             | remifentanil  | sedation      | NA             | NA                | 0.0500    | mcg/kg/min    | New Bag        |
+| 792391            | 2123-11-13 14:03:00+00:00 | PROPOFOL 10 MG/ML INTRAVENOUS EMULSION                              | propofol      | sedation      | Intravenous    | NA                | 0.0000    | mcg/kg/min    | Stopped        |
+| 370921            | 2123-02-12 03:07:00+00:00 | PHENYLEPHRINE 5 MG/50 ML (100 MCG/ML) IN 0.9 % SODIUM CHLORIDE      | phenylephrine | vasoactives   | Intravenous    | NA                | 20.0000   | mcg/min       | New Bag        |
+| 370921            | 2123-02-12 03:14:00+00:00 | PHENYLEPHRINE 5 MG/50 ML (100 MCG/ML) IN 0.9 % SODIUM CHLORIDE      | phenylephrine | vasoactives   | Intravenous    | NA                | 50.0000   | mcg/min       | Rate Change    |
+| 702344            | 2123-04-27 04:30:00+00:00 | HEPARIN (PORCINE) 25,000 UNIT/250 ML IN 0.45 % SODIUM CHLORIDE      | heparin       | anticoagulation| Intravenous    | NA                | 18.0000   | Units/kg/hr   | New Bag        |
 : {.striped .hover}
 :::
 
@@ -310,9 +308,9 @@ This table contains demographic information about the patient that does not vary
 +--------------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
 | sex_category       | VARCHAR         | Patient's biological sex.                                                                                                                      | `Male`, `Female`, `Unknown`                                                                                                                        |
 +--------------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-| birth_date         | DATETIME        | Patient's date of birth.                                                                                                                       | Date format should be `%Y-%m-%d`                                                                                                                   |
+| birth_date         | DATETIME        | Patient's date of birth.                                                                                                                       | Date format should be `YYYY-MM-DD`                                                                                                                 |
 +--------------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
-| death_dttm         | DATETIME        | Patient's death date, including time.                                                                                                          | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                                                      |
+| death_dttm         | DATETIME        | Patient's death date, including time.                                                                                                          | Datetime format should be `YYYY-MM-DD HH:MM:SS+00:00`                                                                                              |
 +--------------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
 | language_name      | VARCHAR         | Patient's preferred language.                                                                                                                  | Original string from the source data                                                                                                               |
 +--------------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -322,13 +320,13 @@ This table contains demographic information about the patient that does not vary
 **Example**:
 
 ::: scrollable-table
-| patient_id | race_name | race_category | ethnicity_name | ethnicity_category | sex_category | birth_date | death_dttm | language_name | language_category |
-|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-| 132424 | Black or African-American | Black or African American | Not Hispanic, Latino/a, or Spanish origin | Non-Hispanic | Male | 2145-05-09 | NA | English | English |
-| 132384 | White | White | Not Hispanic, Latino/a, or Spanish origin | Non-Hispanic | Female | 2145-03-30 | NA | English | English |
-| 542367 | Black or African-American | Black or African American | Not Hispanic, Latino/a, or Spanish origin | Non-Hispanic | Male | 2145-01-29 | NA | English | English |
-| 989862 | White | White | Not Hispanic, Latino/a, or Spanish origin | Non-Hispanic | Female | 2145-11-06 | NA | English | English |
-| 428035 | More than one Race | Other | Not Hispanic, Latino/a, or Spanish origin | Non-Hispanic | Male | 2145-10-13 | NA | English | English |
+| patient_id | race_name                  | race_category              | ethnicity_name                                    | ethnicity_category | sex_category | birth_date  | death_dttm | language_name | language_category |
+|------------|---------------------------|---------------------------|--------------------------------------------------|-------------------|--------------|-------------|------------|---------------|------------------|
+| 132424     | Black or African-American | Black or African American | Not Hispanic, Latino/a, or Spanish origin        | Non-Hispanic      | Male         | 2145-05-09  | NA         | English       | English          |
+| 132384     | White                     | White                     | Not Hispanic, Latino/a, or Spanish origin        | Non-Hispanic      | Female       | 2145-03-30  | NA         | English       | English          |
+| 542367     | Black or African-American | Black or African American | Not Hispanic, Latino/a, or Spanish origin        | Non-Hispanic      | Male         | 2145-01-29  | NA         | English       | English          |
+| 989862     | White                     | White                     | Not Hispanic, Latino/a, or Spanish origin        | Non-Hispanic      | Female       | 2145-11-06  | NA         | English       | English          |
+| 428035     | More than one Race        | Other                     | Not Hispanic, Latino/a, or Spanish origin        | Non-Hispanic      | Male         | 2145-10-13  | NA         | English       | English          |
 
 : {.striped .hover}
 :::
@@ -345,7 +343,7 @@ The patient_assessments table captures various assessments performed on patients
 +=====================+=================+======================================================================================================================+==================================================================================================================================================+
 | hospitalization_id  | VARCHAR         | Primary Identifier. Unique identifier linking assessments to a specific patient hospitalization.                     |                                                                                                                                                  |
 +---------------------+-----------------+----------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
-| recorded_dttm       | DATETIME        | The exact date and time when the assessment was recorded, ensuring temporal accuracy.                                | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                                                    |
+| recorded_dttm       | DATETIME        | The exact date and time when the assessment was recorded, ensuring temporal accuracy.                                | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`                                                                                             |
 +---------------------+-----------------+----------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
 | assessment_name     | VARCHAR         | Assessment Tool Name. The primary name of the assessment tool used (e.g., GCS, NRS, SAT Screen).                     | No restriction                                                                                                                                   |
 +---------------------+-----------------+----------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -363,21 +361,14 @@ The patient_assessments table captures various assessments performed on patients
 **Example**:
 
 ::: scrollable-table
-+--------------------+------------------+------------------------------------------+------------------------+------------------+-----------------+-------------------+------------+
-| hospitalization_id | recorded_dttm    | assessment_name                          | assessment_category    | assessment_group | numerical_value | categorical_value | text_value |
-+====================+==================+==========================================+========================+==================+=================+===================+============+
-| 12345              | 2024-12-01 08:15 | NUR RA GLASGOW ADULT EYE OPENING         | gcs_eye                | Neurological     | 4               | NA                | NA         |
-+--------------------+------------------+------------------------------------------+------------------------+------------------+-----------------+-------------------+------------+
-| 12345              | 2024-12-01 08:15 | NUR RA GLASGOW ADULT VERBAL RESPONSE     | gcs_verbal             | Neurological     | 5               | NA                | NA         |
-+--------------------+------------------+------------------------------------------+------------------------+------------------+-----------------+-------------------+------------+
-| 12345              | 2024-12-01 08:15 | NUR RA GLASGOW ADULT BEST MOTOR RESPONSE | gcs_motor              | Neurological     | 6               | NA                | NA         |
-+--------------------+------------------+------------------------------------------+------------------------+------------------+-----------------+-------------------+------------+
-| 12345              | 2024-12-01 08:15 | NUR RA GLASGOW ADULT SCORING             | gcs_total              | Neurological     | 15              | NA                | NA         |
-+--------------------+------------------+------------------------------------------+------------------------+------------------+-----------------+-------------------+------------+
-| 67890              | 2024-12-01 10:30 | BRADEN ASSESSMENT                        | braden_total           | Nursing Risk     | 18              | NA                | NA         |
-+--------------------+------------------+------------------------------------------+------------------------+------------------+-----------------+-------------------+------------+
-| 67890              | 2024-12-01 10:30 | SAT SCREEN                               | sat_delivery_pass_fail | Sedation         | NA              | Pass              | NA         |
-+--------------------+------------------+------------------------------------------+------------------------+------------------+-----------------+-------------------+------------+
+| hospitalization_id | recorded_dttm                | assessment_name                                | assessment_category    | assessment_group | numerical_value | categorical_value | text_value |
+|-------------------|----------------------------|----------------------------------------------|---------------------|----------------|----------------|-----------------|------------|
+| 12345             | 2024-12-01 08:15:00+00:00 | NUR RA GLASGOW ADULT EYE OPENING             | gcs_eye            | Neurological   | 4              | NA              | NA         |
+| 12345             | 2024-12-01 08:15:00+00:00 | NUR RA GLASGOW ADULT VERBAL RESPONSE         | gcs_verbal         | Neurological   | 5              | NA              | NA         |
+| 12345             | 2024-12-01 08:15:00+00:00 | NUR RA GLASGOW ADULT BEST MOTOR RESPONSE     | gcs_motor          | Neurological   | 6              | NA              | NA         |
+| 12345             | 2024-12-01 08:15:00+00:00 | NUR RA GLASGOW ADULT SCORING                 | gcs_total          | Neurological   | 15             | NA              | NA         |
+| 67890             | 2024-12-01 10:30:00+00:00 | BRADEN ASSESSMENT                            | braden_total       | Nursing Risk   | 18             | NA              | NA         |
+| 67890             | 2024-12-01 10:30:00+00:00 | SAT SCREEN                                   | sat_delivery_pass_fail | Sedation     | NA             | Pass            | NA         |
 
 : {.striped .hover}
 :::
@@ -388,40 +379,31 @@ The patient_assessments table captures various assessments performed on patients
 
 The position table is a long form (one position per row) longitudinal table that captures all documented position changes of the patient. The table is designed for the explicit purpose of constructing the `position_category` CDE and identifying patients in prone position.
 
-+--------------------+-----------------+------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
-| Variable Name      | Data Type       | Definition                                                                                                             | Permissible Values                            |
-+====================+=================+========================================================================================================================+===============================================+
-| hospitalization_id | VARCHAR         | ID variable for each patient encounter. This table only includes those encounters that have proning documented ever.   |                                               |
-+--------------------+-----------------+------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
-| recorded_dttm      | DATETIME        | Date and time when the vital is recorded.                                                                              | Datetime format should be `%Y-%m-%d %H:%M:%S` |
-+--------------------+-----------------+------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
-| position_name      | VARCHAR         | This field is used to store the description of the position from the source data. This field is not used for analysis. | No restriction                                |
-+--------------------+-----------------+------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
-| position_category  | VARCHAR         | Maps `position_name` to either prone or not prone.                                                                     | `prone`, `not_prone`                          |
-+--------------------+-----------------+------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------+
++--------------------+-----------------+------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------+
+| Variable Name      | Data Type       | Definition                                                                                                             | Permissible Values                                   |
++====================+=================+========================================================================================================================+======================================================+
+| hospitalization_id | VARCHAR         | ID variable for each patient encounter. This table only includes those encounters that have proning documented ever.   |                                                      |
++--------------------+-----------------+------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------+
+| recorded_dttm      | DATETIME        | Date and time when the vital is recorded.                                                                              | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00` |
++--------------------+-----------------+------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------+
+| position_name      | VARCHAR         | This field is used to store the description of the position from the source data. This field is not used for analysis. | No restriction                                       |
++--------------------+-----------------+------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------+
+| position_category  | VARCHAR         | Maps `position_name` to either prone or not prone.                                                                     | `prone`, `not_prone`                                 |
++--------------------+-----------------+------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------+
 
 **Example**:
 
 ::: scrollable-table
-+--------------------+---------------------+------------------------------------------------+-------------------+
-| hospitalization_id | recorded_dttm       | position_name                                  | position_category |
-+====================+=====================+================================================+===================+
-| 84                 | 2123-06-20 00:00:00 | Supine–turn R                                  | not_prone         |
-+--------------------+---------------------+------------------------------------------------+-------------------+
-| 84                 | 2123-06-20 06:00:00 | Supine–turn L                                  | not_prone         |
-+--------------------+---------------------+------------------------------------------------+-------------------+
-| 84                 | 2123-06-20 12:00:00 | Supine–back                                    | not_prone         |
-+--------------------+---------------------+------------------------------------------------+-------------------+
-| 84                 | 2123-06-20 16:00:00 | Supine–turn R                                  | not_prone         |
-+--------------------+---------------------+------------------------------------------------+-------------------+
-| 84                 | 2123-06-20 20:00:00 | Supine–back;Supine–turn intolerant             | not_prone         |
-+--------------------+---------------------+------------------------------------------------+-------------------+
-| 84                 | 2123-06-20 22:00:00 | Supine–turn intolerant,microturn L             | not_prone         |
-+--------------------+---------------------+------------------------------------------------+-------------------+
-| 84                 | 2123-06-20 00:00:00 | Supine–turn intolerant,microturn L;Supine–back | not_prone         |
-+--------------------+---------------------+------------------------------------------------+-------------------+
-| 84                 | 2123-06-20 01:10:00 | 30 Degrees                                     | not_prone         |
-+--------------------+---------------------+------------------------------------------------+-------------------+
+| hospitalization_id | recorded_dttm                | position_name                                                | position_category |
+|-------------------|----------------------------|-------------------------------------------------------------|------------------|
+| 84                | 2123-06-20 00:00:00+00:00 | Supine–turn R                                               | not_prone        |
+| 84                | 2123-06-20 06:00:00+00:00 | Supine–turn L                                               | not_prone        |
+| 84                | 2123-06-20 12:00:00+00:00 | Supine–back                                                 | not_prone        |
+| 84                | 2123-06-20 16:00:00+00:00 | Supine–turn R                                               | not_prone        |
+| 84                | 2123-06-20 20:00:00+00:00 | Supine–back;Supine–turn intolerant                          | not_prone        |
+| 84                | 2123-06-20 22:00:00+00:00 | Supine–turn intolerant,microturn L                          | not_prone        |
+| 84                | 2123-06-20 00:00:00+00:00 | Supine–turn intolerant,microturn L;Supine–back              | not_prone        |
+| 84                | 2123-06-20 01:10:00+00:00 | 30 Degrees                                                  | not_prone        |
 
 : {.striped .hover}
 :::
@@ -437,7 +419,7 @@ The respiratory support table is a wider longitudinal table that captures simult
 +===============================+=================+====================================================================================+========================================================================================================================================================================================================================+
 | hospitalization_id            | VARCHAR         | ID variable for each patient encounter                                             |                                                                                                                                                                                                                        |
 +-------------------------------+-----------------+------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| recorded_dttm                 | DATETIME        | Date and time when the device settings and/or measurement was recorded.            | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                                                                                                                          |
+| recorded_dttm                 | DATETIME        | Date and time when the device settings and/or measurement was recorded.            | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`                                                                                                                                                                   |
 +-------------------------------+-----------------+------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | device_name                   | VARCHAR         | Includes raw string of the devices. Not used for analysis                          | No restriction                                                                                                                                                                                                         |
 +-------------------------------+-----------------+------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -535,12 +517,12 @@ E = Expected ventilator setting for the mode, P = possible ventilator setting fo
 **Example**:
 
 ::: scrollable-table
-| hospitalization_id | recorded_dttm | device_name | device_category | mode_name | mode_category | vent_brand_name | tracheostomy | fio2_set | lpm_set | tidal_volume_set | resp_rate_set | pressure_control_set | pressure_support_set | flow_rate_set | tidal_volume_obs | resp_rate_obs | plateau_pressure_obs | peak_inspiratory_pressure_obs | peep_obs | minute_vent_obs | mean_airway_pressure_obs |
-|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|
-| 12345 | 2024-12-01 08:00 | Ventilator | IMV | CMV Volume Ctrl | Assist Control-Volume Control | Vent A | 1 | 0.50 | 40 | 500 | 18 | 15 | 5 | 50 | 450 | 18 | 20 | 25 | 5 | 9.0 | 12.0 |
-| 12345 | 2024-12-01 09:00 | Ventilator | IMV | SIMV | SIMV | Vent A | 1 | 0.45 | 35 | 480 | 20 | 18 | 8 | 55 | 470 | 20 | 21 | 28 | 6 | 10.5 | 14.0 |
-| 67890 | 2024-12-01 10:30 | HFNC | High Flow NC | N/A | Other | N/A | 0 | 0.30 | 60 | NA | NA | NA | NA | 60 | NA | NA | NA | NA | NA | NA | NA |
-| 67890 | 2024-12-01 11:00 | CPAP | CPAP | CPAP | Pressure Support/CPAP | CPAP X | 0 | 0.40 | 50 | NA | NA | NA | 10 | NA | NA | NA | NA | NA | 8 | NA | NA |
+| hospitalization_id | recorded_dttm                | device_name | device_category | mode_name         | mode_category                | vent_brand_name | tracheostomy | fio2_set | lpm_set | tidal_volume_set | resp_rate_set | pressure_control_set | pressure_support_set | flow_rate_set | tidal_volume_obs | resp_rate_obs | plateau_pressure_obs | peak_inspiratory_pressure_obs | peep_obs | minute_vent_obs | mean_airway_pressure_obs |
+|-------------------|----------------------------|--------------|-----------------|-------------------|----------------------------|----------------|--------------|-----------|----------|-----------------|---------------|-------------------|-------------------|---------------|-----------------|---------------|-------------------|----------------------------|-----------|-----------------|------------------------|
+| 12345             | 2024-12-01 08:00:00+00:00 | Ventilator   | IMV             | CMV Volume Ctrl   | Assist Control-Volume Control| Vent A         | 1            | 0.50      | 40       | 500             | 18            | 15                | 5                 | 50            | 450             | 18            | 20                | 25                         | 5         | 9.0             | 12.0                   |
+| 12345             | 2024-12-01 09:00:00+00:00 | Ventilator   | IMV             | SIMV              | SIMV                        | Vent A         | 1            | 0.45      | 35       | 480             | 20            | 18                | 8                 | 55            | 470             | 20            | 21                | 28                         | 6         | 10.5            | 14.0                   |
+| 67890             | 2024-12-01 10:30:00+00:00 | HFNC         | High Flow NC    | N/A               | Other                       | N/A            | 0            | 0.30      | 60       | NA              | NA            | NA                | NA                | 60            | NA              | NA            | NA                | NA                         | NA        | NA              | NA                     |
+| 67890             | 2024-12-01 11:00:00+00:00 | CPAP         | CPAP            | CPAP              | Pressure Support/CPAP       | CPAP X         | 0            | 0.40      | 50       | NA              | NA            | NA                | 10                | NA            | NA              | NA            | NA                | NA                         | 8         | NA              | NA                     |
 
 : {.striped .hover}
 :::
@@ -557,7 +539,7 @@ The vitals table is a long-form (one vital sign per row) longitudinal table.
 +====================+=================+=================================================================================================================================+============================================================================================================================================================+
 | hospitalization_id | VARCHAR         | ID variable for each patient encounter.                                                                                         | No restriction                                                                                                                                             |
 +--------------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| recorded_dttm      | DATETIME        | Date and time when the vital is recorded.                                                                                       | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                                                              |
+| recorded_dttm      | DATETIME        | Date and time when the vital is recorded.                                                                                       | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`                                                                                                       |
 +--------------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | vital_name         | VARCHAR         | This field is used to store the description of the flowsheet measure from the source data. This field is not used for analysis. | No restriction                                                                                                                                             |
 +--------------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -571,27 +553,17 @@ The vitals table is a long-form (one vital sign per row) longitudinal table.
 **Example**:
 
 ::: scrollable-table
-+--------------------+------------------+------------------------------+------------------+-------------+----------------+
-| hospitalization_id | recorded_dttm    | vital_name                   | vital_category   | vital_value | meas_site_name |
-+====================+==================+==============================+==================+=============+================+
-| 20010012           | 2024-12-01 08:00 | HEIGHT                       | height_cm        | 170.0       | unspecified    |
-+--------------------+------------------+------------------------------+------------------+-------------+----------------+
-| 20010012           | 2024-12-01 08:15 | WEIGHT                       | weight_kg        | 70.0        | unspecified    |
-+--------------------+------------------+------------------------------+------------------+-------------+----------------+
-| 20010012           | 2024-12-01 08:30 | PULSE                        | heart_rate       | 72.0        | unspecified    |
-+--------------------+------------------+------------------------------+------------------+-------------+----------------+
-| 20010012           | 2024-12-01 08:45 | BLOOD PRESSURE (SYSTOLIC)    | sbp              | 120.0       | unspecified    |
-+--------------------+------------------+------------------------------+------------------+-------------+----------------+
-| 20010012           | 2024-12-01 08:45 | BLOOD PRESSURE (DIASTOLIC)   | dbp              | 80.0        | unspecified    |
-+--------------------+------------------+------------------------------+------------------+-------------+----------------+
-| 20010012           | 2024-12-01 08:50 | RESPIRATORY RATE             | respiratory_rate | 16.0        | unspecified    |
-+--------------------+------------------+------------------------------+------------------+-------------+----------------+
-| 20010012           | 2024-12-01 09:00 | TEMPERATURE                  | temp_c           | 36.8        | unspecified    |
-+--------------------+------------------+------------------------------+------------------+-------------+----------------+
-| 20010012           | 2024-12-01 09:15 | SPO2                         | spo2             | 98.0        | unspecified    |
-+--------------------+------------------+------------------------------+------------------+-------------+----------------+
-| 20010013           | 2024-12-01 09:30 | MEAN ARTERIAL PRESSURE (MAP) | map              | 85.0        | arterial       |
-+--------------------+------------------+------------------------------+------------------+-------------+----------------+
+| hospitalization_id | recorded_dttm                | vital_name                   | vital_category   | vital_value | meas_site_name |
+|-------------------|----------------------------|------------------------------|-----------------|-------------|----------------|
+| 20010012          | 2024-12-01 08:00:00+00:00 | HEIGHT                       | height_cm       | 170.0      | unspecified    |
+| 20010012          | 2024-12-01 08:15:00+00:00 | WEIGHT                       | weight_kg       | 70.0       | unspecified    |
+| 20010012          | 2024-12-01 08:30:00+00:00 | PULSE                        | heart_rate      | 72.0       | unspecified    |
+| 20010012          | 2024-12-01 08:45:00+00:00 | BLOOD PRESSURE (SYSTOLIC)    | sbp             | 120.0      | unspecified    |
+| 20010012          | 2024-12-01 08:45:00+00:00 | BLOOD PRESSURE (DIASTOLIC)   | dbp             | 80.0       | unspecified    |
+| 20010012          | 2024-12-01 08:50:00+00:00 | RESPIRATORY RATE             | respiratory_rate| 16.0       | unspecified    |
+| 20010012          | 2024-12-01 09:00:00+00:00 | TEMPERATURE                  | temp_c          | 36.8       | unspecified    |
+| 20010012          | 2024-12-01 09:15:00+00:00 | SPO2                         | spo2            | 98.0       | unspecified    |
+| 20010013          | 2024-12-01 09:30:00+00:00 | MEAN ARTERIAL PRESSURE (MAP) | map             | 85.0       | arterial       |
 
 : {.striped .hover}
 :::
@@ -606,42 +578,42 @@ A planned future CLIF table that has yet to be used in a federated project. The 
 
 The dialysis table is a wider longitudinal table that captures the start and stop times of dialysis sessions, the type of dialysis performed, and the amount of dialysate flow and ultrafiltration.
 
-+------------------------+-----------------+--------------------------------------------------------------------+--------------------------------------+
-| Variable Name          | Data Type       | Definition                                                         | Permissible values                   |
-+========================+=================+====================================================================+======================================+
-| hospitalization_id     | VARCHAR         | ID variable for each patient encounter                             |                                      |
-+------------------------+-----------------+--------------------------------------------------------------------+--------------------------------------+
-| start_dttm             | DATETIME        | Start date and time of dialysis session                            | Datetime format `%Y-%m-%d %H:%M:%S`  |
-+------------------------+-----------------+--------------------------------------------------------------------+--------------------------------------+
-| stop_dttm              | DATETIME        | Stop date and time of dialysis session                             | Datetime format `%Y-%m-%d %H:%M:%S`  |
-+------------------------+-----------------+--------------------------------------------------------------------+--------------------------------------+
-| dialysis_type_name     | VARCHAR         | Name of dialysis type                                              | No restriction                       |
-+------------------------+-----------------+--------------------------------------------------------------------+--------------------------------------+
-| dialysis_type_category | VARCHAR         | Maps `dialysis_type_name` to a list of standardized dialysis types | `intermittent`, `peritoneal`, `crrt` |
-+------------------------+-----------------+--------------------------------------------------------------------+--------------------------------------+
-| crrt_mode_name         | VARCHAR         | Name of the CRRT mode, e.g. "CVVHD"                                | No restriction                       |
-+------------------------+-----------------+--------------------------------------------------------------------+--------------------------------------+
-| crrt_mode_category     | VARCHAR         | Maps `crrt_mode_name` to a standardized list of CRRT modes         | under development                    |
-+------------------------+-----------------+--------------------------------------------------------------------+--------------------------------------+
-| fluid_removal_amt      | DOUBLE          | Amount of fluid removed during dialysis                            | Numeric                              |
-+------------------------+-----------------+--------------------------------------------------------------------+--------------------------------------+
-| dialysate_flow_rate    | DOUBLE          | Rate of dialysate flow                                             | Numeric                              |
-+------------------------+-----------------+--------------------------------------------------------------------+--------------------------------------+
++------------------------+-----------------+--------------------------------------------------------------------+--------------------------------------------------+
+| Variable Name          | Data Type       | Definition                                                         | Permissible values                               |
++========================+=================+====================================================================+==================================================+
+| hospitalization_id     | VARCHAR         | ID variable for each patient encounter                             |                                                  |
++------------------------+-----------------+--------------------------------------------------------------------+--------------------------------------------------+
+| start_dttm             | DATETIME        | Start date and time of dialysis session                            | Datetime format `YYY-MM-DD HH:MM:SS+00:00`       |
++------------------------+-----------------+--------------------------------------------------------------------+--------------------------------------------------+
+| stop_dttm              | DATETIME        | Stop date and time of dialysis session                             | Datetime format `YYY-MM-DD HH:MM:SS+00:00`       |
++------------------------+-----------------+--------------------------------------------------------------------+--------------------------------------------------+
+| dialysis_type_name     | VARCHAR         | Name of dialysis type                                              | No restriction                                   |
++------------------------+-----------------+--------------------------------------------------------------------+--------------------------------------------------+
+| dialysis_type_category | VARCHAR         | Maps `dialysis_type_name` to a list of standardized dialysis types | `intermittent`, `peritoneal`, `crrt`             |
++------------------------+-----------------+--------------------------------------------------------------------+--------------------------------------------------+
+| crrt_mode_name         | VARCHAR         | Name of the CRRT mode, e.g. "CVVHD"                                | No restriction                                   |
++------------------------+-----------------+--------------------------------------------------------------------+--------------------------------------------------+
+| crrt_mode_category     | VARCHAR         | Maps `crrt_mode_name` to a standardized list of CRRT modes         | under development                                |
++------------------------+-----------------+--------------------------------------------------------------------+--------------------------------------------------+
+| fluid_removal_amt      | DOUBLE          | Amount of fluid removed during dialysis                            | Numeric                                          |
++------------------------+-----------------+--------------------------------------------------------------------+--------------------------------------------------+
+| dialysate_flow_rate    | DOUBLE          | Rate of dialysate flow                                             | Numeric                                          |
++------------------------+-----------------+--------------------------------------------------------------------+--------------------------------------------------+
 
 **Example**:
 
 ::: scrollable-table
-+--------------------+---------------------+---------------------+---------------------+------------------------+----------------+-----------------------------------------+-------------------+---------------------+
-| hospitalization_id | start_dttm          | stop_dttm           | dialysis_type_name  | dialysis_type_category | crrt_mode_name | crrt_mode_category                      | fluid_removal_amt | dialysate_flow_rate |
-+====================+=====================+=====================+=====================+========================+================+=========================================+===================+=====================+
-| 101                | 2024-01-01 08:00:00 | 2024-01-01 12:00:00 | Hemodialysis        | intermittent           | NA             | NA                                      | 2500.0            | 500.0               |
-+--------------------+---------------------+---------------------+---------------------+------------------------+----------------+-----------------------------------------+-------------------+---------------------+
-| 102                | 2024-01-02 10:00:00 | 2024-01-02 14:30:00 | CRRT                | crrt                   | CVVHD          | continuous venovenous hemodialysis      | 1500.0            | 700.0               |
-+--------------------+---------------------+---------------------+---------------------+------------------------+----------------+-----------------------------------------+-------------------+---------------------+
-| 103                | 2024-01-03 09:30:00 | 2024-01-03 13:30:00 | Peritoneal Dialysis | peritoneal             | NA             | NA                                      | 2000.0            | NA                  |
-+--------------------+---------------------+---------------------+---------------------+------------------------+----------------+-----------------------------------------+-------------------+---------------------+
-| 104                | 2024-01-04 11:00:00 | 2024-01-04 15:00:00 | CRRT                | crrt                   | CVVHDF         | continuous venovenous hemodiafiltration | 1800.0            | 600.0               |
-+--------------------+---------------------+---------------------+---------------------+------------------------+----------------+-----------------------------------------+-------------------+---------------------+
++--------------------+---------------------------+---------------------------+---------------------+------------------------+----------------+-----------------------------------------+-------------------+---------------------+
+| hospitalization_id | start_dttm                | stop_dttm                 | dialysis_type_name  | dialysis_type_category | crrt_mode_name | crrt_mode_category                      | fluid_removal_amt | dialysate_flow_rate |
++====================+===========================+===========================+=====================+========================+================+=========================================+===================+=====================+
+| 101                | 2024-01-01 08:00:00+00:00 | 2024-01-01 12:00:00+00:00 | Hemodialysis        | intermittent           | NA             | NA                                      | 2500.0            | 500.0               |
++--------------------+---------------------------+---------------------------+---------------------+------------------------+----------------+-----------------------------------------+-------------------+---------------------+
+| 102                | 2024-01-02 10:00:00+00:00 | 2024-01-02 14:30:00+00:00 | CRRT                | crrt                   | CVVHD          | continuous venovenous hemodialysis      | 1500.0            | 700.0               |
++--------------------+---------------------------+---------------------------+---------------------+------------------------+----------------+-----------------------------------------+-------------------+---------------------+
+| 103                | 2024-01-03 09:30:00+00:00 | 2024-01-03 13:30:00+00:00 | Peritoneal Dialysis | peritoneal             | NA             | NA                                      | 2000.0            | NA                  |
++--------------------+---------------------------+---------------------------+---------------------+------------------------+----------------+-----------------------------------------+-------------------+---------------------+
+| 104                | 2024-01-04 11:00:00+00:00 | 2024-01-04 15:00:00+00:00 | CRRT                | crrt                   | CVVHDF         | continuous venovenous hemodiafiltration | 1800.0            | 600.0               |
++--------------------+---------------------------+---------------------------+---------------------+------------------------+----------------+-----------------------------------------+-------------------+---------------------+
 
 : {.striped .hover}
 :::
@@ -675,17 +647,17 @@ The ECMO/MCS table is a wider longitudinal table that captures the start and sto
 **Example**:
 
 ::: scrollable-table
-+--------------------+---------------------+---------------------+-------------+-----------------+--------------------+-------------+------+-------+
-| hospitalization_id | start_dttm          | end_dttm            | device_name | device_category | device_metric_name | device_rate | flow | sweep |
-+====================+=====================+=====================+=============+=================+====================+=============+======+=======+
-| 1001               | 2024-01-01 08:00:00 | 2024-01-03 10:00:00 | Centrimag   | MCS             | RPMs               | 3000        | 4.5  | NA    |
-+--------------------+---------------------+---------------------+-------------+-----------------+--------------------+-------------+------+-------+
-| 1002               | 2024-01-05 12:00:00 | 2024-01-07 14:30:00 | ECMO VV     | ECMO            | Flow Rate          | NA          | 5.2  | 2.0   |
-+--------------------+---------------------+---------------------+-------------+-----------------+--------------------+-------------+------+-------+
-| 1003               | 2024-01-10 09:00:00 | 2024-01-12 15:45:00 | TandemHeart | MCS             | RPMs               | 2800        | 3.8  | NA    |
-+--------------------+---------------------+---------------------+-------------+-----------------+--------------------+-------------+------+-------+
-| 1004               | 2024-01-15 14:00:00 | 2024-01-17 16:00:00 | ECMO VA     | ECMO            | Sweep              | NA          | 4.1  | 3.5   |
-+--------------------+---------------------+---------------------+-------------+-----------------+--------------------+-------------+------+-------+
++--------------------+---------------------------+---------------------------+-------------+-----------------+--------------------+-------------+------+-------+
+| hospitalization_id | start_dttm                | end_dttm                  | device_name | device_category | device_metric_name | device_rate | flow | sweep |
++====================+===========================+===========================+=============+=================+====================+=============+======+=======+
+| 1001               | 2024-01-01 08:00:00+00:00 | 2024-01-03 10:00:00+00:00 | Centrimag   | MCS             | RPMs               | 3000        | 4.5  | NA    |
++--------------------+---------------------------+---------------------------+-------------+-----------------+--------------------+-------------+------+-------+
+| 1002               | 2024-01-05 12:00:00+00:00 | 2024-01-07 14:30:00+00:00 | ECMO VV     | ECMO            | Flow Rate          | NA          | 5.2  | 2.0   |
++--------------------+---------------------------+---------------------------+-------------+-----------------+--------------------+-------------+------+-------+
+| 1003               | 2024-01-10 09:00:00+00:00 | 2024-01-12 15:45:00+00:00 | TandemHeart | MCS             | RPMs               | 2800        | 3.8  | NA    |
++--------------------+---------------------------+---------------------------+-------------+-----------------+--------------------+-------------+------+-------+
+| 1004               | 2024-01-15 14:00:00+00:00 | 2024-01-17 16:00:00+00:00 | ECMO VA     | ECMO            | Sweep              | NA          | 4.1  | 3.5   |
++--------------------+---------------------------+---------------------------+-------------+-----------------+--------------------+-------------+------+-------+
 
 : {.striped .hover}
 :::
@@ -697,44 +669,44 @@ The ECMO/MCS table is a wider longitudinal table that captures the start and sto
 
 Continuous start stop record of every provider who cared for the patient.
 
-+------------------------+-----------------+-------------------------------------------------------------------------------------------------+---------------------------------------------+
-| Variable Name          | Data Type       | Definition                                                                                      | Permissible Values                          |
-+========================+=================+=================================================================================================+=============================================+
-| hospitalization_id     | VARCHAR         | Unique identifier for each hospitalization, linking the provider to a specific encounter        | No restriction                              |
-+------------------------+-----------------+-------------------------------------------------------------------------------------------------+---------------------------------------------+
-| provider_id            | VARCHAR         | Unique identifier for each provider. This represents individual healthcare providers            | No restriction                              |
-+------------------------+-----------------+-------------------------------------------------------------------------------------------------+---------------------------------------------+
-| start_dttm             | DATETIME        | Date and time when the provider's care or involvement in the patient’s case began               | Datetime format should be %Y-%m-%d %H:%M:%S |
-+------------------------+-----------------+-------------------------------------------------------------------------------------------------+---------------------------------------------+
-| stop_dttm              | DATETIME        | Date and time when the provider's care or involvement in the patient’s case ended               | Datetime format should be %Y-%m-%d %H:%M:%S |
-+------------------------+-----------------+-------------------------------------------------------------------------------------------------+---------------------------------------------+
-| provider_role_name     | VARCHAR         | The original string describing the role or specialty of the provider during the hospitalization | No restriction                              |
-+------------------------+-----------------+-------------------------------------------------------------------------------------------------+---------------------------------------------+
-| provider_role_category | VARCHAR         | Maps `provider_role_name` to list of standardized provider roles                                | under development                           |
-+------------------------+-----------------+-------------------------------------------------------------------------------------------------+---------------------------------------------+
++------------------------+-----------------+-------------------------------------------------------------------------------------------------+---------------------------------------------------------+
+| Variable Name          | Data Type       | Definition                                                                                      | Permissible Values                                      |
++========================+=================+=================================================================================================+=========================================================+
+| hospitalization_id     | VARCHAR         | Unique identifier for each hospitalization, linking the provider to a specific encounter        | No restriction                                          |
++------------------------+-----------------+-------------------------------------------------------------------------------------------------+---------------------------------------------------------+
+| provider_id            | VARCHAR         | Unique identifier for each provider. This represents individual healthcare providers            | No restriction                                          |
++------------------------+-----------------+-------------------------------------------------------------------------------------------------+---------------------------------------------------------+
+| start_dttm             | DATETIME        | Date and time when the provider's care or involvement in the patient’s case began               | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`    |
++------------------------+-----------------+-------------------------------------------------------------------------------------------------+---------------------------------------------------------+
+| stop_dttm              | DATETIME        | Date and time when the provider's care or involvement in the patient’s case ended               | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`    |
++------------------------+-----------------+-------------------------------------------------------------------------------------------------+---------------------------------------------------------+
+| provider_role_name     | VARCHAR         | The original string describing the role or specialty of the provider during the hospitalization | No restriction                                          |
++------------------------+-----------------+-------------------------------------------------------------------------------------------------+---------------------------------------------------------+
+| provider_role_category | VARCHAR         | Maps `provider_role_name` to list of standardized provider roles                                | under development                                       |
++------------------------+-----------------+-------------------------------------------------------------------------------------------------+---------------------------------------------------------+
 
 **Example**:
 
 ::: scrollable-table
-+--------------------+-------------+---------------------+---------------------+--------------------------+------------------------+
-| hospitalization_id | provider_id | start_dttm          | stop_dttm           | provider_role_name       | provider_role_category |
-+====================+=============+=====================+=====================+==========================+========================+
-| 1001014            | P12345      | 2023-05-01 08:00:00 | 2023-05-01 20:00:00 | Attending Physician      | Attending              |
-+--------------------+-------------+---------------------+---------------------+--------------------------+------------------------+
-| 1001014            | P54321      | 2023-05-01 08:00:00 | 2023-05-02 08:00:00 | Resident Physician       | Resident               |
-+--------------------+-------------+---------------------+---------------------+--------------------------+------------------------+
-| 1001014            | P67890      | 2023-05-01 08:00:00 | 2023-05-03 08:00:00 | Nurse Practitioner       | Nurse Practitioner     |
-+--------------------+-------------+---------------------+---------------------+--------------------------+------------------------+
-| 1002025            | P11223      | 2023-06-10 09:00:00 | 2023-06-10 21:00:00 | Critical Care Specialist | Critical Care          |
-+--------------------+-------------+---------------------+---------------------+--------------------------+------------------------+
-| 1002025            | P44556      | 2023-06-10 09:00:00 | 2023-06-11 09:00:00 | Respiratory Therapist    | Respiratory Therapy    |
-+--------------------+-------------+---------------------+---------------------+--------------------------+------------------------+
-| 1003036            | P33445      | 2023-07-15 07:30:00 | 2023-07-15 19:30:00 | Attending Physician      | Attending              |
-+--------------------+-------------+---------------------+---------------------+--------------------------+------------------------+
-| 1003036            | P66789      | 2023-07-15 07:30:00 | 2023-07-16 07:30:00 | Charge Nurse             | Nurse                  |
-+--------------------+-------------+---------------------+---------------------+--------------------------+------------------------+
-| 1004047            | P99887      | 2023-08-20 10:00:00 | 2023-08-20 22:00:00 | Physical Therapist       | Therapy                |
-+--------------------+-------------+---------------------+---------------------+--------------------------+------------------------+
++--------------------+---------------------------+---------------------------+--------------------------+------------------------+
+| hospitalization_id | start_dttm                | stop_dttm                 | provider_role_name       | provider_role_category |
++====================+===========================+===========================+==========================+========================+
+| 1001014            | 2023-05-01 08:00:00+00:00 | 2023-05-01 20:00:00+00:00 | Attending Physician      | Attending              |
++--------------------+---------------------------+---------------------------+--------------------------+------------------------+
+| 1001014            | 2023-05-01 08:00:00+00:00 | 2023-05-02 08:00:00+00:00 | Resident Physician       | Resident               |
++--------------------+---------------------------+---------------------------+--------------------------+------------------------+
+| 1001014            | 2023-05-01 08:00:00+00:00 | 2023-05-03 08:00:00+00:00 | Nurse Practitioner       | Nurse Practitioner     |
++--------------------+---------------------------+---------------------------+--------------------------+------------------------+
+| 1002025            | 2023-06-10 09:00:00+00:00 | 2023-06-10 21:00:00+00:00 | Critical Care Specialist | Critical Care          |
++--------------------+---------------------------+---------------------------+--------------------------+------------------------+
+| 1002025            | 2023-06-10 09:00:00+00:00 | 2023-06-11 09:00:00+00:00 | Respiratory Therapist    | Respiratory Therapy    |
++--------------------+---------------------------+---------------------------+--------------------------+------------------------+
+| 1003036            | 2023-07-15 07:30:00+00:00 | 2023-07-15 19:30:00+00:00 | Attending Physician      | Attending              |
++--------------------+---------------------------+---------------------------+--------------------------+------------------------+
+| 1003036            | 2023-07-15 07:30:00+00:00 | 2023-07-16 07:30:00+00:00 | Charge Nurse             | Nurse                  |
++--------------------+---------------------------+---------------------------+--------------------------+------------------------+
+| 1004047            | 2023-08-20 10:00:00+00:00 | 2023-08-20 22:00:00+00:00 | Physical Therapist       | Therapy                |
++--------------------+---------------------------+---------------------------+--------------------------+------------------------+
 
 : {.striped .hover}
 :::
@@ -745,42 +717,33 @@ Continuous start stop record of every provider who cared for the patient.
 
 Record of all diagnoses associated with the hospitalization. Expect breaking changes to this table as we seek to align it with existing diagnosis ontologies
 
-+-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------+
-| Variable Name         | Data Type       | Definition                                                  | Permissible Values                          |
-+=======================+=================+=============================================================+=============================================+
-| patient_id            | VARCHAR         | Unique identifier for each patient                          | No restriction                              |
-+-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------+
-| diagnostic_code       | DOUBLE          | numeric diagnosis code                                      | valid code in the `diagnositic_code_format` |
-+-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------+
-| diagnosis_code_format | VARCHAR         | description of the diagnostic code format                   | `icd9` ,`icd10`                             |
-+-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------+
-| start_dttm            | DATETIME        | date time the diagnosis was recorded                        | Datetime format should be %Y-%m-%d %H:%M:%S |
-+-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------+
-| end_dttm              | DATETIME        | date time the diagnosis was noted as resolved (if resolved) | Datetime format should be %Y-%m-%d %H:%M:%S |
-+-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------+
++-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
+| Variable Name         | Data Type       | Definition                                                  | Permissible Values                                      |
++=======================+=================+=============================================================+=========================================================+
+| patient_id            | VARCHAR         | Unique identifier for each patient                          | No restriction                                          |
++-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
+| diagnostic_code       | DOUBLE          | numeric diagnosis code                                      | valid code in the `diagnositic_code_format`             |
++-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
+| diagnosis_code_format | VARCHAR         | description of the diagnostic code format                   | `icd9` ,`icd10`                                         |
++-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
+| start_dttm            | DATETIME        | date time the diagnosis was recorded                        | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`    |
++-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
+| end_dttm              | DATETIME        | date time the diagnosis was noted as resolved (if resolved) | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`    |
++-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
 
 **Example**:
 
 ::: scrollable-table
-+-------------+-----------------+-----------------------+---------------------+---------------------+
-| patient_id  | diagnostic_code | diagnosis_code_format | start_dttm          | end_dttm            |
-+=============+=================+=======================+=====================+=====================+
-| 1001014     | 250.00          | icd9                  | 2023-05-01 08:00:00 | 2023-05-10 08:00:00 |
-+-------------+-----------------+-----------------------+---------------------+---------------------+
-| 1001014     | J45.909         | icd10                 | 2023-05-01 08:00:00 | 2023-05-15 08:00:00 |
-+-------------+-----------------+-----------------------+---------------------+---------------------+
-| 1002025     | 401.9           | icd9                  | 2023-06-10 09:00:00 | 2023-06-12 09:00:00 |
-+-------------+-----------------+-----------------------+---------------------+---------------------+
-| 1002025     | E11.9           | icd10                 | 2023-06-10 09:00:00 | 2023-06-20 09:00:00 |
-+-------------+-----------------+-----------------------+---------------------+---------------------+
-| 1003036     | 414.01          | icd9                  | 2023-07-15 07:30:00 | 2023-07-30 07:30:00 |
-+-------------+-----------------+-----------------------+---------------------+---------------------+
-| 1003036     | I25.10          | icd10                 | 2023-07-15 07:30:00 | 2023-07-25 07:30:00 |
-+-------------+-----------------+-----------------------+---------------------+---------------------+
-| 1004047     | 530.81          | icd9                  | 2023-08-20 10:00:00 | 2023-08-22 10:00:00 |
-+-------------+-----------------+-----------------------+---------------------+---------------------+
-| 1004047     | K21.9           | icd10                 | 2023-08-20 10:00:00 | 2023-08-24 10:00:00 |
-+-------------+-----------------+-----------------------+---------------------+---------------------+
+| hospitalization_id | diagnostic_code | diagnosis_code_format | start_dttm                | end_dttm                  |
+|-------------------|-----------------|----------------------|---------------------------|---------------------------|
+| 1001014           | 250.00         | icd9                 | 2023-05-01 08:00:00+00:00 | 2023-05-10 08:00:00+00:00 |
+| 1001014           | J45.909        | icd10                | 2023-05-01 08:00:00+00:00 | 2023-05-15 08:00:00+00:00 |
+| 1002025           | 401.9          | icd9                 | 2023-06-10 09:00:00+00:00 | 2023-06-12 09:00:00+00:00 |
+| 1002025           | E11.9          | icd10                | 2023-06-10 09:00:00+00:00 | 2023-06-20 09:00:00+00:00 |
+| 1003036           | 414.01         | icd9                 | 2023-07-15 07:30:00+00:00 | 2023-07-30 07:30:00+00:00 |
+| 1003036           | I25.10         | icd10                | 2023-07-15 07:30:00+00:00 | 2023-07-25 07:30:00+00:00 |
+| 1004047           | 530.81         | icd9                 | 2023-08-20 10:00:00+00:00 | 2023-08-22 10:00:00+00:00 |
+| 1004047           | K21.9          | icd10                | 2023-08-20 10:00:00+00:00 | 2023-08-24 10:00:00+00:00 |
 
 : {.striped .hover}
 :::
@@ -804,11 +767,11 @@ This table records the ordering (not administration) of medications. The table i
 +---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
 | med_order_id              | VARCHAR         | Unique identifier for each medication order                                                   | No restrictions                                                                                       |
 +---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
-| order_start_dttm          | DATETIME        | Date and time when the medication order was initiated                                         | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                         |
+| order_start_dttm          | DATETIME        | Date and time when the medication order was initiated                                         | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`                                                  |
 +---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
-| order_end_dttm            | DATETIME        | Date and time when the medication order ended or was discontinued                             | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                         |
+| order_end_dttm            | DATETIME        | Date and time when the medication order ended or was discontinued                             | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`                                                  |
 +---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
-| ordered_dttm              | DATETIME        | Date and time when the medication was actually ordered                                        | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                         |
+| ordered_dttm              | DATETIME        | Date and time when the medication was actually ordered                                        | Datetime format should be ``YYY-MM-DD HH:MM:SS+00:00`                                                 |
 +---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
 | med_name                  | VARCHAR         | Name of the medication ordered                                                                | No restrictions                                                                                       |
 +---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
@@ -834,16 +797,16 @@ This table records the ordering (not administration) of medications. The table i
 **Example**:
 
 ::: scrollable-table
-| hospitalization_id | med_order_id | order_start_dttm | order_end_dttm | ordered_dttm | med_name | med_category | med_group | med_order_status_name | med_order_status_category | med_route_name | med_dose | med_dose_unit | med_frequency | prn |
-|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-| 12345 | 456789 | 2023-10-01 14:00:00 | 2023-10-02 14:00:00 | 2023-10-01 13:30:00 | Norepinephrine 8 mg/250 mL | norepinephrine | vasoactives | active | ongoing | Intravenous | 8.0 | mg/mL | Continuous | 0 |
-| 12346 | 456790 | 2023-10-01 16:00:00 | 2023-10-02 10:00:00 | 2023-10-01 15:30:00 | Vancomycin 1 g IV | vancomycin | antibiotics | active | ongoing | Intravenous | 1.0 | g | Every 12 hours | 0 |
-| 12347 | 456791 | 2023-10-02 08:00:00 | 2023-10-03 08:00:00 | 2023-10-02 07:30:00 | Furosemide 40 mg IV | furosemide | diuretics | discontinued | discontinued | Intravenous | 40.0 | mg | Once Daily | 0 |
-| 12348 | 456792 | 2023-10-02 12:00:00 | 2023-10-02 18:00:00 | 2023-10-02 11:45:00 | Insulin Regular 100 units/mL SC | insulin | endocrine | held | held | Subcutaneous | 100.0 | units/mL | As Needed | 1 |
-| 12349 | 456793 | 2023-10-03 08:00:00 | 2023-10-03 20:00:00 | 2023-10-03 07:30:00 | Acetaminophen 1 g PO | acetaminophen | analgesics | active | ongoing | Oral | 1.0 | g | Every 6 hours | 0 |
-| 12350 | 456794 | 2023-10-03 10:00:00 | 2023-10-03 18:00:00 | 2023-10-03 09:45:00 | Heparin 5,000 units SC | heparin | anticoagulant | active | ongoing | Subcutaneous | 5000.0 | units | Every 8 hours | 0 |
-| 12351 | 456795 | 2023-10-03 14:00:00 | 2023-10-03 22:00:00 | 2023-10-03 13:30:00 | Morphine Sulfate 2 mg IV | morphine | analgesics | active | ongoing | Intravenous | 2.0 | mg | As Needed | 1 |
-| 12352 | 456796 | 2023-10-03 20:00:00 | 2023-10-04 08:00:00 | 2023-10-03 19:45:00 | Dexamethasone 10 mg IV | dexamethasone | steroids | active | ongoing | Intravenous | 10.0 | mg | Once Daily | 0 |
+| hospitalization_id | med_order_id | order_start_dttm              | order_end_dttm                | ordered_dttm                  | med_name                                                           | med_category    | med_group      | med_order_status_name | med_order_status_category | med_route_name | med_dose | med_dose_unit | med_frequency  | prn |
+|-------------------|--------------|------------------------------|------------------------------|------------------------------|------------------------------------------------------------------|----------------|---------------|---------------------|------------------------|---------------|-----------|---------------|---------------|-----|
+| 12345             | 456789       | 2023-10-01 14:00:00+00:00   | 2023-10-02 14:00:00+00:00   | 2023-10-01 13:30:00+00:00   | Norepinephrine 8 mg/250 mL                                         | norepinephrine | vasoactives   | active              | ongoing                 | Intravenous   | 8.0      | mg/mL        | Continuous    | 0   |
+| 12346             | 456790       | 2023-10-01 16:00:00+00:00   | 2023-10-02 10:00:00+00:00   | 2023-10-01 15:30:00+00:00   | Vancomycin 1 g IV                                                  | vancomycin     | antibiotics   | active              | ongoing                 | Intravenous   | 1.0      | g            | Every 12 hours| 0   |
+| 12347             | 456791       | 2023-10-02 08:00:00+00:00   | 2023-10-03 08:00:00+00:00   | 2023-10-02 07:30:00+00:00   | Furosemide 40 mg IV                                                | furosemide     | diuretics     | discontinued         | discontinued            | Intravenous   | 40.0     | mg           | Once Daily    | 0   |
+| 12348             | 456792       | 2023-10-02 12:00:00+00:00   | 2023-10-02 18:00:00+00:00   | 2023-10-02 11:45:00+00:00   | Insulin Regular 100 units/mL SC                                     | insulin        | endocrine     | held                | held                    | Subcutaneous  | 100.0    | units/mL     | As Needed     | 1   |
+| 12349             | 456793       | 2023-10-03 08:00:00+00:00   | 2023-10-03 20:00:00+00:00   | 2023-10-03 07:30:00+00:00   | Acetaminophen 1 g PO                                               | acetaminophen  | analgesics    | active              | ongoing                 | Oral          | 1.0      | g            | Every 6 hours | 0   |
+| 12350             | 456794       | 2023-10-03 10:00:00+00:00   | 2023-10-03 18:00:00+00:00   | 2023-10-03 09:45:00+00:00   | Heparin 5,000 units SC                                             | heparin        | anticoagulant | active              | ongoing                 | Subcutaneous  | 5000.0   | units        | Every 8 hours | 0   |
+| 12351             | 456795       | 2023-10-03 14:00:00+00:00   | 2023-10-03 22:00:00+00:00   | 2023-10-03 13:30:00+00:00   | Morphine Sulfate 2 mg IV                                           | morphine       | analgesics    | active              | ongoing                 | Intravenous   | 2.0      | mg           | As Needed     | 1   |
+| 12352             | 456796       | 2023-10-03 20:00:00+00:00   | 2023-10-04 08:00:00+00:00   | 2023-10-03 19:45:00+00:00   | Dexamethasone 10 mg IV                                             | dexamethasone  | steroids      | active              | ongoing                 | Intravenous   | 10.0     | mg           | Once Daily    | 0   |
 
 : {.striped .hover}
 :::
@@ -871,21 +834,14 @@ The intake_output table is long form table that captures the times intake and ou
 **Example**:
 
 ::: scrollable-table
-+--------------------+---------------------+-------------------+-------------+-------------+
-| hospitalization_id | intake_dttm         | fluid_name        | amount      | in_out_flag |
-+====================+=====================+===================+=============+=============+
-| 1001               | 2024-01-01 08:00:00 | Normal Saline     | 500         | 1           |
-+--------------------+---------------------+-------------------+-------------+-------------+
-| 1001               | 2024-01-01 10:30:00 | Urine             | 300         | 0           |
-+--------------------+---------------------+-------------------+-------------+-------------+
-| 1002               | 2024-01-05 09:15:00 | Dextrose          | 250         | 1           |
-+--------------------+---------------------+-------------------+-------------+-------------+
-| 1002               | 2024-01-05 14:00:00 | Urine             | 400         | 0           |
-+--------------------+---------------------+-------------------+-------------+-------------+
-| 1003               | 2024-01-10 07:45:00 | Lactated Ringer's | 600         | 1           |
-+--------------------+---------------------+-------------------+-------------+-------------+
-| 1003               | 2024-01-10 12:00:00 | Drainage          | 200         | 0           |
-+--------------------+---------------------+-------------------+-------------+-------------+
+| hospitalization_id | intake_dttm                  | fluid_name        | amount | in_out_flag |
+|-------------------|------------------------------|------------------|---------|-------------|
+| 1001              | 2024-01-01 08:00:00+00:00   | Normal Saline    | 500     | 1           |
+| 1001              | 2024-01-01 10:30:00+00:00   | Urine           | 300     | 0           |
+| 1002              | 2024-01-05 09:15:00+00:00   | Dextrose        | 250     | 1           |
+| 1002              | 2024-01-05 14:00:00+00:00   | Urine           | 400     | 0           |
+| 1003              | 2024-01-10 07:45:00+00:00   | Lactated Ringer's| 600     | 1           |
+| 1003              | 2024-01-10 12:00:00+00:00   | Drainage        | 200     | 0           |
 
 : {.striped .hover}
 :::
@@ -913,19 +869,13 @@ The `therapy_details` table is a wide longitudinal table that captures the detai
 **Example**:
 
 ::: scrollable-table
-+--------------------+---------------------+----------------------+--------------------------+-----------------------+
-| hospitalization_id | session_start_dttm  | therapy_element_name | therapy_element_category | therapy_element_value |
-+====================+=====================+======================+==========================+=======================+
-| 1001               | 2024-01-01 08:00:00 | Physical Therapy     | Rehabilitation           | 45.0                  |
-+--------------------+---------------------+----------------------+--------------------------+-----------------------+
-| 1001               | 2024-01-01 10:00:00 | Respiratory Therapy  | Respiratory Support      | 3.0                   |
-+--------------------+---------------------+----------------------+--------------------------+-----------------------+
-| 1002               | 2024-01-05 09:30:00 | Occupational Therapy | Rehabilitation           | 60.0                  |
-+--------------------+---------------------+----------------------+--------------------------+-----------------------+
-| 1002               | 2024-01-05 11:00:00 | Speech Therapy       | Rehabilitation           | 30.0                  |
-+--------------------+---------------------+----------------------+--------------------------+-----------------------+
-| 1003               | 2024-01-10 07:00:00 | Ventilation Support  | Respiratory Support      | 2.5                   |
-+--------------------+---------------------+----------------------+--------------------------+-----------------------+
+| hospitalization_id | session_start_dttm           | therapy_element_name     | therapy_element_category | therapy_element_value |
+|-------------------|-----------------------------|-----------------------|------------------------|-------------------|
+| 1001              | 2024-01-01 08:00:00+00:00  | Physical Therapy      | Rehabilitation         | 45.0             |
+| 1001              | 2024-01-01 10:00:00+00:00  | Respiratory Therapy   | Respiratory Support    | 3.0              |
+| 1002              | 2024-01-05 09:30:00+00:00  | Occupational Therapy  | Rehabilitation         | 60.0             |
+| 1002              | 2024-01-05 11:00:00+00:00  | Speech Therapy        | Rehabilitation         | 30.0             |
+| 1003              | 2024-01-10 07:00:00+00:00  | Ventilation Support   | Respiratory Support    | 2.5              |
 
 : {.striped .hover}
 :::
@@ -941,11 +891,11 @@ The microbiology culture table is a wide longitudinal table that captures the or
 +====================+=================+======================================================================================+===============================================================================================================================================================================+
 | hospitalization_id | VARCHAR         | ID variable for each patient encounter.                                              |                                                                                                                                                                               |
 +--------------------+-----------------+--------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| order_dttm         | DATETIME        | Date and time when the test is ordered.                                              | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                                                                                 |
+| order_dttm         | DATETIME        | Date and time when the test is ordered.                                              | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`                                                                                                                          |
 +--------------------+-----------------+--------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| collect_dttm       | DATETIME        | Date and time when the specimen is collected.                                        | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                                                                                 |
+| collect_dttm       | DATETIME        | Date and time when the specimen is collected.                                        | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`                                                                                                                          |
 +--------------------+-----------------+--------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| result_dttm        | DATETIME        | Date and time when the results are available.                                        | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                                                                                                 |
+| result_dttm        | DATETIME        | Date and time when the results are available.                                        | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`                                                                                                                          |
 +--------------------+-----------------+--------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | fluid_name         | VARCHAR         | Cleaned fluid name string from the raw data. This field is not used for analysis.    | No restriction. Check this [file for examples](https://github.com/clif-consortium/CLIF/blob/main/mCIDE/mCIDE_mapping_examples/clif_vocab_microbiology_culture_fluid_ucmc.csv) |
 +--------------------+-----------------+--------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -963,16 +913,16 @@ The microbiology culture table is a wide longitudinal table that captures the or
 **Example**:
 
 ::: scrollable-table
-| hospitalization_id | order_dttm | collect_dttm | result_dttm | fluid_name | fluid_category | component_name | component_category | organism_name | organism_category |
-|--------|--------|--------|--------|--------|--------|--------|--------|--------|--------|
-| 12345 | 2023-10-01 14:00:00 | 2023-10-01 15:00:00 | 2023-10-03 10:00:00 | culture, blood (bacterial & fungal) | blood/buffy coat | culture | culture | no growth | no growth |
-| 12345 | 2023-10-01 16:00:00 | 2023-10-01 17:00:00 | 2023-10-03 12:00:00 | culture, urine | genito-urinary tract | culture | culture | escherichia_coli | escherichia (also e. coli) |
-| 12346 | 2023-11-01 10:30:00 | 2023-11-01 11:15:00 | 2023-11-02 09:00:00 | culture & stain, respiratory | lower respiratory tract | gram stain | gram stain | gram positive cocci | gram positive cocci (nos) |
-| 12346 | 2023-11-02 12:00:00 | 2023-11-02 12:45:00 | 2023-11-03 08:30:00 | culture, cerebrospinal fluid | csf | culture | culture | no growth | no growth |
-| 12347 | 2023-09-15 14:20:00 | 2023-09-15 15:00:00 | 2023-09-17 11:30:00 | culture & stain, afb | other unspecified | afb smear | smear | no growth | no growth |
-| 12348 | 2023-08-10 09:00:00 | 2023-08-10 09:45:00 | 2023-08-12 08:00:00 | culture, blood (bacterial & fungal) | blood/buffy coat | culture | culture | staphylococcus_aureus | staphylococcus (all) |
-| 12349 | 2023-07-25 11:00:00 | 2023-07-25 11:30:00 | 2023-07-27 10:15:00 | culture, urine | genito-urinary tract | culture | culture | enterococcus_faecium | enterococcus (all species) |
-| 12350 | 2023-06-15 13:30:00 | 2023-06-15 14:00:00 | 2023-06-17 09:45:00 | culture & stain, respiratory | lower respiratory tract | gram stain | gram stain | gram negative rod | gram negative rod (nos) |
+| hospitalization_id | order_dttm                  | collect_dttm                | result_dttm                 | fluid_name                           | fluid_category           | component_name | component_category | organism_name           | organism_category              |
+|-------------------|----------------------------|----------------------------|----------------------------|--------------------------------------|------------------------|----------------|-------------------|------------------------|------------------------------|
+| 12345             | 2023-10-01 14:00:00+00:00 | 2023-10-01 15:00:00+00:00 | 2023-10-03 10:00:00+00:00 | culture, blood (bacterial & fungal)  | blood/buffy coat       | culture        | culture           | no growth              | no growth                     |
+| 12345             | 2023-10-01 16:00:00+00:00 | 2023-10-01 17:00:00+00:00 | 2023-10-03 12:00:00+00:00 | culture, urine                       | genito-urinary tract   | culture        | culture           | escherichia_coli       | escherichia (also e. coli)    |
+| 12346             | 2023-11-01 10:30:00+00:00 | 2023-11-01 11:15:00+00:00 | 2023-11-02 09:00:00+00:00 | culture & stain, respiratory         | lower respiratory tract | gram stain     | gram stain        | gram positive cocci    | gram positive cocci (nos)     |
+| 12346             | 2023-11-02 12:00:00+00:00 | 2023-11-02 12:45:00+00:00 | 2023-11-03 08:30:00+00:00 | culture, cerebrospinal fluid         | csf                    | culture        | culture           | no growth              | no growth                     |
+| 12347             | 2023-09-15 14:20:00+00:00 | 2023-09-15 15:00:00+00:00 | 2023-09-17 11:30:00+00:00 | culture & stain, afb                 | other unspecified      | afb smear      | smear             | no growth              | no growth                     |
+| 12348             | 2023-08-10 09:00:00+00:00 | 2023-08-10 09:45:00+00:00 | 2023-08-12 08:00:00+00:00 | culture, blood (bacterial & fungal)  | blood/buffy coat       | culture        | culture           | staphylococcus_aureus  | staphylococcus (all)          |
+| 12349             | 2023-07-25 11:00:00+00:00 | 2023-07-25 11:30:00+00:00 | 2023-07-27 10:15:00+00:00 | culture, urine                       | genito-urinary tract   | culture        | culture           | enterococcus_faecium   | enterococcus (all species)    |
+| 12350             | 2023-06-15 13:30:00+00:00 | 2023-06-15 14:00:00+00:00 | 2023-06-17 09:45:00+00:00 | culture & stain, respiratory         | lower respiratory tract | gram stain     | gram stain        | gram negative rod      | gram negative rod (nos)       |
 
 : {.striped .hover}
 :::
@@ -1038,19 +988,13 @@ The microbiology non-culture table is a wide longitudinal table that captures th
 **Example**:
 
 ::: scrollable-table
-+--------------------+---------------------+---------------------+---------------------+---------------------+------------------------+----------------------+-----------------+
-| hospitalization_id | result_dttm         | collect_dttm        | order_dttm          | fluid_name          | component_category     | result_unit_category | result_category |
-+====================+=====================+=====================+=====================+=====================+========================+======================+=================+
-| 101                | 2024-01-01 10:00:00 | 2024-01-01 08:00:00 | 2024-01-01 07:30:00 | Blood               | PCR                    | Units/mL             | Positive        |
-+--------------------+---------------------+---------------------+---------------------+---------------------+------------------------+----------------------+-----------------+
-| 102                | 2024-01-02 11:30:00 | 2024-01-02 09:30:00 | 2024-01-02 08:15:00 | Cerebrospinal Fluid | Antigen Detection      | mg/L                 | Negative        |
-+--------------------+---------------------+---------------------+---------------------+---------------------+------------------------+----------------------+-----------------+
-| 103                | 2024-01-03 15:00:00 | 2024-01-03 13:00:00 | 2024-01-03 12:45:00 | Sputum              | Gene Amplification     | copies/mL            | Detected        |
-+--------------------+---------------------+---------------------+---------------------+---------------------+------------------------+----------------------+-----------------+
-| 104                | 2024-01-04 09:45:00 | 2024-01-04 07:15:00 | 2024-01-04 06:30:00 | Urine               | Molecular Pathogen ID  | ng/mL                | Not Detected    |
-+--------------------+---------------------+---------------------+---------------------+---------------------+------------------------+----------------------+-----------------+
-| 105                | 2024-01-05 18:00:00 | 2024-01-05 16:00:00 | 2024-01-05 15:00:00 | Pleural Fluid       | Protein Quantification | g/dL                 | Elevated        |
-+--------------------+---------------------+---------------------+---------------------+---------------------+------------------------+----------------------+-----------------+
+| hospitalization_id | result_dttm                | collect_dttm               | order_dttm                | fluid_name          | component_category      | result_unit_category | result_category |
+|-------------------|---------------------------|---------------------------|---------------------------|--------------------|-----------------------|-------------------|----------------|
+| 101               | 2024-01-01 10:00:00+00:00 | 2024-01-01 08:00:00+00:00 | 2024-01-01 07:30:00+00:00 | Blood               | PCR                    | Units/mL           | Positive        |
+| 102               | 2024-01-02 11:30:00+00:00 | 2024-01-02 09:30:00+00:00 | 2024-01-02 08:15:00+00:00 | Cerebrospinal Fluid | Antigen Detection      | mg/L              | Negative        |
+| 103               | 2024-01-03 15:00:00+00:00 | 2024-01-03 13:00:00+00:00 | 2024-01-03 12:45:00+00:00 | Sputum              | Gene Amplification     | copies/mL          | Detected        |
+| 104               | 2024-01-04 09:45:00+00:00 | 2024-01-04 07:15:00+00:00 | 2024-01-04 06:30:00+00:00 | Urine               | Molecular Pathogen ID  | ng/mL             | Not Detected    |
+| 105               | 2024-01-05 18:00:00+00:00 | 2024-01-05 16:00:00+00:00 | 2024-01-05 15:00:00+00:00 | Pleural Fluid       | Protein Quantification | g/dL              | Elevated        |
 
 : {.striped .hover}
 :::
@@ -1106,9 +1050,9 @@ This table provides detailed information about transfusion events linked to spec
 +========================+=================+=====================================================================================================+================================================+
 | hospitalization_id     | VARCHAR         | Unique identifier linking the transfusion event to a specific hospitalization in the CLIF database. | Unique identifier, e.g., `123456`              |
 +------------------------+-----------------+-----------------------------------------------------------------------------------------------------+------------------------------------------------+
-| transfusion_start_dttm | DATETIME        | The date and time the transfusion of the blood component began.                                     | Example: `2024-12-03 08:30:00`                 |
+| transfusion_start_dttm | DATETIME        | The date and time the transfusion of the blood component began.                                     | Example: `2024-12-03 08:30:00+00:00`           |
 +------------------------+-----------------+-----------------------------------------------------------------------------------------------------+------------------------------------------------+
-| transfusion_end_dttm   | DATETIME        | The date and time the transfusion of the blood component ended.                                     | Example: `2024-12-03 10:00:00`                 |
+| transfusion_end_dttm   | DATETIME        | The date and time the transfusion of the blood component ended.                                     | Example: `2024-12-03 10:00:00+00:00`           |
 +------------------------+-----------------+-----------------------------------------------------------------------------------------------------+------------------------------------------------+
 | component_name         | VARCHAR         | The name of the blood component transfused.                                                         | E.g., `Red Blood Cells`, `Plasma`, `Platelets` |
 +------------------------+-----------------+-----------------------------------------------------------------------------------------------------+------------------------------------------------+
@@ -1124,15 +1068,11 @@ This table provides detailed information about transfusion events linked to spec
 **Example**:
 
 ::: scrollable-table
-+--------------------+------------------------+----------------------+-----------------+-------------------+-------------------+--------------+--------------+
-| hospitalization_id | transfusion_start_dttm | transfusion_end_dttm | component_name  | attribute_name    | volume_transfused | volume_units | product_code |
-+====================+========================+======================+=================+===================+===================+==============+==============+
-| 123456             | 2024-12-03 08:30:00    | 2024-12-03 10:00:00  | Red Blood Cells | Leukocyte Reduced | 300               | mL           | E0382        |
-+--------------------+------------------------+----------------------+-----------------+-------------------+-------------------+--------------+--------------+
-| 789012             | 2024-12-04 14:00:00    | 2024-12-04 16:30:00  | Platelets       | Irradiated        | 250               | mL           | P0205        |
-+--------------------+------------------------+----------------------+-----------------+-------------------+-------------------+--------------+--------------+
-| 456789             | 2024-12-05 12:15:00    | 2024-12-05 13:45:00  | Plasma          |                   | 200               | mL           | F0781        |
-+--------------------+------------------------+----------------------+-----------------+-------------------+-------------------+--------------+--------------+
+| hospitalization_id | transfusion_start_dttm           | transfusion_end_dttm             | component_name  | attribute_name    | volume_transfused | volume_units | product_code |
+|-------------------|----------------------------------|----------------------------------|----------------|-------------------|------------------|--------------|--------------|
+| 123456            | 2024-12-03 08:30:00+00:00       | 2024-12-03 10:00:00+00:00       | Red Blood Cells | Leukocyte Reduced | 300              | mL           | E0382        |
+| 789012            | 2024-12-04 14:00:00+00:00       | 2024-12-04 16:30:00+00:00       | Platelets       | Irradiated        | 250              | mL           | P0205        |
+| 456789            | 2024-12-05 12:15:00+00:00       | 2024-12-05 13:45:00+00:00       | Plasma          |                   | 200              | mL           | F0781        |
 
 : {.striped .hover}
 :::
@@ -1148,7 +1088,7 @@ This table provides a longitudinal record of changes in a patient's code status 
 +======================+=================+=====================================================================================================+=================================================================+
 | hospitalization_id   | VARCHAR         | Unique identifier linking the code status event to a specific hospitalization in the CLIF database. | Unique identifier, e.g., `123456`                               |
 +----------------------+-----------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------+
-| start_dttm           | DATETIME        | The date and time when the specific code status was initiated.                                      | Example: `2024-12-03 08:30:00`                                  |
+| start_dttm           | DATETIME        | The date and time when the specific code status was initiated.                                      | Example: `2024-12-03 08:30:00+00:00`                            |
 +----------------------+-----------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------+
 | code_status_name     | VARCHAR         | The name/description of the code status.                                                            | Free text to describe the code status.                          |
 +----------------------+-----------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------+
@@ -1162,15 +1102,11 @@ This table provides a longitudinal record of changes in a patient's code status 
 **Example**:
 
 ::: scrollable-table
-+--------------------+---------------------+--------------------+----------------------+
-| hospitalization_id | start_dttm          | code_status_name   | code_status_category |
-+====================+=====================+====================+======================+
-| 12345              | 2024-12-01 08:30:00 | Do Not Resuscitate | DNR                  |
-+--------------------+---------------------+--------------------+----------------------+
-| 12345              | 2024-12-02 14:00:00 | Do Not Intubate    | DNR/DNI              |
-+--------------------+---------------------+--------------------+----------------------+
-| 12345              | 2024-12-03 10:15:00 | Full Code          | Full                 |
-+--------------------+---------------------+--------------------+----------------------+
+| hospitalization_id | start_dttm                  | code_status_name   | code_status_category |
+|-------------------|----------------------------|-------------------|-------------------|
+| 12345             | 2024-12-01 08:30:00+00:00 | Do Not Resuscitate| DNR               |
+| 12345             | 2024-12-02 14:00:00+00:00 | Do Not Intubate   | DNR/DNI           |
+| 12345             | 2024-12-03 10:15:00+00:00 | Full Code         | Full              |
 
 : {.striped .hover}
 :::
@@ -1210,15 +1146,11 @@ The `invasive_hemodynamics` table records invasive hemodynamic measurements duri
 **Example**:
 
 ::: scrollable-table
-+--------------------+---------------------+----------------------+------------------+---------------+
-| hospitalization_id | recorded_dttm       | measure_name         | measure_category | measure_value |
-+====================+=====================+======================+==================+===============+
-| 12345              | 2024-12-01 08:30:00 | CVP                  | CVP              | 12.50         |
-+--------------------+---------------------+----------------------+------------------+---------------+
-| 12345              | 2024-12-01 09:00:00 | Pulmonary Artery-Sys | PA_systolic      | 25.00         |
-+--------------------+---------------------+----------------------+------------------+---------------+
-| 12345              | 2024-12-01 09:30:00 | Wedge                | PCWP             | 18.75         |
-+--------------------+---------------------+----------------------+------------------+---------------+
+| hospitalization_id | recorded_dttm                | measure_name         | measure_category | measure_value |
+|-------------------|----------------------------|-------------------|-----------------|--------------|
+| 12345             | 2024-12-01 08:30:00+00:00 | CVP               | CVP             | 12.50        |
+| 12345             | 2024-12-01 09:00:00+00:00 | Pulmonary Artery-Sys | PA_systolic     | 25.00        |
+| 12345             | 2024-12-01 09:30:00+00:00 | Wedge             | PCWP            | 18.75        |
 
 : {.striped .hover}
 :::
@@ -1234,7 +1166,7 @@ The `key_icu_orders` table captures key orders related to physical therapy (PT) 
 +====================+=================+=====================================================================+====================================================================================================+
 | hospitalization_id | VARCHAR         | Unique identifier linking the order to a specific hospitalization.  | N/A                                                                                                |
 +--------------------+-----------------+---------------------------------------------------------------------+----------------------------------------------------------------------------------------------------+
-| order_dttm         | DATETIME        | Date and time when the order was placed.                            | Datetime format should be `%Y-%m-%d %H:%M:%S`                                                      |
+| order_dttm         | DATETIME        | Date and time when the order was placed.                            | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`                                               |
 +--------------------+-----------------+---------------------------------------------------------------------+----------------------------------------------------------------------------------------------------+
 | order_name         | VARCHAR         | Name of the specific order (e.g., "PT Evaluation", "OT Treatment"). | N/A                                                                                                |
 +--------------------+-----------------+---------------------------------------------------------------------+----------------------------------------------------------------------------------------------------+
@@ -1246,18 +1178,12 @@ The `key_icu_orders` table captures key orders related to physical therapy (PT) 
 **Example**:
 
 ::: scrollable-table
-+--------------------+---------------------+-------------------------+----------------+-------------------+
-| hospitalization_id | order_dttm          | order_name              | order_category | order_status_name |
-+====================+=====================+=========================+================+===================+
-| 12345              | 2024-12-15 10:00:00 | PT Initial Evaluation   | PT_evaluation  | completed         |
-+--------------------+---------------------+-------------------------+----------------+-------------------+
-| 67890              | 2024-12-16 14:30:00 | OT Follow-up Treatment  | OT_treat       | sent              |
-+--------------------+---------------------+-------------------------+----------------+-------------------+
-| 54321              | 2024-12-16 08:00:00 | PT Mobility Session     | PT_treat       | completed         |
-+--------------------+---------------------+-------------------------+----------------+-------------------+
-| 98765              | 2024-12-15 11:15:00 | OT Cognitive Assessment | OT_evaluation  | sent              |
-+--------------------+---------------------+-------------------------+----------------+-------------------+
-
+| hospitalization_id | order_dttm                | order_name                | order_category | order_status_name |
+|-------------------|---------------------------|--------------------------|---------------|-----------------|
+| 12345             | 2024-12-15 10:00:00+00:00 | PT Initial Evaluation     | PT_evaluation  | completed       |
+| 67890             | 2024-12-16 14:30:00+00:00 | OT Follow-up Treatment    | OT_treat       | sent            |
+| 54321             | 2024-12-16 08:00:00+00:00 | PT Mobility Session       | PT_treat       | completed       |
+| 98765             | 2024-12-15 11:15:00+00:00 | OT Cognitive Assessment   | OT_evaluation  | sent            |
 : {.striped .hover}
 :::
 
