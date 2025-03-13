@@ -445,14 +445,14 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>admission_dttm</td>
 <td>DATETIME</td>
-<td>Date and time the patient is admitted to the hospital</td>
-<td>Datetime format should be <code>YYYY-MM-DD HH:MM:SS+00:00</code></td>
+<td>Date and time the patient is admitted to the hospital. All datetime variables must be timezone-aware and set to UTC.</td>
+<td>Datetime format should be <code>YYYY-MM-DD HH:MM:SS+00:00</code>(UTC)</td>
 </tr>
 <tr class="odd">
 <td>discharge_dttm</td>
 <td>DATETIME</td>
-<td>Date and time the patient is discharged from the hospital</td>
-<td>Datetime format should be <code>YYYY-MM-DD HH:MM:SS+00:00</code></td>
+<td>Date and time the patient is discharged from the hospital. All datetime variables must be timezone-aware and set to UTC.</td>
+<td>Datetime format should be <code>YYYY-MM-DD HH:MM:SS+00:00</code>(UTC)</td>
 </tr>
 <tr class="even">
 <td>age_at_admission</td>
@@ -654,20 +654,20 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>lab_order_dttm</td>
 <td>DATETIME</td>
-<td>Date and time when the lab is ordered.</td>
-<td>Datetime format should be <code>YYYY-MM-DD HH:MM:SS+00:00</code></td>
+<td>Date and time when the lab is ordered. All datetime variables must be timezone-aware and set to UTC.</td>
+<td>Datetime format should be <code>YYYY-MM-DD HH:MM:SS+00:00</code> (UTC)</td>
 </tr>
 <tr class="odd">
 <td>lab_collect_dttm</td>
 <td>DATETIME</td>
-<td>Date and time when the specimen is collected.</td>
-<td>Datetime format should be <code>YYYY-MM-DD HH:MM:SS+00:00</code></td>
+<td>Date and time when the specimen is collected. All datetime variables must be timezone-aware and set to UTC.</td>
+<td>Datetime format should be <code>YYYY-MM-DD HH:MM:SS+00:00</code> (UTC)</td>
 </tr>
 <tr class="even">
 <td>lab_result_dttm</td>
 <td>DATETIME</td>
-<td>Date and time when the lab results are available.</td>
-<td>Datetime format should be <code>YYYY-MM-DD HH:MM:SS+00:00</code></td>
+<td>Date and time when the lab results are available. All datetime variables must be timezone-aware and set to UTC.</td>
+<td>Datetime format should be <code>YYYY-MM-DD HH:MM:SS+00:00</code> (UTC)</td>
 </tr>
 <tr class="odd">
 <td>lab_order_name</td>
@@ -911,8 +911,8 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td>admin_dttm</td>
 <td>DATETIME</td>
-<td>Date and time when the medicine was administered</td>
-<td>Datetime format should be <code>YYYY-MM-DD HH:MM:SS+00:00</code></td>
+<td>Date and time when the medicine was administered. All datetime variables must be timezone-aware and set to UTC.</td>
+<td>Datetime format should be <code>YYYY-MM-DD HH:MM:SS+00:00</code>(UTC)</td>
 </tr>
 <tr class="even">
 <td>med_name</td>
@@ -1148,7 +1148,7 @@ ul.task-list li input[type="checkbox"] {
 <td>death_dttm</td>
 <td>DATETIME</td>
 <td>Patient’s death date, including time.</td>
-<td>Datetime format should be <code>YYYY-MM-DD HH:MM:SS+00:00</code></td>
+<td>Datetime format should be <code>YYYY-MM-DD HH:MM:SS+00:00</code> (UTC)</td>
 </tr>
 <tr class="even">
 <td>language_name</td>
@@ -1282,7 +1282,7 @@ ul.task-list li input[type="checkbox"] {
 <td>recorded_dttm</td>
 <td>DATETIME</td>
 <td>The exact date and time when the assessment was recorded, ensuring temporal accuracy.</td>
-<td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
+<td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code>(UTC)</td>
 </tr>
 <tr class="odd">
 <td>assessment_name</td>
@@ -1441,7 +1441,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>recorded_dttm</td>
 <td>DATETIME</td>
-<td>Date and time when the vital is recorded.</td>
+<td>Date and time when the vital is recorded. All datetime variables must be timezone-aware and set to UTC.</td>
 <td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
 </tr>
 <tr class="odd">
@@ -1552,7 +1552,7 @@ ul.task-list li input[type="checkbox"] {
 <td>recorded_dttm</td>
 <td>DATETIME</td>
 <td>Date and time when the device settings and/or measurement was recorded.</td>
-<td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
+<td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code> (UTC)</td>
 </tr>
 <tr class="odd">
 <td>device_name</td>
@@ -1998,8 +1998,8 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>recorded_dttm</td>
 <td>DATETIME</td>
-<td>Date and time when the vital is recorded.</td>
-<td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
+<td>Date and time when the vital is recorded. All datetime variables must be timezone-aware and set to UTC.</td>
+<td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code> (UTC)</td>
 </tr>
 <tr class="odd">
 <td>vital_name</td>
