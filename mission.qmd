@@ -23,7 +23,7 @@ Patient confidentiality is central. CLIF uses federated analysis, ensuring patie
 
 ::: {.value-card}
 ### Scientific Integrity
-We uphold rigorous research standards and assert that mCIDE is essential for scientific integrity.
+We uphold rigorous research standards and assert that [mCIDE](mCIDE.qmd) is essential for scientific integrity.
 :::
 
 ::: {.value-card}

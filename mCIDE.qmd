@@ -6,12 +6,13 @@ The CLIF format and federated research approach aspires to adhere to the [2023 N
 
 Common Data Element (CDEs) "are data elements (or variables) that are defined and used the same way across multiple studies, to standardize the way data is collected"
 
-We have constructed a minimum set of Common ICU Data Elements (mCDE) for a CLIF database. CDEs have the following features
+We have constructed a minimum set of Common ICU Data Elements (mCIDE) for a CLIF database. CDEs have the following features
 
 1.  represents a precisely defined clinical entity
 2.  limited set of permissible values
 
-`*_category` variables are CDEs. Whenever possible, we chose CDEs directly from the [NIH CDE Repository](https://cde.nlm.nih.gov/home).
+`*_category` variables are CDEs. CLIF mCIDE for all beta tables are available [here](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/tree/main/mCIDE). 
+Use our custom GPT- [CLIF Assistant](https://chatgpt.com/g/g-h1nk6d3eR-clif-assistant) - to map site-specific elements to the CLIF mCIDE.
 
 ## Example: mode of mechanical ventilation
 

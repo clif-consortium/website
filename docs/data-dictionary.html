@@ -100,6 +100,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link active" href="./data-dictionary.html" aria-current="page"> 
 <span class="menu-text">Data Dictionary</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./cohort.html"> 
+<span class="menu-text">CLIF Cohort</span></a>
+  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Resources</span>
@@ -164,22 +168,22 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#concept-tables" id="toc-concept-tables" class="nav-link" data-scroll-target="#concept-tables">Concept tables</a>
   <ul class="collapse">
+  <li><a href="#admission-diagnosis" id="toc-admission-diagnosis" class="nav-link" data-scroll-target="#admission-diagnosis">Admission Diagnosis</a></li>
+  <li><a href="#code-status" id="toc-code-status" class="nav-link" data-scroll-target="#code-status">Code Status</a></li>
   <li><a href="#dialysis" id="toc-dialysis" class="nav-link" data-scroll-target="#dialysis">Dialysis</a></li>
   <li><a href="#ecmo_mcs" id="toc-ecmo_mcs" class="nav-link" data-scroll-target="#ecmo_mcs">ECMO_MCS</a></li>
-  <li><a href="#provider" id="toc-provider" class="nav-link" data-scroll-target="#provider">Provider</a></li>
-  <li><a href="#admission-diagnosis" id="toc-admission-diagnosis" class="nav-link" data-scroll-target="#admission-diagnosis">Admission Diagnosis</a></li>
-  <li><a href="#medication-admin-intermittent" id="toc-medication-admin-intermittent" class="nav-link" data-scroll-target="#medication-admin-intermittent">Medication Admin Intermittent</a></li>
-  <li><a href="#medication-orders" id="toc-medication-orders" class="nav-link" data-scroll-target="#medication-orders">Medication Orders</a></li>
   <li><a href="#intake_output" id="toc-intake_output" class="nav-link" data-scroll-target="#intake_output">Intake_Output</a></li>
-  <li><a href="#therapy_details" id="toc-therapy_details" class="nav-link" data-scroll-target="#therapy_details">Therapy_Details</a></li>
-  <li><a href="#microbiology-culture" id="toc-microbiology-culture" class="nav-link" data-scroll-target="#microbiology-culture">Microbiology Culture</a></li>
-  <li><a href="#sensitivity" id="toc-sensitivity" class="nav-link" data-scroll-target="#sensitivity">Sensitivity</a></li>
-  <li><a href="#microbiology-non-culture" id="toc-microbiology-non-culture" class="nav-link" data-scroll-target="#microbiology-non-culture">Microbiology Non-culture</a></li>
-  <li><a href="#procedures" id="toc-procedures" class="nav-link" data-scroll-target="#procedures">Procedures</a></li>
-  <li><a href="#transfusion" id="toc-transfusion" class="nav-link" data-scroll-target="#transfusion">Transfusion</a></li>
-  <li><a href="#code-status" id="toc-code-status" class="nav-link" data-scroll-target="#code-status">Code Status</a></li>
   <li><a href="#invasive-hemodynamics" id="toc-invasive-hemodynamics" class="nav-link" data-scroll-target="#invasive-hemodynamics">Invasive Hemodynamics</a></li>
   <li><a href="#key-icu-orders" id="toc-key-icu-orders" class="nav-link" data-scroll-target="#key-icu-orders">Key ICU orders</a></li>
+  <li><a href="#medication-admin-intermittent" id="toc-medication-admin-intermittent" class="nav-link" data-scroll-target="#medication-admin-intermittent">Medication Admin Intermittent</a></li>
+  <li><a href="#medication-orders" id="toc-medication-orders" class="nav-link" data-scroll-target="#medication-orders">Medication Orders</a></li>
+  <li><a href="#microbiology-culture" id="toc-microbiology-culture" class="nav-link" data-scroll-target="#microbiology-culture">Microbiology Culture</a></li>
+  <li><a href="#microbiology-non-culture" id="toc-microbiology-non-culture" class="nav-link" data-scroll-target="#microbiology-non-culture">Microbiology Non-culture</a></li>
+  <li><a href="#procedures" id="toc-procedures" class="nav-link" data-scroll-target="#procedures">Procedures</a></li>
+  <li><a href="#provider" id="toc-provider" class="nav-link" data-scroll-target="#provider">Provider</a></li>
+  <li><a href="#sensitivity" id="toc-sensitivity" class="nav-link" data-scroll-target="#sensitivity">Sensitivity</a></li>
+  <li><a href="#therapy-details" id="toc-therapy-details" class="nav-link" data-scroll-target="#therapy-details">Therapy Details</a></li>
+  <li><a href="#transfusion" id="toc-transfusion" class="nav-link" data-scroll-target="#transfusion">Transfusion</a></li>
   </ul></li>
   <li><a href="#future-proposed-tables" id="toc-future-proposed-tables" class="nav-link" data-scroll-target="#future-proposed-tables">Future proposed tables</a></li>
   </ul>
@@ -235,7 +239,7 @@ ul.task-list li input[type="checkbox"] {
 <li><img src="https://img.shields.io/badge/Maturity-Mature-blue.png" class="img-fluid" alt="Mature"> <strong>Mature</strong>: Widely adopted across majority of consortium sites with majority of tables in stable or mature (see maturity levels for CLIF Tables). ER model very stable.</li>
 <li><img src="https://img.shields.io/badge/Maturity-Deprecated-lightgrey.png" class="img-fluid" alt="Deprecated"> <strong>Deprecated</strong>: No longer maintained.</li>
 </ul>
-<p>The entity-relationship model for this project is currently at the <img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid" alt="Beta"> <strong>Beta</strong> level for adult patients in a general medical intensive care unit. Major breaking changes to the existing structure are unlikely. The consortium is actively seeking feedback about new tables and fields to add to the ER model to achieve the goal of representing developing a <a href="https://clif-consortium.github.io/website/mcide.html">minimum Common ICU Data Elements (mCIDE)</a></p>
+<p>The entity-relationship model for this project is currently at the <img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid" alt="Beta"> <strong>Beta</strong> level for adult patients in a general medical intensive care unit. Major breaking changes to the existing structure are unlikely. The consortium is actively seeking feedback about new tables and fields to add to the ER model to achieve the goal of representing developing a <a href="./mCIDE.html">minimum Common ICU Data Elements (mCIDE)</a></p>
 <p>For pediatric patients, CLIF is in the <img src="https://img.shields.io/badge/Maturity-Experimental-red.png" class="img-fluid" alt="Experimental"> <strong>Experimental</strong> maturity phase. CLIF is also <img src="https://img.shields.io/badge/Maturity-Experimental-red.png" class="img-fluid" alt="Experimental"> <strong>Experimental</strong> for adult patients in specialty ICUs (e.g.&nbsp;cardiac intensive care unit, surgical intensive care unit, and neurointensive care unit).</p>
 </section>
 <section id="maturity-levels-for-clif-tables" class="level2">
@@ -1569,7 +1573,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td>vent_brand_name</td>
 <td>VARCHAR</td>
-<td>Ventilator model name when <code>device_category</code> is <code>IMV</code> or <code>NIPPV</code></td>
+<td>Ventilator model name when <code>device_category</code> is <code>IMV</code> or <code>NIPPV</code> (Optional)</td>
 <td>No restriction</td>
 </tr>
 <tr class="even">
@@ -2129,6 +2133,228 @@ ul.task-list li input[type="checkbox"] {
 <section id="concept-tables" class="level1">
 <h1>Concept tables</h1>
 <p>A planned future CLIF table that has yet to be used in a federated project. The table structure and CDE elements are in draft form. Permissible values of category variables may still need to be defined. Seeking conceptual feedback. Significant changes to all aspects of the table are possible.</p>
+<section id="admission-diagnosis" class="level2">
+<h2 class="anchored" data-anchor-id="admission-diagnosis">Admission Diagnosis</h2>
+<p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
+<p>Record of all diagnoses associated with the hospitalization. Expect breaking changes to this table as we seek to align it with existing diagnosis ontologies</p>
+<table class="table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 10%">
+<col style="width: 37%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable Name</th>
+<th>Data Type</th>
+<th>Definition</th>
+<th>Permissible Values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>patient_id</td>
+<td>VARCHAR</td>
+<td>Unique identifier for each patient</td>
+<td>No restriction</td>
+</tr>
+<tr class="even">
+<td>diagnostic_code</td>
+<td>DOUBLE</td>
+<td>numeric diagnosis code</td>
+<td>valid code in the <code>diagnositic_code_format</code></td>
+</tr>
+<tr class="odd">
+<td>diagnosis_code_format</td>
+<td>VARCHAR</td>
+<td>description of the diagnostic code format</td>
+<td><code>icd9</code> ,<code>icd10</code></td>
+</tr>
+<tr class="even">
+<td>start_dttm</td>
+<td>DATETIME</td>
+<td>date time the diagnosis was recorded</td>
+<td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
+</tr>
+<tr class="odd">
+<td>end_dttm</td>
+<td>DATETIME</td>
+<td>date time the diagnosis was noted as resolved (if resolved)</td>
+<td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>:</p>
+<div class="scrollable-table">
+<table class="table-striped table-hover table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 15%">
+<col style="width: 19%">
+<col style="width: 24%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>hospitalization_id</th>
+<th>diagnostic_code</th>
+<th>diagnosis_code_format</th>
+<th>start_dttm</th>
+<th>end_dttm</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1001014</td>
+<td>250.00</td>
+<td>icd9</td>
+<td>2023-05-01 08:00:00+00:00</td>
+<td>2023-05-10 08:00:00+00:00</td>
+</tr>
+<tr class="even">
+<td>1001014</td>
+<td>J45.909</td>
+<td>icd10</td>
+<td>2023-05-01 08:00:00+00:00</td>
+<td>2023-05-15 08:00:00+00:00</td>
+</tr>
+<tr class="odd">
+<td>1002025</td>
+<td>401.9</td>
+<td>icd9</td>
+<td>2023-06-10 09:00:00+00:00</td>
+<td>2023-06-12 09:00:00+00:00</td>
+</tr>
+<tr class="even">
+<td>1002025</td>
+<td>E11.9</td>
+<td>icd10</td>
+<td>2023-06-10 09:00:00+00:00</td>
+<td>2023-06-20 09:00:00+00:00</td>
+</tr>
+<tr class="odd">
+<td>1003036</td>
+<td>414.01</td>
+<td>icd9</td>
+<td>2023-07-15 07:30:00+00:00</td>
+<td>2023-07-30 07:30:00+00:00</td>
+</tr>
+<tr class="even">
+<td>1003036</td>
+<td>I25.10</td>
+<td>icd10</td>
+<td>2023-07-15 07:30:00+00:00</td>
+<td>2023-07-25 07:30:00+00:00</td>
+</tr>
+<tr class="odd">
+<td>1004047</td>
+<td>530.81</td>
+<td>icd9</td>
+<td>2023-08-20 10:00:00+00:00</td>
+<td>2023-08-22 10:00:00+00:00</td>
+</tr>
+<tr class="even">
+<td>1004047</td>
+<td>K21.9</td>
+<td>icd10</td>
+<td>2023-08-20 10:00:00+00:00</td>
+<td>2023-08-24 10:00:00+00:00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="code-status" class="level2">
+<h2 class="anchored" data-anchor-id="code-status">Code Status</h2>
+<p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
+<p>This table provides a longitudinal record of changes in a patient’s code status during their hospitalization. It tracks the timeline and categorization of code status updates, facilitating the analysis of care preferences and decisions.</p>
+<table class="table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 8%">
+<col style="width: 48%">
+<col style="width: 31%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Variable Name</strong></th>
+<th><strong>Data Type</strong></th>
+<th><strong>Definition</strong></th>
+<th><strong>Permissible Values</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>hospitalization_id</td>
+<td>VARCHAR</td>
+<td>Unique identifier linking the code status event to a specific hospitalization in the CLIF database.</td>
+<td>Unique identifier, e.g., <code>123456</code></td>
+</tr>
+<tr class="even">
+<td>start_dttm</td>
+<td>DATETIME</td>
+<td>The date and time when the specific code status was initiated.</td>
+<td>Example: <code>2024-12-03 08:30:00+00:00</code></td>
+</tr>
+<tr class="odd">
+<td>code_status_name</td>
+<td>VARCHAR</td>
+<td>The name/description of the code status.</td>
+<td>Free text to describe the code status.</td>
+</tr>
+<tr class="even">
+<td>code_status_category</td>
+<td>VARCHAR</td>
+<td>Categorical variable specifying the code status during the hospitalization.</td>
+<td>E.g., <code>DNR</code>, <code>UDNR</code>, <code>DNR/DNI</code>, <code>Full</code>, <code>Presume Full</code>, <code>Other</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Notes</strong>:</p>
+<ul>
+<li>The <code>code_status_category</code> set of permissible values is under development</li>
+</ul>
+<p><strong>Example</strong>:</p>
+<div class="scrollable-table">
+<table class="table-striped table-hover table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 32%">
+<col style="width: 22%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>hospitalization_id</th>
+<th>start_dttm</th>
+<th>code_status_name</th>
+<th>code_status_category</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>12345</td>
+<td>2024-12-01 08:30:00+00:00</td>
+<td>Do Not Resuscitate</td>
+<td>DNR</td>
+</tr>
+<tr class="even">
+<td>12345</td>
+<td>2024-12-02 14:00:00+00:00</td>
+<td>Do Not Intubate</td>
+<td>DNR/DNI</td>
+</tr>
+<tr class="odd">
+<td>12345</td>
+<td>2024-12-03 10:15:00+00:00</td>
+<td>Full Code</td>
+<td>Full</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
 <section id="dialysis" class="level2">
 <h2 class="anchored" data-anchor-id="dialysis">Dialysis</h2>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
@@ -2407,22 +2633,126 @@ ul.task-list li input[type="checkbox"] {
 </table>
 </div>
 </section>
-<section id="provider" class="level2">
-<h2 class="anchored" data-anchor-id="provider">Provider</h2>
+<section id="intake_output" class="level2">
+<h2 class="anchored" data-anchor-id="intake_output">Intake_Output</h2>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
-<p>Continuous start stop record of every provider who cared for the patient.</p>
+<p>The intake_output table is long form table that captures the times intake and output events were recorded, the type of fluid administered or recorded as “out”, and the amount of fluid.</p>
 <table class="table">
 <colgroup>
-<col style="width: 12%">
-<col style="width: 8%">
-<col style="width: 48%">
-<col style="width: 28%">
+<col style="width: 36%">
+<col style="width: 63%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Variable Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>hospitalization_id</td>
+<td>Unique identifier for the hospitalization event.</td>
+</tr>
+<tr class="even">
+<td>intake_dttm</td>
+<td>Date and time of intake.</td>
+</tr>
+<tr class="odd">
+<td>fluid_name</td>
+<td>Name of the fluid administered.</td>
+</tr>
+<tr class="even">
+<td>amount</td>
+<td>Amount of fluid administered (in mL).</td>
+</tr>
+<tr class="odd">
+<td>in_out_flag</td>
+<td>Indicator for intake or output (1 for intake, 0 for output).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>:</p>
+<div class="scrollable-table">
+<table class="table-striped table-hover table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 33%">
+<col style="width: 20%">
+<col style="width: 10%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>hospitalization_id</th>
+<th>intake_dttm</th>
+<th>fluid_name</th>
+<th>amount</th>
+<th>in_out_flag</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1001</td>
+<td>2024-01-01 08:00:00+00:00</td>
+<td>Normal Saline</td>
+<td>500</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1001</td>
+<td>2024-01-01 10:30:00+00:00</td>
+<td>Urine</td>
+<td>300</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>1002</td>
+<td>2024-01-05 09:15:00+00:00</td>
+<td>Dextrose</td>
+<td>250</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1002</td>
+<td>2024-01-05 14:00:00+00:00</td>
+<td>Urine</td>
+<td>400</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>1003</td>
+<td>2024-01-10 07:45:00+00:00</td>
+<td>Lactated Ringer’s</td>
+<td>600</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>1003</td>
+<td>2024-01-10 12:00:00+00:00</td>
+<td>Drainage</td>
+<td>200</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="invasive-hemodynamics" class="level2">
+<h2 class="anchored" data-anchor-id="invasive-hemodynamics">Invasive Hemodynamics</h2>
+<p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
+<p>The <code>invasive_hemodynamics</code> table records invasive hemodynamic measurements during a patient’s hospitalization. These measurements represent pressures recorded via invasive monitoring and are expressed in millimeters of mercury (mmHg).</p>
+<table class="table">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 9%">
+<col style="width: 41%">
+<col style="width: 36%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Column Name</th>
 <th>Data Type</th>
-<th>Definition</th>
+<th>Description</th>
 <th>Permissible Values</th>
 </tr>
 </thead>
@@ -2430,170 +2760,143 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td>hospitalization_id</td>
 <td>VARCHAR</td>
-<td>Unique identifier for each hospitalization, linking the provider to a specific encounter</td>
-<td>No restriction</td>
+<td>Unique identifier linking to the specific hospitalization.</td>
+<td>N/A</td>
 </tr>
 <tr class="even">
-<td>provider_id</td>
-<td>VARCHAR</td>
-<td>Unique identifier for each provider. This represents individual healthcare providers</td>
-<td>No restriction</td>
+<td>recorded_dttm</td>
+<td>DATETIME</td>
+<td>The date and time when the measurement was recorded.</td>
+<td>N/A</td>
 </tr>
 <tr class="odd">
-<td>start_dttm</td>
-<td>DATETIME</td>
-<td>Date and time when the provider’s care or involvement in the patient’s case began</td>
-<td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
+<td>measure_name</td>
+<td>VARCHAR</td>
+<td>Description of the site or context of the invasive hemodynamic measurement.</td>
+<td>Free text (e.g., “Right Atrium”)</td>
 </tr>
 <tr class="even">
-<td>stop_dttm</td>
-<td>DATETIME</td>
-<td>Date and time when the provider’s care or involvement in the patient’s case ended</td>
-<td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
+<td>measure_category</td>
+<td>VARCHAR</td>
+<td>Categorical variable specifying the type of invasive hemodynamic measurement.</td>
+<td><code>CVP</code>, <code>RA</code>, <code>RV</code>, <code>PA_systolic</code>, <code>PA_diastolic</code>, <code>PA_mean</code>, <code>PCWP</code></td>
 </tr>
 <tr class="odd">
-<td>provider_role_name</td>
-<td>VARCHAR</td>
-<td>The original string describing the role or specialty of the provider during the hospitalization</td>
-<td>No restriction</td>
-</tr>
-<tr class="even">
-<td>provider_role_category</td>
-<td>VARCHAR</td>
-<td>Maps <code>provider_role_name</code> to list of standardized provider roles</td>
-<td>under development</td>
+<td>measure_value</td>
+<td>DDOUBLE</td>
+<td>The numerical value of the invasive hemodynamic measurement in mmHg.</td>
+<td>Positive decimal values (e.g., <code>5.00</code>, <code>25.65</code>)</td>
 </tr>
 </tbody>
 </table>
+<p><strong>Notes</strong>:</p>
+<ul>
+<li>All <code>measure_value</code> entries should be recorded in mmHg.</li>
+<li>The <code>measure_category</code> field ensures standardization of invasive hemodynamic data.
+<ul>
+<li><code>CVP</code> - Central Venous Pressure</li>
+<li><code>RA</code> - Right Atrial Pressure</li>
+<li><code>RV</code> - Right Ventricular Pressure</li>
+<li><code>PA_systolic</code> - Pulmonary Artery Systolic Pressure</li>
+<li><code>PA_diastolic</code> - Pulmonary Artery Diastolic Pressure</li>
+<li><code>PA_mean</code> - Pulmonary Artery Mean Pressure</li>
+<li><code>PCWP</code> - Pulmonary Capillary Wedge Pressure</li>
+</ul></li>
+</ul>
 <p><strong>Example</strong>:</p>
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 15%">
-<col style="width: 21%">
-<col style="width: 21%">
-<col style="width: 20%">
-<col style="width: 18%">
+<col style="width: 19%">
+<col style="width: 28%">
+<col style="width: 19%">
+<col style="width: 17%">
+<col style="width: 14%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>hospitalization_id</th>
-<th>start_dttm</th>
-<th>stop_dttm</th>
-<th>provider_role_name</th>
-<th>provider_role_category</th>
+<th>recorded_dttm</th>
+<th>measure_name</th>
+<th>measure_category</th>
+<th>measure_value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>1001014</td>
-<td>2023-05-01 08:00:00+00:00</td>
-<td>2023-05-01 20:00:00+00:00</td>
-<td>Attending Physician</td>
-<td>Attending</td>
+<td>12345</td>
+<td>2024-12-01 08:30:00+00:00</td>
+<td>CVP</td>
+<td>CVP</td>
+<td>12.50</td>
 </tr>
 <tr class="even">
-<td>1001014</td>
-<td>2023-05-01 08:00:00+00:00</td>
-<td>2023-05-02 08:00:00+00:00</td>
-<td>Resident Physician</td>
-<td>Resident</td>
+<td>12345</td>
+<td>2024-12-01 09:00:00+00:00</td>
+<td>Pulmonary Artery-Sys</td>
+<td>PA_systolic</td>
+<td>25.00</td>
 </tr>
 <tr class="odd">
-<td>1001014</td>
-<td>2023-05-01 08:00:00+00:00</td>
-<td>2023-05-03 08:00:00+00:00</td>
-<td>Nurse Practitioner</td>
-<td>Nurse Practitioner</td>
-</tr>
-<tr class="even">
-<td>1002025</td>
-<td>2023-06-10 09:00:00+00:00</td>
-<td>2023-06-10 21:00:00+00:00</td>
-<td>Critical Care Specialist</td>
-<td>Critical Care</td>
-</tr>
-<tr class="odd">
-<td>1002025</td>
-<td>2023-06-10 09:00:00+00:00</td>
-<td>2023-06-11 09:00:00+00:00</td>
-<td>Respiratory Therapist</td>
-<td>Respiratory Therapy</td>
-</tr>
-<tr class="even">
-<td>1003036</td>
-<td>2023-07-15 07:30:00+00:00</td>
-<td>2023-07-15 19:30:00+00:00</td>
-<td>Attending Physician</td>
-<td>Attending</td>
-</tr>
-<tr class="odd">
-<td>1003036</td>
-<td>2023-07-15 07:30:00+00:00</td>
-<td>2023-07-16 07:30:00+00:00</td>
-<td>Charge Nurse</td>
-<td>Nurse</td>
-</tr>
-<tr class="even">
-<td>1004047</td>
-<td>2023-08-20 10:00:00+00:00</td>
-<td>2023-08-20 22:00:00+00:00</td>
-<td>Physical Therapist</td>
-<td>Therapy</td>
+<td>12345</td>
+<td>2024-12-01 09:30:00+00:00</td>
+<td>Wedge</td>
+<td>PCWP</td>
+<td>18.75</td>
 </tr>
 </tbody>
 </table>
 </div>
 </section>
-<section id="admission-diagnosis" class="level2">
-<h2 class="anchored" data-anchor-id="admission-diagnosis">Admission Diagnosis</h2>
+<section id="key-icu-orders" class="level2">
+<h2 class="anchored" data-anchor-id="key-icu-orders">Key ICU orders</h2>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
-<p>Record of all diagnoses associated with the hospitalization. Expect breaking changes to this table as we seek to align it with existing diagnosis ontologies</p>
+<p>The <code>key_icu_orders</code> table captures key orders related to physical therapy (PT) and occupational therapy (OT) during ICU stays. It includes details about the hospitalization, the timing of the order, the specific name of the order, its category, and the status of the order (completed or sent).</p>
 <table class="table">
 <colgroup>
-<col style="width: 14%">
-<col style="width: 10%">
-<col style="width: 37%">
-<col style="width: 35%">
+<col style="width: 9%">
+<col style="width: 8%">
+<col style="width: 33%">
+<col style="width: 47%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Variable Name</th>
+<th>Column Name</th>
 <th>Data Type</th>
-<th>Definition</th>
+<th>Description</th>
 <th>Permissible Values</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>patient_id</td>
+<td>hospitalization_id</td>
 <td>VARCHAR</td>
-<td>Unique identifier for each patient</td>
-<td>No restriction</td>
+<td>Unique identifier linking the order to a specific hospitalization.</td>
+<td>N/A</td>
 </tr>
 <tr class="even">
-<td>diagnostic_code</td>
-<td>DOUBLE</td>
-<td>numeric diagnosis code</td>
-<td>valid code in the <code>diagnositic_code_format</code></td>
-</tr>
-<tr class="odd">
-<td>diagnosis_code_format</td>
-<td>VARCHAR</td>
-<td>description of the diagnostic code format</td>
-<td><code>icd9</code> ,<code>icd10</code></td>
-</tr>
-<tr class="even">
-<td>start_dttm</td>
+<td>order_dttm</td>
 <td>DATETIME</td>
-<td>date time the diagnosis was recorded</td>
+<td>Date and time when the order was placed.</td>
 <td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
 </tr>
 <tr class="odd">
-<td>end_dttm</td>
-<td>DATETIME</td>
-<td>date time the diagnosis was noted as resolved (if resolved)</td>
-<td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
+<td>order_name</td>
+<td>VARCHAR</td>
+<td>Name of the specific order (e.g., “PT Evaluation”, “OT Treatment”).</td>
+<td>N/A</td>
+</tr>
+<tr class="even">
+<td>order_category</td>
+<td>VARCHAR</td>
+<td>Category of the order. Permissible values are:</td>
+<td>Under-development. Some examples include: <code>PT_evaluation</code>, <code>PT_treat</code>, <code>OT_evaluation</code>, <code>OT_treat</code></td>
+</tr>
+<tr class="odd">
+<td>order_status_name</td>
+<td>VARCHAR</td>
+<td>Status of the order. Permissible values are:</td>
+<td><code>sent</code>, <code>completed</code></td>
 </tr>
 </tbody>
 </table>
@@ -2601,77 +2904,49 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
+<col style="width: 18%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 14%">
 <col style="width: 16%">
-<col style="width: 15%">
-<col style="width: 19%">
-<col style="width: 24%">
-<col style="width: 24%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>hospitalization_id</th>
-<th>diagnostic_code</th>
-<th>diagnosis_code_format</th>
-<th>start_dttm</th>
-<th>end_dttm</th>
+<th>order_dttm</th>
+<th>order_name</th>
+<th>order_category</th>
+<th>order_status_name</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>1001014</td>
-<td>250.00</td>
-<td>icd9</td>
-<td>2023-05-01 08:00:00+00:00</td>
-<td>2023-05-10 08:00:00+00:00</td>
+<td>12345</td>
+<td>2024-12-15 10:00:00+00:00</td>
+<td>PT Initial Evaluation</td>
+<td>PT_evaluation</td>
+<td>completed</td>
 </tr>
 <tr class="even">
-<td>1001014</td>
-<td>J45.909</td>
-<td>icd10</td>
-<td>2023-05-01 08:00:00+00:00</td>
-<td>2023-05-15 08:00:00+00:00</td>
+<td>67890</td>
+<td>2024-12-16 14:30:00+00:00</td>
+<td>OT Follow-up Treatment</td>
+<td>OT_treat</td>
+<td>sent</td>
 </tr>
 <tr class="odd">
-<td>1002025</td>
-<td>401.9</td>
-<td>icd9</td>
-<td>2023-06-10 09:00:00+00:00</td>
-<td>2023-06-12 09:00:00+00:00</td>
+<td>54321</td>
+<td>2024-12-16 08:00:00+00:00</td>
+<td>PT Mobility Session</td>
+<td>PT_treat</td>
+<td>completed</td>
 </tr>
 <tr class="even">
-<td>1002025</td>
-<td>E11.9</td>
-<td>icd10</td>
-<td>2023-06-10 09:00:00+00:00</td>
-<td>2023-06-20 09:00:00+00:00</td>
-</tr>
-<tr class="odd">
-<td>1003036</td>
-<td>414.01</td>
-<td>icd9</td>
-<td>2023-07-15 07:30:00+00:00</td>
-<td>2023-07-30 07:30:00+00:00</td>
-</tr>
-<tr class="even">
-<td>1003036</td>
-<td>I25.10</td>
-<td>icd10</td>
-<td>2023-07-15 07:30:00+00:00</td>
-<td>2023-07-25 07:30:00+00:00</td>
-</tr>
-<tr class="odd">
-<td>1004047</td>
-<td>530.81</td>
-<td>icd9</td>
-<td>2023-08-20 10:00:00+00:00</td>
-<td>2023-08-22 10:00:00+00:00</td>
-</tr>
-<tr class="even">
-<td>1004047</td>
-<td>K21.9</td>
-<td>icd10</td>
-<td>2023-08-20 10:00:00+00:00</td>
-<td>2023-08-24 10:00:00+00:00</td>
+<td>98765</td>
+<td>2024-12-15 11:15:00+00:00</td>
+<td>OT Cognitive Assessment</td>
+<td>OT_evaluation</td>
+<td>sent</td>
 </tr>
 </tbody>
 </table>
@@ -2680,7 +2955,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="medication-admin-intermittent" class="level2">
 <h2 class="anchored" data-anchor-id="medication-admin-intermittent">Medication Admin Intermittent</h2>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
-<p>This table has exactly the same schema as <a href="#medication-admin-continuous"><code>medication_admin_continuous</code></a> described below. The consortium decided to separate the medications that are administered intermittently from the continuously administered medications. However, the CDE for <code>medication_category</code> remains undefined for <code>medication_admin_intermittent</code>.</p>
+<p>This table has exactly the same schema as <a href="#medication-admin-continuous"><code>medication_admin_continuous</code></a> described below. The consortium decided to separate the medications that are administered intermittently from the continuously administered medications. The mCIDE for <code>medication_category</code> for intermittent meds can be found <a href="https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/blob/main/mCIDE/clif_medication_admin_intermittent_med_categories.csv">here</a>.</p>
 </section>
 <section id="medication-orders" class="level2">
 <h2 class="anchored" data-anchor-id="medication-orders">Medication Orders</h2>
@@ -2742,7 +3017,7 @@ ul.task-list li input[type="checkbox"] {
 <td>med_category</td>
 <td>VARCHAR</td>
 <td>Maps <code>med_name</code> to a list of permissible medication names</td>
-<td>Combined CDE of <code>medication_admin_continuous</code> and <code>medication_admin_intermittent</code> , under development</td>
+<td>Combined CDE of <code>medication_admin_continuous</code> and <code>medication_admin_intermittent</code></td>
 </tr>
 <tr class="even">
 <td>med_group</td>
@@ -2974,207 +3249,6 @@ ul.task-list li input[type="checkbox"] {
 </table>
 </div>
 </section>
-<section id="intake_output" class="level2">
-<h2 class="anchored" data-anchor-id="intake_output">Intake_Output</h2>
-<p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
-<p>The intake_output table is long form table that captures the times intake and output events were recorded, the type of fluid administered or recorded as “out”, and the amount of fluid.</p>
-<table class="table">
-<colgroup>
-<col style="width: 36%">
-<col style="width: 63%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Variable Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>hospitalization_id</td>
-<td>Unique identifier for the hospitalization event.</td>
-</tr>
-<tr class="even">
-<td>intake_dttm</td>
-<td>Date and time of intake.</td>
-</tr>
-<tr class="odd">
-<td>fluid_name</td>
-<td>Name of the fluid administered.</td>
-</tr>
-<tr class="even">
-<td>amount</td>
-<td>Amount of fluid administered (in mL).</td>
-</tr>
-<tr class="odd">
-<td>in_out_flag</td>
-<td>Indicator for intake or output (1 for intake, 0 for output).</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong>:</p>
-<div class="scrollable-table">
-<table class="table-striped table-hover table">
-<colgroup>
-<col style="width: 21%">
-<col style="width: 33%">
-<col style="width: 20%">
-<col style="width: 10%">
-<col style="width: 14%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>hospitalization_id</th>
-<th>intake_dttm</th>
-<th>fluid_name</th>
-<th>amount</th>
-<th>in_out_flag</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1001</td>
-<td>2024-01-01 08:00:00+00:00</td>
-<td>Normal Saline</td>
-<td>500</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>1001</td>
-<td>2024-01-01 10:30:00+00:00</td>
-<td>Urine</td>
-<td>300</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td>1002</td>
-<td>2024-01-05 09:15:00+00:00</td>
-<td>Dextrose</td>
-<td>250</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>1002</td>
-<td>2024-01-05 14:00:00+00:00</td>
-<td>Urine</td>
-<td>400</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td>1003</td>
-<td>2024-01-10 07:45:00+00:00</td>
-<td>Lactated Ringer’s</td>
-<td>600</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>1003</td>
-<td>2024-01-10 12:00:00+00:00</td>
-<td>Drainage</td>
-<td>200</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="therapy_details" class="level2">
-<h2 class="anchored" data-anchor-id="therapy_details">Therapy_Details</h2>
-<p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
-<p>The <code>therapy_details</code> table is a wide longitudinal table that captures the details of therapy sessions. The table is designed to capture and categorize the most common therapy elements used in the ICU.</p>
-<table class="table">
-<colgroup>
-<col style="width: 34%">
-<col style="width: 65%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Variable Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>hospitalization_id</td>
-<td>Unique identifier for the hospitalization event.</td>
-</tr>
-<tr class="even">
-<td>session_start_dttm</td>
-<td>Date and time when the therapy session started.</td>
-</tr>
-<tr class="odd">
-<td>therapy_element_name</td>
-<td>Name of the therapy element.</td>
-</tr>
-<tr class="even">
-<td>therapy_element_category</td>
-<td>Category of the therapy element.</td>
-</tr>
-<tr class="odd">
-<td>therapy_element_value</td>
-<td>Value associated with the therapy element.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong>:</p>
-<div class="scrollable-table">
-<table class="table-striped table-hover table">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 25%">
-<col style="width: 20%">
-<col style="width: 21%">
-<col style="width: 16%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>hospitalization_id</th>
-<th>session_start_dttm</th>
-<th>therapy_element_name</th>
-<th>therapy_element_category</th>
-<th>therapy_element_value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1001</td>
-<td>2024-01-01 08:00:00+00:00</td>
-<td>Physical Therapy</td>
-<td>Rehabilitation</td>
-<td>45.0</td>
-</tr>
-<tr class="even">
-<td>1001</td>
-<td>2024-01-01 10:00:00+00:00</td>
-<td>Respiratory Therapy</td>
-<td>Respiratory Support</td>
-<td>3.0</td>
-</tr>
-<tr class="odd">
-<td>1002</td>
-<td>2024-01-05 09:30:00+00:00</td>
-<td>Occupational Therapy</td>
-<td>Rehabilitation</td>
-<td>60.0</td>
-</tr>
-<tr class="even">
-<td>1002</td>
-<td>2024-01-05 11:00:00+00:00</td>
-<td>Speech Therapy</td>
-<td>Rehabilitation</td>
-<td>30.0</td>
-</tr>
-<tr class="odd">
-<td>1003</td>
-<td>2024-01-10 07:00:00+00:00</td>
-<td>Ventilation Support</td>
-<td>Respiratory Support</td>
-<td>2.5</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
 <section id="microbiology-culture" class="level2">
 <h2 class="anchored" data-anchor-id="microbiology-culture">Microbiology Culture</h2>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
@@ -3376,98 +3450,6 @@ ul.task-list li input[type="checkbox"] {
 <td>gram stain</td>
 <td>gram negative rod</td>
 <td>gram negative rod (nos)</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="sensitivity" class="level2">
-<h2 class="anchored" data-anchor-id="sensitivity">Sensitivity</h2>
-<p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
-<p>This table is used to store the susceptibility results of the organisms identified in the <code>Microbiology Culture</code> table and may be renamed to <code>Microbiology_Susceptibility</code></p>
-<table class="table">
-<colgroup>
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 60%">
-<col style="width: 21%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Variable Name</th>
-<th>Data Type</th>
-<th>Definition</th>
-<th>Permissible Values</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>culture_id</td>
-<td>VARCHAR</td>
-<td>Unique identifier linking to the culture from which the sensitivity test was performed</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>antibiotic</td>
-<td>VARCHAR</td>
-<td>Name of the antibiotic tested for sensitivity</td>
-<td>Examples include <code>Penicillin</code>, <code>Vancomycin</code></td>
-</tr>
-<tr class="odd">
-<td>sensitivity</td>
-<td>VARCHAR</td>
-<td>The result of the sensitivity test, indicating the organism’s resistance or susceptibility</td>
-<td><code>Resistant</code>, <code>Intermediate</code>, <code>Susceptible</code></td>
-</tr>
-<tr class="even">
-<td>mic</td>
-<td>DOUBLE</td>
-<td>Minimum Inhibitory Concentration (MIC) value, which measures the lowest concentration of an antibiotic needed to inhibit growth</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong>:</p>
-<div class="scrollable-table">
-<table class="table-striped table-hover table">
-<thead>
-<tr class="header">
-<th>culture_id</th>
-<th>antibiotic</th>
-<th>sensitivity</th>
-<th>mic</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1001</td>
-<td>Penicillin</td>
-<td>Susceptible</td>
-<td>0.25</td>
-</tr>
-<tr class="even">
-<td>1001</td>
-<td>Vancomycin</td>
-<td>Resistant</td>
-<td>8.0</td>
-</tr>
-<tr class="odd">
-<td>1002</td>
-<td>Amoxicillin</td>
-<td>Intermediate</td>
-<td>4.0</td>
-</tr>
-<tr class="even">
-<td>1003</td>
-<td>Ciprofloxacin</td>
-<td>Susceptible</td>
-<td>0.5</td>
-</tr>
-<tr class="odd">
-<td>1004</td>
-<td>Gentamicin</td>
-<td>Resistant</td>
-<td>16.0</td>
 </tr>
 </tbody>
 </table>
@@ -3714,6 +3696,333 @@ ul.task-list li input[type="checkbox"] {
 </table>
 </div>
 </section>
+<section id="provider" class="level2">
+<h2 class="anchored" data-anchor-id="provider">Provider</h2>
+<p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
+<p>Continuous start stop record of every provider who cared for the patient.</p>
+<table class="table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 8%">
+<col style="width: 48%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable Name</th>
+<th>Data Type</th>
+<th>Definition</th>
+<th>Permissible Values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>hospitalization_id</td>
+<td>VARCHAR</td>
+<td>Unique identifier for each hospitalization, linking the provider to a specific encounter</td>
+<td>No restriction</td>
+</tr>
+<tr class="even">
+<td>provider_id</td>
+<td>VARCHAR</td>
+<td>Unique identifier for each provider. This represents individual healthcare providers</td>
+<td>No restriction</td>
+</tr>
+<tr class="odd">
+<td>start_dttm</td>
+<td>DATETIME</td>
+<td>Date and time when the provider’s care or involvement in the patient’s case began</td>
+<td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
+</tr>
+<tr class="even">
+<td>stop_dttm</td>
+<td>DATETIME</td>
+<td>Date and time when the provider’s care or involvement in the patient’s case ended</td>
+<td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
+</tr>
+<tr class="odd">
+<td>provider_role_name</td>
+<td>VARCHAR</td>
+<td>The original string describing the role or specialty of the provider during the hospitalization</td>
+<td>No restriction</td>
+</tr>
+<tr class="even">
+<td>provider_role_category</td>
+<td>VARCHAR</td>
+<td>Maps <code>provider_role_name</code> to list of standardized provider roles</td>
+<td>under development</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>:</p>
+<div class="scrollable-table">
+<table class="table-striped table-hover table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 20%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>hospitalization_id</th>
+<th>start_dttm</th>
+<th>stop_dttm</th>
+<th>provider_role_name</th>
+<th>provider_role_category</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1001014</td>
+<td>2023-05-01 08:00:00+00:00</td>
+<td>2023-05-01 20:00:00+00:00</td>
+<td>Attending Physician</td>
+<td>Attending</td>
+</tr>
+<tr class="even">
+<td>1001014</td>
+<td>2023-05-01 08:00:00+00:00</td>
+<td>2023-05-02 08:00:00+00:00</td>
+<td>Resident Physician</td>
+<td>Resident</td>
+</tr>
+<tr class="odd">
+<td>1001014</td>
+<td>2023-05-01 08:00:00+00:00</td>
+<td>2023-05-03 08:00:00+00:00</td>
+<td>Nurse Practitioner</td>
+<td>Nurse Practitioner</td>
+</tr>
+<tr class="even">
+<td>1002025</td>
+<td>2023-06-10 09:00:00+00:00</td>
+<td>2023-06-10 21:00:00+00:00</td>
+<td>Critical Care Specialist</td>
+<td>Critical Care</td>
+</tr>
+<tr class="odd">
+<td>1002025</td>
+<td>2023-06-10 09:00:00+00:00</td>
+<td>2023-06-11 09:00:00+00:00</td>
+<td>Respiratory Therapist</td>
+<td>Respiratory Therapy</td>
+</tr>
+<tr class="even">
+<td>1003036</td>
+<td>2023-07-15 07:30:00+00:00</td>
+<td>2023-07-15 19:30:00+00:00</td>
+<td>Attending Physician</td>
+<td>Attending</td>
+</tr>
+<tr class="odd">
+<td>1003036</td>
+<td>2023-07-15 07:30:00+00:00</td>
+<td>2023-07-16 07:30:00+00:00</td>
+<td>Charge Nurse</td>
+<td>Nurse</td>
+</tr>
+<tr class="even">
+<td>1004047</td>
+<td>2023-08-20 10:00:00+00:00</td>
+<td>2023-08-20 22:00:00+00:00</td>
+<td>Physical Therapist</td>
+<td>Therapy</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sensitivity" class="level2">
+<h2 class="anchored" data-anchor-id="sensitivity">Sensitivity</h2>
+<p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
+<p>This table is used to store the susceptibility results of the organisms identified in the <code>Microbiology Culture</code> table and may be renamed to <code>Microbiology_Susceptibility</code></p>
+<table class="table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 60%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable Name</th>
+<th>Data Type</th>
+<th>Definition</th>
+<th>Permissible Values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>culture_id</td>
+<td>VARCHAR</td>
+<td>Unique identifier linking to the culture from which the sensitivity test was performed</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>antibiotic</td>
+<td>VARCHAR</td>
+<td>Name of the antibiotic tested for sensitivity</td>
+<td>Examples include <code>Penicillin</code>, <code>Vancomycin</code></td>
+</tr>
+<tr class="odd">
+<td>sensitivity</td>
+<td>VARCHAR</td>
+<td>The result of the sensitivity test, indicating the organism’s resistance or susceptibility</td>
+<td><code>Resistant</code>, <code>Intermediate</code>, <code>Susceptible</code></td>
+</tr>
+<tr class="even">
+<td>mic</td>
+<td>DOUBLE</td>
+<td>Minimum Inhibitory Concentration (MIC) value, which measures the lowest concentration of an antibiotic needed to inhibit growth</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>:</p>
+<div class="scrollable-table">
+<table class="table-striped table-hover table">
+<thead>
+<tr class="header">
+<th>culture_id</th>
+<th>antibiotic</th>
+<th>sensitivity</th>
+<th>mic</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1001</td>
+<td>Penicillin</td>
+<td>Susceptible</td>
+<td>0.25</td>
+</tr>
+<tr class="even">
+<td>1001</td>
+<td>Vancomycin</td>
+<td>Resistant</td>
+<td>8.0</td>
+</tr>
+<tr class="odd">
+<td>1002</td>
+<td>Amoxicillin</td>
+<td>Intermediate</td>
+<td>4.0</td>
+</tr>
+<tr class="even">
+<td>1003</td>
+<td>Ciprofloxacin</td>
+<td>Susceptible</td>
+<td>0.5</td>
+</tr>
+<tr class="odd">
+<td>1004</td>
+<td>Gentamicin</td>
+<td>Resistant</td>
+<td>16.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="therapy-details" class="level2">
+<h2 class="anchored" data-anchor-id="therapy-details">Therapy Details</h2>
+<p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
+<p>The <code>therapy_details</code> table is a wide longitudinal table that captures the details of therapy sessions. The table is designed to capture and categorize the most common therapy elements used in the ICU.</p>
+<table class="table">
+<colgroup>
+<col style="width: 34%">
+<col style="width: 65%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>hospitalization_id</td>
+<td>Unique identifier for the hospitalization event.</td>
+</tr>
+<tr class="even">
+<td>session_start_dttm</td>
+<td>Date and time when the therapy session started.</td>
+</tr>
+<tr class="odd">
+<td>therapy_element_name</td>
+<td>Name of the therapy element.</td>
+</tr>
+<tr class="even">
+<td>therapy_element_category</td>
+<td>Category of the therapy element.</td>
+</tr>
+<tr class="odd">
+<td>therapy_element_value</td>
+<td>Value associated with the therapy element.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>:</p>
+<div class="scrollable-table">
+<table class="table-striped table-hover table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 25%">
+<col style="width: 20%">
+<col style="width: 21%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>hospitalization_id</th>
+<th>session_start_dttm</th>
+<th>therapy_element_name</th>
+<th>therapy_element_category</th>
+<th>therapy_element_value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1001</td>
+<td>2024-01-01 08:00:00+00:00</td>
+<td>Physical Therapy</td>
+<td>Rehabilitation</td>
+<td>45.0</td>
+</tr>
+<tr class="even">
+<td>1001</td>
+<td>2024-01-01 10:00:00+00:00</td>
+<td>Respiratory Therapy</td>
+<td>Respiratory Support</td>
+<td>3.0</td>
+</tr>
+<tr class="odd">
+<td>1002</td>
+<td>2024-01-05 09:30:00+00:00</td>
+<td>Occupational Therapy</td>
+<td>Rehabilitation</td>
+<td>60.0</td>
+</tr>
+<tr class="even">
+<td>1002</td>
+<td>2024-01-05 11:00:00+00:00</td>
+<td>Speech Therapy</td>
+<td>Rehabilitation</td>
+<td>30.0</td>
+</tr>
+<tr class="odd">
+<td>1003</td>
+<td>2024-01-10 07:00:00+00:00</td>
+<td>Ventilation Support</td>
+<td>Respiratory Support</td>
+<td>2.5</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
 <section id="transfusion" class="level2">
 <h2 class="anchored" data-anchor-id="transfusion">Transfusion</h2>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
@@ -3839,311 +4148,6 @@ ul.task-list li input[type="checkbox"] {
 <td>200</td>
 <td>mL</td>
 <td>F0781</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="code-status" class="level2">
-<h2 class="anchored" data-anchor-id="code-status">Code Status</h2>
-<p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
-<p>This table provides a longitudinal record of changes in a patient’s code status during their hospitalization. It tracks the timeline and categorization of code status updates, facilitating the analysis of care preferences and decisions.</p>
-<table class="table">
-<colgroup>
-<col style="width: 10%">
-<col style="width: 8%">
-<col style="width: 48%">
-<col style="width: 31%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Variable Name</strong></th>
-<th><strong>Data Type</strong></th>
-<th><strong>Definition</strong></th>
-<th><strong>Permissible Values</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>hospitalization_id</td>
-<td>VARCHAR</td>
-<td>Unique identifier linking the code status event to a specific hospitalization in the CLIF database.</td>
-<td>Unique identifier, e.g., <code>123456</code></td>
-</tr>
-<tr class="even">
-<td>start_dttm</td>
-<td>DATETIME</td>
-<td>The date and time when the specific code status was initiated.</td>
-<td>Example: <code>2024-12-03 08:30:00+00:00</code></td>
-</tr>
-<tr class="odd">
-<td>code_status_name</td>
-<td>VARCHAR</td>
-<td>The name/description of the code status.</td>
-<td>Free text to describe the code status.</td>
-</tr>
-<tr class="even">
-<td>code_status_category</td>
-<td>VARCHAR</td>
-<td>Categorical variable specifying the code status during the hospitalization.</td>
-<td>E.g., <code>DNR</code>, <code>UDNR</code>, <code>DNR/DNI</code>, <code>Full</code>, <code>Presume Full</code>, <code>Other</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Notes</strong>:</p>
-<ul>
-<li>The <code>code_status_category</code> set of permissible values is under development</li>
-</ul>
-<p><strong>Example</strong>:</p>
-<div class="scrollable-table">
-<table class="table-striped table-hover table">
-<colgroup>
-<col style="width: 22%">
-<col style="width: 32%">
-<col style="width: 22%">
-<col style="width: 22%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>hospitalization_id</th>
-<th>start_dttm</th>
-<th>code_status_name</th>
-<th>code_status_category</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>12345</td>
-<td>2024-12-01 08:30:00+00:00</td>
-<td>Do Not Resuscitate</td>
-<td>DNR</td>
-</tr>
-<tr class="even">
-<td>12345</td>
-<td>2024-12-02 14:00:00+00:00</td>
-<td>Do Not Intubate</td>
-<td>DNR/DNI</td>
-</tr>
-<tr class="odd">
-<td>12345</td>
-<td>2024-12-03 10:15:00+00:00</td>
-<td>Full Code</td>
-<td>Full</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="invasive-hemodynamics" class="level2">
-<h2 class="anchored" data-anchor-id="invasive-hemodynamics">Invasive Hemodynamics</h2>
-<p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
-<p>The <code>invasive_hemodynamics</code> table records invasive hemodynamic measurements during a patient’s hospitalization. These measurements represent pressures recorded via invasive monitoring and are expressed in millimeters of mercury (mmHg).</p>
-<table class="table">
-<colgroup>
-<col style="width: 10%">
-<col style="width: 9%">
-<col style="width: 41%">
-<col style="width: 36%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Column Name</th>
-<th>Data Type</th>
-<th>Description</th>
-<th>Permissible Values</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>hospitalization_id</td>
-<td>VARCHAR</td>
-<td>Unique identifier linking to the specific hospitalization.</td>
-<td>N/A</td>
-</tr>
-<tr class="even">
-<td>recorded_dttm</td>
-<td>DATETIME</td>
-<td>The date and time when the measurement was recorded.</td>
-<td>N/A</td>
-</tr>
-<tr class="odd">
-<td>measure_name</td>
-<td>VARCHAR</td>
-<td>Description of the site or context of the invasive hemodynamic measurement.</td>
-<td>Free text (e.g., “Right Atrium”)</td>
-</tr>
-<tr class="even">
-<td>measure_category</td>
-<td>VARCHAR</td>
-<td>Categorical variable specifying the type of invasive hemodynamic measurement.</td>
-<td><code>CVP</code>, <code>RA</code>, <code>RV</code>, <code>PA_systolic</code>, <code>PA_diastolic</code>, <code>PA_mean</code>, <code>PCWP</code></td>
-</tr>
-<tr class="odd">
-<td>measure_value</td>
-<td>DDOUBLE</td>
-<td>The numerical value of the invasive hemodynamic measurement in mmHg.</td>
-<td>Positive decimal values (e.g., <code>5.00</code>, <code>25.65</code>)</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Notes</strong>:</p>
-<ul>
-<li>All <code>measure_value</code> entries should be recorded in mmHg.</li>
-<li>The <code>measure_category</code> field ensures standardization of invasive hemodynamic data.
-<ul>
-<li><code>CVP</code> - Central Venous Pressure</li>
-<li><code>RA</code> - Right Atrial Pressure</li>
-<li><code>RV</code> - Right Ventricular Pressure</li>
-<li><code>PA_systolic</code> - Pulmonary Artery Systolic Pressure</li>
-<li><code>PA_diastolic</code> - Pulmonary Artery Diastolic Pressure</li>
-<li><code>PA_mean</code> - Pulmonary Artery Mean Pressure</li>
-<li><code>PCWP</code> - Pulmonary Capillary Wedge Pressure</li>
-</ul></li>
-</ul>
-<p><strong>Example</strong>:</p>
-<div class="scrollable-table">
-<table class="table-striped table-hover table">
-<colgroup>
-<col style="width: 19%">
-<col style="width: 28%">
-<col style="width: 19%">
-<col style="width: 17%">
-<col style="width: 14%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>hospitalization_id</th>
-<th>recorded_dttm</th>
-<th>measure_name</th>
-<th>measure_category</th>
-<th>measure_value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>12345</td>
-<td>2024-12-01 08:30:00+00:00</td>
-<td>CVP</td>
-<td>CVP</td>
-<td>12.50</td>
-</tr>
-<tr class="even">
-<td>12345</td>
-<td>2024-12-01 09:00:00+00:00</td>
-<td>Pulmonary Artery-Sys</td>
-<td>PA_systolic</td>
-<td>25.00</td>
-</tr>
-<tr class="odd">
-<td>12345</td>
-<td>2024-12-01 09:30:00+00:00</td>
-<td>Wedge</td>
-<td>PCWP</td>
-<td>18.75</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<section id="key-icu-orders" class="level2">
-<h2 class="anchored" data-anchor-id="key-icu-orders">Key ICU orders</h2>
-<p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
-<p>The <code>key_icu_orders</code> table captures key orders related to physical therapy (PT) and occupational therapy (OT) during ICU stays. It includes details about the hospitalization, the timing of the order, the specific name of the order, its category, and the status of the order (completed or sent).</p>
-<table class="table">
-<colgroup>
-<col style="width: 9%">
-<col style="width: 8%">
-<col style="width: 33%">
-<col style="width: 47%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Column Name</th>
-<th>Data Type</th>
-<th>Description</th>
-<th>Permissible Values</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>hospitalization_id</td>
-<td>VARCHAR</td>
-<td>Unique identifier linking the order to a specific hospitalization.</td>
-<td>N/A</td>
-</tr>
-<tr class="even">
-<td>order_dttm</td>
-<td>DATETIME</td>
-<td>Date and time when the order was placed.</td>
-<td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
-</tr>
-<tr class="odd">
-<td>order_name</td>
-<td>VARCHAR</td>
-<td>Name of the specific order (e.g., “PT Evaluation”, “OT Treatment”).</td>
-<td>N/A</td>
-</tr>
-<tr class="even">
-<td>order_category</td>
-<td>VARCHAR</td>
-<td>Category of the order. Permissible values are:</td>
-<td>Under-development. Some examples include: <code>PT_evaluation</code>, <code>PT_treat</code>, <code>OT_evaluation</code>, <code>OT_treat</code></td>
-</tr>
-<tr class="odd">
-<td>order_status_name</td>
-<td>VARCHAR</td>
-<td>Status of the order. Permissible values are:</td>
-<td><code>sent</code>, <code>completed</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong>:</p>
-<div class="scrollable-table">
-<table class="table-striped table-hover table">
-<colgroup>
-<col style="width: 18%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 14%">
-<col style="width: 16%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>hospitalization_id</th>
-<th>order_dttm</th>
-<th>order_name</th>
-<th>order_category</th>
-<th>order_status_name</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>12345</td>
-<td>2024-12-15 10:00:00+00:00</td>
-<td>PT Initial Evaluation</td>
-<td>PT_evaluation</td>
-<td>completed</td>
-</tr>
-<tr class="even">
-<td>67890</td>
-<td>2024-12-16 14:30:00+00:00</td>
-<td>OT Follow-up Treatment</td>
-<td>OT_treat</td>
-<td>sent</td>
-</tr>
-<tr class="odd">
-<td>54321</td>
-<td>2024-12-16 08:00:00+00:00</td>
-<td>PT Mobility Session</td>
-<td>PT_treat</td>
-<td>completed</td>
-</tr>
-<tr class="even">
-<td>98765</td>
-<td>2024-12-15 11:15:00+00:00</td>
-<td>OT Cognitive Assessment</td>
-<td>OT_evaluation</td>
-<td>sent</td>
 </tr>
 </tbody>
 </table>

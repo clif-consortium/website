@@ -15,7 +15,7 @@ At no point is patient-level (i.e. "row-level") data exchanged between sites, un
 
 The CLIF consortium is committed to an inclusive, open-source development ecosystem. We recognize that not all investigators have the resources or institutional support necessary to extract-transform-load (ETL) their local healthsystem's data into CLIF. **Therefore, we will run any high-quality observational study coded to run on CLIF.**
 
-We have an ongoing project to CLIF the de-identified exemplar  [MIMIC-IV](https://physionet.org/content/mimic-iv-demo/2.2/) so anyone can get access to a high-quality CLIF database. 
+We have developed a pipeline to convert the de-identified exemplar [MIMIC-IV](https://physionet.org/content/mimic-iv-demo/2.2/) dataset into a high-quality CLIF database. For setup instructions and guidance on creating it at your site, please refer to this [GitHub repository](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF-MIMIC).  
 
 # What about multi-modal data like notes and images? 
 

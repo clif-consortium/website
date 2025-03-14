@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Kaveri Chhikara">
-<meta name="dcterms.date" content="2024-06-06">
 
-<title>CLIF Consortium - Using CLIF GitHub with R</title>
+<title>CLIF Consortium</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,22 +23,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,18 +68,17 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="../../styles.css">
 <link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">CLIF Consortium</span>
     </a>
   </div>
@@ -92,19 +89,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../mission.html"> 
+    <a class="nav-link" href="./mission.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> 
+    <a class="nav-link" href="./about.html"> 
 <span class="menu-text">TEAM</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../data-dictionary.html"> 
+    <a class="nav-link" href="./data-dictionary.html"> 
 <span class="menu-text">Data Dictionary</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../cohort.html"> 
+    <a class="nav-link active" href="./cohort.html" aria-current="page"> 
 <span class="menu-text">CLIF Cohort</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -113,15 +110,15 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-resources">    
         <li>
-    <a class="dropdown-item" href="../../projects.html">
+    <a class="dropdown-item" href="./projects.html">
  <span class="dropdown-text">Projects</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../mCIDE.html">
+    <a class="dropdown-item" href="./mCIDE.html">
  <span class="dropdown-text">minimum Common ICU Data Elements</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../faqs.html">
+    <a class="dropdown-item" href="./faqs.html">
  <span class="dropdown-text">FAQs</span></a>
   </li>  
     </ul>
@@ -141,39 +138,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">Using CLIF GitHub with R</h1>
-                                <div class="quarto-categories">
-                <div class="quarto-category">github</div>
-                <div class="quarto-category">collaboration</div>
-              </div>
-                  </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Kaveri Chhikara </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">June 6, 2024</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -181,177 +146,367 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#step-1-prepare-your-environment" id="toc-step-1-prepare-your-environment" class="nav-link active" data-scroll-target="#step-1-prepare-your-environment">Step 1: Prepare your environment</a></li>
-  <li><a href="#step-2-fork-the-repository" id="toc-step-2-fork-the-repository" class="nav-link" data-scroll-target="#step-2-fork-the-repository">Step 2: Fork the repository</a></li>
-  <li><a href="#step-3-clone-your-forked-repository" id="toc-step-3-clone-your-forked-repository" class="nav-link" data-scroll-target="#step-3-clone-your-forked-repository">Step 3: Clone your forked repository</a></li>
-  <li><a href="#step-4-open-the-repository-in-rstudio" id="toc-step-4-open-the-repository-in-rstudio" class="nav-link" data-scroll-target="#step-4-open-the-repository-in-rstudio">Step 4: Open the repository in RStudio</a></li>
-  <li><a href="#step-5-pull-updates-from-the-original-repository" id="toc-step-5-pull-updates-from-the-original-repository" class="nav-link" data-scroll-target="#step-5-pull-updates-from-the-original-repository">Step 5: Pull updates from the original repository</a></li>
-  <li><a href="#step-6-create-a-pull-request-pr" id="toc-step-6-create-a-pull-request-pr" class="nav-link" data-scroll-target="#step-6-create-a-pull-request-pr">Step 6: Create a Pull Request (PR)</a></li>
+  <li><a href="#icu-patient-encounter-characteristics-and-outcomes-2020-2021" id="toc-icu-patient-encounter-characteristics-and-outcomes-2020-2021" class="nav-link active" data-scroll-target="#icu-patient-encounter-characteristics-and-outcomes-2020-2021">ICU Patient Encounter Characteristics and Outcomes (2020-2021)</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 
 
 
-
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="github_image.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
+<section id="icu-patient-encounter-characteristics-and-outcomes-2020-2021" class="level1">
+<h1>ICU Patient Encounter Characteristics and Outcomes (2020-2021)</h1>
+<p>The table below presents the characteristics and outcomes of ICU patient encounters from 2020 to 2021 across nine CLIF consortium sites. The data includes demographics, mechanical ventilation usage, initial ventilation modes, hospital mortality, and ventilator settings. The combined CLIF dataset represents a diverse cohort of over 111,000 ICU patient encounters, providing insights into critical care practices across different institutions.</p>
+<div style="overflow-x:auto;">
+<table class="table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 9%">
+<col style="width: 6%">
+<col style="width: 9%">
+<col style="width: 7%">
+<col style="width: 10%">
+<col style="width: 6%">
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Characteristic</strong></th>
+<th><strong>CLIF Consortium (Combined)</strong></th>
+<th><strong>Emory University</strong></th>
+<th><strong>Johns Hopkins Health System</strong></th>
+<th><strong>Northwestern University</strong></th>
+<th><strong>Oregon Health &amp; Science University</strong></th>
+<th><strong>Rush University</strong></th>
+<th><strong>University of Chicago</strong></th>
+<th><strong>University of Michigan</strong></th>
+<th><strong>University of Minnesota</strong></th>
+<th><strong>University of Pennsylvania</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Hospitals</strong></td>
+<td>39</td>
+<td>4</td>
+<td>5</td>
+<td>8</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>11</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td><strong>N</strong></td>
+<td>111440</td>
+<td>15124</td>
+<td>18242</td>
+<td>17150</td>
+<td>8559</td>
+<td>9853</td>
+<td>8053</td>
+<td>7301</td>
+<td>13130</td>
+<td>14028</td>
+</tr>
+<tr class="odd">
+<td><strong>Age (years), mean (SD)</strong></td>
+<td>60.7 (17.1)</td>
+<td>61.3 (16.4)</td>
+<td>60.8 (17.4)</td>
+<td>63.1 (17.1)</td>
+<td>60.3 (17.4)</td>
+<td>59.6 (16.9)</td>
+<td>56.4 (18.5)</td>
+<td>58.9 (16.2)</td>
+<td>61.7 (17.3)</td>
+<td>60.3 (16.9)</td>
+</tr>
+<tr class="even">
+<td><strong>Female n (%)</strong></td>
+<td>49358 (44.3%)</td>
+<td>7100 (46.9%)</td>
+<td>8315 (45.6%)</td>
+<td>7425 (43.3%)</td>
+<td>3517 (41.1%)</td>
+<td>4660 (47.3%)</td>
+<td>3411 (42.4%)</td>
+<td>3011 (41.2%)</td>
+<td>5726 (43.6%)</td>
+<td>6193 (44.1%)</td>
+</tr>
+<tr class="odd">
+<td><strong>Race n(%)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td> <strong>Asian</strong></td>
+<td>4062 (3.6%)</td>
+<td>521 (3.4%)</td>
+<td>790 (4.3%)</td>
+<td>593 (3.5%)</td>
+<td>258 (3.0%)</td>
+<td>327 (3.3%)</td>
+<td>148 (1.8%)</td>
+<td>143 (2.0%)</td>
+<td>847 (6.5%)</td>
+<td>435 (3.1%)</td>
+</tr>
+<tr class="odd">
+<td> <strong>Black</strong></td>
+<td>31063 (27.9%)</td>
+<td>6707 (44.3%)</td>
+<td>5643 (30.9%)</td>
+<td>2199 (12.8%)</td>
+<td>214 (2.5%)</td>
+<td>3995 (40.5%)</td>
+<td>5290 (65.7%)</td>
+<td>879 (12.0%)</td>
+<td>896 (6.8%)</td>
+<td>5240 (37.4%)</td>
+</tr>
+<tr class="even">
+<td> <strong>White</strong></td>
+<td>66331 (59.5%)</td>
+<td>6953 (46.0%)</td>
+<td>10255 (56.2%)</td>
+<td>12723 (74.2%)</td>
+<td>6960 (81.3%)</td>
+<td>3697 (37.5%)</td>
+<td>2015 (25.0%)</td>
+<td>5780 (79.2%)</td>
+<td>10790 (82.2%)</td>
+<td>7158 (51.0%)</td>
+</tr>
+<tr class="odd">
+<td> <strong>Others</strong></td>
+<td>9984 (8.9%)</td>
+<td>943 (6.2%)</td>
+<td>1554 (8.5%)</td>
+<td>1635 (9.5%)</td>
+<td>1127 (13.2%)</td>
+<td>1834 (18.6%)</td>
+<td>600 (7.5%)</td>
+<td>499 (6.8%)</td>
+<td>597 (4.5%)</td>
+<td>1195 (8.5%)</td>
+</tr>
+<tr class="even">
+<td><strong>Ethnicity n(%)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td> <strong>Hispanic or Latino</strong></td>
+<td>7511 (6.7%)</td>
+<td>577 (3.8%)</td>
+<td>1088 (6.0%)</td>
+<td>1753 (10.2%)</td>
+<td>657 (7.7%)</td>
+<td>1968 (20.0%)</td>
+<td>514 (6.4%)</td>
+<td>210 (2.9%)</td>
+<td>249 (1.9%)</td>
+<td>495 (3.5%)</td>
+</tr>
+<tr class="even">
+<td><strong>Hospital mortality, n (%)</strong></td>
+<td>10721 (9.6%)</td>
+<td>1307 (8.6%)</td>
+<td>1905 (10.4%)</td>
+<td>1502 (8.8%)</td>
+<td>677 (7.9%)</td>
+<td>729 (7.4%)</td>
+<td>1004 (12.5%)</td>
+<td>847 (11.6%)</td>
+<td>1032 (7.9%)</td>
+<td>1718 (12.2%)</td>
+</tr>
+<tr class="odd">
+<td><strong>Mechanical Ventilation, n (%)</strong></td>
+<td>42442 (39.09%)</td>
+<td>6031 (39.9%)</td>
+<td>6804 (37.3%)</td>
+<td>5080 (29.6%)</td>
+<td>3231 (37.7%)</td>
+<td>2859 (29.0%)</td>
+<td>3462 (43.0%)</td>
+<td>4007 (54.9%)</td>
+<td>4801 (36.6%)</td>
+<td>6167 (44.0%)</td>
+</tr>
+<tr class="even">
+<td><strong>Initial Mode category for Ventilated Encounters, n(%)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td> <strong>Assist Control-Volume Control</strong></td>
+<td>25711 (60.58%)</td>
+<td>2501 (41.57%)</td>
+<td>3942 (57.95%)</td>
+<td>4284 (84.33%)</td>
+<td>2623 (81.18%)</td>
+<td>337 (11.79%)</td>
+<td>2810 (81.17%)</td>
+<td>1097 (27.38%)</td>
+<td>4453 (92.77%)</td>
+<td>3664 (59.41%)</td>
+</tr>
+<tr class="even">
+<td> <strong>Pressure-Regulated Volume Control</strong></td>
+<td>6783 (15.98%)</td>
+<td>1004 (16.65%)</td>
+<td>1335 (19.62%)</td>
+<td>174 (3.43%)</td>
+<td>60 (1.86%)</td>
+<td>1740 (60.86%)</td>
+<td>0 (0%)</td>
+<td>2416 (60.29%)</td>
+<td>52 (1.08%)</td>
+<td>2 (0.03%)</td>
+</tr>
+<tr class="odd">
+<td> <strong>Pressure Control</strong></td>
+<td>1188 (2.80%)</td>
+<td>124 (2.06%)</td>
+<td>106 (1.56%)</td>
+<td>151 (2.97%)</td>
+<td>89 (2.75%)</td>
+<td>280 (9.79%)</td>
+<td>80 (2.31%)</td>
+<td>225 (5.62%)</td>
+<td>73 (1.52%)</td>
+<td>60 (0.97%)</td>
+</tr>
+<tr class="even">
+<td> <strong>Pressure Support/CPAP</strong></td>
+<td>3057 (7.20%)</td>
+<td>466 (7.73%)</td>
+<td>277 (4.07%)</td>
+<td>161 (3.17%)</td>
+<td>260 (8.05%)</td>
+<td>402 (14.06%)</td>
+<td>419 (12.1%)</td>
+<td>37 (0.92%)</td>
+<td>91 (1.9%)</td>
+<td>944 (15.31%)</td>
+</tr>
+<tr class="odd">
+<td> <strong>SIMV</strong></td>
+<td>3486 (8.21%)</td>
+<td>668 (11.08%)</td>
+<td>1086 (15.96%)</td>
+<td>196 (3.86%)</td>
+<td>0 (0%)</td>
+<td>25 (0.87%)</td>
+<td>52 (1.5%)</td>
+<td>0 (0%)</td>
+<td>61 (1.27%)</td>
+<td>1398 (22.67%)</td>
+</tr>
+<tr class="even">
+<td> <strong>Other</strong></td>
+<td>581 (1.37%)</td>
+<td>31 (0.51%)</td>
+<td>57 (0.84%)</td>
+<td>5 (0.1%)</td>
+<td>185 (5.73%)</td>
+<td>8 (0.28%)</td>
+<td>31 (0.9%)</td>
+<td>212 (5.29%)</td>
+<td>23 (0.48%)</td>
+<td>29 (0.47%)</td>
+</tr>
+<tr class="odd">
+<td> <strong>No mode documented</strong></td>
+<td>1636 (3.85%)</td>
+<td>1237 (20.51%)</td>
+<td>1 (0.0%)</td>
+<td>109 (2.15%)</td>
+<td>14 (0.43%)</td>
+<td>67 (2.34%)</td>
+<td>70 (2.02%)</td>
+<td>20 (0.5%)</td>
+<td>48 (0.98%)</td>
+<td>70 (1.14%)</td>
+</tr>
+<tr class="even">
+<td><strong>Ventilator Settings</strong></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td> <strong>Fio2 Median [IQR]</strong></td>
+<td>0.4 [0.37, 0.60]</td>
+<td>0.4 (0.4, 0.6)</td>
+<td>0.4 (0.4, 0.6)</td>
+<td>0.4 (0.4, 0.6)</td>
+<td>0.35 (0.28, 0.5)</td>
+<td>0.4 (0.35, 0.7)</td>
+<td>0.4 (0.4, 0.6)</td>
+<td>0.4 (0.4, 0.6)</td>
+<td>0.4 (0.35, 0.6)</td>
+<td>0.4 (0.4, 0.6)</td>
+</tr>
+<tr class="even">
+<td> <strong>Peep Median [IQR]</strong></td>
+<td>5.0 [5.4, 8.03]</td>
+<td>6.0 (6.0, 10.0)</td>
+<td>5.0 (5.0, 8.0)</td>
+<td>5.0 (5.0, 8.0)</td>
+<td>5.0 (5.0, 7.0)</td>
+<td>8.0 (8.0, 8.0)</td>
+<td>5.0 (5.0, 8.0)</td>
+<td>5.1 (5.0, 10.0)</td>
+<td>5.0 (5.0, 8.0)</td>
+<td>5.0 (5.0, 8.0)</td>
+</tr>
+</tbody>
+</table>
 </div>
-<p>This blog provides a structured approach to setting up GitHub, tailored specifically for our collaborative projects. By standardizing our setup, we can enhance our workflows, ensure consistency across our datasets, and simplify the complexities involved in managing our extensive research data.</p>
-<section id="step-1-prepare-your-environment" class="level3">
-<h3 class="anchored" data-anchor-id="step-1-prepare-your-environment">Step 1: Prepare your environment</h3>
-<p>To follow this tutorial, you must have a GitHub account and Rstudio installed in your system.</p>
-<p>Additionally, confirm that GitHub is installed and properly configured on your workstation. <a href="https://docs.github.com/en/get-started/getting-started-with-git/set-up-git">Follow the steps on the official GitHub docs</a></p>
-</section>
-<section id="step-2-fork-the-repository" class="level3">
-<h3 class="anchored" data-anchor-id="step-2-fork-the-repository">Step 2: Fork the repository</h3>
-<p>Navigate to the <a href="https://github.com/kaveriC/CLIF-1.0">CLIF-1.0 GitHub repository</a> and fork the repository. To fork a repository just means to make a copy that you are going to manage. When you <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks">fork a repository</a> you can make changes without affecting the original repository.</p>
-<p><strong>Action:</strong></p>
-<ul>
-<li>Click the fork button to create your personal copy of the repository.</li>
-<li>GitHub will create a copy of the repository under your GitHub account.</li>
-</ul>
-<p><img src="Step2_fork.png" class="img-fluid"></p>
-</section>
-<section id="step-3-clone-your-forked-repository" class="level3">
-<h3 class="anchored" data-anchor-id="step-3-clone-your-forked-repository">Step 3: Clone your forked repository</h3>
-<ul>
-<li>Go to your GitHub account and navigate to the forked repository.</li>
-<li>Click the “Code” button and copy the URL (HTTPS or SSH recommended).</li>
-<li>Open a terminal (or Git Bash on Windows)</li>
-<li>Run the following command to clone the repository on your local machine. (Replace <code>your-username</code> with your GitHub username) <code>git clone https://github.com/your-username/CLIF-1.0.git</code></li>
-</ul>
-<p><img src="Step3_clone.png" class="img-fluid"></p>
-</section>
-<section id="step-4-open-the-repository-in-rstudio" class="level3">
-<h3 class="anchored" data-anchor-id="step-4-open-the-repository-in-rstudio">Step 4: Open the repository in RStudio</h3>
-<p>Now that you have a local version of the repository on your machine, we can start working! Start by ensuring that Git is configured in Rstudio</p>
-<section id="configure-git-in-rstudio" class="level4">
-<h4 class="anchored" data-anchor-id="configure-git-in-rstudio">Configure Git in RStudio</h4>
-<ol type="1">
-<li><strong>Open RStudio:</strong> Launch RStudio on your computer</li>
-<li><strong>Global Options:</strong> Go to <code>Tools</code> -&gt; <code>Global Options</code>.</li>
-<li><strong>Git/SVN settings:</strong></li>
-</ol>
-<ul>
-<li>In the left sidebar, click on <code>Git/SVN</code>.</li>
-<li>Ensure that the “Enable version control interface for RStudio projects” option is checked.</li>
-<li>Set the path to the Git executable. It is usually detected automatically, but if not, you can manually set the path:
-<ul>
-<li>On Windows: It is usually <code>C:/Program Files/Git/bin/git.exe</code> or <code>C:/Program Files (x86)/Git/bin/git.exe</code>.</li>
-<li>On macOS: It is usually <code>/usr/local/bin/git</code>.</li>
-<li>On Linux: It is usually <code>/usr/bin/git</code>.</li>
-</ul></li>
-</ul>
-<ol start="4" type="1">
-<li><strong>Apply Changes:</strong> Click <code>Apply</code> and then click <code>OK</code> to save the settings.</li>
-</ol>
-</section>
-<section id="open-clif-repository-with-git-in-rstudio" class="level4">
-<h4 class="anchored" data-anchor-id="open-clif-repository-with-git-in-rstudio">Open CLIF repository with Git in RStudio</h4>
-<ol type="1">
-<li>Go to <code>File</code> -&gt; <code>New Project</code>.</li>
-<li>Select <code>Existing Directory</code>. This should be the local instance of your forked repository.</li>
-<li>Navigate to the directory of the cloned repository and click <code>Create Project</code>.</li>
-</ol>
-</section>
-<section id="use-the-git-tab" class="level4">
-<h4 class="anchored" data-anchor-id="use-the-git-tab">Use the Git tab</h4>
-<p>Now you can easily interact with your forked remote repository and the local repository using the below options in RStudio.</p>
-<ol type="1">
-<li>Commit Changes:</li>
-</ol>
-<ul>
-<li>Click on the Git tab.</li>
-<li>You will see a list of files that have been changed.</li>
-<li>Select the files you want to commit by checking the boxes next to them.</li>
-<li>Click Commit, enter a commit message, and click Commit again.</li>
-</ul>
-<ol start="2" type="1">
-<li>Push Changes:</li>
-</ol>
-<ul>
-<li>After committing, click the Push button to send your changes to the remote repository.</li>
-</ul>
-<ol start="3" type="1">
-<li>Pull Changes:</li>
-</ol>
-<ul>
-<li>Click the Pull button to fetch and merge changes from the remote repository into your local repository.</li>
-</ul>
-<ol start="4" type="1">
-<li>Diff and History:</li>
-</ol>
-<ul>
-<li>Use the Diff button to see differences between the current version and the previous commit.</li>
-<li>Use the History button to view the commit history.</li>
-</ul>
-</section>
-</section>
-<section id="step-5-pull-updates-from-the-original-repository" class="level3">
-<h3 class="anchored" data-anchor-id="step-5-pull-updates-from-the-original-repository">Step 5: Pull updates from the original repository</h3>
-<section id="add-the-original-repository-as-a-remote" class="level4">
-<h4 class="anchored" data-anchor-id="add-the-original-repository-as-a-remote">Add the Original Repository as a Remote:</h4>
-<ul>
-<li>Open your project in RStudio.</li>
-<li>Go to the Terminal tab in RStudio (usually located at the bottom left).</li>
-<li>Add the original repository (upstream) as a remote: <code>git remote add upstream https://github.com/kaveriC/CLIF-1.0.git</code></li>
-</ul>
-</section>
-<section id="fetch-updates-from-the-original-repository" class="level4">
-<h4 class="anchored" data-anchor-id="fetch-updates-from-the-original-repository">Fetch Updates from the Original Repository:</h4>
-<ul>
-<li>In the terminal, run <code>git fetch upstream</code></li>
-</ul>
-</section>
-<section id="merge-updates-into-your-local-branch" class="level4">
-<h4 class="anchored" data-anchor-id="merge-updates-into-your-local-branch">Merge Updates into Your Local Branch:</h4>
-<ul>
-<li>Ensure you are on your main branch (or the branch you want to update): <code>git checkout main</code></li>
-<li>Merge the changes from the upstream repository into your local branch: <code>git merge upstream/main</code></li>
-<li>Resolve any merge conflicts if they occur.</li>
-</ul>
-</section>
-<section id="push-the-updates-to-your-fork" class="level4">
-<h4 class="anchored" data-anchor-id="push-the-updates-to-your-fork">Push the Updates to Your Fork:</h4>
-<ul>
-<li>Push the merged changes to your forked repository: <code>git push origin main</code></li>
-</ul>
-</section>
-</section>
-<section id="step-6-create-a-pull-request-pr" class="level3">
-<h3 class="anchored" data-anchor-id="step-6-create-a-pull-request-pr">Step 6: Create a Pull Request (PR)</h3>
-<p>After you commit and push your changes to your forked repository, you can create a pull request to merge these updates with the main original repository.</p>
-<section id="using-the-github-web-interface-for-pull-requests" class="level4">
-<h4 class="anchored" data-anchor-id="using-the-github-web-interface-for-pull-requests">Using the GitHub Web Interface for Pull Requests</h4>
-<ul>
-<li>Navigate to Your Forked Repository: Go to your forked repository on GitHub.</li>
-<li>Create a Pull Request:
-<ul>
-<li>Click on the Pull Requests tab.</li>
-<li>Click the New Pull Request button.</li>
-<li>Select the base repository (original repository) and the branch you want to merge into (typically main).</li>
-<li>Select the head repository (your fork) and the branch with your changes.</li>
-<li>Click Create Pull Request.</li>
-<li>Add a title and description for your pull request, then click Create Pull Request.</li>
-</ul></li>
-</ul>
-</section>
-<section id="using-rstudio-for-pull-requests" class="level4">
-<h4 class="anchored" data-anchor-id="using-rstudio-for-pull-requests">Using RStudio for Pull Requests</h4>
-<p>While this step is typically done through the GitHub web interface, you can initiate it from the command line if needed.</p>
-<ul>
-<li>Open the terminal in RStudio and use the GitHub CLI (gh) to create a pull request: <code>gh pr create --base kaveriC:main --head your-username:main --title "Your PR Title" --body "Your PR Description"</code></li>
-<li>Replace your-username with your GitHub username and customize the title and description as needed.</li>
-</ul>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

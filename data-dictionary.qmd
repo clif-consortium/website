@@ -41,7 +41,7 @@ The consortium has two different maturity concepts: one for the overall ER model
 -   ![Mature](https://img.shields.io/badge/Maturity-Mature-blue) **Mature**: Widely adopted across majority of consortium sites with majority of tables in stable or mature (see maturity levels for CLIF Tables). ER model very stable.
 -   ![Deprecated](https://img.shields.io/badge/Maturity-Deprecated-lightgrey) **Deprecated**: No longer maintained.
 
-The entity-relationship model for this project is currently at the ![Beta](https://img.shields.io/badge/Maturity-Beta-yellow) **Beta** level for adult patients in a general medical intensive care unit. Major breaking changes to the existing structure are unlikely. The consortium is actively seeking feedback about new tables and fields to add to the ER model to achieve the goal of representing developing a [minimum Common ICU Data Elements (mCIDE)](https://clif-consortium.github.io/website/mcide.html)
+The entity-relationship model for this project is currently at the ![Beta](https://img.shields.io/badge/Maturity-Beta-yellow) **Beta** level for adult patients in a general medical intensive care unit. Major breaking changes to the existing structure are unlikely. The consortium is actively seeking feedback about new tables and fields to add to the ER model to achieve the goal of representing developing a [minimum Common ICU Data Elements (mCIDE)](mCIDE.qmd)
 
 For pediatric patients, CLIF is in the ![Experimental](https://img.shields.io/badge/Maturity-Experimental-red) **Experimental** maturity phase. CLIF is also ![Experimental](https://img.shields.io/badge/Maturity-Experimental-red) **Experimental** for adult patients in specialty ICUs (e.g. cardiac intensive care unit, surgical intensive care unit, and neurointensive care unit).
 
@@ -425,7 +425,7 @@ The respiratory support table is a wider longitudinal table that captures simult
 +-------------------------------+-----------------+------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | device_category               | VARCHAR         | Maps `device_name` to a standardized list of respiratory support device categories | `IMV`, `NIPPV`, `CPAP`, `High Flow NC`, `Face Mask`, `Trach Collar`, `Nasal Cannula`, `Room Air`, `Other`                                                                                                              |
 +-------------------------------+-----------------+------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| vent_brand_name               | VARCHAR         | Ventilator model name when `device_category` is `IMV` or `NIPPV`                   | No restriction                                                                                                                                                                                                         |
+| vent_brand_name               | VARCHAR         | Ventilator model name when `device_category` is `IMV` or `NIPPV` (Optional)        | No restriction                                                                                                                                                                                                         |
 +-------------------------------+-----------------+------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | mode_name                     | VARCHAR         | Includes raw string of the modes, e.g. "CMV volume control"                        | No restriction                                                                                                                                                                                                         |
 +-------------------------------+-----------------+------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -572,6 +572,77 @@ The vitals table is a long-form (one vital sign per row) longitudinal table.
 
 A planned future CLIF table that has yet to be used in a federated project. The table structure and CDE elements are in draft form. Permissible values of category variables may still need to be defined. Seeking conceptual feedback. Significant changes to all aspects of the table are possible.
 
+## Admission Diagnosis
+
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+
+Record of all diagnoses associated with the hospitalization. Expect breaking changes to this table as we seek to align it with existing diagnosis ontologies
+
++-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
+| Variable Name         | Data Type       | Definition                                                  | Permissible Values                                      |
++=======================+=================+=============================================================+=========================================================+
+| patient_id            | VARCHAR         | Unique identifier for each patient                          | No restriction                                          |
++-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
+| diagnostic_code       | DOUBLE          | numeric diagnosis code                                      | valid code in the `diagnositic_code_format`             |
++-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
+| diagnosis_code_format | VARCHAR         | description of the diagnostic code format                   | `icd9` ,`icd10`                                         |
++-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
+| start_dttm            | DATETIME        | date time the diagnosis was recorded                        | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`    |
++-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
+| end_dttm              | DATETIME        | date time the diagnosis was noted as resolved (if resolved) | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`    |
++-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
+
+**Example**:
+
+::: scrollable-table
+| hospitalization_id | diagnostic_code | diagnosis_code_format | start_dttm                | end_dttm                  |
+|-------------------|-----------------|----------------------|---------------------------|---------------------------|
+| 1001014           | 250.00         | icd9                 | 2023-05-01 08:00:00+00:00 | 2023-05-10 08:00:00+00:00 |
+| 1001014           | J45.909        | icd10                | 2023-05-01 08:00:00+00:00 | 2023-05-15 08:00:00+00:00 |
+| 1002025           | 401.9          | icd9                 | 2023-06-10 09:00:00+00:00 | 2023-06-12 09:00:00+00:00 |
+| 1002025           | E11.9          | icd10                | 2023-06-10 09:00:00+00:00 | 2023-06-20 09:00:00+00:00 |
+| 1003036           | 414.01         | icd9                 | 2023-07-15 07:30:00+00:00 | 2023-07-30 07:30:00+00:00 |
+| 1003036           | I25.10         | icd10                | 2023-07-15 07:30:00+00:00 | 2023-07-25 07:30:00+00:00 |
+| 1004047           | 530.81         | icd9                 | 2023-08-20 10:00:00+00:00 | 2023-08-22 10:00:00+00:00 |
+| 1004047           | K21.9          | icd10                | 2023-08-20 10:00:00+00:00 | 2023-08-24 10:00:00+00:00 |
+
+: {.striped .hover}
+:::
+
+## Code Status
+
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+
+This table provides a longitudinal record of changes in a patient's code status during their hospitalization. It tracks the timeline and categorization of code status updates, facilitating the analysis of care preferences and decisions.
+
++----------------------+-----------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------+
+| **Variable Name**    | **Data Type**   | **Definition**                                                                                      | **Permissible Values**                                          |
++======================+=================+=====================================================================================================+=================================================================+
+| hospitalization_id   | VARCHAR         | Unique identifier linking the code status event to a specific hospitalization in the CLIF database. | Unique identifier, e.g., `123456`                               |
++----------------------+-----------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------+
+| start_dttm           | DATETIME        | The date and time when the specific code status was initiated.                                      | Example: `2024-12-03 08:30:00+00:00`                            |
++----------------------+-----------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------+
+| code_status_name     | VARCHAR         | The name/description of the code status.                                                            | Free text to describe the code status.                          |
++----------------------+-----------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------+
+| code_status_category | VARCHAR         | Categorical variable specifying the code status during the hospitalization.                         | E.g., `DNR`, `UDNR`, `DNR/DNI`, `Full`, `Presume Full`, `Other` |
++----------------------+-----------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------+
+
+**Notes**:
+
+-   The `code_status_category` set of permissible values is under development
+
+**Example**:
+
+::: scrollable-table
+| hospitalization_id | start_dttm                  | code_status_name   | code_status_category |
+|-------------------|----------------------------|-------------------|-------------------|
+| 12345             | 2024-12-01 08:30:00+00:00 | Do Not Resuscitate| DNR               |
+| 12345             | 2024-12-02 14:00:00+00:00 | Do Not Intubate   | DNR/DNI           |
+| 12345             | 2024-12-03 10:15:00+00:00 | Full Code         | Full              |
+
+: {.striped .hover}
+:::
+
 ## Dialysis
 
 [![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
@@ -662,155 +733,6 @@ The ECMO/MCS table is a wider longitudinal table that captures the start and sto
 : {.striped .hover}
 :::
 
-
-## Provider
-
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
-
-Continuous start stop record of every provider who cared for the patient.
-
-+------------------------+-----------------+-------------------------------------------------------------------------------------------------+---------------------------------------------------------+
-| Variable Name          | Data Type       | Definition                                                                                      | Permissible Values                                      |
-+========================+=================+=================================================================================================+=========================================================+
-| hospitalization_id     | VARCHAR         | Unique identifier for each hospitalization, linking the provider to a specific encounter        | No restriction                                          |
-+------------------------+-----------------+-------------------------------------------------------------------------------------------------+---------------------------------------------------------+
-| provider_id            | VARCHAR         | Unique identifier for each provider. This represents individual healthcare providers            | No restriction                                          |
-+------------------------+-----------------+-------------------------------------------------------------------------------------------------+---------------------------------------------------------+
-| start_dttm             | DATETIME        | Date and time when the provider's care or involvement in the patient’s case began               | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`    |
-+------------------------+-----------------+-------------------------------------------------------------------------------------------------+---------------------------------------------------------+
-| stop_dttm              | DATETIME        | Date and time when the provider's care or involvement in the patient’s case ended               | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`    |
-+------------------------+-----------------+-------------------------------------------------------------------------------------------------+---------------------------------------------------------+
-| provider_role_name     | VARCHAR         | The original string describing the role or specialty of the provider during the hospitalization | No restriction                                          |
-+------------------------+-----------------+-------------------------------------------------------------------------------------------------+---------------------------------------------------------+
-| provider_role_category | VARCHAR         | Maps `provider_role_name` to list of standardized provider roles                                | under development                                       |
-+------------------------+-----------------+-------------------------------------------------------------------------------------------------+---------------------------------------------------------+
-
-**Example**:
-
-::: scrollable-table
-+--------------------+---------------------------+---------------------------+--------------------------+------------------------+
-| hospitalization_id | start_dttm                | stop_dttm                 | provider_role_name       | provider_role_category |
-+====================+===========================+===========================+==========================+========================+
-| 1001014            | 2023-05-01 08:00:00+00:00 | 2023-05-01 20:00:00+00:00 | Attending Physician      | Attending              |
-+--------------------+---------------------------+---------------------------+--------------------------+------------------------+
-| 1001014            | 2023-05-01 08:00:00+00:00 | 2023-05-02 08:00:00+00:00 | Resident Physician       | Resident               |
-+--------------------+---------------------------+---------------------------+--------------------------+------------------------+
-| 1001014            | 2023-05-01 08:00:00+00:00 | 2023-05-03 08:00:00+00:00 | Nurse Practitioner       | Nurse Practitioner     |
-+--------------------+---------------------------+---------------------------+--------------------------+------------------------+
-| 1002025            | 2023-06-10 09:00:00+00:00 | 2023-06-10 21:00:00+00:00 | Critical Care Specialist | Critical Care          |
-+--------------------+---------------------------+---------------------------+--------------------------+------------------------+
-| 1002025            | 2023-06-10 09:00:00+00:00 | 2023-06-11 09:00:00+00:00 | Respiratory Therapist    | Respiratory Therapy    |
-+--------------------+---------------------------+---------------------------+--------------------------+------------------------+
-| 1003036            | 2023-07-15 07:30:00+00:00 | 2023-07-15 19:30:00+00:00 | Attending Physician      | Attending              |
-+--------------------+---------------------------+---------------------------+--------------------------+------------------------+
-| 1003036            | 2023-07-15 07:30:00+00:00 | 2023-07-16 07:30:00+00:00 | Charge Nurse             | Nurse                  |
-+--------------------+---------------------------+---------------------------+--------------------------+------------------------+
-| 1004047            | 2023-08-20 10:00:00+00:00 | 2023-08-20 22:00:00+00:00 | Physical Therapist       | Therapy                |
-+--------------------+---------------------------+---------------------------+--------------------------+------------------------+
-
-: {.striped .hover}
-:::
-
-## Admission Diagnosis
-
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
-
-Record of all diagnoses associated with the hospitalization. Expect breaking changes to this table as we seek to align it with existing diagnosis ontologies
-
-+-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
-| Variable Name         | Data Type       | Definition                                                  | Permissible Values                                      |
-+=======================+=================+=============================================================+=========================================================+
-| patient_id            | VARCHAR         | Unique identifier for each patient                          | No restriction                                          |
-+-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
-| diagnostic_code       | DOUBLE          | numeric diagnosis code                                      | valid code in the `diagnositic_code_format`             |
-+-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
-| diagnosis_code_format | VARCHAR         | description of the diagnostic code format                   | `icd9` ,`icd10`                                         |
-+-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
-| start_dttm            | DATETIME        | date time the diagnosis was recorded                        | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`    |
-+-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
-| end_dttm              | DATETIME        | date time the diagnosis was noted as resolved (if resolved) | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`    |
-+-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
-
-**Example**:
-
-::: scrollable-table
-| hospitalization_id | diagnostic_code | diagnosis_code_format | start_dttm                | end_dttm                  |
-|-------------------|-----------------|----------------------|---------------------------|---------------------------|
-| 1001014           | 250.00         | icd9                 | 2023-05-01 08:00:00+00:00 | 2023-05-10 08:00:00+00:00 |
-| 1001014           | J45.909        | icd10                | 2023-05-01 08:00:00+00:00 | 2023-05-15 08:00:00+00:00 |
-| 1002025           | 401.9          | icd9                 | 2023-06-10 09:00:00+00:00 | 2023-06-12 09:00:00+00:00 |
-| 1002025           | E11.9          | icd10                | 2023-06-10 09:00:00+00:00 | 2023-06-20 09:00:00+00:00 |
-| 1003036           | 414.01         | icd9                 | 2023-07-15 07:30:00+00:00 | 2023-07-30 07:30:00+00:00 |
-| 1003036           | I25.10         | icd10                | 2023-07-15 07:30:00+00:00 | 2023-07-25 07:30:00+00:00 |
-| 1004047           | 530.81         | icd9                 | 2023-08-20 10:00:00+00:00 | 2023-08-22 10:00:00+00:00 |
-| 1004047           | K21.9          | icd10                | 2023-08-20 10:00:00+00:00 | 2023-08-24 10:00:00+00:00 |
-
-: {.striped .hover}
-:::
-
-## Medication Admin Intermittent
-
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
-
-This table has exactly the same schema as [`medication_admin_continuous`](#medication-admin-continuous) described below. The consortium decided to separate the medications that are administered intermittently from the continuously administered medications. However, the CDE for `medication_category` remains undefined for `medication_admin_intermittent`.
-
-## Medication Orders
-
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
-
-This table records the ordering (not administration) of medications. The table is in long form (one medication order per row) longitudinal table. Linkage to the `medication_admin_continuous` and `medication_admin_intermittent` tables is through the `med_order_id` field.
-
-+---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
-| Variable Name             | Data Type       | Definition                                                                                    | Permissible Values                                                                                    |
-+===========================+=================+===============================================================================================+=======================================================================================================+
-| hospitalization_id        | VARCHAR         | Unique identifier for each hospitalization, linking medication orders to a specific encounter | No restrictions                                                                                       |
-+---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
-| med_order_id              | VARCHAR         | Unique identifier for each medication order                                                   | No restrictions                                                                                       |
-+---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
-| order_start_dttm          | DATETIME        | Date and time when the medication order was initiated                                         | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`                                                  |
-+---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
-| order_end_dttm            | DATETIME        | Date and time when the medication order ended or was discontinued                             | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`                                                  |
-+---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
-| ordered_dttm              | DATETIME        | Date and time when the medication was actually ordered                                        | Datetime format should be ``YYY-MM-DD HH:MM:SS+00:00`                                                 |
-+---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
-| med_name                  | VARCHAR         | Name of the medication ordered                                                                | No restrictions                                                                                       |
-+---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
-| med_category              | VARCHAR         | Maps `med_name` to a list of permissible medication names                                     | Combined CDE of `medication_admin_continuous` and `medication_admin_intermittent` , under development |
-+---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
-| med_group                 | VARCHAR         | Limited number of medication groups identified by the CLIF consortium                         |                                                                                                       |
-+---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
-| med_order_status_name     | VARCHAR         | Status of the medication order, e.g. "held", or "given"                                       | No restrictions                                                                                       |
-+---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
-| med_order_status_category | VARCHAR         | Maps `med_order_status_name` to a standardized list of medication order statuses              | Under-development                                                                                     |
-+---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
-| med_route_name            | VARCHAR         | Route of administration for the medication                                                    | No restrictions, Examples include `Oral`, `Intravenous`                                               |
-+---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
-| med_dose                  | DOUBLE          | Dosage of the medication ordered                                                              | Numeric                                                                                               |
-+---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
-| med_dose_unit             | VARCHAR         | Unit of measurement for the medication dosage                                                 | Examples include `mg`, `mL`, `units`                                                                  |
-+---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
-| med_frequency             | VARCHAR         | Frequency with which the medication is administered, as per the order                         | Examples include `Once Daily`, `Every 6 hours`                                                        |
-+---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
-| prn                       | BOOLEAN         | Indicates whether the medication is to be given "as needed" (PRN)                             | `0` (No), `1` (Yes)                                                                                   |
-+---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
-
-**Example**:
-
-::: scrollable-table
-| hospitalization_id | med_order_id | order_start_dttm              | order_end_dttm                | ordered_dttm                  | med_name                                                           | med_category    | med_group      | med_order_status_name | med_order_status_category | med_route_name | med_dose | med_dose_unit | med_frequency  | prn |
-|-------------------|--------------|------------------------------|------------------------------|------------------------------|------------------------------------------------------------------|----------------|---------------|---------------------|------------------------|---------------|-----------|---------------|---------------|-----|
-| 12345             | 456789       | 2023-10-01 14:00:00+00:00   | 2023-10-02 14:00:00+00:00   | 2023-10-01 13:30:00+00:00   | Norepinephrine 8 mg/250 mL                                         | norepinephrine | vasoactives   | active              | ongoing                 | Intravenous   | 8.0      | mg/mL        | Continuous    | 0   |
-| 12346             | 456790       | 2023-10-01 16:00:00+00:00   | 2023-10-02 10:00:00+00:00   | 2023-10-01 15:30:00+00:00   | Vancomycin 1 g IV                                                  | vancomycin     | antibiotics   | active              | ongoing                 | Intravenous   | 1.0      | g            | Every 12 hours| 0   |
-| 12347             | 456791       | 2023-10-02 08:00:00+00:00   | 2023-10-03 08:00:00+00:00   | 2023-10-02 07:30:00+00:00   | Furosemide 40 mg IV                                                | furosemide     | diuretics     | discontinued         | discontinued            | Intravenous   | 40.0     | mg           | Once Daily    | 0   |
-| 12348             | 456792       | 2023-10-02 12:00:00+00:00   | 2023-10-02 18:00:00+00:00   | 2023-10-02 11:45:00+00:00   | Insulin Regular 100 units/mL SC                                     | insulin        | endocrine     | held                | held                    | Subcutaneous  | 100.0    | units/mL     | As Needed     | 1   |
-| 12349             | 456793       | 2023-10-03 08:00:00+00:00   | 2023-10-03 20:00:00+00:00   | 2023-10-03 07:30:00+00:00   | Acetaminophen 1 g PO                                               | acetaminophen  | analgesics    | active              | ongoing                 | Oral          | 1.0      | g            | Every 6 hours | 0   |
-| 12350             | 456794       | 2023-10-03 10:00:00+00:00   | 2023-10-03 18:00:00+00:00   | 2023-10-03 09:45:00+00:00   | Heparin 5,000 units SC                                             | heparin        | anticoagulant | active              | ongoing                 | Subcutaneous  | 5000.0   | units        | Every 8 hours | 0   |
-| 12351             | 456795       | 2023-10-03 14:00:00+00:00   | 2023-10-03 22:00:00+00:00   | 2023-10-03 13:30:00+00:00   | Morphine Sulfate 2 mg IV                                           | morphine       | analgesics    | active              | ongoing                 | Intravenous   | 2.0      | mg           | As Needed     | 1   |
-| 12352             | 456796       | 2023-10-03 20:00:00+00:00   | 2023-10-04 08:00:00+00:00   | 2023-10-03 19:45:00+00:00   | Dexamethasone 10 mg IV                                             | dexamethasone  | steroids      | active              | ongoing                 | Intravenous   | 10.0     | mg           | Once Daily    | 0   |
-
-: {.striped .hover}
-:::
-
 ## Intake_Output
 
 [![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
@@ -846,36 +768,141 @@ The intake_output table is long form table that captures the times intake and ou
 : {.striped .hover}
 :::
 
-## Therapy_Details
+## Invasive Hemodynamics
 
 [![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
 
-The `therapy_details` table is a wide longitudinal table that captures the details of therapy sessions. The table is designed to capture and categorize the most common therapy elements used in the ICU.
+The `invasive_hemodynamics` table records invasive hemodynamic measurements during a patient’s hospitalization. These measurements represent pressures recorded via invasive monitoring and are expressed in millimeters of mercury (mmHg).
 
-+--------------------------+--------------------------------------------------+
-| Variable Name            | Description                                      |
-+==========================+==================================================+
-| hospitalization_id       | Unique identifier for the hospitalization event. |
-+--------------------------+--------------------------------------------------+
-| session_start_dttm       | Date and time when the therapy session started.  |
-+--------------------------+--------------------------------------------------+
-| therapy_element_name     | Name of the therapy element.                     |
-+--------------------------+--------------------------------------------------+
-| therapy_element_category | Category of the therapy element.                 |
-+--------------------------+--------------------------------------------------+
-| therapy_element_value    | Value associated with the therapy element.       |
-+--------------------------+--------------------------------------------------+
++--------------------+-----------------+-------------------------------------------------------------------------------+---------------------------------------------------------------------+
+| Column Name        | Data Type       | Description                                                                   | Permissible Values                                                  |
++====================+=================+===============================================================================+=====================================================================+
+| hospitalization_id | VARCHAR         | Unique identifier linking to the specific hospitalization.                    | N/A                                                                 |
++--------------------+-----------------+-------------------------------------------------------------------------------+---------------------------------------------------------------------+
+| recorded_dttm      | DATETIME        | The date and time when the measurement was recorded.                          | N/A                                                                 |
++--------------------+-----------------+-------------------------------------------------------------------------------+---------------------------------------------------------------------+
+| measure_name       | VARCHAR         | Description of the site or context of the invasive hemodynamic measurement.   | Free text (e.g., "Right Atrium")                                    |
++--------------------+-----------------+-------------------------------------------------------------------------------+---------------------------------------------------------------------+
+| measure_category   | VARCHAR         | Categorical variable specifying the type of invasive hemodynamic measurement. | `CVP`, `RA`, `RV`, `PA_systolic`, `PA_diastolic`, `PA_mean`, `PCWP` |
++--------------------+-----------------+-------------------------------------------------------------------------------+---------------------------------------------------------------------+
+| measure_value      | DDOUBLE         | The numerical value of the invasive hemodynamic measurement in mmHg.          | Positive decimal values (e.g., `5.00`, `25.65`)                     |
++--------------------+-----------------+-------------------------------------------------------------------------------+---------------------------------------------------------------------+
+
+**Notes**:
+
+-   All `measure_value` entries should be recorded in mmHg.
+-   The `measure_category` field ensures standardization of invasive hemodynamic data.
+    -   `CVP` - Central Venous Pressure
+    -   `RA` - Right Atrial Pressure
+    -   `RV` - Right Ventricular Pressure
+    -   `PA_systolic` - Pulmonary Artery Systolic Pressure
+    -   `PA_diastolic` - Pulmonary Artery Diastolic Pressure
+    -   `PA_mean` - Pulmonary Artery Mean Pressure
+    -   `PCWP` - Pulmonary Capillary Wedge Pressure
 
 **Example**:
 
 ::: scrollable-table
-| hospitalization_id | session_start_dttm           | therapy_element_name     | therapy_element_category | therapy_element_value |
-|-------------------|-----------------------------|-----------------------|------------------------|-------------------|
-| 1001              | 2024-01-01 08:00:00+00:00  | Physical Therapy      | Rehabilitation         | 45.0             |
-| 1001              | 2024-01-01 10:00:00+00:00  | Respiratory Therapy   | Respiratory Support    | 3.0              |
-| 1002              | 2024-01-05 09:30:00+00:00  | Occupational Therapy  | Rehabilitation         | 60.0             |
-| 1002              | 2024-01-05 11:00:00+00:00  | Speech Therapy        | Rehabilitation         | 30.0             |
-| 1003              | 2024-01-10 07:00:00+00:00  | Ventilation Support   | Respiratory Support    | 2.5              |
+| hospitalization_id | recorded_dttm                | measure_name         | measure_category | measure_value |
+|-------------------|----------------------------|-------------------|-----------------|--------------|
+| 12345             | 2024-12-01 08:30:00+00:00 | CVP               | CVP             | 12.50        |
+| 12345             | 2024-12-01 09:00:00+00:00 | Pulmonary Artery-Sys | PA_systolic     | 25.00        |
+| 12345             | 2024-12-01 09:30:00+00:00 | Wedge             | PCWP            | 18.75        |
+
+: {.striped .hover}
+:::
+
+## Key ICU orders
+
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+
+The `key_icu_orders` table captures key orders related to physical therapy (PT) and occupational therapy (OT) during ICU stays. It includes details about the hospitalization, the timing of the order, the specific name of the order, its category, and the status of the order (completed or sent).
+
++--------------------+-----------------+---------------------------------------------------------------------+----------------------------------------------------------------------------------------------------+
+| Column Name        | Data Type       | Description                                                         | Permissible Values                                                                                 |
++====================+=================+=====================================================================+====================================================================================================+
+| hospitalization_id | VARCHAR         | Unique identifier linking the order to a specific hospitalization.  | N/A                                                                                                |
++--------------------+-----------------+---------------------------------------------------------------------+----------------------------------------------------------------------------------------------------+
+| order_dttm         | DATETIME        | Date and time when the order was placed.                            | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`                                               |
++--------------------+-----------------+---------------------------------------------------------------------+----------------------------------------------------------------------------------------------------+
+| order_name         | VARCHAR         | Name of the specific order (e.g., "PT Evaluation", "OT Treatment"). | N/A                                                                                                |
++--------------------+-----------------+---------------------------------------------------------------------+----------------------------------------------------------------------------------------------------+
+| order_category     | VARCHAR         | Category of the order. Permissible values are:                      | Under-development. Some examples include: `PT_evaluation`, `PT_treat`, `OT_evaluation`, `OT_treat` |
++--------------------+-----------------+---------------------------------------------------------------------+----------------------------------------------------------------------------------------------------+
+| order_status_name  | VARCHAR         | Status of the order. Permissible values are:                        | `sent`, `completed`                                                                                |
++--------------------+-----------------+---------------------------------------------------------------------+----------------------------------------------------------------------------------------------------+
+
+**Example**:
+
+::: scrollable-table
+| hospitalization_id | order_dttm                | order_name                | order_category | order_status_name |
+|-------------------|---------------------------|--------------------------|---------------|-----------------|
+| 12345             | 2024-12-15 10:00:00+00:00 | PT Initial Evaluation     | PT_evaluation  | completed       |
+| 67890             | 2024-12-16 14:30:00+00:00 | OT Follow-up Treatment    | OT_treat       | sent            |
+| 54321             | 2024-12-16 08:00:00+00:00 | PT Mobility Session       | PT_treat       | completed       |
+| 98765             | 2024-12-15 11:15:00+00:00 | OT Cognitive Assessment   | OT_evaluation  | sent            |
+: {.striped .hover}
+:::
+
+## Medication Admin Intermittent
+
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+
+This table has exactly the same schema as [`medication_admin_continuous`](#medication-admin-continuous) described below. The consortium decided to separate the medications that are administered intermittently from the continuously administered medications. The mCIDE for `medication_category` for intermittent meds can be found [here](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/blob/main/mCIDE/clif_medication_admin_intermittent_med_categories.csv).
+
+## Medication Orders
+
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+
+This table records the ordering (not administration) of medications. The table is in long form (one medication order per row) longitudinal table. Linkage to the `medication_admin_continuous` and `medication_admin_intermittent` tables is through the `med_order_id` field.
+
++---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
+| Variable Name             | Data Type       | Definition                                                                                    | Permissible Values                                                                                    |
++===========================+=================+===============================================================================================+=======================================================================================================+
+| hospitalization_id        | VARCHAR         | Unique identifier for each hospitalization, linking medication orders to a specific encounter | No restrictions                                                                                       |
++---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
+| med_order_id              | VARCHAR         | Unique identifier for each medication order                                                   | No restrictions                                                                                       |
++---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
+| order_start_dttm          | DATETIME        | Date and time when the medication order was initiated                                         | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`                                                  |
++---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
+| order_end_dttm            | DATETIME        | Date and time when the medication order ended or was discontinued                             | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`                                                  |
++---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
+| ordered_dttm              | DATETIME        | Date and time when the medication was actually ordered                                        | Datetime format should be ``YYY-MM-DD HH:MM:SS+00:00`                                                 |
++---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
+| med_name                  | VARCHAR         | Name of the medication ordered                                                                | No restrictions                                                                                       |
++---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
+| med_category              | VARCHAR         | Maps `med_name` to a list of permissible medication names                                     | Combined CDE of `medication_admin_continuous` and `medication_admin_intermittent`                     |
++---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
+| med_group                 | VARCHAR         | Limited number of medication groups identified by the CLIF consortium                         |                                                                                                       |
++---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
+| med_order_status_name     | VARCHAR         | Status of the medication order, e.g. "held", or "given"                                       | No restrictions                                                                                       |
++---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
+| med_order_status_category | VARCHAR         | Maps `med_order_status_name` to a standardized list of medication order statuses              | Under-development                                                                                     |
++---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
+| med_route_name            | VARCHAR         | Route of administration for the medication                                                    | No restrictions, Examples include `Oral`, `Intravenous`                                               |
++---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
+| med_dose                  | DOUBLE          | Dosage of the medication ordered                                                              | Numeric                                                                                               |
++---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
+| med_dose_unit             | VARCHAR         | Unit of measurement for the medication dosage                                                 | Examples include `mg`, `mL`, `units`                                                                  |
++---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
+| med_frequency             | VARCHAR         | Frequency with which the medication is administered, as per the order                         | Examples include `Once Daily`, `Every 6 hours`                                                        |
++---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
+| prn                       | BOOLEAN         | Indicates whether the medication is to be given "as needed" (PRN)                             | `0` (No), `1` (Yes)                                                                                   |
++---------------------------+-----------------+-----------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------+
+
+**Example**:
+
+::: scrollable-table
+| hospitalization_id | med_order_id | order_start_dttm              | order_end_dttm                | ordered_dttm                  | med_name                                                           | med_category    | med_group      | med_order_status_name | med_order_status_category | med_route_name | med_dose | med_dose_unit | med_frequency  | prn |
+|-------------------|--------------|------------------------------|------------------------------|------------------------------|------------------------------------------------------------------|----------------|---------------|---------------------|------------------------|---------------|-----------|---------------|---------------|-----|
+| 12345             | 456789       | 2023-10-01 14:00:00+00:00   | 2023-10-02 14:00:00+00:00   | 2023-10-01 13:30:00+00:00   | Norepinephrine 8 mg/250 mL                                         | norepinephrine | vasoactives   | active              | ongoing                 | Intravenous   | 8.0      | mg/mL        | Continuous    | 0   |
+| 12346             | 456790       | 2023-10-01 16:00:00+00:00   | 2023-10-02 10:00:00+00:00   | 2023-10-01 15:30:00+00:00   | Vancomycin 1 g IV                                                  | vancomycin     | antibiotics   | active              | ongoing                 | Intravenous   | 1.0      | g            | Every 12 hours| 0   |
+| 12347             | 456791       | 2023-10-02 08:00:00+00:00   | 2023-10-03 08:00:00+00:00   | 2023-10-02 07:30:00+00:00   | Furosemide 40 mg IV                                                | furosemide     | diuretics     | discontinued         | discontinued            | Intravenous   | 40.0     | mg           | Once Daily    | 0   |
+| 12348             | 456792       | 2023-10-02 12:00:00+00:00   | 2023-10-02 18:00:00+00:00   | 2023-10-02 11:45:00+00:00   | Insulin Regular 100 units/mL SC                                     | insulin        | endocrine     | held                | held                    | Subcutaneous  | 100.0    | units/mL     | As Needed     | 1   |
+| 12349             | 456793       | 2023-10-03 08:00:00+00:00   | 2023-10-03 20:00:00+00:00   | 2023-10-03 07:30:00+00:00   | Acetaminophen 1 g PO                                               | acetaminophen  | analgesics    | active              | ongoing                 | Oral          | 1.0      | g            | Every 6 hours | 0   |
+| 12350             | 456794       | 2023-10-03 10:00:00+00:00   | 2023-10-03 18:00:00+00:00   | 2023-10-03 09:45:00+00:00   | Heparin 5,000 units SC                                             | heparin        | anticoagulant | active              | ongoing                 | Subcutaneous  | 5000.0   | units        | Every 8 hours | 0   |
+| 12351             | 456795       | 2023-10-03 14:00:00+00:00   | 2023-10-03 22:00:00+00:00   | 2023-10-03 13:30:00+00:00   | Morphine Sulfate 2 mg IV                                           | morphine       | analgesics    | active              | ongoing                 | Intravenous   | 2.0      | mg           | As Needed     | 1   |
+| 12352             | 456796       | 2023-10-03 20:00:00+00:00   | 2023-10-04 08:00:00+00:00   | 2023-10-03 19:45:00+00:00   | Dexamethasone 10 mg IV                                             | dexamethasone  | steroids      | active              | ongoing                 | Intravenous   | 10.0     | mg           | Once Daily    | 0   |
 
 : {.striped .hover}
 :::
@@ -923,38 +950,6 @@ The microbiology culture table is a wide longitudinal table that captures the or
 | 12348             | 2023-08-10 09:00:00+00:00 | 2023-08-10 09:45:00+00:00 | 2023-08-12 08:00:00+00:00 | culture, blood (bacterial & fungal)  | blood/buffy coat       | culture        | culture           | staphylococcus_aureus  | staphylococcus (all)          |
 | 12349             | 2023-07-25 11:00:00+00:00 | 2023-07-25 11:30:00+00:00 | 2023-07-27 10:15:00+00:00 | culture, urine                       | genito-urinary tract   | culture        | culture           | enterococcus_faecium   | enterococcus (all species)    |
 | 12350             | 2023-06-15 13:30:00+00:00 | 2023-06-15 14:00:00+00:00 | 2023-06-17 09:45:00+00:00 | culture & stain, respiratory         | lower respiratory tract | gram stain     | gram stain        | gram negative rod      | gram negative rod (nos)       |
-
-: {.striped .hover}
-:::
-
-## Sensitivity
-
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
-
-This table is used to store the susceptibility results of the organisms identified in the `Microbiology Culture` table and may be renamed to `Microbiology_Susceptibility`
-
-+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------+
-| Variable Name   | Data Type       | Definition                                                                                                                      | Permissible Values                          |
-+=================+=================+=================================================================================================================================+=============================================+
-| culture_id      | VARCHAR         | Unique identifier linking to the culture from which the sensitivity test was performed                                          |                                             |
-+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------+
-| antibiotic      | VARCHAR         | Name of the antibiotic tested for sensitivity                                                                                   | Examples include `Penicillin`, `Vancomycin` |
-+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------+
-| sensitivity     | VARCHAR         | The result of the sensitivity test, indicating the organism's resistance or susceptibility                                      | `Resistant`, `Intermediate`, `Susceptible`  |
-+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------+
-| mic             | DOUBLE          | Minimum Inhibitory Concentration (MIC) value, which measures the lowest concentration of an antibiotic needed to inhibit growth |                                             |
-+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------+
-
-**Example**:
-
-::: scrollable-table
-| culture_id | antibiotic    | sensitivity  | mic  |
-|------------|---------------|--------------|------|
-| 1001       | Penicillin    | Susceptible  | 0.25 |
-| 1001       | Vancomycin    | Resistant    | 8.0  |
-| 1002       | Amoxicillin   | Intermediate | 4.0  |
-| 1003       | Ciprofloxacin | Susceptible  | 0.5  |
-| 1004       | Gentamicin    | Resistant    | 16.0 |
 
 : {.striped .hover}
 :::
@@ -1039,6 +1034,120 @@ A longitudinal record of each bedside ICU procedure performed on the patient (e.
 : {.striped .hover}
 :::
 
+## Provider
+
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+
+Continuous start stop record of every provider who cared for the patient.
+
++------------------------+-----------------+-------------------------------------------------------------------------------------------------+---------------------------------------------------------+
+| Variable Name          | Data Type       | Definition                                                                                      | Permissible Values                                      |
++========================+=================+=================================================================================================+=========================================================+
+| hospitalization_id     | VARCHAR         | Unique identifier for each hospitalization, linking the provider to a specific encounter        | No restriction                                          |
++------------------------+-----------------+-------------------------------------------------------------------------------------------------+---------------------------------------------------------+
+| provider_id            | VARCHAR         | Unique identifier for each provider. This represents individual healthcare providers            | No restriction                                          |
++------------------------+-----------------+-------------------------------------------------------------------------------------------------+---------------------------------------------------------+
+| start_dttm             | DATETIME        | Date and time when the provider's care or involvement in the patient’s case began               | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`    |
++------------------------+-----------------+-------------------------------------------------------------------------------------------------+---------------------------------------------------------+
+| stop_dttm              | DATETIME        | Date and time when the provider's care or involvement in the patient’s case ended               | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`    |
++------------------------+-----------------+-------------------------------------------------------------------------------------------------+---------------------------------------------------------+
+| provider_role_name     | VARCHAR         | The original string describing the role or specialty of the provider during the hospitalization | No restriction                                          |
++------------------------+-----------------+-------------------------------------------------------------------------------------------------+---------------------------------------------------------+
+| provider_role_category | VARCHAR         | Maps `provider_role_name` to list of standardized provider roles                                | under development                                       |
++------------------------+-----------------+-------------------------------------------------------------------------------------------------+---------------------------------------------------------+
+
+**Example**:
+
+::: scrollable-table
++--------------------+---------------------------+---------------------------+--------------------------+------------------------+
+| hospitalization_id | start_dttm                | stop_dttm                 | provider_role_name       | provider_role_category |
++====================+===========================+===========================+==========================+========================+
+| 1001014            | 2023-05-01 08:00:00+00:00 | 2023-05-01 20:00:00+00:00 | Attending Physician      | Attending              |
++--------------------+---------------------------+---------------------------+--------------------------+------------------------+
+| 1001014            | 2023-05-01 08:00:00+00:00 | 2023-05-02 08:00:00+00:00 | Resident Physician       | Resident               |
++--------------------+---------------------------+---------------------------+--------------------------+------------------------+
+| 1001014            | 2023-05-01 08:00:00+00:00 | 2023-05-03 08:00:00+00:00 | Nurse Practitioner       | Nurse Practitioner     |
++--------------------+---------------------------+---------------------------+--------------------------+------------------------+
+| 1002025            | 2023-06-10 09:00:00+00:00 | 2023-06-10 21:00:00+00:00 | Critical Care Specialist | Critical Care          |
++--------------------+---------------------------+---------------------------+--------------------------+------------------------+
+| 1002025            | 2023-06-10 09:00:00+00:00 | 2023-06-11 09:00:00+00:00 | Respiratory Therapist    | Respiratory Therapy    |
++--------------------+---------------------------+---------------------------+--------------------------+------------------------+
+| 1003036            | 2023-07-15 07:30:00+00:00 | 2023-07-15 19:30:00+00:00 | Attending Physician      | Attending              |
++--------------------+---------------------------+---------------------------+--------------------------+------------------------+
+| 1003036            | 2023-07-15 07:30:00+00:00 | 2023-07-16 07:30:00+00:00 | Charge Nurse             | Nurse                  |
++--------------------+---------------------------+---------------------------+--------------------------+------------------------+
+| 1004047            | 2023-08-20 10:00:00+00:00 | 2023-08-20 22:00:00+00:00 | Physical Therapist       | Therapy                |
++--------------------+---------------------------+---------------------------+--------------------------+------------------------+
+
+: {.striped .hover}
+:::
+
+## Sensitivity
+
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+
+This table is used to store the susceptibility results of the organisms identified in the `Microbiology Culture` table and may be renamed to `Microbiology_Susceptibility`
+
++-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------+
+| Variable Name   | Data Type       | Definition                                                                                                                      | Permissible Values                          |
++=================+=================+=================================================================================================================================+=============================================+
+| culture_id      | VARCHAR         | Unique identifier linking to the culture from which the sensitivity test was performed                                          |                                             |
++-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------+
+| antibiotic      | VARCHAR         | Name of the antibiotic tested for sensitivity                                                                                   | Examples include `Penicillin`, `Vancomycin` |
++-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------+
+| sensitivity     | VARCHAR         | The result of the sensitivity test, indicating the organism's resistance or susceptibility                                      | `Resistant`, `Intermediate`, `Susceptible`  |
++-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------+
+| mic             | DOUBLE          | Minimum Inhibitory Concentration (MIC) value, which measures the lowest concentration of an antibiotic needed to inhibit growth |                                             |
++-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------+
+
+**Example**:
+
+::: scrollable-table
+| culture_id | antibiotic    | sensitivity  | mic  |
+|------------|---------------|--------------|------|
+| 1001       | Penicillin    | Susceptible  | 0.25 |
+| 1001       | Vancomycin    | Resistant    | 8.0  |
+| 1002       | Amoxicillin   | Intermediate | 4.0  |
+| 1003       | Ciprofloxacin | Susceptible  | 0.5  |
+| 1004       | Gentamicin    | Resistant    | 16.0 |
+
+: {.striped .hover}
+:::
+
+## Therapy Details
+
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+
+The `therapy_details` table is a wide longitudinal table that captures the details of therapy sessions. The table is designed to capture and categorize the most common therapy elements used in the ICU.
+
++--------------------------+--------------------------------------------------+
+| Variable Name            | Description                                      |
++==========================+==================================================+
+| hospitalization_id       | Unique identifier for the hospitalization event. |
++--------------------------+--------------------------------------------------+
+| session_start_dttm       | Date and time when the therapy session started.  |
++--------------------------+--------------------------------------------------+
+| therapy_element_name     | Name of the therapy element.                     |
++--------------------------+--------------------------------------------------+
+| therapy_element_category | Category of the therapy element.                 |
++--------------------------+--------------------------------------------------+
+| therapy_element_value    | Value associated with the therapy element.       |
++--------------------------+--------------------------------------------------+
+
+**Example**:
+
+::: scrollable-table
+| hospitalization_id | session_start_dttm           | therapy_element_name     | therapy_element_category | therapy_element_value |
+|-------------------|-----------------------------|-----------------------|------------------------|-------------------|
+| 1001              | 2024-01-01 08:00:00+00:00  | Physical Therapy      | Rehabilitation         | 45.0             |
+| 1001              | 2024-01-01 10:00:00+00:00  | Respiratory Therapy   | Respiratory Support    | 3.0              |
+| 1002              | 2024-01-05 09:30:00+00:00  | Occupational Therapy  | Rehabilitation         | 60.0             |
+| 1002              | 2024-01-05 11:00:00+00:00  | Speech Therapy        | Rehabilitation         | 30.0             |
+| 1003              | 2024-01-10 07:00:00+00:00  | Ventilation Support   | Respiratory Support    | 2.5              |
+
+: {.striped .hover}
+:::
+
 ## Transfusion
 
 [![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
@@ -1074,116 +1183,6 @@ This table provides detailed information about transfusion events linked to spec
 | 789012            | 2024-12-04 14:00:00+00:00       | 2024-12-04 16:30:00+00:00       | Platelets       | Irradiated        | 250              | mL           | P0205        |
 | 456789            | 2024-12-05 12:15:00+00:00       | 2024-12-05 13:45:00+00:00       | Plasma          |                   | 200              | mL           | F0781        |
 
-: {.striped .hover}
-:::
-
-## Code Status
-
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
-
-This table provides a longitudinal record of changes in a patient's code status during their hospitalization. It tracks the timeline and categorization of code status updates, facilitating the analysis of care preferences and decisions.
-
-+----------------------+-----------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------+
-| **Variable Name**    | **Data Type**   | **Definition**                                                                                      | **Permissible Values**                                          |
-+======================+=================+=====================================================================================================+=================================================================+
-| hospitalization_id   | VARCHAR         | Unique identifier linking the code status event to a specific hospitalization in the CLIF database. | Unique identifier, e.g., `123456`                               |
-+----------------------+-----------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------+
-| start_dttm           | DATETIME        | The date and time when the specific code status was initiated.                                      | Example: `2024-12-03 08:30:00+00:00`                            |
-+----------------------+-----------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------+
-| code_status_name     | VARCHAR         | The name/description of the code status.                                                            | Free text to describe the code status.                          |
-+----------------------+-----------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------+
-| code_status_category | VARCHAR         | Categorical variable specifying the code status during the hospitalization.                         | E.g., `DNR`, `UDNR`, `DNR/DNI`, `Full`, `Presume Full`, `Other` |
-+----------------------+-----------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------+
-
-**Notes**:
-
--   The `code_status_category` set of permissible values is under development
-
-**Example**:
-
-::: scrollable-table
-| hospitalization_id | start_dttm                  | code_status_name   | code_status_category |
-|-------------------|----------------------------|-------------------|-------------------|
-| 12345             | 2024-12-01 08:30:00+00:00 | Do Not Resuscitate| DNR               |
-| 12345             | 2024-12-02 14:00:00+00:00 | Do Not Intubate   | DNR/DNI           |
-| 12345             | 2024-12-03 10:15:00+00:00 | Full Code         | Full              |
-
-: {.striped .hover}
-:::
-
-## Invasive Hemodynamics
-
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
-
-The `invasive_hemodynamics` table records invasive hemodynamic measurements during a patient’s hospitalization. These measurements represent pressures recorded via invasive monitoring and are expressed in millimeters of mercury (mmHg).
-
-+--------------------+-----------------+-------------------------------------------------------------------------------+---------------------------------------------------------------------+
-| Column Name        | Data Type       | Description                                                                   | Permissible Values                                                  |
-+====================+=================+===============================================================================+=====================================================================+
-| hospitalization_id | VARCHAR         | Unique identifier linking to the specific hospitalization.                    | N/A                                                                 |
-+--------------------+-----------------+-------------------------------------------------------------------------------+---------------------------------------------------------------------+
-| recorded_dttm      | DATETIME        | The date and time when the measurement was recorded.                          | N/A                                                                 |
-+--------------------+-----------------+-------------------------------------------------------------------------------+---------------------------------------------------------------------+
-| measure_name       | VARCHAR         | Description of the site or context of the invasive hemodynamic measurement.   | Free text (e.g., "Right Atrium")                                    |
-+--------------------+-----------------+-------------------------------------------------------------------------------+---------------------------------------------------------------------+
-| measure_category   | VARCHAR         | Categorical variable specifying the type of invasive hemodynamic measurement. | `CVP`, `RA`, `RV`, `PA_systolic`, `PA_diastolic`, `PA_mean`, `PCWP` |
-+--------------------+-----------------+-------------------------------------------------------------------------------+---------------------------------------------------------------------+
-| measure_value      | DDOUBLE         | The numerical value of the invasive hemodynamic measurement in mmHg.          | Positive decimal values (e.g., `5.00`, `25.65`)                     |
-+--------------------+-----------------+-------------------------------------------------------------------------------+---------------------------------------------------------------------+
-
-**Notes**:
-
--   All `measure_value` entries should be recorded in mmHg.
--   The `measure_category` field ensures standardization of invasive hemodynamic data.
-    -   `CVP` - Central Venous Pressure
-    -   `RA` - Right Atrial Pressure
-    -   `RV` - Right Ventricular Pressure
-    -   `PA_systolic` - Pulmonary Artery Systolic Pressure
-    -   `PA_diastolic` - Pulmonary Artery Diastolic Pressure
-    -   `PA_mean` - Pulmonary Artery Mean Pressure
-    -   `PCWP` - Pulmonary Capillary Wedge Pressure
-
-**Example**:
-
-::: scrollable-table
-| hospitalization_id | recorded_dttm                | measure_name         | measure_category | measure_value |
-|-------------------|----------------------------|-------------------|-----------------|--------------|
-| 12345             | 2024-12-01 08:30:00+00:00 | CVP               | CVP             | 12.50        |
-| 12345             | 2024-12-01 09:00:00+00:00 | Pulmonary Artery-Sys | PA_systolic     | 25.00        |
-| 12345             | 2024-12-01 09:30:00+00:00 | Wedge             | PCWP            | 18.75        |
-
-: {.striped .hover}
-:::
-
-## Key ICU orders
-
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
-
-The `key_icu_orders` table captures key orders related to physical therapy (PT) and occupational therapy (OT) during ICU stays. It includes details about the hospitalization, the timing of the order, the specific name of the order, its category, and the status of the order (completed or sent).
-
-+--------------------+-----------------+---------------------------------------------------------------------+----------------------------------------------------------------------------------------------------+
-| Column Name        | Data Type       | Description                                                         | Permissible Values                                                                                 |
-+====================+=================+=====================================================================+====================================================================================================+
-| hospitalization_id | VARCHAR         | Unique identifier linking the order to a specific hospitalization.  | N/A                                                                                                |
-+--------------------+-----------------+---------------------------------------------------------------------+----------------------------------------------------------------------------------------------------+
-| order_dttm         | DATETIME        | Date and time when the order was placed.                            | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`                                               |
-+--------------------+-----------------+---------------------------------------------------------------------+----------------------------------------------------------------------------------------------------+
-| order_name         | VARCHAR         | Name of the specific order (e.g., "PT Evaluation", "OT Treatment"). | N/A                                                                                                |
-+--------------------+-----------------+---------------------------------------------------------------------+----------------------------------------------------------------------------------------------------+
-| order_category     | VARCHAR         | Category of the order. Permissible values are:                      | Under-development. Some examples include: `PT_evaluation`, `PT_treat`, `OT_evaluation`, `OT_treat` |
-+--------------------+-----------------+---------------------------------------------------------------------+----------------------------------------------------------------------------------------------------+
-| order_status_name  | VARCHAR         | Status of the order. Permissible values are:                        | `sent`, `completed`                                                                                |
-+--------------------+-----------------+---------------------------------------------------------------------+----------------------------------------------------------------------------------------------------+
-
-**Example**:
-
-::: scrollable-table
-| hospitalization_id | order_dttm                | order_name                | order_category | order_status_name |
-|-------------------|---------------------------|--------------------------|---------------|-----------------|
-| 12345             | 2024-12-15 10:00:00+00:00 | PT Initial Evaluation     | PT_evaluation  | completed       |
-| 67890             | 2024-12-16 14:30:00+00:00 | OT Follow-up Treatment    | OT_treat       | sent            |
-| 54321             | 2024-12-16 08:00:00+00:00 | PT Mobility Session       | PT_treat       | completed       |
-| 98765             | 2024-12-15 11:15:00+00:00 | OT Cognitive Assessment   | OT_evaluation  | sent            |
 : {.striped .hover}
 :::
 

@@ -100,6 +100,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./data-dictionary.html"> 
 <span class="menu-text">Data Dictionary</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./cohort.html"> 
+<span class="menu-text">CLIF Cohort</span></a>
+  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Resources</span>
@@ -170,12 +174,12 @@ ul.task-list li input[type="checkbox"] {
 
 <p>The CLIF format and federated research approach aspires to adhere to the <a href="https://sharing.nih.gov/data-management-and-sharing-policy/about-data-management-and-sharing-policies/data-management-and-sharing-policy-overview#after">2023 NIH Data Management and Sharing Policy</a> and the <a href="https://www.go-fair.org/fair-principles/">FAIR (Findable Accessible Interoperable Resuable) data principles</a>.</p>
 <p>Common Data Element (CDEs) “are data elements (or variables) that are defined and used the same way across multiple studies, to standardize the way data is collected”</p>
-<p>We have constructed a minimum set of Common ICU Data Elements (mCDE) for a CLIF database. CDEs have the following features</p>
+<p>We have constructed a minimum set of Common ICU Data Elements (mCIDE) for a CLIF database. CDEs have the following features</p>
 <ol type="1">
 <li>represents a precisely defined clinical entity</li>
 <li>limited set of permissible values</li>
 </ol>
-<p><code>*_category</code> variables are CDEs. Whenever possible, we chose CDEs directly from the <a href="https://cde.nlm.nih.gov/home">NIH CDE Repository</a>.</p>
+<p><code>*_category</code> variables are CDEs. CLIF mCIDE for all beta tables are available <a href="https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/tree/main/mCIDE">here</a>. Use our custom GPT- <a href="https://chatgpt.com/g/g-h1nk6d3eR-clif-assistant">CLIF Assistant</a> - to map site-specific elements to the CLIF mCIDE.</p>
 <section id="example-mode-of-mechanical-ventilation" class="level2">
 <h2 class="anchored" data-anchor-id="example-mode-of-mechanical-ventilation">Example: mode of mechanical ventilation</h2>
 <p><strong>CIDE field</strong>: <code>mode_category</code></p>
