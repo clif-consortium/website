@@ -183,7 +183,7 @@ The hospitalization table contains information about each hospitalization event.
 
 ## Labs
 
-The labs table is a long form (one lab result per row) longitudinal table. Each lab result
+The labs table is a long form (one lab result per row) longitudinal table. 
 
 [![](https://img.shields.io/badge/Maturity-Beta-yellow)](#maturity-levels-for-clif-tables)
 
@@ -643,51 +643,68 @@ This table provides a longitudinal record of changes in a patient's code status 
 : {.striped .hover}
 :::
 
-## Dialysis
+
+## CRRT Therapy
 
 [![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
 
-The dialysis table is a wider longitudinal table that captures the start and stop times of dialysis sessions, the type of dialysis performed, and the amount of dialysate flow and ultrafiltration.
+The crrt_therapy table captures Continuous Renal Replacement Therapy (CRRT) data, including different CRRT modalities, operational parameters, and fluid exchange details. 
+The intermittent HD, peritoneal dialysis, PERT, and SLED tables are under development.
 
-+------------------------+-----------------+--------------------------------------------------------------------+--------------------------------------------------+
-| Variable Name          | Data Type       | Definition                                                         | Permissible values                               |
-+========================+=================+====================================================================+==================================================+
-| hospitalization_id     | VARCHAR         | ID variable for each patient encounter                             |                                                  |
-+------------------------+-----------------+--------------------------------------------------------------------+--------------------------------------------------+
-| start_dttm             | DATETIME        | Start date and time of dialysis session                            | Datetime format `YYY-MM-DD HH:MM:SS+00:00`       |
-+------------------------+-----------------+--------------------------------------------------------------------+--------------------------------------------------+
-| stop_dttm              | DATETIME        | Stop date and time of dialysis session                             | Datetime format `YYY-MM-DD HH:MM:SS+00:00`       |
-+------------------------+-----------------+--------------------------------------------------------------------+--------------------------------------------------+
-| dialysis_type_name     | VARCHAR         | Name of dialysis type                                              | No restriction                                   |
-+------------------------+-----------------+--------------------------------------------------------------------+--------------------------------------------------+
-| dialysis_type_category | VARCHAR         | Maps `dialysis_type_name` to a list of standardized dialysis types | `intermittent`, `peritoneal`, `crrt`             |
-+------------------------+-----------------+--------------------------------------------------------------------+--------------------------------------------------+
-| crrt_mode_name         | VARCHAR         | Name of the CRRT mode, e.g. "CVVHD"                                | No restriction                                   |
-+------------------------+-----------------+--------------------------------------------------------------------+--------------------------------------------------+
-| crrt_mode_category     | VARCHAR         | Maps `crrt_mode_name` to a standardized list of CRRT modes         | under development                                |
-+------------------------+-----------------+--------------------------------------------------------------------+--------------------------------------------------+
-| fluid_removal_amt      | DOUBLE          | Amount of fluid removed during dialysis                            | Numeric                                          |
-+------------------------+-----------------+--------------------------------------------------------------------+--------------------------------------------------+
-| dialysate_flow_rate    | DOUBLE          | Rate of dialysate flow                                             | Numeric                                          |
-+------------------------+-----------------+--------------------------------------------------------------------+--------------------------------------------------+
++-----------------------------------+-----------+--------------------------------------------------------------------+
+| Variable Name                     | Data Type | Definition                                                         |
++===================================+===========+====================================================================+
+| hospitalization_id                | VARCHAR   | Unique identifier for hospitalization episode                      |
++-----------------------------------+-----------+--------------------------------------------------------------------+
+| recorded_dttm                     | DATETIME  | Timestamp when CRRT parameters were recorded                       |
++-----------------------------------+-----------+--------------------------------------------------------------------+
+| crrt_mode_name                    | VARCHAR   | Name of CRRT mode (e.g., "CVVHDF")                                 |
++-----------------------------------+-----------+--------------------------------------------------------------------+
+| crrt_mode_category                | VARCHAR   | Standardized CRRT mode categories:                                 |
+|                                   |           |`SCUF (Slow Continuous Ultrafiltration)`,                           |
+|                                   |           |`CVVH (Continuous Veno-Venous Hemodialysis)`,                       |
+|                                   |           |`CVVHDF (Continuous Venous-Venous Hemodiafiltration)`               |
++-----------------------------------+-----------+--------------------------------------------------------------------+
+| dialysis_machine_name             | VARCHAR   | Name of the dialysis machine used                                  |
++-----------------------------------+-----------+--------------------------------------------------------------------+
+| blood_flow_rate                   | DOUBLE    | Rate of blood flow through the CRRT circuit (mL/hr)                |
++-----------------------------------+-----------+--------------------------------------------------------------------+
+| pre_filter_replacement_fluid_rate | DOUBLE    | Rate of pre-filter replacement fluid infusion (mL/hr)              |
++-----------------------------------+-----------+--------------------------------------------------------------------+
+| post_filter_replacement_fluid_rate| DOUBLE    | Rate of post-filter replacement fluid infusion (mL/hr)             |
++-----------------------------------+-----------+--------------------------------------------------------------------+
+| dialysate_flow_rate               | DOUBLE    | Flow rate of dialysate solution (mL/hr)                            |
++-----------------------------------+-----------+--------------------------------------------------------------------+
+| ultrafilteration_out              | DOUBLE    | Net ultrafiltration output (mL)                                    |
++-----------------------------------+-----------+--------------------------------------------------------------------+  
+
+    
+#### **CRRT Modalities and Parameter Usage**:
+
+| **CRRT Modality** | **Blood Flow Rate** | **Pre-Filter Replacement Rate** | **Post-Filter Replacement Rate** | **Dialysate Flow Rate** | **Ultrafiltration Out** |
+|-------------------|---------------------|---------------------------------|---------------------------------|-------------------------|-------------------------|
+| **SCUF**          | Required            | Not Used                        | Not Used                        | Not Used                |   Required              |
+| **CVVH**          | Required            | Required                        | Required                        | Not Used                |   Required              |
+| **CVVHD**         | Required            | Not Used                        | Not Used                        | Required                |   Required              |
+| **CVVHDF**        | Required            | Required                        | Required                        | Required                |   Required              |
+
 
 **Example**:
 
 ::: scrollable-table
-+--------------------+---------------------------+---------------------------+---------------------+------------------------+----------------+-----------------------------------------+-------------------+---------------------+
-| hospitalization_id | start_dttm                | stop_dttm                 | dialysis_type_name  | dialysis_type_category | crrt_mode_name | crrt_mode_category                      | fluid_removal_amt | dialysate_flow_rate |
-+====================+===========================+===========================+=====================+========================+================+=========================================+===================+=====================+
-| 101                | 2024-01-01 08:00:00+00:00 | 2024-01-01 12:00:00+00:00 | Hemodialysis        | intermittent           | NA             | NA                                      | 2500.0            | 500.0               |
-+--------------------+---------------------------+---------------------------+---------------------+------------------------+----------------+-----------------------------------------+-------------------+---------------------+
-| 102                | 2024-01-02 10:00:00+00:00 | 2024-01-02 14:30:00+00:00 | CRRT                | crrt                   | CVVHD          | continuous venovenous hemodialysis      | 1500.0            | 700.0               |
-+--------------------+---------------------------+---------------------------+---------------------+------------------------+----------------+-----------------------------------------+-------------------+---------------------+
-| 103                | 2024-01-03 09:30:00+00:00 | 2024-01-03 13:30:00+00:00 | Peritoneal Dialysis | peritoneal             | NA             | NA                                      | 2000.0            | NA                  |
-+--------------------+---------------------------+---------------------------+---------------------+------------------------+----------------+-----------------------------------------+-------------------+---------------------+
-| 104                | 2024-01-04 11:00:00+00:00 | 2024-01-04 15:00:00+00:00 | CRRT                | crrt                   | CVVHDF         | continuous venovenous hemodiafiltration | 1800.0            | 600.0               |
-+--------------------+---------------------------+---------------------------+---------------------+------------------------+----------------+-----------------------------------------+-------------------+---------------------+
++--------------------+---------------------------+----------------+---------------------+-----------------------+-------------------+-----------------------------------+------------------------------------+---------------------+-----------------------+
+| hospitalization_id | recorded_dttm             | crrt_mode_name | crrt_mode_category  | dialysis_machine_name | blood_flow_rate   | pre_filter_replacement_fluid_rate | post_filter_replacement_fluid_rate | dialysate_flow_rate | ultrafilteration_out  |
++====================+===========================+================+=====================+=======================+===================+===================================+====================================+=====================+=======================+
+| 201                | 2024-02-15 07:00:00+00:00 | CVVHDF         | CVVHDF              | Prismaflex            | 200.0             | 1000.0                            | 500.0                              | 800.0               | 1500.0                |
++--------------------+---------------------------+----------------+---------------------+-----------------------+-------------------+-----------------------------------+------------------------------------+---------------------+-----------------------+
+| 202                | 2024-02-16 09:15:00+00:00 | CVVH           | CVVH                | NxStage               | 180.0             | 1200.0                            | 300.0                              | NA                  | 1300.0                |
++--------------------+---------------------------+----------------+---------------------+-----------------------+-------------------+-----------------------------------+------------------------------------+---------------------+-----------------------+
+| 203                | 2024-02-17 11:45:00+00:00 | SCUF           | SCUF                | Prismaflex            | 150.0             | NA                                | NA                                 | NA                  | 800.0                 |
++--------------------+---------------------------+----------------+---------------------+-----------------------+-------------------+-----------------------------------+------------------------------------+---------------------+-----------------------+
 
 : {.striped .hover}
 :::
+
 
 ## ECMO_MCS
 
@@ -695,25 +712,27 @@ The dialysis table is a wider longitudinal table that captures the start and sto
 
 The ECMO/MCS table is a wider longitudinal table that captures the start and stop times of ECMO/MCS support, the type of device used, and the work rate of the device.
 
-+-----------------------------------+--------------------------------------------------------------------------------+
-| Variable Name                     | Description                                                                    |
-+===================================+================================================================================+
-| hospitalization_id                | Unique identifier for the hospitalization event.                               |
-+-----------------------------------+--------------------------------------------------------------------------------+
-| recorded_dttm                     | Date and time when the device settings and/or measurement was recorded.        |
-+-----------------------------------+--------------------------------------------------------------------------------+
-| device_name                       | Name of the ECMO/MCS device used including brand information, e.g. "Centrimag" |
-+-----------------------------------+--------------------------------------------------------------------------------+
-| device_category                   | Maps `device_name` to a standardized list of ECMO or MCS                       |
-+-----------------------------------+--------------------------------------------------------------------------------+
-| device_metric_name                | String that captures the measure of work rate of the device, e.g., RPMs.       |
-+-----------------------------------+--------------------------------------------------------------------------------+
-| device_rate                       | Numeric value of work rate, e.g., 3000 RPMs.                                   |
-+-----------------------------------+--------------------------------------------------------------------------------+
-| flow                              | Blood flow in L/min.                                                           |
-+-----------------------------------+--------------------------------------------------------------------------------+
-| sweep                             | Gas flow rate in L/min.                                                        |
-+-----------------------------------+--------------------------------------------------------------------------------+
++-----------------------------------+-----------+--------------------------------------------------------------------------------+
+| Variable Name                     | Data Type | Description                                                                    |
++===================================+===========+================================================================================+
+| hospitalization_id                | VARCHAR   | Unique identifier for the hospitalization event.                               |
++-----------------------------------+-----------+--------------------------------------------------------------------------------+
+| recorded_dttm                     | DATETIME  | Date and time when the device settings and/or measurement was recorded.        |
++-----------------------------------+-----------+--------------------------------------------------------------------------------+
+| device_name                       | VARCHAR   | Name of the ECMO/MCS device used including brand information, e.g. "Centrimag" |
++-----------------------------------+-----------+--------------------------------------------------------------------------------+
+| device_category                   | VARCHAR   | Maps `device_name` to a standardized list of ECMO or MCS                       |
++-----------------------------------+-----------+--------------------------------------------------------------------------------+
+| device_metric_name                | VARCHAR   | String that captures the measure of work rate of the device, e.g., RPMs.       |
++-----------------------------------+-----------+--------------------------------------------------------------------------------+
+| device_rate                       | DOUBLE    | Numeric value of work rate, e.g., 3000 RPMs.                                   |
++-----------------------------------+-----------+--------------------------------------------------------------------------------+
+| flow                              | DOUBLE    | Blood flow in L/min.                                                           |
++-----------------------------------+-----------+--------------------------------------------------------------------------------+
+| sweep                             | DOUBLE    | Gas flow rate in L/min.                                                        |
++-----------------------------------+-----------+--------------------------------------------------------------------------------+
+| fdO2                              | DOUBLE    | Fraction of delivered oxygen.                                                  |
++-----------------------------------+-----------+--------------------------------------------------------------------------------+
 
 **Example**:
 

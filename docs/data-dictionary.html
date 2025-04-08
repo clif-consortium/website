@@ -170,7 +170,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#admission-diagnosis" id="toc-admission-diagnosis" class="nav-link" data-scroll-target="#admission-diagnosis">Admission Diagnosis</a></li>
   <li><a href="#code-status" id="toc-code-status" class="nav-link" data-scroll-target="#code-status">Code Status</a></li>
-  <li><a href="#dialysis" id="toc-dialysis" class="nav-link" data-scroll-target="#dialysis">Dialysis</a></li>
+  <li><a href="#crrt-therapy" id="toc-crrt-therapy" class="nav-link" data-scroll-target="#crrt-therapy">CRRT Therapy</a></li>
   <li><a href="#ecmo_mcs" id="toc-ecmo_mcs" class="nav-link" data-scroll-target="#ecmo_mcs">ECMO_MCS</a></li>
   <li><a href="#intake_output" id="toc-intake_output" class="nav-link" data-scroll-target="#intake_output">Intake_Output</a></li>
   <li><a href="#invasive-hemodynamics" id="toc-invasive-hemodynamics" class="nav-link" data-scroll-target="#invasive-hemodynamics">Invasive Hemodynamics</a></li>
@@ -637,7 +637,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="labs" class="level2">
 <h2 class="anchored" data-anchor-id="labs">Labs</h2>
-<p>The labs table is a long form (one lab result per row) longitudinal table. Each lab result</p>
+<p>The labs table is a long form (one lab result per row) longitudinal table.</p>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid"></a></p>
 <table class="table">
 <thead>
@@ -2355,79 +2355,129 @@ ul.task-list li input[type="checkbox"] {
 </table>
 </div>
 </section>
-<section id="dialysis" class="level2">
-<h2 class="anchored" data-anchor-id="dialysis">Dialysis</h2>
+<section id="crrt-therapy" class="level2">
+<h2 class="anchored" data-anchor-id="crrt-therapy">CRRT Therapy</h2>
 <p><a href="#maturity-levels-for-clif-tables"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
-<p>The dialysis table is a wider longitudinal table that captures the start and stop times of dialysis sessions, the type of dialysis performed, and the amount of dialysate flow and ultrafiltration.</p>
+<p>The crrt_therapy table captures Continuous Renal Replacement Therapy (CRRT) data, including different CRRT modalities, operational parameters, and fluid exchange details. The intermittent HD, peritoneal dialysis, PERT, and SLED tables are under development.</p>
 <table class="table">
 <colgroup>
-<col style="width: 15%">
-<col style="width: 10%">
-<col style="width: 41%">
 <col style="width: 30%">
+<col style="width: 10%">
+<col style="width: 58%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Variable Name</th>
 <th>Data Type</th>
 <th>Definition</th>
-<th>Permissible values</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>hospitalization_id</td>
 <td>VARCHAR</td>
-<td>ID variable for each patient encounter</td>
-<td></td>
+<td>Unique identifier for hospitalization episode</td>
 </tr>
 <tr class="even">
-<td>start_dttm</td>
+<td>recorded_dttm</td>
 <td>DATETIME</td>
-<td>Start date and time of dialysis session</td>
-<td>Datetime format <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
+<td>Timestamp when CRRT parameters were recorded</td>
 </tr>
 <tr class="odd">
-<td>stop_dttm</td>
-<td>DATETIME</td>
-<td>Stop date and time of dialysis session</td>
-<td>Datetime format <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
-</tr>
-<tr class="even">
-<td>dialysis_type_name</td>
-<td>VARCHAR</td>
-<td>Name of dialysis type</td>
-<td>No restriction</td>
-</tr>
-<tr class="odd">
-<td>dialysis_type_category</td>
-<td>VARCHAR</td>
-<td>Maps <code>dialysis_type_name</code> to a list of standardized dialysis types</td>
-<td><code>intermittent</code>, <code>peritoneal</code>, <code>crrt</code></td>
-</tr>
-<tr class="even">
 <td>crrt_mode_name</td>
 <td>VARCHAR</td>
-<td>Name of the CRRT mode, e.g.&nbsp;“CVVHD”</td>
-<td>No restriction</td>
-</tr>
-<tr class="odd">
-<td>crrt_mode_category</td>
-<td>VARCHAR</td>
-<td>Maps <code>crrt_mode_name</code> to a standardized list of CRRT modes</td>
-<td>under development</td>
+<td>Name of CRRT mode (e.g., “CVVHDF”)</td>
 </tr>
 <tr class="even">
-<td>fluid_removal_amt</td>
+<td>crrt_mode_category</td>
+<td>VARCHAR</td>
+<td>Standardized CRRT mode categories: <code>SCUF (Slow Continuous Ultrafiltration)</code>, <code>CVVH (Continuous Veno-Venous Hemodialysis)</code>, <code>CVVHDF (Continuous Venous-Venous Hemodiafiltration)</code></td>
+</tr>
+<tr class="odd">
+<td>dialysis_machine_name</td>
+<td>VARCHAR</td>
+<td>Name of the dialysis machine used</td>
+</tr>
+<tr class="even">
+<td>blood_flow_rate</td>
 <td>DOUBLE</td>
-<td>Amount of fluid removed during dialysis</td>
-<td>Numeric</td>
+<td>Rate of blood flow through the CRRT circuit (mL/hr)</td>
+</tr>
+<tr class="odd">
+<td>pre_filter_replacement_fluid_rate</td>
+<td>DOUBLE</td>
+<td>Rate of pre-filter replacement fluid infusion (mL/hr)</td>
+</tr>
+<tr class="even">
+<td>post_filter_replacement_fluid_rate</td>
+<td>DOUBLE</td>
+<td>Rate of post-filter replacement fluid infusion (mL/hr)</td>
 </tr>
 <tr class="odd">
 <td>dialysate_flow_rate</td>
 <td>DOUBLE</td>
-<td>Rate of dialysate flow</td>
-<td>Numeric</td>
+<td>Flow rate of dialysate solution (mL/hr)</td>
+</tr>
+<tr class="even">
+<td>ultrafilteration_out</td>
+<td>DOUBLE</td>
+<td>Net ultrafiltration output (mL)</td>
+</tr>
+</tbody>
+</table>
+<section id="crrt-modalities-and-parameter-usage" class="level4">
+<h4 class="anchored" data-anchor-id="crrt-modalities-and-parameter-usage"><strong>CRRT Modalities and Parameter Usage</strong>:</h4>
+<table class="table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 13%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>CRRT Modality</strong></th>
+<th><strong>Blood Flow Rate</strong></th>
+<th><strong>Pre-Filter Replacement Rate</strong></th>
+<th><strong>Post-Filter Replacement Rate</strong></th>
+<th><strong>Dialysate Flow Rate</strong></th>
+<th><strong>Ultrafiltration Out</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>SCUF</strong></td>
+<td>Required</td>
+<td>Not Used</td>
+<td>Not Used</td>
+<td>Not Used</td>
+<td>Required</td>
+</tr>
+<tr class="even">
+<td><strong>CVVH</strong></td>
+<td>Required</td>
+<td>Required</td>
+<td>Required</td>
+<td>Not Used</td>
+<td>Required</td>
+</tr>
+<tr class="odd">
+<td><strong>CVVHD</strong></td>
+<td>Required</td>
+<td>Not Used</td>
+<td>Not Used</td>
+<td>Required</td>
+<td>Required</td>
+</tr>
+<tr class="even">
+<td><strong>CVVHDF</strong></td>
+<td>Required</td>
+<td>Required</td>
+<td>Required</td>
+<td>Required</td>
+<td>Required</td>
 </tr>
 </tbody>
 </table>
@@ -2435,77 +2485,72 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 9%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 9%">
+<col style="width: 8%">
 <col style="width: 10%">
+<col style="width: 6%">
+<col style="width: 8%">
+<col style="width: 9%">
 <col style="width: 7%">
-<col style="width: 18%">
+<col style="width: 13%">
+<col style="width: 14%">
 <col style="width: 8%">
 <col style="width: 9%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>hospitalization_id</th>
-<th>start_dttm</th>
-<th>stop_dttm</th>
-<th>dialysis_type_name</th>
-<th>dialysis_type_category</th>
+<th>recorded_dttm</th>
 <th>crrt_mode_name</th>
 <th>crrt_mode_category</th>
-<th>fluid_removal_amt</th>
+<th>dialysis_machine_name</th>
+<th>blood_flow_rate</th>
+<th>pre_filter_replacement_fluid_rate</th>
+<th>post_filter_replacement_fluid_rate</th>
 <th>dialysate_flow_rate</th>
+<th>ultrafilteration_out</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>101</td>
-<td>2024-01-01 08:00:00+00:00</td>
-<td>2024-01-01 12:00:00+00:00</td>
-<td>Hemodialysis</td>
-<td>intermittent</td>
-<td>NA</td>
-<td>NA</td>
-<td>2500.0</td>
+<td>201</td>
+<td>2024-02-15 07:00:00+00:00</td>
+<td>CVVHDF</td>
+<td>CVVHDF</td>
+<td>Prismaflex</td>
+<td>200.0</td>
+<td>1000.0</td>
 <td>500.0</td>
+<td>800.0</td>
+<td>1500.0</td>
 </tr>
 <tr class="even">
-<td>102</td>
-<td>2024-01-02 10:00:00+00:00</td>
-<td>2024-01-02 14:30:00+00:00</td>
-<td>CRRT</td>
-<td>crrt</td>
-<td>CVVHD</td>
-<td>continuous venovenous hemodialysis</td>
-<td>1500.0</td>
-<td>700.0</td>
+<td>202</td>
+<td>2024-02-16 09:15:00+00:00</td>
+<td>CVVH</td>
+<td>CVVH</td>
+<td>NxStage</td>
+<td>180.0</td>
+<td>1200.0</td>
+<td>300.0</td>
+<td>NA</td>
+<td>1300.0</td>
 </tr>
 <tr class="odd">
-<td>103</td>
-<td>2024-01-03 09:30:00+00:00</td>
-<td>2024-01-03 13:30:00+00:00</td>
-<td>Peritoneal Dialysis</td>
-<td>peritoneal</td>
+<td>203</td>
+<td>2024-02-17 11:45:00+00:00</td>
+<td>SCUF</td>
+<td>SCUF</td>
+<td>Prismaflex</td>
+<td>150.0</td>
 <td>NA</td>
 <td>NA</td>
-<td>2000.0</td>
 <td>NA</td>
-</tr>
-<tr class="even">
-<td>104</td>
-<td>2024-01-04 11:00:00+00:00</td>
-<td>2024-01-04 15:00:00+00:00</td>
-<td>CRRT</td>
-<td>crrt</td>
-<td>CVVHDF</td>
-<td>continuous venovenous hemodiafiltration</td>
-<td>1800.0</td>
-<td>600.0</td>
+<td>800.0</td>
 </tr>
 </tbody>
 </table>
 </div>
+</section>
 </section>
 <section id="ecmo_mcs" class="level2">
 <h2 class="anchored" data-anchor-id="ecmo_mcs">ECMO_MCS</h2>
@@ -2513,47 +2558,62 @@ ul.task-list li input[type="checkbox"] {
 <p>The ECMO/MCS table is a wider longitudinal table that captures the start and stop times of ECMO/MCS support, the type of device used, and the work rate of the device.</p>
 <table class="table">
 <colgroup>
-<col style="width: 30%">
-<col style="width: 69%">
+<col style="width: 27%">
+<col style="width: 9%">
+<col style="width: 62%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Variable Name</th>
+<th>Data Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>hospitalization_id</td>
+<td>VARCHAR</td>
 <td>Unique identifier for the hospitalization event.</td>
 </tr>
 <tr class="even">
 <td>recorded_dttm</td>
+<td>DATETIME</td>
 <td>Date and time when the device settings and/or measurement was recorded.</td>
 </tr>
 <tr class="odd">
 <td>device_name</td>
+<td>VARCHAR</td>
 <td>Name of the ECMO/MCS device used including brand information, e.g.&nbsp;“Centrimag”</td>
 </tr>
 <tr class="even">
 <td>device_category</td>
+<td>VARCHAR</td>
 <td>Maps <code>device_name</code> to a standardized list of ECMO or MCS</td>
 </tr>
 <tr class="odd">
 <td>device_metric_name</td>
+<td>VARCHAR</td>
 <td>String that captures the measure of work rate of the device, e.g., RPMs.</td>
 </tr>
 <tr class="even">
 <td>device_rate</td>
+<td>DOUBLE</td>
 <td>Numeric value of work rate, e.g., 3000 RPMs.</td>
 </tr>
 <tr class="odd">
 <td>flow</td>
+<td>DOUBLE</td>
 <td>Blood flow in L/min.</td>
 </tr>
 <tr class="even">
 <td>sweep</td>
+<td>DOUBLE</td>
 <td>Gas flow rate in L/min.</td>
+</tr>
+<tr class="odd">
+<td>fdO2</td>
+<td>DOUBLE</td>
+<td>Fraction of delivered oxygen.</td>
 </tr>
 </tbody>
 </table>
