@@ -2419,7 +2419,7 @@ ul.task-list li input[type="checkbox"] {
 <td>Flow rate of dialysate solution (mL/hr)</td>
 </tr>
 <tr class="even">
-<td>ultrafilteration_out</td>
+<td>ultrafiltration_out</td>
 <td>DOUBLE</td>
 <td>Net ultrafiltration output (mL)</td>
 </tr>
@@ -2558,9 +2558,9 @@ ul.task-list li input[type="checkbox"] {
 <p>The ECMO/MCS table is a wider longitudinal table that captures the start and stop times of ECMO/MCS support, the type of device used, and the work rate of the device.</p>
 <table class="table">
 <colgroup>
-<col style="width: 27%">
-<col style="width: 9%">
-<col style="width: 62%">
+<col style="width: 21%">
+<col style="width: 7%">
+<col style="width: 71%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -2588,7 +2588,17 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>device_category</td>
 <td>VARCHAR</td>
-<td>Maps <code>device_name</code> to a standardized list of ECMO or MCS</td>
+<td>Maps <code>device_name</code> to a standardized mCIDE, e.g.: <code>Impella</code>, <code>Centrimag</code>, <code>TandemHeart</code>, <code>HeartMate</code>, <code>ECMO</code>, <code>Other</code></td>
+</tr>
+<tr class="odd">
+<td>mcs_category</td>
+<td>VARCHAR</td>
+<td>Maps <code>device_name</code> to a standardized mCIDE, e.g.: <code>LVAD</code>, <code>RVAD</code>, <code>ECMO</code></td>
+</tr>
+<tr class="even">
+<td>side</td>
+<td>VARCHAR</td>
+<td><code>right</code>,<code>left</code>, <code>both</code></td>
 </tr>
 <tr class="odd">
 <td>device_metric_name</td>
