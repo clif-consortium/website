@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-
+<meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.543">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CLIF - Common Longitudinal Intensive Format</title>
+<title>CLIF Consortium - CLIF maturity</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,21 +23,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="./CLIF - Common Longitudinal Intensive Format_files/quarto-nav.js"></script>
-<script src="./CLIF - Common Longitudinal Intensive Format_files/headroom.min.js"></script>
-<script src="./CLIF - Common Longitudinal Intensive Format_files/clipboard.min.js"></script>
-<script src="./CLIF - Common Longitudinal Intensive Format_files/autocomplete.umd.js"></script>
-<script src="./CLIF - Common Longitudinal Intensive Format_files/fuse.min.js"></script>
-<script src="./CLIF - Common Longitudinal Intensive Format_files/quarto-search.js"></script>
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="./CLIF - Common Longitudinal Intensive Format_files/quarto.js"></script>
-<script src="./CLIF - Common Longitudinal Intensive Format_files/popper.min.js"></script>
-<script src="./CLIF - Common Longitudinal Intensive Format_files/tippy.umd.min.js"></script>
-<link href="./CLIF - Common Longitudinal Intensive Format_files/tippy.css" rel="stylesheet">
-<link href="./CLIF - Common Longitudinal Intensive Format_files/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="./CLIF - Common Longitudinal Intensive Format_files/bootstrap.min.js"></script>
-<link href="./CLIF - Common Longitudinal Intensive Format_files/bootstrap-icons.css" rel="stylesheet">
-<link href="./CLIF - Common Longitudinal Intensive Format_files/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,43 +68,90 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="./CLIF - Common Longitudinal Intensive Format_files/styles.css">
-<style>.ansi-display{font-family:monospace;white-space:pre-wrap;--ansiBlack: #000000;--ansiRed: #cd3131;--ansiGreen: #00BC00;--ansiYellow: #949800;--ansiBlue: #0451a5;--ansiMagenta: #bc05bc;--ansiCyan: #0598bc;--ansiWhite: #555555;--ansiBrightBlack: #666666;--ansiBrightRed: #cd3131;--ansiBrightGreen: #14CE14;--ansiBrightYellow: #b5ba00;--ansiBrightBlue: #0451a5;--ansiBrightMagenta: #bc05bc;--ansiBrightCyan: #0598bc;--ansiBrightWhite: #a5a5a5}.dark-mode .ansi-display{--ansiBlack: #000000;--ansiRed: #cd3131;--ansiGreen: #0DBC79;--ansiYellow: #e5e510;--ansiBlue: #2472c8;--ansiMagenta: #bc3fbc;--ansiCyan: #11a8cd;--ansiWhite: #e5e5e5;--ansiBrightBlack: #666666;--ansiBrightRed: #f14c4c;--ansiBrightGreen: #23d18b;--ansiBrightYellow: #f5f543;--ansiBrightBlue: #3b8eea;--ansiBrightMagenta: #d670d6;--ansiBrightCyan: #29b8db;--ansiBrightWhite: #e5e5e5}@keyframes ansi-displaly-run-blink{50%{opacity:0}}.fui-FluentProvider h2{border-bottom:none;padding-bottom:0}</style><style data-make-styles-bucket="d"></style><style id="fui-FluentProviderr0"></style><style id="quarto-target-style">
-      section:target::before {
-        content: "";
-        display: block;
-        height: 180px;
-        margin: -180px 0 0;
-      }</style></head>
+<link rel="stylesheet" href="styles.css">
+</head>
 
-<body class="nav-fixed fullcontent quarto-light" data-bs-offset="180" data-tabster="{&quot;root&quot;:{}}" style="padding-top: 180px;" data-new-gr-c-s-check-loaded="14.1149.0" data-gr-ext-installed="">
+<body class="nav-fixed">
 
-<i tabindex="-1" role="none" data-tabster-dummy="" aria-hidden="true" style="position: fixed; height: 1px; width: 1px; opacity: 0.001; z-index: -1; content-visibility: hidden; top: 0px; left: 0px;"></i><div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top headroom--not-bottom headroom--pinned headroom--top headroom--frozen">
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="http://localhost:7380/">
-    <span class="navbar-title">CLIF</span>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">CLIF Consortium</span>
     </a>
   </div>
-            <div id="quarto-search" class="type-overlay" title="Search"><div class="aa-Autocomplete" role="combobox" aria-expanded="false" aria-haspopup="listbox"><button type="button" class="aa-DetachedSearchButton"><div class="aa-DetachedSearchButtonIcon"><svg class="aa-SubmitIcon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M16.041 15.856c-0.034 0.026-0.067 0.055-0.099 0.087s-0.060 0.064-0.087 0.099c-1.258 1.213-2.969 1.958-4.855 1.958-1.933 0-3.682-0.782-4.95-2.050s-2.050-3.017-2.050-4.95 0.782-3.682 2.050-4.95 3.017-2.050 4.95-2.050 3.682 0.782 4.95 2.050 2.050 3.017 2.050 4.95c0 1.886-0.745 3.597-1.959 4.856zM21.707 20.293l-3.675-3.675c1.231-1.54 1.968-3.493 1.968-5.618 0-2.485-1.008-4.736-2.636-6.364s-3.879-2.636-6.364-2.636-4.736 1.008-6.364 2.636-2.636 3.879-2.636 6.364 1.008 4.736 2.636 6.364 3.879 2.636 6.364 2.636c2.125 0 4.078-0.737 5.618-1.968l3.675 3.675c0.391 0.391 1.024 0.391 1.414 0s0.391-1.024 0-1.414z"></path></svg></div><div class="aa-DetachedSearchButtonPlaceholder"></div><div class="aa-DetachedSearchButtonQuery"></div></button></div></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="true" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
-          <div class="navbar-collapse collapse show" id="navbarCollapse" style="">
+          <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="http://localhost:7380/" aria-current="page"> 
-<span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="http://localhost:7380/about.html"> 
+    <a class="nav-link" href="./mission.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="http://localhost:7380/posts.html"> 
-<span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="./team.html"> 
+<span class="menu-text">TEAM</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./cohort.html"> 
+<span class="menu-text">CLIF Cohort</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-clif-versions" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">CLIF Versions</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-clif-versions">    
+        <li>
+    <a class="dropdown-item" href="./data-dictionary/data-dictionary-1.0.0.html">
+ <span class="dropdown-text">CLIF-1.0.0</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./data-dictionary/data-dictionary-2.0.0.html">
+ <span class="dropdown-text">CLIF-2.0.0</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./data-dictionary/data-dictionary-2.1.0.html">
+ <span class="dropdown-text">CLIF-2.1.0</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-resources" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Resources</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-resources">    
+        <li>
+    <a class="dropdown-item" href="./tools.html">
+ <span class="dropdown-text">CLIF Tools</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./projects.html">
+ <span class="dropdown-text">Projects</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./maturity.html">
+ <span class="dropdown-text">CLIF Maturity</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./mCIDE.html">
+ <span class="dropdown-text">minimum Common ICU Data Elements</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./faqs.html">
+ <span class="dropdown-text">FAQs</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Common-Longitudinal-ICU-data-Format"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -113,29 +161,70 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar" style="min-height: calc(100vh - 180px);">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overall-maturity-level-for-clif" id="toc-overall-maturity-level-for-clif" class="nav-link active" data-scroll-target="#overall-maturity-level-for-clif">Overall Maturity Level for CLIF</a></li>
+  <li><a href="#maturity-levels-for-clif-tables" id="toc-maturity-levels-for-clif-tables" class="nav-link" data-scroll-target="#maturity-levels-for-clif-tables">Maturity Levels for CLIF Tables</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<div class="quarto-about-jolla content">
-  <img src="./CLIF - Common Longitudinal Intensive Format_files/clif_logo.png" class="about-image
-  rectangle " style="width: 15em;">
- <header id="title-block-header" class="quarto-title-block default">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Common Longitudinal Intensive Format</h1>
+<h1 class="title">CLIF maturity</h1>
 </div>
+
+
+
 <div class="quarto-title-meta">
+
+    
+  
+    
   </div>
-</header><main class="content" id="quarto-document-content">
-<p>Multicenter critical care research often relies on sharing sensitive patient data across sites, requiring complex data use agreements (DUAs) and yielding redundant work to account for diverse data infrastructures. To overcome these barriers, we present CLIF, designed specifically for observational studies of critically ill patients across multiple centres. Through CLIF, we aim to streamline data organization into a longitudinal format and establish standard vocabularies to facilitate federated anlaytics and improve data readability for researchers and clinicians.</p>
-<p>The CLIF consortium, comprising critical care researchers from eight US academic health systems, collaboratively developed CLIF’s schema, clinical vocabularies, and “proof of concept” datasets. CLIF’s tables emphasize care processes, clinical outcomes, and granular clinical physiology measures.</p>
-<p><img src="./CLIF - Common Longitudinal Intensive Format_files/member_logos.jpeg" class="img-fluid"></p>
+  
 
 
-</main>  
-</div>
- <!-- /main -->
+</header>
+
+
+<p>CLIF is still under development and some parts of the format are more mature than others. CLIF will also need to evolve as the set of minimum Common Data Elements for studying critical illness expands or changes over time.</p>
+<p>The consortium has two different maturity concepts: one for the overall ER model and one for the individual tables.</p>
+<section id="overall-maturity-level-for-clif" class="level2">
+<h2 class="anchored" data-anchor-id="overall-maturity-level-for-clif">Overall Maturity Level for CLIF</h2>
+<ul>
+<li><img src="https://img.shields.io/badge/Maturity-Experimental-red.png" class="img-fluid" alt="Experimental"> <strong>Experimental</strong>: Majority of critical illness and hospital course not represented in Entity-Relationship (ER) model, expect frequent breaking changes.</li>
+<li><img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid" alt="Beta"> <strong>Beta</strong>: Core ER model complete and breaking changes to the existing structure unlikely. Actively seeking feedback about new tables to add to the ER model to fully capture critical illness.</li>
+<li><img src="https://img.shields.io/badge/Maturity-Stable-brightgreen.png" class="img-fluid" alt="Stable"> <strong>Stable</strong>: Tested and recommended for general use. EHR data not currently represented in CLIF outside the scope of the format.</li>
+<li><img src="https://img.shields.io/badge/Maturity-Mature-blue.png" class="img-fluid" alt="Mature"> <strong>Mature</strong>: Widely adopted across majority of consortium sites with majority of tables in stable or mature (see maturity levels for CLIF Tables). ER model very stable.</li>
+<li><img src="https://img.shields.io/badge/Maturity-Deprecated-lightgrey.png" class="img-fluid" alt="Deprecated"> <strong>Deprecated</strong>: No longer maintained.</li>
+</ul>
+<p>The entity-relationship model for this project is currently at the <img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid" alt="Beta"> <strong>Beta</strong> level for adult patients in a general medical intensive care unit. Major breaking changes to the existing structure are unlikely. The consortium is actively seeking feedback about new tables and fields to add to the ER model to achieve the goal of representing developing a <a href="./mCIDE.html">minimum Common ICU Data Elements (mCIDE)</a></p>
+<p>For pediatric patients, CLIF is in the <img src="https://img.shields.io/badge/Maturity-Experimental-red.png" class="img-fluid" alt="Experimental"> <strong>Experimental</strong> maturity phase. CLIF is also <img src="https://img.shields.io/badge/Maturity-Experimental-red.png" class="img-fluid" alt="Experimental"> <strong>Experimental</strong> for adult patients in specialty ICUs (e.g.&nbsp;cardiac intensive care unit, surgical intensive care unit, and neurointensive care unit).</p>
+</section>
+<section id="maturity-levels-for-clif-tables" class="level2">
+<h2 class="anchored" data-anchor-id="maturity-levels-for-clif-tables">Maturity Levels for CLIF Tables</h2>
+<p>There are two critical maturity elements for each CLIF table: 1) field structure and 2) Common ICU data Element development. Each CLIF table has one or more consortium physician-data scientists who are responsible for table design.</p>
+<ul>
+<li><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid" alt="Concept"> <strong>Concept</strong>: A planned future CLIF table that has yet to be used in a federated project. The table structure and CDE elements are in draft form. Permissible values of category variables may still need to be defined. Seeking conceptual feedback. Significant changes to all aspects of the table are possible.</li>
+<li><img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid" alt="Beta"> <strong>Beta</strong>: Table purpose, structure, and field names complete and used in at least one federated CLIF project. CDE for category variables defined. Actively testing the table’s practical use in projects.</li>
+<li><img src="https://img.shields.io/badge/Maturity-Stable-brightgreen.png" class="img-fluid" alt="Stable"> <strong>Stable</strong>: Tested and recommended for general use. CDE stable with permissible values for all category variables precisely defined and locked. Fully implemented at multiple consortium sites and used in a peer-reviewed publication.</li>
+<li><img src="https://img.shields.io/badge/Maturity-Mature-blue.png" class="img-fluid" alt="Mature"> <strong>Mature</strong>: Adopted across a majority of the CLIF consortium sites and very stable.</li>
+<li><img src="https://img.shields.io/badge/Maturity-Deprecated-lightgrey.png" class="img-fluid" alt="Deprecated"> <strong>Deprecated</strong>: No longer maintained.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -156,6 +245,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
@@ -517,43 +613,21 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Want to Join the Consortium? <br> 🖌️ Submit a <a href="https://redcap.uchicago.edu/surveys/?s=7FMNPWTXKP3P3ANW">Project Proposal</a> <br></p>
+</div>   
+    <div class="nav-footer-center">
+<p>© 2024 · CLIF Consortium <br> ✉️ <a href="mailto:clif_consortium@uchicago.edu">clif_consortium@uchicago.edu</a> <br> <br></p>
+</div>
+    <div class="nav-footer-right">
+<p>Already a member? <br> 👩🏻‍💻Access <a href="https://docs.google.com/spreadsheets/d/1l8nvjHmmf4lxCviPp12rxafRo2zNApKGOGK126Tn2_s/edit?usp=sharing">CLIF Tracker</a> <br></p>
+</div>
+  </div>
+</footer>
 
 
 
 
-
-<script>window.backupDefine = window.define; window.define = undefined;</script>
-<script type="text/javascript" src="./CLIF - Common Longitudinal Intensive Format_files/quarto-preview.js"></script>
-<script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
-<script type="text/javascript">
-  const options = {
-    origin: "",
-    search: "",
-    inputFile: "/Users/kavenchhikara/Desktop/projects/clif-consortium/index.qmd",
-    isPresentation: false
-  }
-  document.addEventListener("DOMContentLoaded", function () {
-    window.QuartoPreview.init(options);
-  });
-</script>
-<div><div dir="ltr" class="fui-FluentProvider fui-FluentProviderr0 ___jdtuxv0 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"></div></div><i tabindex="-1" role="none" data-tabster-dummy="" aria-hidden="true" style="position: fixed; height: 1px; width: 1px; opacity: 0.001; z-index: -1; content-visibility: hidden; top: 0px; left: 0px;"></i></body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
-      div.grammarly-desktop-integration {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border: 0;
-        -moz-user-select: none;
-        -webkit-user-select: none;
-        -ms-user-select:none;
-        user-select:none;
-      }
-
-      div.grammarly-desktop-integration:before {
-        content: attr(data-content);
-      }
-    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
+</body></html>

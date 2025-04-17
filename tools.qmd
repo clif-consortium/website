@@ -1,0 +1,177 @@
+---
+title: "CLIF Tools"
+format:
+  html:
+    css: styles.css
+    toc: true
+---
+
+<style>
+.tool-card {
+    background: #ffffff;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.tool-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.tool-icon {
+    font-size: 24px;
+    margin-right: 15px;
+    color: #983232;
+}
+
+.tool-title {
+    margin: 0;
+    color: #24292e;
+    font-size: 1.5em;
+}
+
+.tool-description {
+    color: #586069;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.tool-link-container {
+    text-align: center;
+}
+
+.tool-link {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #983232;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.tool-link:hover {
+    background-color: #722424;
+    text-decoration: none;
+    color: white;
+}
+</style>
+
+<div class="tool-card">
+<div class="tool-header">
+<i class="tool-icon fab fa-github"></i>
+<h3 class="tool-title">CLIF GitHub Organization</h3>
+</div>
+<div class="tool-description">
+The central hub for all CLIF-related repositories and tools. Our GitHub organization hosts various projects, including ETL pipelines, analysis tools, and documentation. Join our open-source community to contribute and stay updated with the latest developments in CLIF.
+
+**Resources Available:**
+- Source code for all CLIF tools
+- Documentation and guides
+- Example implementations
+- Community contributions
+</div>
+<div class="tool-link-container">
+<a href="https://github.com/Common-Longitudinal-ICU-data-Format" class="tool-link" target="_blank">
+<i class="fas fa-external-link-alt"></i> Visit Organization
+</a>
+</div>
+</div>
+
+<div class="tool-card">
+<div class="tool-header">
+<i class="tool-icon fas fa-database"></i>
+<h3 class="tool-title">CLIF-MIMIC ETL Pipeline</h3>
+</div>
+<div class="tool-description">
+Transform MIMIC-IV data into CLIF format with our comprehensive ETL pipeline. This repository provides a complete workflow and codebase for converting MIMIC-IV dataset into the Common Longitudinal ICU data Format, making it easier to integrate with other CLIF-compatible datasets.
+
+**Key Features:**
+- Automated data transformation pipeline
+- Detailed mapping documentation
+- Quality assurance checks
+- Configurable for different MIMIC-IV versions
+</div>
+<div class="tool-link-container">
+<a href="https://github.com/Common-Longitudinal-ICU-data-Format/CLIF-MIMIC" class="tool-link" target="_blank">
+<i class="fas fa-external-link-alt"></i> Access Pipeline
+</a>
+</div>
+</div>
+
+<div class="tool-card">
+<div class="tool-header">
+<i class="tool-icon fas fa-code"></i>
+<h3 class="tool-title">CLIF SQL Boilerplate</h3>
+</div>
+<div class="tool-description">
+Jump-start your CLIF 2.0 implementation with our pre-built SQL queries for Epic's Caboodle/Clarity systems. These carefully crafted queries help you extract and transform your Epic data into the CLIF format efficiently.
+
+**Features:**
+- Ready-to-use SQL queries
+- Optimized for Epic systems
+- Validated mappings
+- Implementation guidance
+</div>
+<div class="tool-link-container">
+<a href="https://userweb.epic.com/Thread/136603/CLIF-A-Common-Longitudinal-ICU-data-Format-for-Federated-Cri/" class="tool-link" target="_blank">
+<i class="fas fa-external-link-alt"></i> Access Queries
+</a>
+</div>
+</div>
+
+<div class="tool-card">
+<div class="tool-header">
+<i class="tool-icon fas fa-robot"></i>
+<h3 class="tool-title">CLIF Assistant</h3>
+</div>
+<div class="tool-description">
+Get interactive guidance for your CLIF ETL implementation with our AI-powered assistant. This specialized GPT model helps you navigate the complexities of data transformation, offering real-time support and best practices for CLIF implementation.
+
+**Capabilities:**
+- ETL guidance
+- Troubleshooting help
+- Best practices advice
+- Implementation support
+</div>
+<div class="tool-link-container">
+<a href="https://chatgpt.com/g/g-h1nk6d3eR-clif-assistant" class="tool-link" target="_blank">
+<i class="fas fa-external-link-alt"></i> Chat with Assistant
+</a>
+</div>
+</div>
+
+<div class="tool-card">
+<div class="tool-header">
+<i class="tool-icon fas fa-lighthouse"></i>
+<h3 class="tool-title">CLIF Lighthouse</h3>
+</div>
+<div class="tool-description">
+Ensure the quality of your CLIF implementation with our web-based validation tool. CLIF Lighthouse performs comprehensive checks on your CLIF tables, helping you identify and resolve any inconsistencies or quality issues.
+
+**Key Features:**
+- Automated quality checks
+- Data validation
+- Visual reporting
+- Real-time feedback
+</div>
+<div class="tool-link-container">
+<a href="https://github.com/Common-Longitudinal-ICU-data-Format/CLIF-Lighthouse" class="tool-link" target="_blank">
+<i class="fas fa-external-link-alt"></i> Launch Lighthouse
+</a>
+</div>
+</div>
+
+::: {.callout-note}
+## Need Help?
+If you need assistance with any of these tools, please refer to their respective documentation or reach out to the CLIF community through GitHub discussions.
+:::

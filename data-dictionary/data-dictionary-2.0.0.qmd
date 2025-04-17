@@ -2,71 +2,22 @@
 title: " CLIF-2.0.0 Data Dictionary"
 ---
 
-Below is the entity-relationship diagram (ERD) that provides an overview of the relational CLIF database structure.
+The CLIF Data Dictionary serves as a comprehensive guide to the Common Longitudinal ICU data Format, detailing the structure and purpose of each table within the framework. Designed to standardize and harmonize electronic health record data across multiple institutions, the dictionary outlines the entity-relationship model, variable definitions, and permissible values.
 
 ::: {#erd-container style="max-width: 100%; overflow: hidden;"}
-<img src="images/ERD.png" alt="ERD" id="erd" usemap="#clif-map" style="width: 100%;"/>
+<img src="../images/ERD-2.0.0.png" alt="ERD" id="erd" usemap="#clif-map" style="width: 100%;"/>
 :::
-
-```{=html}
-<script src="https://cdn.jsdelivr.net/npm/@panzoom/panzoom@9.4.0/dist/panzoom.min.js"></script>
-```
-
-```{=html}
-<script>
-  const panzoom = Panzoom(document.getElementById('erd'), {
-    maxScale: 5,
-    minScale: 1,
-    contain: 'outside'
-  });
-  document.getElementById('erd').parentElement.addEventListener('wheel', panzoom.zoomWithWheel);
-</script>
-```
-
-Relational CLIF (RCLIF) is a database that is organized into clinically relevant column categories - demographics, objective measures, respiratory support, orders, and inputs-outputs. Below are sample templates for each table in R-CLIF. Here you can find detailed descriptions of each table and their fields.
-
-You can use our custom GPT- [CLIF Assistant](https://chatgpt.com/g/g-h1nk6d3eR-clif-assistant) to learn more about CLIF and develop analysis scripts.
-
-# CLIF maturity
-
-CLIF is still under development and some parts of the format are more mature than others. CLIF will also need to evolve as the set of minimum Common Data Elements for studying critical illness expands or changes over time.
-
-The consortium has two different maturity concepts: one for the overall ER model and one for the individual tables.
-
-## Overall Maturity Level for CLIF
-
--   ![Experimental](https://img.shields.io/badge/Maturity-Experimental-red) **Experimental**: Majority of critical illness and hospital course not represented in Entity-Relationship (ER) model, expect frequent breaking changes.
--   ![Beta](https://img.shields.io/badge/Maturity-Beta-yellow) **Beta**: Core ER model complete and breaking changes to the existing structure unlikely. Actively seeking feedback about new tables to add to the ER model to fully capture critical illness.
--   ![Stable](https://img.shields.io/badge/Maturity-Stable-brightgreen) **Stable**: Tested and recommended for general use. EHR data not currently represented in CLIF outside the scope of the format.
--   ![Mature](https://img.shields.io/badge/Maturity-Mature-blue) **Mature**: Widely adopted across majority of consortium sites with majority of tables in stable or mature (see maturity levels for CLIF Tables). ER model very stable.
--   ![Deprecated](https://img.shields.io/badge/Maturity-Deprecated-lightgrey) **Deprecated**: No longer maintained.
-
-The entity-relationship model for this project is currently at the ![Beta](https://img.shields.io/badge/Maturity-Beta-yellow) **Beta** level for adult patients in a general medical intensive care unit. Major breaking changes to the existing structure are unlikely. The consortium is actively seeking feedback about new tables and fields to add to the ER model to achieve the goal of representing developing a [minimum Common ICU Data Elements (mCIDE)](mCIDE.qmd)
-
-For pediatric patients, CLIF is in the ![Experimental](https://img.shields.io/badge/Maturity-Experimental-red) **Experimental** maturity phase. CLIF is also ![Experimental](https://img.shields.io/badge/Maturity-Experimental-red) **Experimental** for adult patients in specialty ICUs (e.g. cardiac intensive care unit, surgical intensive care unit, and neurointensive care unit).
-
-## Maturity Levels for CLIF Tables {#maturity-levels-for-clif-tables}
-
-There are two critical maturity elements for each CLIF table: 1) field structure and 2) Common ICU data Element development. Each CLIF table has one or more consortium physician-data scientists who are responsible for table design.
-
--   ![Concept](https://img.shields.io/badge/Maturity-Concept-orange) **Concept**: A planned future CLIF table that has yet to be used in a federated project. The table structure and CDE elements are in draft form. Permissible values of category variables may still need to be defined. Seeking conceptual feedback. Significant changes to all aspects of the table are possible.
--   ![Beta](https://img.shields.io/badge/Maturity-Beta-yellow) **Beta**: Table purpose, structure, and field names complete and used in at least one federated CLIF project. CDE for category variables defined. Actively testing the table's practical use in projects.
--   ![Stable](https://img.shields.io/badge/Maturity-Stable-brightgreen) **Stable**: Tested and recommended for general use. CDE stable with permissible values for all category variables precisely defined and locked. Fully implemented at multiple consortium sites and used in a peer-reviewed publication.
--   ![Mature](https://img.shields.io/badge/Maturity-Mature-blue) **Mature**: Adopted across a majority of the CLIF consortium sites and very stable.
--   ![Deprecated](https://img.shields.io/badge/Maturity-Deprecated-lightgrey) **Deprecated**: No longer maintained.
-
-The CLIF-1.0 data dictionary is [available here](data-dictionary/data-dictionary-1.0.0.qmd) and is now deprecated
 
 # Beta tables
 
-The table purpose, structure, and field names for  beta tables is complete and used in at least one federated CLIF project. The minimum Common ICU Data Elements (mCIDE) for category variables is defined. Actively testing the table’s practical use in projects. Breaking changes unlikely, but backward compatible updates in future minor versions possible
+The table purpose, structure, and field names for  beta tables is complete and used in at least one federated CLIF project. The [minimum Common ICU Data Elements (mCIDE)](../mCIDE.qmd) for category variables is defined. Actively testing the table’s practical use in projects. Breaking changes unlikely, but backward compatible updates in future minor versions possible
 
 
 ## ADT
 
 The admission, discharge, and transfer (ADT) table is a start-stop longitudinal dataset that contains information about each patient's movement within the hospital. It also has a `hospital_id` field to distinguish between different hospitals within a health system.
 
-[![](https://img.shields.io/badge/Maturity-Beta-yellow)](#maturity-levels-for-clif-tables)
+[![](https://img.shields.io/badge/Maturity-Beta-yellow)](../maturity.qmd)
 
 +--------------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------+-------+
 | Variable Name      | Data Type       | Definition                                                                                                                                               | Permissible Values                                                                                                            |       |
@@ -116,7 +67,7 @@ The admission, discharge, and transfer (ADT) table is a start-stop longitudinal 
 
 The hospitalization table contains information about each hospitalization event. Each row in this table represents a unique hospitalization event for a patient. This table is inspired by the [visit_occurance](https://ohdsi.github.io/CommonDataModel/cdm54.html#visit_occurrence) OMOP table but is specific to inpatient hospitalizations (including those that begin in the emergency room).
 
-[![](https://img.shields.io/badge/Maturity-Beta-yellow)](#maturity-levels-for-clif-tables)
+[![](https://img.shields.io/badge/Maturity-Beta-yellow)](../maturity.qmd)
 
 +---------------------------+-----------------+-------------------------------------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Variable Name             | Data Type       | Definition                                                                                                              | Permissible Values                                                                                                                                                                                                                                                                                                                  |
@@ -185,7 +136,7 @@ The hospitalization table contains information about each hospitalization event.
 
 The labs table is a long form (one lab result per row) longitudinal table. 
 
-[![](https://img.shields.io/badge/Maturity-Beta-yellow)](#maturity-levels-for-clif-tables)
+[![](https://img.shields.io/badge/Maturity-Beta-yellow)](../maturity.qmd)
 
 +-----------------------+-----------------+------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
 | Variable Name         | Data Type       | Definition                                                                                                                                           | Permissible Values                                                                                                                                  |
@@ -239,7 +190,7 @@ The labs table is a long form (one lab result per row) longitudinal table.
 
 ## Medication Admin Continuous {#medication-admin-continuous}
 
-[![](https://img.shields.io/badge/Maturity-Beta-yellow)](#maturity-levels-for-clif-tables)
+[![](https://img.shields.io/badge/Maturity-Beta-yellow)](../maturity.qmd)
 
 The medication admin continuous table is a long-form (one medication administration record per) longitudinal table designed for continuous infusions of common ICU medications such as vasopressors and sedation (Boluses of these drugs should be recorded in `med_admin_intermittent`). Note that it only reflects dose changes of the continuous medication and does not have a specific “end_time” variable to indicate the medication being stopped. The end of a continuous infusion should be recorded as a new row with med_dose = 0 and an appropriate mar_action_name (e.g. "stopped" or "paused").
 
@@ -287,7 +238,7 @@ The medication admin continuous table is a long-form (one medication administrat
 
 ## Patient
 
-[![](https://img.shields.io/badge/Maturity-Beta-yellow)](#maturity-levels-for-clif-tables)
+[![](https://img.shields.io/badge/Maturity-Beta-yellow)](../maturity.qmd)
 
 This table contains demographic information about the patient that does not vary between hospitalizations. It is inspired by the OMOP [Person](https://ohdsi.github.io/CommonDataModel/cdm54.html#person) table
 
@@ -334,7 +285,7 @@ This table contains demographic information about the patient that does not vary
 
 ## Patient Assessments
 
-[![](https://img.shields.io/badge/Maturity-Beta-yellow)](#maturity-levels-for-clif-tables)
+[![](https://img.shields.io/badge/Maturity-Beta-yellow)](../maturity.qmd)
 
 The patient_assessments table captures various assessments performed on patients across different domains, including neurological status, sedation levels, pain, and withdrawal. The table is designed to provide detailed information about the assessments, such as the name of the assessment, the category, and the recorded values.
 
@@ -375,7 +326,7 @@ The patient_assessments table captures various assessments performed on patients
 
 ## Position
 
-[![](https://img.shields.io/badge/Maturity-Beta-yellow)](#maturity-levels-for-clif-tables)
+[![](https://img.shields.io/badge/Maturity-Beta-yellow)](../maturity.qmd)
 
 The position table is a long form (one position per row) longitudinal table that captures all documented position changes of the patient. The table is designed for the explicit purpose of constructing the `position_category` CDE and identifying patients in prone position.
 
@@ -410,7 +361,7 @@ The position table is a long form (one position per row) longitudinal table that
 
 ## Respiratory Support
 
-[![](https://img.shields.io/badge/Maturity-Beta-yellow)](#maturity-levels-for-clif-tables)
+[![](https://img.shields.io/badge/Maturity-Beta-yellow)](../maturity.qmd)
 
 The respiratory support table is a wider longitudinal table that captures simultaneously recorded ventilator settings and observed ventilator parameters. The table is designed to capture the most common respiratory support devices and modes used in the ICU. It will be sparse for patients who are not on mechanical ventilation.
 
@@ -532,7 +483,7 @@ E = Expected ventilator setting for the mode, P = possible ventilator setting fo
 
 The vitals table is a long-form (one vital sign per row) longitudinal table.
 
-[![](https://img.shields.io/badge/Maturity-Beta-yellow)](#maturity-levels-for-clif-tables)
+[![](https://img.shields.io/badge/Maturity-Beta-yellow)](../maturity.qmd)
 
 +--------------------+-----------------+---------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Variable Name      | Data Type       | Definition                                                                                                                      | Permissible Values                                                                                                                                         |
@@ -574,7 +525,7 @@ A planned future CLIF table that has yet to be used in a federated project. The 
 
 ## Admission Diagnosis
 
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](../maturity.qmd)
 
 Record of all diagnoses associated with the hospitalization. Expect breaking changes to this table as we seek to align it with existing diagnosis ontologies
 
@@ -611,7 +562,7 @@ Record of all diagnoses associated with the hospitalization. Expect breaking cha
 
 ## Code Status
 
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](../maturity.qmd)
 
 This table provides a longitudinal record of changes in a patient's code status during their hospitalization. It tracks the timeline and categorization of code status updates, facilitating the analysis of care preferences and decisions.
 
@@ -646,7 +597,7 @@ This table provides a longitudinal record of changes in a patient's code status 
 
 ## CRRT Therapy
 
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](../maturity.qmd)
 
 The crrt_therapy table captures Continuous Renal Replacement Therapy (CRRT) data, including different CRRT modalities, operational parameters, and fluid exchange details. 
 The intermittent HD, peritoneal dialysis, PERT, and SLED tables are under development.
@@ -710,7 +661,7 @@ The intermittent HD, peritoneal dialysis, PERT, and SLED tables are under develo
 
 ## ECMO_MCS
 
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](../maturity.qmd)
 
 The ECMO/MCS table is a wider longitudinal table that captures the start and stop times of ECMO/MCS support, the type of device used, and the work rate of the device.
 
@@ -760,7 +711,7 @@ The ECMO/MCS table is a wider longitudinal table that captures the start and sto
 
 ## Intake_Output
 
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](../maturity.qmd)
 
 The intake_output table is long form table that captures the times intake and output events were recorded, the type of fluid administered or recorded as "out", and the amount of fluid.
 
@@ -795,7 +746,7 @@ The intake_output table is long form table that captures the times intake and ou
 
 ## Invasive Hemodynamics
 
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](../maturity.qmd)
 
 The `invasive_hemodynamics` table records invasive hemodynamic measurements during a patient’s hospitalization. These measurements represent pressures recorded via invasive monitoring and are expressed in millimeters of mercury (mmHg).
 
@@ -839,7 +790,7 @@ The `invasive_hemodynamics` table records invasive hemodynamic measurements duri
 
 ## Key ICU orders
 
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](../maturity.qmd)
 
 The `key_icu_orders` table captures key orders related to physical therapy (PT) and occupational therapy (OT) during ICU stays. It includes details about the hospitalization, the timing of the order, the specific name of the order, its category, and the status of the order (completed or sent).
 
@@ -871,13 +822,13 @@ The `key_icu_orders` table captures key orders related to physical therapy (PT) 
 
 ## Medication Admin Intermittent
 
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](../maturity.qmd)
 
 This table has exactly the same schema as [`medication_admin_continuous`](#medication-admin-continuous) described below. The consortium decided to separate the medications that are administered intermittently from the continuously administered medications. The mCIDE for `medication_category` for intermittent meds can be found [here](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/blob/main/mCIDE/clif_medication_admin_intermittent_med_categories.csv).
 
 ## Medication Orders
 
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](../maturity.qmd)
 
 This table records the ordering (not administration) of medications. The table is in long form (one medication order per row) longitudinal table. Linkage to the `medication_admin_continuous` and `medication_admin_intermittent` tables is through the `med_order_id` field.
 
@@ -934,7 +885,7 @@ This table records the ordering (not administration) of medications. The table i
 
 ## Microbiology Culture
 
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](../maturity.qmd)
 
 The microbiology culture table is a wide longitudinal table that captures the order and result times of microbiology culture tests, the type of fluid collected, the component of the test, and the organism identified.
 
@@ -981,7 +932,7 @@ The microbiology culture table is a wide longitudinal table that captures the or
 
 ## Microbiology Non-culture
 
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](../maturity.qmd)
 
 The microbiology non-culture table is a wide longitudinal table that captures the order and result times of non-culture microbiology tests, the type of fluid collected, the component of the test, and the result of the test.
 
@@ -1021,7 +972,7 @@ The microbiology non-culture table is a wide longitudinal table that captures th
 
 ## Procedures
 
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](../maturity.qmd)
 
 A longitudinal record of each bedside ICU procedure performed on the patient (e.g. central line placement, chest tube placement). Note that this table is not intended to capture the full set of procedures performed on inpatients.
 
@@ -1061,7 +1012,7 @@ A longitudinal record of each bedside ICU procedure performed on the patient (e.
 
 ## Provider
 
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](../maturity.qmd)
 
 Continuous start stop record of every provider who cared for the patient.
 
@@ -1109,7 +1060,7 @@ Continuous start stop record of every provider who cared for the patient.
 
 ## Sensitivity
 
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](../maturity.qmd)
 
 This table is used to store the susceptibility results of the organisms identified in the `Microbiology Culture` table and may be renamed to `Microbiology_Susceptibility`
 
@@ -1141,7 +1092,7 @@ This table is used to store the susceptibility results of the organisms identifi
 
 ## Therapy Details
 
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](../maturity.qmd)
 
 The `therapy_details` table is a wide longitudinal table that captures the details of therapy sessions. The table is designed to capture and categorize the most common therapy elements used in the ICU.
 
@@ -1175,7 +1126,7 @@ The `therapy_details` table is a wide longitudinal table that captures the detai
 
 ## Transfusion
 
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](#maturity-levels-for-clif-tables)
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](../maturity.qmd)
 
 This table provides detailed information about transfusion events linked to specific hospitalizations.
 

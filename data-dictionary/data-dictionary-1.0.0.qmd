@@ -1,15 +1,14 @@
 ---
-title: " CLIF-1.0 Data Dictionary- Archived"
+title: " CLIF-1.0.0 Data Dictionary- Archived"
 ---
 
 
-Below is the entity-relationship diagram (ERD) that provides an overview of the relational CLIF database structure. This version of CLIF is ![Deprecated](https://img.shields.io/badge/Maturity-Deprecated-lightgrey)
-
-![](ERD.png)
+Below is the entity-relationship diagram (ERD) that provides an overview of the relational CLIF database structure. This version of CLIF is [![](https://img.shields.io/badge/Maturity-Deprecated-lightgrey)](../maturity.qmd)
+![](../images/ERD-1.0.0.png)
 
 Relational CLIF tables are organized into clinically relevant column categories - demographics, objective measures, respiratory support, orders, and inputs-outputs. Below are sample templates for each table in R-CLIF. Here you can find detailed descriptions of each table and their fields.
 
-You can use our custom GPT- [CLIF Assistant](https://chatgpt.com/g/g-h1nk6d3eR-clif-assistant) to learn more about CLIF and develop analysis scripts using [Clifford (Synthetic CLIF)](https://github.com/kaveriC/CLIF-1.0/tree/main/clifford). 
+You can use our custom GPT- [CLIF Assistant](https://chatgpt.com/g/g-h1nk6d3eR-clif-assistant) to learn more about CLIF. 
 
 ## Patient_encounters
 

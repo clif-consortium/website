@@ -68,29 +68,16 @@ about:
     border-radius: 20px;
   }
 
-
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .cta-button {
-      font-size: 16px;
-      padding: 10px 20px;
-    }
-
-    .text-box {
-      padding: 20px;
-    }
-
-    .clif-logo {
-      max-width: 100%; /* Ensure logo scales on smaller devices */
-    }
-  }
 </style>
 
 <!-- Main Title Section -->
 
 <img src="images/clif_logo.png" alt="CLIF Logo" class="clif-logo">
 <h1>Common Longitudinal ICU data Format</h1>
-<div class="text-box"> <h2>Federated Critical Care Research</h2> <p>Multicenter critical care research often faces barriers related to data sharing, requiring complex data use agreements (DUAs) and substantial effort to reconcile differences in data infrastructures. The Common Longitudinal ICU data Format (CLIF) was designed to overcome these challenges, providing a standardized framework for organizing electronic health record (EHR) data on critically ill patients across multiple institutions.</p> <p>CLIF streamlines data into a structured, longitudinal format while incorporating harmonized vocabularies, enabling federated analytics and enhancing data accessibility for researchers and clinicians. By fostering collaboration among critical care researchers, CLIF supports reproducible research, quality benchmarking, and clinical decision-making.</p> <p>Developed by a consortium of nine U.S. academic health systems, CLIF's schema, clinical vocabularies, and federated approach to data sharing are detailed in our recently published study in *Intensive Care Medicine*. </p> <!-- CTA Button for CLIF Concept --> <a href="https://link.springer.com/article/10.1007/s00134-025-07848-7" class="cta-button" target="_blank">Read the full study in Intensive Care Medicine</a> </div>
+<div class="text-box"> <h2>Federated Critical Care Research</h2> <p>Multicenter critical care research often faces barriers related to data sharing, requiring complex data use agreements (DUAs) and substantial effort to reconcile differences in data infrastructures. The Common Longitudinal ICU data Format (CLIF) was designed to overcome these challenges, providing a standardized framework for organizing electronic health record (EHR) data on critically ill patients across multiple institutions.</p> <p>CLIF streamlines data into a structured, longitudinal format while incorporating harmonized vocabularies, enabling federated analytics and enhancing data accessibility for researchers and clinicians. By fostering collaboration among critical care researchers, CLIF supports reproducible research, quality benchmarking, and clinical decision-making. CLIF is an evolving data format designed to adapt and improve over time, with the current stable release being version 2.0.0. </p> <p>Developed by a consortium of nine U.S. academic health systems, CLIF's schema, clinical vocabularies, and federated approach to data sharing are detailed in our recently published study in *Intensive Care Medicine*. </p> 
+<!-- CTA Button for CLIF Concept -->
+<a href="https://link.springer.com/article/10.1007/s00134-025-07848-7" class="cta-button" target="_blank">Read the full study in Intensive Care Medicine</a> 
+<a href="data-dictionary/data-dictionary-2.0.0.qmd" class="cta-button" target="_blank">Explore CLIF-2.0.0 Data Dictionary</a></div>
 
 <!-- Participating Sites Logos Section -->
 <h3>Participating Sites</h3>

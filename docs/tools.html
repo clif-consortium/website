@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>CLIF Consortium</title>
+<title>CLIF Consortium - CLIF Tools</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,6 +33,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
@@ -70,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -163,99 +164,182 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
 <!-- main -->
-<div class="quarto-about-jolla content">
- <main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">CLIF Tools</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
 <style>
-  /* General styling for fonts and colors */
-  body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.5;
-    color: #333;
-    margin: 0;
-    padding: 0;
-  }
-  .text-box {
-    background-color: #f7f7f7;
-    padding: 40px;
-    border-radius: 8px;
-    margin: 20px auto;
-    max-width: 800px;
-  }
-  /* CLIF Logo Styling */
-  .clif-logo {
-    display: block;
-    margin: 20px auto;
-    max-width: 500px; 
-    height: auto;
-  }
-  h1, h2, h3 {
-    text-align: center;
-    color: #333; /* Accent color */
-  }
-  p {
-    font-size: 16px;
+.tool-card {
+    background: #ffffff;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    padding: 20px;
     margin-bottom: 20px;
-  }
-  /* Call-to-Action Button */
-  .cta-button {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.tool-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.tool-icon {
+    font-size: 24px;
+    margin-right: 15px;
+    color: #983232;
+}
+
+.tool-title {
+    margin: 0;
+    color: #24292e;
+    font-size: 1.5em;
+}
+
+.tool-description {
+    color: #586069;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.tool-link-container {
+    text-align: center;
+}
+
+.tool-link {
     display: inline-block;
-    padding: 12px 25px;
-    margin: 20px 0;
+    padding: 8px 16px;
     background-color: #983232;
-    color: #fff;
-    font-size: 18px;
+    color: white;
     text-decoration: none;
     border-radius: 4px;
-    transition: background-color 0.3s ease;
-  }
-  .cta-button:hover {
-    background-color: #218838;
-  }
-  /* Participating Sites Section */
-  .site-logos {
-    text-align: center;
-    padding: 20px 0;
-  }
-  .site-logos img {
-    max-width: 800px;
-    border-radius: 20px;
-  }
+    transition: background-color 0.2s ease;
+}
+
+.tool-link:hover {
+    background-color: #722424;
+    text-decoration: none;
+    color: white;
+}
 </style>
-<!-- Main Title Section -->
-<img src="images/clif_logo.png" alt="CLIF Logo" class="clif-logo">
-<h1>
-Common Longitudinal ICU data Format
-</h1>
-<div class="text-box">
-<h2>
-Federated Critical Care Research
-</h2>
-<p>
-Multicenter critical care research often faces barriers related to data sharing, requiring complex data use agreements (DUAs) and substantial effort to reconcile differences in data infrastructures. The Common Longitudinal ICU data Format (CLIF) was designed to overcome these challenges, providing a standardized framework for organizing electronic health record (EHR) data on critically ill patients across multiple institutions.
-</p>
-<p>
-CLIF streamlines data into a structured, longitudinal format while incorporating harmonized vocabularies, enabling federated analytics and enhancing data accessibility for researchers and clinicians. By fostering collaboration among critical care researchers, CLIF supports reproducible research, quality benchmarking, and clinical decision-making. CLIF is an evolving data format designed to adapt and improve over time, with the current stable release being version 2.0.0.
-</p>
-<p>
-Developed by a consortium of nine U.S. academic health systems, CLIF’s schema, clinical vocabularies, and federated approach to data sharing are detailed in our recently published study in <em>Intensive Care Medicine</em>.
-</p>
-<!-- CTA Button for CLIF Concept -->
-<a href="https://link.springer.com/article/10.1007/s00134-025-07848-7" class="cta-button" target="_blank">Read the full study in Intensive Care Medicine</a> <a href="./data-dictionary/data-dictionary-2.0.0.html" class="cta-button" target="_blank">Explore CLIF-2.0.0 Data Dictionary</a>
-</div>
-<!-- Participating Sites Logos Section -->
-<h3>
-Participating Sites
+<div class="tool-card">
+<div class="tool-header">
+<i class="tool-icon fab fa-github"></i>
+<h3 class="tool-title anchored">
+CLIF GitHub Organization
 </h3>
-<div class="site-logos">
-<p><img src="images/member_logos.png" alt="Participating Sites Logos"></p>
+</div>
+<div class="tool-description">
+<p>The central hub for all CLIF-related repositories and tools. Our GitHub organization hosts various projects, including ETL pipelines, analysis tools, and documentation. Join our open-source community to contribute and stay updated with the latest developments in CLIF.</p>
+<p><strong>Resources Available:</strong> - Source code for all CLIF tools - Documentation and guides - Example implementations - Community contributions</p>
+</div>
+<div class="tool-link-container">
+<p><a href="https://github.com/Common-Longitudinal-ICU-data-Format" class="tool-link" target="_blank"> <i class="fas fa-external-link-alt"></i> Visit Organization </a></p>
+</div>
+</div>
+<div class="tool-card">
+<div class="tool-header">
+<i class="tool-icon fas fa-database"></i>
+<h3 class="tool-title anchored">
+CLIF-MIMIC ETL Pipeline
+</h3>
+</div>
+<div class="tool-description">
+<p>Transform MIMIC-IV data into CLIF format with our comprehensive ETL pipeline. This repository provides a complete workflow and codebase for converting MIMIC-IV dataset into the Common Longitudinal ICU data Format, making it easier to integrate with other CLIF-compatible datasets.</p>
+<p><strong>Key Features:</strong> - Automated data transformation pipeline - Detailed mapping documentation - Quality assurance checks - Configurable for different MIMIC-IV versions</p>
+</div>
+<div class="tool-link-container">
+<p><a href="https://github.com/Common-Longitudinal-ICU-data-Format/CLIF-MIMIC" class="tool-link" target="_blank"> <i class="fas fa-external-link-alt"></i> Access Pipeline </a></p>
+</div>
+</div>
+<div class="tool-card">
+<div class="tool-header">
+<i class="tool-icon fas fa-code"></i>
+<h3 class="tool-title anchored">
+CLIF SQL Boilerplate
+</h3>
+</div>
+<div class="tool-description">
+<p>Jump-start your CLIF 2.0 implementation with our pre-built SQL queries for Epic’s Caboodle/Clarity systems. These carefully crafted queries help you extract and transform your Epic data into the CLIF format efficiently.</p>
+<p><strong>Features:</strong> - Ready-to-use SQL queries - Optimized for Epic systems - Validated mappings - Implementation guidance</p>
+</div>
+<div class="tool-link-container">
+<p><a href="https://userweb.epic.com/Thread/136603/CLIF-A-Common-Longitudinal-ICU-data-Format-for-Federated-Cri/" class="tool-link" target="_blank"> <i class="fas fa-external-link-alt"></i> Access Queries </a></p>
+</div>
+</div>
+<div class="tool-card">
+<div class="tool-header">
+<i class="tool-icon fas fa-robot"></i>
+<h3 class="tool-title anchored">
+CLIF Assistant
+</h3>
+</div>
+<div class="tool-description">
+<p>Get interactive guidance for your CLIF ETL implementation with our AI-powered assistant. This specialized GPT model helps you navigate the complexities of data transformation, offering real-time support and best practices for CLIF implementation.</p>
+<p><strong>Capabilities:</strong> - ETL guidance - Troubleshooting help - Best practices advice - Implementation support</p>
+</div>
+<div class="tool-link-container">
+<p><a href="https://chatgpt.com/g/g-h1nk6d3eR-clif-assistant" class="tool-link" target="_blank"> <i class="fas fa-external-link-alt"></i> Chat with Assistant </a></p>
+</div>
+</div>
+<div class="tool-card">
+<div class="tool-header">
+<i class="tool-icon fas fa-lighthouse"></i>
+<h3 class="tool-title anchored">
+CLIF Lighthouse
+</h3>
+</div>
+<div class="tool-description">
+<p>Ensure the quality of your CLIF implementation with our web-based validation tool. CLIF Lighthouse performs comprehensive checks on your CLIF tables, helping you identify and resolve any inconsistencies or quality issues.</p>
+<p><strong>Key Features:</strong> - Automated quality checks - Data validation - Visual reporting - Real-time feedback</p>
+</div>
+<div class="tool-link-container">
+<p><a href="https://github.com/Common-Longitudinal-ICU-data-Format/CLIF-Lighthouse" class="tool-link" target="_blank"> <i class="fas fa-external-link-alt"></i> Launch Lighthouse </a></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Need Help?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you need assistance with any of these tools, please refer to their respective documentation or reach out to the CLIF community through GitHub discussions.</p>
+</div>
 </div>
 
 
-</main>  
-</div>
- <!-- /main -->
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -276,6 +360,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     

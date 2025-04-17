@@ -1,0 +1,29 @@
+---
+title: "CLIF maturity"
+---
+
+CLIF is still under development and some parts of the format are more mature than others. CLIF will also need to evolve as the set of minimum Common Data Elements for studying critical illness expands or changes over time.
+
+The consortium has two different maturity concepts: one for the overall ER model and one for the individual tables.
+
+## Overall Maturity Level for CLIF
+
+-   ![Experimental](https://img.shields.io/badge/Maturity-Experimental-red) **Experimental**: Majority of critical illness and hospital course not represented in Entity-Relationship (ER) model, expect frequent breaking changes.
+-   ![Beta](https://img.shields.io/badge/Maturity-Beta-yellow) **Beta**: Core ER model complete and breaking changes to the existing structure unlikely. Actively seeking feedback about new tables to add to the ER model to fully capture critical illness.
+-   ![Stable](https://img.shields.io/badge/Maturity-Stable-brightgreen) **Stable**: Tested and recommended for general use. EHR data not currently represented in CLIF outside the scope of the format.
+-   ![Mature](https://img.shields.io/badge/Maturity-Mature-blue) **Mature**: Widely adopted across majority of consortium sites with majority of tables in stable or mature (see maturity levels for CLIF Tables). ER model very stable.
+-   ![Deprecated](https://img.shields.io/badge/Maturity-Deprecated-lightgrey) **Deprecated**: No longer maintained.
+
+The entity-relationship model for this project is currently at the ![Beta](https://img.shields.io/badge/Maturity-Beta-yellow) **Beta** level for adult patients in a general medical intensive care unit. Major breaking changes to the existing structure are unlikely. The consortium is actively seeking feedback about new tables and fields to add to the ER model to achieve the goal of representing developing a [minimum Common ICU Data Elements (mCIDE)](mCIDE.qmd)
+
+For pediatric patients, CLIF is in the ![Experimental](https://img.shields.io/badge/Maturity-Experimental-red) **Experimental** maturity phase. CLIF is also ![Experimental](https://img.shields.io/badge/Maturity-Experimental-red) **Experimental** for adult patients in specialty ICUs (e.g. cardiac intensive care unit, surgical intensive care unit, and neurointensive care unit).
+
+## Maturity Levels for CLIF Tables {#maturity-levels-for-clif-tables}
+
+There are two critical maturity elements for each CLIF table: 1) field structure and 2) Common ICU data Element development. Each CLIF table has one or more consortium physician-data scientists who are responsible for table design.
+
+-   ![Concept](https://img.shields.io/badge/Maturity-Concept-orange) **Concept**: A planned future CLIF table that has yet to be used in a federated project. The table structure and CDE elements are in draft form. Permissible values of category variables may still need to be defined. Seeking conceptual feedback. Significant changes to all aspects of the table are possible.
+-   ![Beta](https://img.shields.io/badge/Maturity-Beta-yellow) **Beta**: Table purpose, structure, and field names complete and used in at least one federated CLIF project. CDE for category variables defined. Actively testing the table's practical use in projects.
+-   ![Stable](https://img.shields.io/badge/Maturity-Stable-brightgreen) **Stable**: Tested and recommended for general use. CDE stable with permissible values for all category variables precisely defined and locked. Fully implemented at multiple consortium sites and used in a peer-reviewed publication.
+-   ![Mature](https://img.shields.io/badge/Maturity-Mature-blue) **Mature**: Adopted across a majority of the CLIF consortium sites and very stable.
+-   ![Deprecated](https://img.shields.io/badge/Maturity-Deprecated-lightgrey) **Deprecated**: No longer maintained.

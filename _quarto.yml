@@ -24,17 +24,27 @@ website:
     left:
       - href: mission.qmd
         text: About
-      - href: about.qmd
+      - href: team.qmd
         text: TEAM
-      - href: data-dictionary.qmd
-        text: Data Dictionary
       - href: cohort.qmd
         text: CLIF Cohort
       # - posts.qmd # add your posts.qmd file to your navbar!
+      - text: CLIF Versions
+        menu: 
+        - href: data-dictionary/data-dictionary-1.0.0.qmd
+          text: CLIF-1.0.0
+        - href: data-dictionary/data-dictionary-2.0.0.qmd
+          text: CLIF-2.0.0
+        - href: data-dictionary/data-dictionary-2.1.0.qmd
+          text: CLIF-2.1.0
       - text: Resources
         menu: 
+        - href: tools.qmd
+          text: CLIF Tools
         - href: projects.qmd
           text: Projects
+        - href: maturity.qmd
+          text: CLIF Maturity
         - href: mCIDE.qmd
           text: minimum Common ICU Data Elements
         - href: faqs.qmd
