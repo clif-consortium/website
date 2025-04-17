@@ -1,16 +1,8 @@
 ---
-title: " CLIF Data Dictionary- WIP"
+title: " CLIF-2.1.0 Data Dictionary- WIP"
 ---
 
-
-
-
-
-
-
-The CLIF-1.0 data dictionary is [available here](data-dictionary-1.0.0.qmd) and is now deprecated
-
-The current version of CLIF is 2.0.0. CLIF is organized into clinically relevant column categories - demographics, objective measures, respiratory support, orders, and inputs-outputs
+The CLIF Data Dictionary serves as a comprehensive guide to the Common Longitudinal ICU data Format, detailing the structure and purpose of each table within the framework. Designed to standardize and harmonize electronic health record data across multiple institutions, the dictionary outlines the entity-relationship model, variable definitions, and permissible values.
 
 ::: {#erd-container style="max-width: 100%; overflow: hidden;"}
 <img src="../images/ERD-2.0.0.png" alt="ERD" id="erd" usemap="#clif-map" style="width: 100%;"/>
