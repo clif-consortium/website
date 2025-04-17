@@ -1,5 +1,5 @@
 ---
-title: " CLIF-1.0.0 Data Dictionary- Archived"
+title: " CLIF-1.0.0 Data Dictionary- Deprecated"
 ---
 
 

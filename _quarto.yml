@@ -7,19 +7,19 @@ website:
   description: "Website and blog for the CLIF Consortium"
   page-footer: 
     background: "#F6F5F3"
-    left: |
-      Want to Join the Consortium? <br>
-      🖌️ Submit a <a href="https://redcap.uchicago.edu/surveys/?s=7FMNPWTXKP3P3ANW">Project Proposal</a> <br>
+    # left: |
+    #   Want to Join the Consortium? <br>
+    #   🖌️ Submit a <a href="https://redcap.uchicago.edu/surveys/?s=7FMNPWTXKP3P3ANW">Project Proposal</a> <br>
 
       
     center: |
-      © 2024  &middot; CLIF Consortium <br>
+      © 2025  &middot; CLIF Consortium <br>
       ✉️ <a href="mailto:clif_consortium@uchicago.edu">clif_consortium@uchicago.edu</a> <br> 
       <br>
       
-    right: |
-      Already a member? <br>
-      👩🏻‍💻Access <a href="https://docs.google.com/spreadsheets/d/1l8nvjHmmf4lxCviPp12rxafRo2zNApKGOGK126Tn2_s/edit?usp=sharing">CLIF Tracker</a> <br>
+    # right: |
+    #   Already a member? <br>
+    #   👩🏻‍💻Access <a href="https://docs.google.com/spreadsheets/d/1l8nvjHmmf4lxCviPp12rxafRo2zNApKGOGK126Tn2_s/edit?usp=sharing">CLIF Tracker</a> <br>
   navbar:
     left:
       - href: mission.qmd
@@ -37,6 +37,8 @@ website:
           text: CLIF-2.0.0
         - href: data-dictionary/data-dictionary-2.1.0.qmd
           text: CLIF-2.1.0
+        - href: data-dictionary/change_log.qmd
+          text: Change log
       - text: Resources
         menu: 
         - href: tools.qmd

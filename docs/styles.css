@@ -26,8 +26,9 @@
   
   .team-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+    margin-bottom: 40px;
   }
 
   .member-grid {
@@ -132,11 +133,12 @@
   margin-top: 5px;
 }
 
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  margin-bottom: 40px;
+.team-grid div, .member-grid div {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .team-img {
@@ -145,15 +147,18 @@
   object-fit: cover;
   border: 1px solid #ccc;
   border-radius: 8px;
+  margin-bottom: 10px;
 }
 
-.team-grid div {
-  text-align: center;
-}
-
-.team-grid p {
+.team-grid p, .member-grid p {
   text-align: center;
   font-weight: bold;
+  width: 100%;
+  word-wrap: break-word;
+  hyphens: auto;
+  margin: 0;
+  padding: 0 5px;
+  box-sizing: border-box;
 }
 
 .mission-box, .vision-box {
@@ -202,4 +207,16 @@ h2 {
   color: #2c3e50;
   text-align: center;
   margin: 2rem 0;
+}
+
+@media screen and (max-width: 768px) {
+  .team-grid, .member-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .team-grid, .member-grid {
+    grid-template-columns: 1fr;
+  }
 }

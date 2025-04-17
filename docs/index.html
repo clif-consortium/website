@@ -116,6 +116,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./data-dictionary/data-dictionary-2.1.0.html">
  <span class="dropdown-text">CLIF-2.1.0</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./data-dictionary/change_log.html">
+ <span class="dropdown-text">Change log</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -175,40 +179,64 @@ ul.task-list li input[type="checkbox"] {
     color: #333;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
+    width: 100%;
   }
   .text-box {
     background-color: #f7f7f7;
-    padding: 40px;
+    padding: 20px;
     border-radius: 8px;
-    margin: 20px auto;
+    margin: 10px auto;
+    width: 90%;
     max-width: 800px;
+    box-sizing: border-box;
   }
   /* CLIF Logo Styling */
   .clif-logo {
     display: block;
     margin: 20px auto;
-    max-width: 500px; 
+    width: 90%;
+    max-width: 500px;
     height: auto;
   }
-  h1, h2, h3 {
+  h1 {
     text-align: center;
-    color: #333; /* Accent color */
+    color: #333;
+    font-size: calc(24px + 1vw);
+    margin: 15px 10px;
+    word-wrap: break-word;
+  }
+  h2 {
+    text-align: center;
+    color: #333;
+    font-size: calc(20px + 0.5vw);
+    margin: 10px 0;
+  }
+  h3 {
+    text-align: center;
+    color: #333;
+    font-size: calc(18px + 0.5vw);
   }
   p {
     font-size: 16px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    padding: 0 10px;
   }
   /* Call-to-Action Button */
   .cta-button {
-    display: inline-block;
-    padding: 12px 25px;
-    margin: 20px 0;
+    display: block;
+    padding: 12px 20px;
+    margin: 15px auto;
     background-color: #983232;
     color: #fff;
-    font-size: 18px;
+    font-size: 16px;
     text-decoration: none;
     border-radius: 4px;
     transition: background-color 0.3s ease;
+    text-align: center;
+    max-width: 300px;
+    word-wrap: break-word;
+    box-sizing: border-box;
   }
   .cta-button:hover {
     background-color: #218838;
@@ -216,11 +244,36 @@ ul.task-list li input[type="checkbox"] {
   /* Participating Sites Section */
   .site-logos {
     text-align: center;
-    padding: 20px 0;
+    padding: 10px;
+    margin: 0 auto;
   }
   .site-logos img {
+    width: 100%;
     max-width: 800px;
+    height: auto;
     border-radius: 20px;
+  }
+  /* Mobile-specific adjustments */
+  @media screen and (max-width: 768px) {
+    .text-box {
+      padding: 15px;
+      margin: 10px auto;
+    }
+    p {
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .cta-button {
+      font-size: 14px;
+      padding: 10px 15px;
+      margin: 10px auto;
+    }
+    .site-logos {
+      padding: 5px;
+    }
+    .site-logos img {
+      border-radius: 10px;
+    }
   }
 </style>
 <!-- Main Title Section -->
@@ -242,7 +295,7 @@ CLIF streamlines data into a structured, longitudinal format while incorporating
 Developed by a consortium of nine U.S. academic health systems, CLIF’s schema, clinical vocabularies, and federated approach to data sharing are detailed in our recently published study in <em>Intensive Care Medicine</em>.
 </p>
 <!-- CTA Button for CLIF Concept -->
-<a href="https://link.springer.com/article/10.1007/s00134-025-07848-7" class="cta-button" target="_blank">Read the full study in Intensive Care Medicine</a> <a href="./data-dictionary/data-dictionary-2.0.0.html" class="cta-button" target="_blank">Explore CLIF-2.0.0 Data Dictionary</a>
+<p><a href="https://link.springer.com/article/10.1007/s00134-025-07848-7" class="cta-button" target="_blank">Read the full study in Intensive Care Medicine</a> <a href="./data-dictionary/data-dictionary-2.0.0.html" class="cta-button" target="_blank">Explore CLIF-2.0.0 Data Dictionary</a></p>
 </div>
 <!-- Participating Sites Logos Section -->
 <h3>
@@ -640,14 +693,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>Want to Join the Consortium? <br> 🖌️ Submit a <a href="https://redcap.uchicago.edu/surveys/?s=7FMNPWTXKP3P3ANW">Project Proposal</a> <br></p>
-</div>   
+      &nbsp;
+    </div>   
     <div class="nav-footer-center">
-<p>© 2024 · CLIF Consortium <br> ✉️ <a href="mailto:clif_consortium@uchicago.edu">clif_consortium@uchicago.edu</a> <br> <br></p>
+<p>© 2025 · CLIF Consortium <br> ✉️ <a href="mailto:clif_consortium@uchicago.edu">clif_consortium@uchicago.edu</a> <br> <br></p>
 </div>
     <div class="nav-footer-right">
-<p>Already a member? <br> 👩🏻‍💻Access <a href="https://docs.google.com/spreadsheets/d/1l8nvjHmmf4lxCviPp12rxafRo2zNApKGOGK126Tn2_s/edit?usp=sharing">CLIF Tracker</a> <br></p>
-</div>
+      &nbsp;
+    </div>
   </div>
 </footer>
 
