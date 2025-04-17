@@ -99,7 +99,6 @@ Transform MIMIC-IV data into CLIF format with our comprehensive ETL pipeline. Th
 - Automated data transformation pipeline
 - Detailed mapping documentation
 - Quality assurance checks
-- Configurable for different MIMIC-IV versions
 </div>
 <div class="tool-link-container">
 <a href="https://github.com/Common-Longitudinal-ICU-data-Format/CLIF-MIMIC" class="tool-link" target="_blank">
@@ -111,15 +110,14 @@ Transform MIMIC-IV data into CLIF format with our comprehensive ETL pipeline. Th
 <div class="tool-card">
 <div class="tool-header">
 <i class="tool-icon fas fa-code"></i>
-<h3 class="tool-title">CLIF SQL Boilerplate</h3>
+<h3 class="tool-title">CLIF for EPIC-Caboodle</h3>
 </div>
 <div class="tool-description">
-Jump-start your CLIF 2.0 implementation with our pre-built SQL queries for Epic's Caboodle/Clarity systems. These carefully crafted queries help you extract and transform your Epic data into the CLIF format efficiently.
+Jump-start your CLIF 2.0.0 implementation with our pre-built SQL queries for Epic's Caboodle/Clarity systems. These carefully crafted queries help you extract and transform your Epic data into the CLIF format efficiently.
 
 **Features:**
-- Ready-to-use SQL queries
+- Boilerplate SQL queries
 - Optimized for Epic systems
-- Validated mappings
 - Implementation guidance
 </div>
 <div class="tool-link-container">
@@ -162,11 +160,10 @@ Ensure the quality of your CLIF implementation with our web-based validation too
 - Automated quality checks
 - Data validation
 - Visual reporting
-- Real-time feedback
 </div>
 <div class="tool-link-container">
 <a href="https://github.com/Common-Longitudinal-ICU-data-Format/CLIF-Lighthouse" class="tool-link" target="_blank">
-<i class="fas fa-external-link-alt"></i> Launch Lighthouse
+<i class="fas fa-external-link-alt"></i> Setup Lighthouse
 </a>
 </div>
 </div>
