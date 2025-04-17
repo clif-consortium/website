@@ -7,25 +7,25 @@ title: "CLIF Change Log"
 ### 2.2.0 
 - **Release** June 2025
 - **Beta Status Updates**
-  - Added Code status to Beta Status
-  - Added ICD codes table to Beta Status
+  - Add Code status to Beta Status
+  - Add ICD codes table to Beta Status
 
 ### 2.1.0
 - **Release** April 2025
 - **Data Structure Updates**
-  - Moved CRRT therapy, ECMO MCS, and micro non-culture to Beta status
-  - Finalized patient language category mCIDE
-  - Added ADT location type field with finalized mCIDE
-  - Finalized hospitalization admission type mCIDE
+  - Move CRRT therapy, ECMO MCS, and Micro non-culture to Beta status
+  - Finalize patient language category mCIDE- [Issue#13](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/issues/13)
+  - Add ADT location type field with finalized mCIDE- [Issue#39](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/issues/39), [Issue#64](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/issues/64)
+  - Finalize hospitalization admission type mCIDE- [Issue#16](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/issues/16)
 
 ### 2.0.0 (Current Version)
 - **Release** February 2025
 - **Major ERD Upgrade**
   - Combined patient and hospitalization tables
-  - Standardized mCIDE elements
   - Introduced maturity concept for ERD and tables
   - Added Beta tables and concept tables
-  - Standardized all datetime variables to be time zone aware with UTC
+  - Standardized mCIDE elements
+  - Standardized all datetime variables to be time zone aware with UTC- [Issue#40](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/issues/40)
 
 ### 1.0.0
 - First official release of CLIF
