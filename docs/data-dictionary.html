@@ -1586,7 +1586,7 @@ ul.task-list li input[type="checkbox"] {
 <td>mode_category</td>
 <td>VARCHAR</td>
 <td>Maps <code>mode_name</code> to a standardized list of modes of mechanical ventilation</td>
-<td><code>Assist Control-Volume Control</code>, <code>Pressure Control</code>, <code>Pressure-Regulated Volume Control</code>, <code>SIMV</code>, <code>Pressure Support/CPAP</code>, <code>Volume Support</code>, <code>Other</code></td>
+<td><code>Assist Control-Volume Control</code>, <code>Pressure Control</code>, <code>Pressure-Regulated Volume Control</code>, <code>SIMV</code>, <code>Pressure Support/CPAP</code>, <code>Volume Support</code>,<code>Blow by</code>, <code>Other</code></td>
 </tr>
 <tr class="even">
 <td>tracheostomy</td>
@@ -2391,12 +2391,12 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td>crrt_mode_category</td>
 <td>VARCHAR</td>
-<td>Standardized CRRT mode categories: <code>SCUF (Slow Continuous Ultrafiltration)</code>, <code>CVVH (Continuous Veno-Venous Hemodialysis)</code>, <code>CVVHDF (Continuous Venous-Venous Hemodiafiltration)</code></td>
+<td><code>scuf</code>, <code>cvvh</code>, <code>cvvhd</code>, <code>cvvhdf</code></td>
 </tr>
 <tr class="odd">
 <td>dialysis_machine_name</td>
 <td>VARCHAR</td>
-<td>Name of the dialysis machine used</td>
+<td>Unique identifier for the dialysis machine</td>
 </tr>
 <tr class="even">
 <td>blood_flow_rate</td>
@@ -2425,6 +2425,13 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+<p><strong>Notes</strong>:</p>
+<ol type="1">
+<li><strong>SCUF:</strong> Slow Continuous Ultrafiltration</li>
+<li><strong>CVVH:</strong> Continuous Veno- enous Hemofiltration</li>
+<li><strong>CVVHD:</strong> Continuous Veno-Venous Hemodialysis</li>
+<li><strong>CVVHDF:</strong> Continuous Venous-Venous Hemodiafiltration</li>
+</ol>
 <section id="crrt-modalities-and-parameter-usage" class="level4">
 <h4 class="anchored" data-anchor-id="crrt-modalities-and-parameter-usage"><strong>CRRT Modalities and Parameter Usage</strong>:</h4>
 <table class="table">
@@ -2507,7 +2514,7 @@ ul.task-list li input[type="checkbox"] {
 <th>pre_filter_replacement_fluid_rate</th>
 <th>post_filter_replacement_fluid_rate</th>
 <th>dialysate_flow_rate</th>
-<th>ultrafilteration_out</th>
+<th>ultrafiltration_out</th>
 </tr>
 </thead>
 <tbody>
@@ -2516,7 +2523,7 @@ ul.task-list li input[type="checkbox"] {
 <td>2024-02-15 07:00:00+00:00</td>
 <td>CVVHDF</td>
 <td>CVVHDF</td>
-<td>Prismaflex</td>
+<td>J3</td>
 <td>200.0</td>
 <td>1000.0</td>
 <td>500.0</td>
@@ -2528,7 +2535,7 @@ ul.task-list li input[type="checkbox"] {
 <td>2024-02-16 09:15:00+00:00</td>
 <td>CVVH</td>
 <td>CVVH</td>
-<td>NxStage</td>
+<td>J7</td>
 <td>180.0</td>
 <td>1200.0</td>
 <td>300.0</td>
@@ -2540,7 +2547,7 @@ ul.task-list li input[type="checkbox"] {
 <td>2024-02-17 11:45:00+00:00</td>
 <td>SCUF</td>
 <td>SCUF</td>
-<td>Prismaflex</td>
+<td>J11</td>
 <td>150.0</td>
 <td>NA</td>
 <td>NA</td>

@@ -7,8 +7,6 @@ format:
     raw-html: true
 ---
 
-
-
 # CLIF Steering Committee
 
 ```{=html}
@@ -210,6 +208,11 @@ format:
     <a href="https://www.linkedin.com/in/saki-amagai-25461ab5/" target="_blank">
       <img src="images/linkedin_icon.png" alt="LinkedIn" class="icon">
     </a></p></div>
+  <div><img src="headshots/wan_ting.jpeg" alt="Wan-Ting Liao" class="team-img">
+    <p><strong>Wan-Ting Liao, MS </strong><br>
+    <a href="https://www.linkedin.com/in/wan-ting-liao/" target="_blank">
+      <img src="images/linkedin_icon.png" alt="LinkedIn" class="icon">
+    </a></p></div>
 </div>
 
 ## Oregon Health & Science University
@@ -242,7 +245,10 @@ format:
     <p><strong>Nicholas Ingraham, MD</strong><br>
     <a href="https://scholar.google.com/citations?hl=en&user=ZKMVVHkAAAAJ" target="_blank">
       <img src="images/scholar_icon.png" alt="Google Scholar" class="icon">
-    </a></p></div>
+    </a>
+    <a href="https://www.linkedin.com/in/nicholas-ingraham/" target="_blank">
+    <img src="images/linkedin_icon.png" alt="LinkedIn" class="icon">
+  </a></p></div>
   <div><img src="headshots/nathan_mesfin.jpeg" alt="Nathan Mesfin" class="team-img">
     <p><strong>Nathan Mesfin, MD</strong><br>
     <a href="https://med.umn.edu/bio/nathan-mesfin" target="_blank">

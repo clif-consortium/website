@@ -429,7 +429,7 @@ The respiratory support table is a wider longitudinal table that captures simult
 +-------------------------------+-----------------+------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | mode_name                     | VARCHAR         | Includes raw string of the modes, e.g. "CMV volume control"                        | No restriction                                                                                                                                                                                                         |
 +-------------------------------+-----------------+------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| mode_category                 | VARCHAR         | Maps `mode_name` to a standardized list of modes of mechanical ventilation         | `Assist Control-Volume Control`, `Pressure Control`, `Pressure-Regulated Volume Control`, `SIMV`, `Pressure Support/CPAP`, `Volume Support`, `Other`                                                                   |
+| mode_category                 | VARCHAR         | Maps `mode_name` to a standardized list of modes of mechanical ventilation         | `Assist Control-Volume Control`, `Pressure Control`, `Pressure-Regulated Volume Control`, `SIMV`, `Pressure Support/CPAP`, `Volume Support`,`Blow by`, `Other`                                                         |
 +-------------------------------+-----------------+------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | tracheostomy                  | BOOLEAN         | Indicates if tracheostomy is present                                               | 0 = No, 1 = Yes                                                                                                                                                                                                        |
 +-------------------------------+-----------------+------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -660,12 +660,9 @@ The intermittent HD, peritoneal dialysis, PERT, and SLED tables are under develo
 +-----------------------------------+-----------+--------------------------------------------------------------------+
 | crrt_mode_name                    | VARCHAR   | Name of CRRT mode (e.g., "CVVHDF")                                 |
 +-----------------------------------+-----------+--------------------------------------------------------------------+
-| crrt_mode_category                | VARCHAR   | Standardized CRRT mode categories:                                 |
-|                                   |           |`SCUF (Slow Continuous Ultrafiltration)`,                           |
-|                                   |           |`CVVH (Continuous Veno-Venous Hemodialysis)`,                       |
-|                                   |           |`CVVHDF (Continuous Venous-Venous Hemodiafiltration)`               |
+| crrt_mode_category                | VARCHAR   | `scuf`, `cvvh`, `cvvhd`, `cvvhdf`                                  |
 +-----------------------------------+-----------+--------------------------------------------------------------------+
-| dialysis_machine_name             | VARCHAR   | Name of the dialysis machine used                                  |
+| dialysis_machine_name             | VARCHAR   | Unique identifier for the dialysis machine                         |
 +-----------------------------------+-----------+--------------------------------------------------------------------+
 | blood_flow_rate                   | DOUBLE    | Rate of blood flow through the CRRT circuit (mL/hr)                |
 +-----------------------------------+-----------+--------------------------------------------------------------------+
@@ -678,6 +675,12 @@ The intermittent HD, peritoneal dialysis, PERT, and SLED tables are under develo
 | ultrafiltration_out               | DOUBLE    | Net ultrafiltration output (mL)                                    |
 +-----------------------------------+-----------+--------------------------------------------------------------------+  
 
+**Notes**: 
+
+1. **SCUF:** Slow Continuous Ultrafiltration
+2. **CVVH:** Continuous Veno- enous Hemofiltration
+3. **CVVHD:** Continuous Veno-Venous Hemodialysis
+4. **CVVHDF:** Continuous Venous-Venous Hemodiafiltration
     
 #### **CRRT Modalities and Parameter Usage**:
 
@@ -693,15 +696,14 @@ The intermittent HD, peritoneal dialysis, PERT, and SLED tables are under develo
 
 ::: scrollable-table
 +--------------------+---------------------------+----------------+---------------------+-----------------------+-------------------+-----------------------------------+------------------------------------+---------------------+-----------------------+
-| hospitalization_id | recorded_dttm             | crrt_mode_name | crrt_mode_category  | dialysis_machine_name | blood_flow_rate   | pre_filter_replacement_fluid_rate | post_filter_replacement_fluid_rate | dialysate_flow_rate | ultrafilteration_out  |
+| hospitalization_id | recorded_dttm             | crrt_mode_name | crrt_mode_category  | dialysis_machine_name | blood_flow_rate   | pre_filter_replacement_fluid_rate | post_filter_replacement_fluid_rate | dialysate_flow_rate | ultrafiltration_out   |
 +====================+===========================+================+=====================+=======================+===================+===================================+====================================+=====================+=======================+
-| 201                | 2024-02-15 07:00:00+00:00 | CVVHDF         | CVVHDF              | Prismaflex            | 200.0             | 1000.0                            | 500.0                              | 800.0               | 1500.0                |
+| 201                | 2024-02-15 07:00:00+00:00 | CVVHDF         | CVVHDF              | J3                    | 200.0             | 1000.0                            | 500.0                              | 800.0               | 1500.0                |
 +--------------------+---------------------------+----------------+---------------------+-----------------------+-------------------+-----------------------------------+------------------------------------+---------------------+-----------------------+
-| 202                | 2024-02-16 09:15:00+00:00 | CVVH           | CVVH                | NxStage               | 180.0             | 1200.0                            | 300.0                              | NA                  | 1300.0                |
+| 202                | 2024-02-16 09:15:00+00:00 | CVVH           | CVVH                | J7                    | 180.0             | 1200.0                            | 300.0                              | NA                  | 1300.0                |
 +--------------------+---------------------------+----------------+---------------------+-----------------------+-------------------+-----------------------------------+------------------------------------+---------------------+-----------------------+
-| 203                | 2024-02-17 11:45:00+00:00 | SCUF           | SCUF                | Prismaflex            | 150.0             | NA                                | NA                                 | NA                  | 800.0                 |
+| 203                | 2024-02-17 11:45:00+00:00 | SCUF           | SCUF                | J11                   | 150.0             | NA                                | NA                                 | NA                  | 800.0                 |
 +--------------------+---------------------------+----------------+---------------------+-----------------------+-------------------+-----------------------------------+------------------------------------+---------------------+-----------------------+
-
 : {.striped .hover}
 :::
 
