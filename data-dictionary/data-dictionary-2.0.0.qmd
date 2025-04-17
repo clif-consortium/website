@@ -629,7 +629,7 @@ The intermittent HD, peritoneal dialysis, PERT, and SLED tables are under develo
 **Notes**: 
 
 1. **SCUF:** Slow Continuous Ultrafiltration
-2. **CVVH:** Continuous Veno- enous Hemofiltration
+2. **CVVH:** Continuous Veno-Venous Hemofiltration
 3. **CVVHD:** Continuous Veno-Venous Hemodialysis
 4. **CVVHDF:** Continuous Venous-Venous Hemodiafiltration
     
