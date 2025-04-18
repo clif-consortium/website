@@ -323,6 +323,14 @@ format:
     <a href="https://www.linkedin.com/in/alexander-ortiz-md-ms-124a5241/" target="_blank">
       <img src="images/linkedin_icon.png" alt="LinkedIn" class="icon">
     </a></p></div>
+  <div><img src="headshots/katie_connell.jpg" alt="Katie Connell, MS" class="team-img">
+    <p><strong>Katie Connell, PhD</strong><br>
+    <a href="https://scholar.google.com/citations?user=c_Ng2TQAAAAJ&hl=en" target="_blank">
+    <img src="images/scholar_icon.png" alt="Google Scholar" class="icon">
+  </a>
+    <a href="https://www.linkedin.com/in/kathrynconnell/" target="_blank">
+      <img src="images/linkedin_icon.png" alt="LinkedIn" class="icon">
+    </a></p></div>
   <div><img src="headshots/ben_schmid.jpeg" alt="Benjamin Schmid, MS" class="team-img">
     <p><strong>Benjamin Schmid, MS</strong><br>
     <a href="https://www.linkedin.com/in/benjamin-schmid-09199518a/?trk=public_post_feed-actor-name" target="_blank">

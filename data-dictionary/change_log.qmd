@@ -13,7 +13,9 @@ title: "CLIF Change Log"
 ### 2.1.0
 - **Release** April 2025
 - **Data Structure Updates**
-  - Move CRRT therapy, ECMO MCS, and Micro non-culture to Beta status
+  - Move CRRT therapy to Beta status
+  - Move ECMO MCS to Beta status
+  - Move Micro non-culture to Beta status- [Issue#65](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/issues/65)
   - Finalize patient language category mCIDE- [Issue#13](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/issues/13)
   - Add ADT location type field with finalized mCIDE- [Issue#39](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/issues/39), [Issue#64](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/issues/64)
   - Finalize hospitalization admission type mCIDE- [Issue#16](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/issues/16)
