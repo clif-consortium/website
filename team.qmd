@@ -331,6 +331,11 @@ format:
     <a href="https://www.linkedin.com/in/kathrynconnell/" target="_blank">
       <img src="images/linkedin_icon.png" alt="LinkedIn" class="icon">
     </a></p></div>
+  <div><img src="headshots/anu_vyas.jpeg" alt="Anuradha Vyas, MD, MPH" class="team-img">
+    <p><strong>Anuradha Vyas, MD, MPH</strong><br>
+    <a href="https://www.linkedin.com/in/dr-anuradha-vyas/" target="_blank">
+      <img src="images/linkedin_icon.png" alt="LinkedIn" class="icon">
+    </a></p></div>
   <div><img src="headshots/ben_schmid.jpeg" alt="Benjamin Schmid, MS" class="team-img">
     <p><strong>Benjamin Schmid, MS</strong><br>
     <a href="https://www.linkedin.com/in/benjamin-schmid-09199518a/?trk=public_post_feed-actor-name" target="_blank">
