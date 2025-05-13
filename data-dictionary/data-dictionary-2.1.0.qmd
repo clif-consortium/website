@@ -62,6 +62,68 @@ The admission, discharge, and transfer (ADT) table is a start-stop longitudinal 
 : {.striped .hover}
 :::
 
+## CRRT Therapy
+
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](../maturity.qmd)
+
+The crrt_therapy table captures Continuous Renal Replacement Therapy (CRRT) data, including different CRRT modalities, operational parameters, and fluid exchange details. 
+The intermittent HD, peritoneal dialysis, PERT, and SLED tables are under development.
+
++-----------------------------------+-----------+--------------------------------------------------------------------+
+| Variable Name                     | Data Type | Definition                                                         |
++===================================+===========+====================================================================+
+| hospitalization_id                | VARCHAR   | Unique identifier for hospitalization episode                      |
++-----------------------------------+-----------+--------------------------------------------------------------------+
+| recorded_dttm                     | DATETIME  | Timestamp when CRRT parameters were recorded                       |
++-----------------------------------+-----------+--------------------------------------------------------------------+
+| crrt_mode_name                    | VARCHAR   | Name of CRRT mode (e.g., "CVVHDF")                                 |
++-----------------------------------+-----------+--------------------------------------------------------------------+
+| crrt_mode_category                | VARCHAR   | `scuf`, `cvvh`, `cvvhd`, `cvvhdf`                                  |
++-----------------------------------+-----------+--------------------------------------------------------------------+
+| dialysis_machine_name             | VARCHAR   | Unique identifier for the dialysis machine                         |
++-----------------------------------+-----------+--------------------------------------------------------------------+
+| blood_flow_rate                   | DOUBLE    | Rate of blood flow through the CRRT circuit (mL/hr)                |
++-----------------------------------+-----------+--------------------------------------------------------------------+
+| pre_filter_replacement_fluid_rate | DOUBLE    | Rate of pre-filter replacement fluid infusion (mL/hr)              |
++-----------------------------------+-----------+--------------------------------------------------------------------+
+| post_filter_replacement_fluid_rate| DOUBLE    | Rate of post-filter replacement fluid infusion (mL/hr)             |
++-----------------------------------+-----------+--------------------------------------------------------------------+
+| dialysate_flow_rate               | DOUBLE    | Flow rate of dialysate solution (mL/hr)                            |
++-----------------------------------+-----------+--------------------------------------------------------------------+
+| ultrafiltration_out               | DOUBLE    | Net ultrafiltration output (mL)                                    |
++-----------------------------------+-----------+--------------------------------------------------------------------+  
+
+**Notes**: 
+
+1. **SCUF:** Slow Continuous Ultrafiltration
+2. **CVVH:** Continuous Veno-Venous Hemofiltration
+3. **CVVHD:** Continuous Veno-Venous Hemodialysis
+4. **CVVHDF:** Continuous Venous-Venous Hemodiafiltration
+    
+#### **CRRT Modalities and Parameter Usage**:
+
+| **CRRT Modality** | **Blood Flow Rate** | **Pre-Filter Replacement Rate** | **Post-Filter Replacement Rate** | **Dialysate Flow Rate** | **Ultrafiltration Out** |
+|-------------------|---------------------|---------------------------------|---------------------------------|-------------------------|-------------------------|
+| **SCUF**          | Required            | Not Used                        | Not Used                        | Not Used                |   Required              |
+| **CVVH**          | Required            | Required                        | Required                        | Not Used                |   Required              |
+| **CVVHD**         | Required            | Not Used                        | Not Used                        | Required                |   Required              |
+| **CVVHDF**        | Required            | Required                        | Required                        | Required                |   Required              |
+
+
+**Example**:
+
+::: scrollable-table
++--------------------+---------------------------+----------------+---------------------+-----------------------+-------------------+-----------------------------------+------------------------------------+---------------------+-----------------------+
+| hospitalization_id | recorded_dttm             | crrt_mode_name | crrt_mode_category  | dialysis_machine_name | blood_flow_rate   | pre_filter_replacement_fluid_rate | post_filter_replacement_fluid_rate | dialysate_flow_rate | ultrafiltration_out   |
++====================+===========================+================+=====================+=======================+===================+===================================+====================================+=====================+=======================+
+| 201                | 2024-02-15 07:00:00+00:00 | CVVHDF         | CVVHDF              | J3                    | 200.0             | 1000.0                            | 500.0                              | 800.0               | 1500.0                |
++--------------------+---------------------------+----------------+---------------------+-----------------------+-------------------+-----------------------------------+------------------------------------+---------------------+-----------------------+
+| 202                | 2024-02-16 09:15:00+00:00 | CVVH           | CVVH                | J7                    | 180.0             | 1200.0                            | 300.0                              | NA                  | 1300.0                |
++--------------------+---------------------------+----------------+---------------------+-----------------------+-------------------+-----------------------------------+------------------------------------+---------------------+-----------------------+
+| 203                | 2024-02-17 11:45:00+00:00 | SCUF           | SCUF                | J11                   | 150.0             | NA                                | NA                                 | NA                  | 800.0                 |
++--------------------+---------------------------+----------------+---------------------+-----------------------+-------------------+-----------------------------------+------------------------------------+---------------------+-----------------------+
+: {.striped .hover}
+:::
 
 ## Hospitalization
 
@@ -593,71 +655,6 @@ This table provides a longitudinal record of changes in a patient's code status 
 
 : {.striped .hover}
 :::
-
-
-## CRRT Therapy
-
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](../maturity.qmd)
-
-The crrt_therapy table captures Continuous Renal Replacement Therapy (CRRT) data, including different CRRT modalities, operational parameters, and fluid exchange details. 
-The intermittent HD, peritoneal dialysis, PERT, and SLED tables are under development.
-
-+-----------------------------------+-----------+--------------------------------------------------------------------+
-| Variable Name                     | Data Type | Definition                                                         |
-+===================================+===========+====================================================================+
-| hospitalization_id                | VARCHAR   | Unique identifier for hospitalization episode                      |
-+-----------------------------------+-----------+--------------------------------------------------------------------+
-| recorded_dttm                     | DATETIME  | Timestamp when CRRT parameters were recorded                       |
-+-----------------------------------+-----------+--------------------------------------------------------------------+
-| crrt_mode_name                    | VARCHAR   | Name of CRRT mode (e.g., "CVVHDF")                                 |
-+-----------------------------------+-----------+--------------------------------------------------------------------+
-| crrt_mode_category                | VARCHAR   | `scuf`, `cvvh`, `cvvhd`, `cvvhdf`                                  |
-+-----------------------------------+-----------+--------------------------------------------------------------------+
-| dialysis_machine_name             | VARCHAR   | Unique identifier for the dialysis machine                         |
-+-----------------------------------+-----------+--------------------------------------------------------------------+
-| blood_flow_rate                   | DOUBLE    | Rate of blood flow through the CRRT circuit (mL/hr)                |
-+-----------------------------------+-----------+--------------------------------------------------------------------+
-| pre_filter_replacement_fluid_rate | DOUBLE    | Rate of pre-filter replacement fluid infusion (mL/hr)              |
-+-----------------------------------+-----------+--------------------------------------------------------------------+
-| post_filter_replacement_fluid_rate| DOUBLE    | Rate of post-filter replacement fluid infusion (mL/hr)             |
-+-----------------------------------+-----------+--------------------------------------------------------------------+
-| dialysate_flow_rate               | DOUBLE    | Flow rate of dialysate solution (mL/hr)                            |
-+-----------------------------------+-----------+--------------------------------------------------------------------+
-| ultrafiltration_out               | DOUBLE    | Net ultrafiltration output (mL)                                    |
-+-----------------------------------+-----------+--------------------------------------------------------------------+  
-
-**Notes**: 
-
-1. **SCUF:** Slow Continuous Ultrafiltration
-2. **CVVH:** Continuous Veno-Venous Hemofiltration
-3. **CVVHD:** Continuous Veno-Venous Hemodialysis
-4. **CVVHDF:** Continuous Venous-Venous Hemodiafiltration
-    
-#### **CRRT Modalities and Parameter Usage**:
-
-| **CRRT Modality** | **Blood Flow Rate** | **Pre-Filter Replacement Rate** | **Post-Filter Replacement Rate** | **Dialysate Flow Rate** | **Ultrafiltration Out** |
-|-------------------|---------------------|---------------------------------|---------------------------------|-------------------------|-------------------------|
-| **SCUF**          | Required            | Not Used                        | Not Used                        | Not Used                |   Required              |
-| **CVVH**          | Required            | Required                        | Required                        | Not Used                |   Required              |
-| **CVVHD**         | Required            | Not Used                        | Not Used                        | Required                |   Required              |
-| **CVVHDF**        | Required            | Required                        | Required                        | Required                |   Required              |
-
-
-**Example**:
-
-::: scrollable-table
-+--------------------+---------------------------+----------------+---------------------+-----------------------+-------------------+-----------------------------------+------------------------------------+---------------------+-----------------------+
-| hospitalization_id | recorded_dttm             | crrt_mode_name | crrt_mode_category  | dialysis_machine_name | blood_flow_rate   | pre_filter_replacement_fluid_rate | post_filter_replacement_fluid_rate | dialysate_flow_rate | ultrafiltration_out   |
-+====================+===========================+================+=====================+=======================+===================+===================================+====================================+=====================+=======================+
-| 201                | 2024-02-15 07:00:00+00:00 | CVVHDF         | CVVHDF              | J3                    | 200.0             | 1000.0                            | 500.0                              | 800.0               | 1500.0                |
-+--------------------+---------------------------+----------------+---------------------+-----------------------+-------------------+-----------------------------------+------------------------------------+---------------------+-----------------------+
-| 202                | 2024-02-16 09:15:00+00:00 | CVVH           | CVVH                | J7                    | 180.0             | 1200.0                            | 300.0                              | NA                  | 1300.0                |
-+--------------------+---------------------------+----------------+---------------------+-----------------------+-------------------+-----------------------------------+------------------------------------+---------------------+-----------------------+
-| 203                | 2024-02-17 11:45:00+00:00 | SCUF           | SCUF                | J11                   | 150.0             | NA                                | NA                                 | NA                  | 800.0                 |
-+--------------------+---------------------------+----------------+---------------------+-----------------------+-------------------+-----------------------------------+------------------------------------+---------------------+-----------------------+
-: {.striped .hover}
-:::
-
 
 ## ECMO_MCS
 
