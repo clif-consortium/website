@@ -245,81 +245,70 @@ ul.task-list li input[type="checkbox"] {
 <p>The admission, discharge, and transfer (ADT) table is a start-stop longitudinal dataset that contains information about each patient’s movement within the hospital. It also has a <code>hospital_id</code> field to distinguish between different hospitals within a health system.</p>
 <p><a href="../maturity.html"><img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid"></a></p>
 <table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Variable Name</th>
+<th>Data Type</th>
+<th>Definition</th>
+<th>Permissible Values</th>
+<th></th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td><h1 id="variable-name">Variable Name</h1>
-<p>hospitalization_id</p></td>
-<td><h1 id="data-type">Data Type</h1>
-<p>VARCHAR</p></td>
-<td><h1 id="definition">Definition</h1>
-<p>ID variable for each patient encounter</p></td>
-<td><h1 id="permissible-values">Permissible Values</h1>
-<p>No restriction</p></td>
-<td>=======</td>
+<td>hospitalization_id</td>
+<td>VARCHAR</td>
+<td>ID variable for each patient encounter</td>
+<td>No restriction</td>
 <td></td>
 </tr>
 <tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>hospital_id</td>
 <td>VARCHAR</td>
 <td>Assign a unique ID to each hospital within a healthsystem</td>
 <td>No restriction</td>
 <td></td>
-<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>hospital_type</td>
 <td>VARCHAR</td>
 <td>Maps <code>hospital_id</code> to a standardized list of hospital types</td>
 <td><code>academic</code>, <code>community</code></td>
 <td></td>
-<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>in_dttm</td>
 <td>DATETIME</td>
 <td>Start date and time at a particular location. All datetime variables must be timezone-aware and set to UTC.</td>
 <td>Datetime format should be <code>YYYY-MM-DD HH:MM:SS+00:00</code> (UTC)</td>
 <td></td>
-<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>out_dttm</td>
 <td>DATETIME</td>
 <td>End date and time at a particular location. All datetime variables must be timezone-aware and set to UTC.</td>
 <td>Datetime format should be <code>YYYY-MM-DD HH:MM:SS+00:00</code> (UTC)</td>
 <td></td>
-<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>location_name</td>
 <td>VARCHAR</td>
 <td>Location of the patient inside the hospital. This field is used to store the patient location from the source data. It is not used for analysis.</td>
 <td>No restriction</td>
 <td></td>
-<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>location_category</td>
 <td>VARCHAR</td>
 <td>Maps <code>location_name</code> to a standardized list of ADT location categories</td>
 <td><code>ed</code>, <code>ward</code>, <code>stepdown</code>, <code>icu</code>, <code>procedural</code>, <code>l&amp;d</code>, <code>hospice</code>, <code>psych</code>, <code>rehab</code>, <code>radiology</code>, <code>dialysis</code>, <code>other</code></td>
 <td></td>
-<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>location_type</td>
 <td>VARCHAR</td>
 <td>Maps ICU type to a standardized list of ICU categories</td>
-<td><a href="https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/blob/main/mCIDE/clif_adt_location_type.csv">List of ICU categories in CLIF</a> |</td>
-<td></td>
+<td><a href="https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/blob/main/mCIDE/clif_adt_location_type.csv">List of ICU categories in CLIF</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -761,136 +750,116 @@ ul.task-list li input[type="checkbox"] {
 <p>The hospitalization table contains information about each hospitalization event. Each row in this table represents a unique hospitalization event for a patient. This table is inspired by the <a href="https://ohdsi.github.io/CommonDataModel/cdm54.html#visit_occurrence">visit_occurance</a> OMOP table but is specific to inpatient hospitalizations (including those that begin in the emergency room).</p>
 <p><a href="../maturity.html"><img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid"></a></p>
 <table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Variable Name</th>
+<th>Data Type</th>
+<th>Definition</th>
+<th>Permissible Values</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td><h1 id="variable-name-1">Variable Name</h1>
-<p>patient_id</p></td>
-<td><h1 id="data-type-1">Data Type</h1>
-<p>VARCHAR</p></td>
-<td><h1 id="definition-1">Definition</h1>
-<p>Unique identifier for each patient, linking to the <code>patient</code> table</p></td>
-<td><h1 id="permissible-values-1">Permissible Values</h1>
-<p>No restriction</p></td>
-<td></td>
+<td>patient_id</td>
+<td>VARCHAR</td>
+<td>Unique identifier for each patient, linking to the <code>patient</code> table</td>
+<td>No restriction</td>
 </tr>
 <tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>hospitalization_id</td>
 <td>VARCHAR</td>
 <td>Unique identifier for each hospitalization encounter. Each hospitalization_id represents a unique stay in the hospital</td>
 <td>No restriction</td>
-<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>hospitalization_joined_id</td>
 <td>VARCHAR</td>
 <td>Unique identifier for each continuous inpatient stay in a health system which may span different hospitals (Optional)</td>
 <td>No restriction</td>
-<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>admission_dttm</td>
 <td>DATETIME</td>
 <td>Date and time the patient is admitted to the hospital. All datetime variables must be timezone-aware and set to UTC.</td>
 <td>Datetime format should be <code>YYYY-MM-DD HH:MM:SS+00:00</code>(UTC)</td>
-<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>discharge_dttm</td>
 <td>DATETIME</td>
 <td>Date and time the patient is discharged from the hospital. All datetime variables must be timezone-aware and set to UTC.</td>
 <td>Datetime format should be <code>YYYY-MM-DD HH:MM:SS+00:00</code>(UTC)</td>
-<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>age_at_admission</td>
 <td>INT</td>
 <td>Age of the patient at the time of admission, in years</td>
 <td>No restriction</td>
-<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>admission_type_name</td>
 <td>VARCHAR</td>
 <td>Type of inpatient admission. Original string from the source data</td>
 <td>e.g.&nbsp;“Direct admission”, “Transfer”, “Pre-op surgical”</td>
-<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>admission_type_category</td>
 <td>VARCHAR</td>
 <td>Admission disposition mapped to mCIDE categories</td>
 <td><a href="https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/blob/main/mCIDE/clif_hospitalization_admission_type_categories.csv">List of admission type categories in CLIF</a></td>
-<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>discharge_name</td>
 <td>VARCHAR</td>
 <td>Original discharge disposition name string recorded in the raw data</td>
 <td>No restriction, e.g.&nbsp;“home”</td>
-<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>discharge_category</td>
 <td>VARCHAR</td>
 <td>Maps <code>discharge_name</code> to a standardized list of discharge categories</td>
 <td><code>Home</code>, <code>Skilled Nursing Facility (SNF)</code>, <code>Expired</code>, <code>Acute Inpatient Rehab Facility</code>, <code>Hospice</code>, <code>Long Term Care Hospital (LTACH)</code>, <code>Acute Care Hospital</code>, <code>Group Home</code>, <code>Chemical Dependency</code>, <code>Against Medical Advice (AMA)</code>, <code>Assisted Living</code>, <code>Still Admitted</code>, <code>Missing</code>, <code>Other</code>, <code>Psychiatric Hospital</code>, <code>Shelter</code>, <code>Jail</code></td>
-<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>zipcode_nine_digit</td>
 <td>VARCHAR</td>
 <td>Patient’s 9 digit zip code, used to link with other indices such as ADI and SVI</td>
 <td>No restriction</td>
-<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>zipcode_five_digit</td>
 <td>VARCHAR</td>
 <td>Patient’s 5 digit zip code, used to link with other indices such as ADI and SVI</td>
 <td>No restriction</td>
-<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>census_block_code</td>
 <td>VARCHAR</td>
 <td>15 digit FIPS code</td>
 <td>No restriction</td>
-<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>census_block_group_code</td>
 <td>VARCHAR</td>
 <td>12 digit FIPS code</td>
 <td>No restriction</td>
-<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>census_tract</td>
 <td>VARCHAR</td>
 <td>11 digit FIPS code</td>
 <td>No restriction</td>
-<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>state_code</td>
 <td>VARCHAR</td>
 <td>2 digit FIPS code</td>
 <td>No restriction</td>
-<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>county_code</td>
 <td>VARCHAR</td>
 <td>5 digit FIPS code</td>
 <td>No restriction</td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -1577,93 +1546,80 @@ ul.task-list li input[type="checkbox"] {
 <p><a href="../maturity.html"><img src="https://img.shields.io/badge/Maturity-Beta-yellow.png" class="img-fluid"></a></p>
 <p>This table contains demographic information about the patient that does not vary between hospitalizations. It is inspired by the OMOP <a href="https://ohdsi.github.io/CommonDataModel/cdm54.html#person">Person</a> table</p>
 <table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Variable Name</th>
+<th>Data Type</th>
+<th>Definition</th>
+<th>Permissible Values</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td><h1 id="variable-name-2">Variable Name</h1>
-<p>patient_id</p></td>
-<td><h1 id="data-type-2">Data Type</h1>
-<p>VARCHAR</p></td>
-<td><h1 id="definition-2">Definition</h1>
-<p>Unique identifier for each patient. This is presumed to be a distinct individual.</p></td>
-<td><h1 id="permissible-values-2">Permissible Values</h1></td>
+<td>patient_id</td>
+<td>VARCHAR</td>
+<td>Unique identifier for each patient. This is presumed to be a distinct individual.</td>
 <td></td>
 </tr>
 <tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
 <td>race_name</td>
 <td>VARCHAR</td>
 <td>Patient race string from source data</td>
 <td>No restriction</td>
-<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>race_category</td>
 <td>VARCHAR</td>
 <td>A standardized CDE description of patient’s race per the US Census permissible values. The source data may contain different strings for race.</td>
 <td><code>Black or African American</code>, <code>White</code>, <code>American Indian or Alaska Native</code>, <code>Asian</code>, <code>Native Hawaiian or Other Pacific Islander</code>, <code>Unknown</code>, <code>Other</code></td>
-<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>ethnicity_name</td>
 <td>VARCHAR</td>
 <td>Patient ethnicity string from source data</td>
 <td>No restriction</td>
-<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>ethnicity_category</td>
 <td>VARCHAR</td>
 <td>Description of patient’s ethnicity per the US census definition. The source data may contain different strings for ethnicity.</td>
 <td><code>Hispanic</code>, <code>Non-Hispanic</code>, <code>Unknown</code></td>
-<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>sex_name</td>
 <td>VARCHAR</td>
 <td>Patient’s biological sex as given in the source data.</td>
 <td>No restriction</td>
-<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>sex_category</td>
 <td>VARCHAR</td>
 <td>Patient’s biological sex.</td>
 <td><code>Male</code>, <code>Female</code>, <code>Unknown</code></td>
-<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>birth_date</td>
 <td>DATETIME</td>
 <td>Patient’s date of birth.</td>
 <td>Date format should be <code>YYYY-MM-DD</code></td>
-<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>death_dttm</td>
 <td>DATETIME</td>
 <td>Patient’s death date, including time.</td>
 <td>Datetime format should be <code>YYYY-MM-DD HH:MM:SS+00:00</code> (UTC)</td>
-<td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>language_name</td>
 <td>VARCHAR</td>
 <td>Patient’s preferred language.</td>
 <td>Original string from the source data</td>
-<td></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>language_category</td>
 <td>VARCHAR</td>
 <td>Maps <code>language_name</code> to a standardized list of spoken languages</td>
 <td><a href="https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/blob/main/mCIDE/clif_patient_language_categories.csv">List of language categories in CLIF</a></td>
-<td></td>
 </tr>
 </tbody>
 </table>
