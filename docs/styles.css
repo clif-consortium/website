@@ -231,20 +231,66 @@ h2 {
 
 .stat {
   background: #f9f9f9;
-  border: 1px solid #ddd;
   padding: 1rem;
   text-align: center;
   border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stat img {
+  width: 100%;
+  max-width: 120px;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
 }
 
 .stat-value {
   font-size: 1.5rem;
   font-weight: bold;
   color: #333;
+  margin-top: auto;
 }
 
 .stat-label {
   font-size: 0.9rem;
   color: #555;
+  margin-bottom: 0.5rem;
 }
+
+.flash-highlight {
+  animation: flash-bg 1s ease-in-out;
+}
+
+@keyframes flash-bg {
+  0%   { background-color: #f9f9f9; }
+  50%  { background-color: #e6f3ff; }
+  100% { background-color: transparent; }
+}
+
+details {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+details[open] {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+}
+
+details summary {
+  cursor: pointer;
+  padding: 0.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+details summary:hover {
+  color: #0047AB;
+}
+
