@@ -76,42 +76,52 @@ fig.show()
 <div class="stat-label">Total encounters</div>
 </div>
 <div class="stat">
+<img src="images/median_age.png" alt="Median age icon">
 <div class="stat-value">63 years</div>
 <div class="stat-label">Median age</div>
 </div>
 <div class="stat">
+<img src="images/median_age.png" alt="x icon">
 <div class="stat-value">39.7%</div>
 <div class="stat-label">Female</div>
 </div>
 <div class="stat">
+<img src="images/median_age.png" alt="y icon">
 <div class="stat-value">6%</div>
 <div class="stat-label">Hispanic</div>
 </div>
 <div class="stat">
+<img src="images/median_age.png" alt="z icon">
 <div class="stat-value">61.5%</div>
 <div class="stat-label">White</div>
 </div>
 <div class="stat">
+<img src="images/median_age.png" alt="a icon">
 <div class="stat-value">26%</div>
 <div class="stat-label">Mortality</div>
 </div>
 <div class="stat">
+<img src="images/median_age.png" alt="b icon">
 <div class="stat-value">65%</div>
 <div class="stat-label">Received vasopressors</div>
 </div>
 <div class="stat">
+<img src="images/median_age.png" alt="c icon">
 <div class="stat-value">0.3 [0.3–0.5]</div>
 <div class="stat-label">FIO2</div>
 </div>
 <div class="stat">
+<img src="images/median_age.png" alt="d icon">
 <div class="stat-value">5 [5–7.4]</div>
 <div class="stat-label">PEEP</div>
 </div>
 <div class="stat">
+<img src="images/median_age.png" alt="e icon">
 <div class="stat-value">7 [3–10]</div>
 <div class="stat-label">SOFA Score</div>
 </div>
 <div class="stat">
+<img src="images/median_age.png" alt="f icon">
 <div class="stat-value">80.5%</div>
 <div class="stat-label">ICU Intubation</div>
 </div>
