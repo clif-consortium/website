@@ -177,7 +177,7 @@ format:
       <img src="images/linkedin_icon.png" alt="LinkedIn" class="icon">
     </a></p></div>
   <div><img src="headshots/dema_therese.jpg" alt="Dema Therese" class="team-img">
-    <p><strong>Dema Therese, BA</strong><br>
+    <p><strong>Dema Therese, MS</strong><br>
      <a href="https://www.linkedin.com/in/dematherese" target="_blank">
       <img src="images/linkedin_icon.png" alt="LinkedIn" class="icon">
     </a></p></div>
@@ -185,6 +185,11 @@ format:
     <p><strong>Brett Beaulieu-Jones, PhD</strong><br>
      <a href="https://scholar.google.com/citations?user=2SvHNeQAAAAJ&hl=en" target="_blank">
       <img src="images/scholar_icon.png" alt="Google Scholar" class="icon">
+    </a></p></div>
+  <div><img src="headshots/michael_burkhart.jpeg" alt="Michael Burkhart" class="team-img">
+    <p><strong>Michael Burkhart, PhD</strong><br>
+     <a href="https://www.linkedin.com/in/burkh4rt/" target="_blank">
+      <img src="images/linkedin_icon.png" alt="LinkedIn" class="icon">
     </a></p></div>
 </div>
 
