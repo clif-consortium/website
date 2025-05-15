@@ -5,13 +5,13 @@ title: "CLIF Change Log"
 ### Version History
 
 ### 2.2.0 
-- **Release** June 2025
+- **Release** TBD
 - **Beta Status Updates**
   - Add Code status to Beta Status
   - Add ICD codes table to Beta Status
 
 ### 2.1.0
-- **Release** April 2025
+- **Release** June 2025
 - **Data Structure Updates**
   - Move CRRT therapy to Beta status
   - Move ECMO MCS to Beta status
