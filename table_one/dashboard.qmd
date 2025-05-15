@@ -1,0 +1,234 @@
+---
+title: "Cohort Characteristics"
+format:
+  html:
+    self-contained: true
+    embed-resources: true
+    # theme: none
+    css: styles.css
+jupyter: quarto_env
+---
+
+```{python}
+#| echo: false
+#| output: false
+
+import pandas as pd
+import altair as alt
+import numpy as np
+
+# read the CSV sitting next to this .qmd
+df = pd.read_csv("table_one_UMN.csv")
+
+# Convert the dataframe from wide to long format for the years
+df_long = pd.melt(df, id_vars=['Variable'], var_name='Year', value_name='Value')
+df_long = df_long[df_long['Year'] != 'Overall']  # Exclude the Overall column if it exists
+
+# Function to extract numeric values from strings like "63 [55-72]"
+def extract_numeric(val):
+    try:
+        return float(str(val).split()[0])
+    except:
+        return np.nan
+
+# Function to extract range values from strings like "63 [55-72]"
+def extract_range(val):
+    try:
+        range_part = str(val).split('[')[1].split(']')[0]
+        return range_part
+    except:
+        return ""
+```
+
+```{python}
+#| echo: false
+
+# Create a div for the dashboard grid
+from IPython.display import HTML
+
+dashboard_html = """
+<div class="dashboard-grid">
+    <div class="metric-card">
+        <img src="icons/hospital.png" alt="Hospital">
+        <div class="metric-value">84,106</div>
+        <div class="metric-label">Total encounters in the cohort</div>
+    </div>
+    
+    <div class="metric-card">
+        <img src="icons/age.png" alt="Age">
+        <div class="metric-value">N/A</div>
+        <div class="metric-label">Median age at admission</div>
+    </div>
+    
+    <div class="metric-card">
+        <img src="icons/gender.png" alt="Gender">
+        <div class="metric-value">39.7%</div>
+        <div class="metric-label">Female</div>
+    </div>
+    
+    <div class="metric-card">
+        <div class="race-metrics">
+            <div>
+                <span class="metric-value">6%</span>
+                <span class="metric-label">Hispanic</span>
+                <div class="range-text">Min. 2% - Max. 22.2%</div>
+            </div>
+            <div>
+                <span class="metric-value">61.5%</span>
+                <span class="metric-label">White</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="metric-card">
+        <img src="icons/mortality.png" alt="Mortality">
+        <div class="metric-value">26%</div>
+        <div class="metric-label">Mortality</div>
+    </div>
+</div>
+
+<div class="dashboard-grid-lower">
+    <div class="donut-chart">
+        <h3>Location of First Intubation</h3>
+        <!-- Donut chart will go here -->
+    </div>
+    
+    <div class="clinical-metrics">
+        <div class="metric-row">
+            <img src="icons/vaso.png" alt="Vasopressors">
+            <div>
+                <div class="metric-value">65%</div>
+                <div class="metric-label">Encounters received vasopressors</div>
+                <div class="metric-value-small">0.1 [0.1-0.4]</div>
+                <div class="metric-label-small">Median [IQR] dose (mcg/kg/min)</div>
+            </div>
+        </div>
+        
+        <div class="metric-row">
+            <img src="icons/sofa.png" alt="SOFA">
+            <div>
+                <div class="metric-value">7 [3-10]</div>
+                <div class="metric-label">Median [IQR] SOFA Score</div>
+            </div>
+        </div>
+        
+        <div class="metric-row">
+            <img src="icons/vent.png" alt="Ventilation">
+            <div>
+                <div class="metric-value">0.3 [0.3-0.5]</div>
+                <div class="metric-label">Median [IQR] FIO2</div>
+                <div class="metric-value-small">5 [5-7.4]</div>
+                <div class="metric-label-small">Median [IQR] PEEP</div>
+            </div>
+        </div>
+    </div>
+</div>
+"""
+
+HTML(dashboard_html)
+```
+
+<style>
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+    padding: 20px;
+}
+
+.dashboard-grid-lower {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.metric-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.metric-card img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.metric-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+}
+
+.metric-label {
+    font-size: 14px;
+    color: #666;
+}
+
+.race-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.range-text {
+    font-size: 12px;
+    color: #999;
+    margin-top: 5px;
+}
+
+.donut-chart {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.clinical-metrics {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.metric-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.metric-row:last-child {
+    border-bottom: none;
+}
+
+.metric-row img {
+    width: 30px;
+    height: 30px;
+}
+
+.metric-value-small {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
+
+.metric-label-small {
+    font-size: 12px;
+    color: #666;
+}
+
+h3 {
+    margin-top: 0;
+    color: #333;
+    font-size: 16px;
+}
+</style>

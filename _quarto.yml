@@ -2,6 +2,12 @@ project:
   type: website
   output-dir: docs
 
+execute:
+  jupyter: true
+  cache: false
+  kernel: quarto_env
+  python: .venv/bin/python
+
 website:
   title: "CLIF Consortium"
   description: "Website and blog for the CLIF Consortium"
@@ -53,6 +59,8 @@ website:
           text: FAQs
 
     right:
+      - text: Dashboard
+        href: table_one/dashboard.qmd
       - icon: github
         href: https://github.com/Common-Longitudinal-ICU-data-Format
     twitter-card: true
@@ -62,3 +70,6 @@ format:
     theme: sandstone
     css: styles.css
     toc: true
+    self-contained: true
+    embed-resources: true
+    
