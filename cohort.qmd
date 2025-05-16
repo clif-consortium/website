@@ -12,8 +12,10 @@ format:
       allow-raw-html: true
 execute:
   enabled: true
-  freeze: auto
+  freeze: true
   echo: false
+resources:
+  - images/
 ---
 
 
@@ -21,203 +23,241 @@ execute:
 
 The table below showcases the characteristics and outcomes of ICU patient encounters across nine CLIF consortium sites. The cohort includes all adults (≥ 18 years) admitted to an ICU within 48 hours of hospitalization and staying at least 24 hours, from January 1, 2020, to December 31, 2021. This represents a diverse cohort of over 111,000 ICU patient encounters.
 
-```{python}
-import pandas as pd
-import plotly.graph_objects as go
+```{ojs}
+// Years available
+// Ensure it's a string for the lookup to work
+// viewof selectedYear = Inputs.select(["2022", "2023", "2024"], {
+//   label: "Select Year",
+//   value: "2024"
+// })
 
-# Map marker data with scroll targets
-df = pd.DataFrame([
-    {"University": "Emory University", "Lat": 33.7925, "Lon": -84.3238, "Target": "emory-university"},
-    {"University": "Johns Hopkins", "Lat": 39.2976, "Lon": -76.5920, "Target": "johns-hopkins"},
-    {"University": "Northwestern", "Lat": 41.8781, "Lon": -87.6298, "Target": "northwestern"},
-    {"University": "OHSU", "Lat": 45.4995, "Lon": -122.6868, "Target": "ohsu"},
-    {"University": "Rush University", "Lat": 41.8749, "Lon": -87.6691, "Target": "rush-university"},
-    {"University": "University of Chicago", "Lat": 41.7897, "Lon": -87.5997, "Target": "university-of-chicago"},
-    {"University": "University of Michigan", "Lat": 42.2780, "Lon": -83.7382, "Target": "university-of-michigan"},
-    {"University": "University of Minnesota", "Lat": 44.9727, "Lon": -93.2354, "Target": "university-of-minnesota"},
-    {"University": "University of Pennsylvania", "Lat": 39.9522, "Lon": -75.1932, "Target": "university-of-pennsylvania"},
-])
+// Extract university names (i.e., column names excluding 'Characteristic')
+// universities = Object.keys(data[0]).filter(k => !["Variable", "Aggregate"].includes(k))
 
-fig = go.Figure(go.Scattergeo(
-    locationmode='USA-states',
-    lon=df["Lon"],
-    lat=df["Lat"],
-    text=df["University"],
-    mode='markers+text',
-    textposition='top center',
-    marker=dict(size=10, color="#0047AB", line=dict(width=1, color='white')),
-    hoverinfo='text',
-    customdata=df["Target"]
-))
+// // Dropdown for university selection
+// viewof selectedUniversity = Inputs.select(
+//   ["None", ...universities], {
+//     label: "Select University",
+//     value: "None"
+//   }
+// )
 
-fig.update_layout(
-    title="CLIF ICU Sites (Click a marker for stats)",
-    geo=dict(
-        scope='usa',
-        projection=go.layout.geo.Projection(type='albers usa'),
-        showland=True,
-        landcolor="lightgray",
-        bgcolor="white",
-        showcountries=False,
-        showframe=False
-    ),
-    margin=dict(l=0, r=0, t=40, b=0)
+// Load only 2024 data (remove year selector)
+data = FileAttachment("CLIF-TableOne/combined_overall_all_sites.csv").csv()
+
+// Extract university names (i.e., column names excluding 'Characteristic')
+universities = Object.keys(data[0]).filter(k => !["Variable", "Consortium Aggregate"].includes(k))
+
+// Dropdown for university selection — default to "Overall" (= Consortium)
+viewof selectedUniversity = Inputs.select(
+  ["Overall", ...universities], {
+    label: "Select University",
+    value: "Overall"
+  }
 )
 
-fig.show()
+
+// Preload all CSV attachments
+// files = ({
+//   "2022": FileAttachment("CLIF-TableOne/combined_2022_all_sites_with_agg.csv"),
+//   "2023": FileAttachment("CLIF-TableOne/combined_2023_all_sites_with_agg.csv"),
+//   "2024": FileAttachment("CLIF-TableOne/combined_2024_all_sites_with_agg.csv")
+// })
+
+// // Select and load CSV for selected year
+// data = files[selectedYear].csv()
+
+
+
+
+
 ```
 
-<details id="emory-university">
-<summary><strong>Emory University</strong></summary>
-<div class="stat-grid">
-<div class="stat">
-<img src="images/emory-total-encounters.png" alt="Total encounters icon">
-<div class="stat-value">84,106</div>
-<div class="stat-label">Total encounters</div>
-</div>
-<div class="stat">
-<img src="images/median_age.png" alt="Median age icon">
-<div class="stat-value">63 years</div>
-<div class="stat-label">Median age</div>
-</div>
-<div class="stat">
-<img src="images/median_age.png" alt="x icon">
-<div class="stat-value">39.7%</div>
-<div class="stat-label">Female</div>
-</div>
-<div class="stat">
-<img src="images/median_age.png" alt="y icon">
-<div class="stat-value">6%</div>
-<div class="stat-label">Hispanic</div>
-</div>
-<div class="stat">
-<img src="images/median_age.png" alt="z icon">
-<div class="stat-value">61.5%</div>
-<div class="stat-label">White</div>
-</div>
-<div class="stat">
-<img src="images/median_age.png" alt="a icon">
-<div class="stat-value">26%</div>
-<div class="stat-label">Mortality</div>
-</div>
-<div class="stat">
-<img src="images/median_age.png" alt="b icon">
-<div class="stat-value">65%</div>
-<div class="stat-label">Received vasopressors</div>
-</div>
-<div class="stat">
-<img src="images/median_age.png" alt="c icon">
-<div class="stat-value">0.3 [0.3–0.5]</div>
-<div class="stat-label">FIO2</div>
-</div>
-<div class="stat">
-<img src="images/median_age.png" alt="d icon">
-<div class="stat-value">5 [5–7.4]</div>
-<div class="stat-label">PEEP</div>
-</div>
-<div class="stat">
-<img src="images/median_age.png" alt="e icon">
-<div class="stat-value">7 [3–10]</div>
-<div class="stat-label">SOFA Score</div>
-</div>
-<div class="stat">
-<img src="images/median_age.png" alt="f icon">
-<div class="stat-value">80.5%</div>
-<div class="stat-label">ICU Intubation</div>
-</div>
-</div>
-</details>
 
 
-<details id="johns-hopkins">
-<summary><strong>Johns Hopkins</strong></summary>
-<div class="stat-grid">
-<div class="stat">
-<div class="stat-value">18,242</div>
-<div class="stat-label">Total encounters</div>
-</div>
-<div class="stat">
-<div class="stat-value">62 years</div>
-<div class="stat-label">Median age</div>
-</div>
-<div class="stat">
-<div class="stat-value">45.6%</div>
-<div class="stat-label">Female</div>
-</div>
-<div class="stat">
-<div class="stat-value">56.2%</div>
-<div class="stat-label">White</div>
-</div>
-<div class="stat">
-<div class="stat-value">6.0%</div>
-<div class="stat-label">Hispanic</div>
-</div>
-<div class="stat">
-<div class="stat-value">10.4%</div>
-<div class="stat-label">Mortality</div>
-</div>
-<div class="stat">
-<div class="stat-value">60%</div>
-<div class="stat-label">Received vasopressors</div>
-</div>
-<div class="stat">
-<div class="stat-value">0.4 [0.3–0.6]</div>
-<div class="stat-label">FIO2</div>
-</div>
-<div class="stat">
-<div class="stat-value">5 [5–8]</div>
-<div class="stat-label">PEEP</div>
-</div>
-<div class="stat">
-<div class="stat-value">6 [3–9]</div>
-<div class="stat-label">SOFA Score</div>
-</div>
-<div class="stat">
-<div class="stat-value">75.2%</div>
-<div class="stat-label">ICU Intubation</div>
-</div>
-</div>
-</details>
+```{ojs}
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    // Wait for Plotly to be fully loaded
-    const checkPlotly = setInterval(function() {
-      const plot = document.querySelector(".js-plotly-plot");
-      if (plot) {
-        clearInterval(checkPlotly);
-        
-        plot.on('plotly_click', function(eventData) {
-          console.log('Plot clicked:', eventData); // Debug log
-          const anchorId = eventData.points[0].customdata;
-          console.log('Target ID:', anchorId); // Debug log
-          
-          // Close all other details sections
-          document.querySelectorAll('details').forEach(detail => {
-            detail.open = false;
-          });
-          
-          const el = document.getElementById(anchorId);
-          console.log('Found element:', el); // Debug log
-          
-          if (el) {
-            // Open the details element
-            el.open = true;
-            
-            // Scroll into view
-            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            
-            // Add flash highlight
-            el.classList.add('flash-highlight');
-            
-            // Remove highlight after animation
-            setTimeout(() => {
-              el.classList.remove('flash-highlight');
-            }, 1000);
-          }
-        });
-      }
-    }, 100);
-  });
-</script>
+// Optionally convert data for plotting (transpose)
+// Inputs.table(
+//   selectedUniversity === "None"
+//     ? data
+//     : data.map(d => ({
+//         Variable: d.Variable,
+//         [selectedUniversity]: d[selectedUniversity]
+//       }))
+// )
 
+htl.html`<div style="height: 2rem;"></div>`
+
+// Use Consortium values if "None" is selected
+// Use Consortium values if "Overall" is selected
+sourceColumn = selectedUniversity === "Overall" ? "Consortium Aggregate" : selectedUniversity
+
+summary = Object.fromEntries(
+  data.map(d => [d.Variable, d[sourceColumn]])
+)
+
+extractPercent = str => {
+  const match = /\(([\d.]+)\)/.exec(str);
+  return match ? parseFloat(match[1]) : NaN;
+}
+
+donutData = Object.keys(summary)
+  .filter(k => k.startsWith("First location of intubation n (%):"))
+  .map(k => ({
+    name: k.replace("First location of intubation n (%):", "").trim(),
+    value: extractPercent(summary[k])
+  }))
+  .filter(d => !isNaN(d.value))
+
+
+// // Race categories you'd like to include
+// first_intubation_locations = [
+//     "First location of intubation n (%): icu",
+//     "First location of intubation n (%): ed",
+//     "First location of intubation n (%): procedural",
+//     "First location of intubation n (%): stepdown",
+//     "First location of intubation n (%): ward",
+//     "First location of intubation n (%): radiology",
+//     "First location of intubation n (%): dialysis",
+//     "First location of intubation n (%): other",
+// ]
+
+
+
+
+
+htl.html`
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem 2rem; font-family: sans-serif;">
+  <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+  <img src="../images/totalicus.png" alt="icon" style="width: 96px; height: 96px; margin-bottom: 0.5rem;">
+  <div><strong>${summary["N: ICU encounters"]}</strong><br/>Total ICU encounters in the cohort</div></div>
+  <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+  <img src="../images/ttl_patients.png" alt="icon" style="width: 96px; height: 96px; margin-bottom: 0.5rem;">
+  <div><strong>${summary["N: unique patients"]}</strong><br/>Total unique patients in the cohort</div></div>
+  <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+  <img src="../images/gender.png" alt="icon" style="width: 96px; height: 96px; margin-bottom: 0.5rem;">
+  <div><strong>${summary["Sex n (%): Female"]}%</strong><br/>Female</div></div>
+  <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+  <img src="../images/race.png" alt="icon" style="width: 96px; height: 96px; margin-bottom: 0.5rem;">
+  <div><strong>${summary["Race n (%): Black"]}%</strong><br/>Race: black</div></div>
+  <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+  <img src="../images/race.png" alt="icon" style="width: 96px; height: 96px; margin-bottom: 0.5rem;">
+  <div><strong>${summary["Race n (%): White"]}%</strong><br/>Race: White</div></div>
+  <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+  <img src="../images/race.png" alt="icon" style="width: 96px; height: 96px; margin-bottom: 0.5rem;">
+  <div><strong>${summary["Race n (%): Other"]}%</strong><br/>Race: Other</div></div>
+  <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+  <img src="../images/ethnicity.png" alt="icon" style="width: 96px; height: 96px; margin-bottom: 0.5rem;">
+  <div><strong>${summary["Ethnicity n (%): Hispanic"]}</strong><br/>Ethnicity: Hispanic</div></div>
+  <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+  <div><strong>${summary["Total ICU days, median [Q1,Q3]"]}%</strong><br/>Total ICU days, median [Q1,Q3]</div></div>
+  <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+  <div><strong>${summary["Total hospital days, median [Q1,Q3]"]}%</strong><br/>Total hospital days, median [Q1,Q3]</div></div>
+  <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+  <img src="../images/death.jpg" alt="icon" style="width: 96px; height: 96px; margin-bottom: 0.5rem;">
+  <div><strong>${summary["Hospital mortality n (%)"]}</strong><br/>Mortality</div></div>
+  <div><strong>${summary["SOFA-97 TOTAL, median [Q1,Q3]"]}%</strong><br/>SOFA-97 TOTAL, median [Q1,Q3]</div>
+  <div><strong>${summary["Admission Location n (%): ed"]}%</strong><br/>Admission Location n (%): ed</div>
+  <div><strong>${summary["Admission Location n (%): procedural"]}%</strong><br/>Admission Location n (%): procedural</div>
+  <div><strong>${summary["Admission Location n (%): icu"]}%</strong><br/>Admission Location n (%): icu</div>
+  <div><strong>${summary["Admission Location n (%): stepdown"]}%</strong><br/>Admission Location n (%): stepdown</div>
+  <div><strong>${summary["Admission Location n (%): ward"]}%</strong><br/>Admission Location n (%): ward</div>
+  <div><strong>${summary["Admission Location n (%): psych"]}</strong><br/>Admission Location n (%): psych</div>
+  <div><strong>${summary["Admission Location n (%): other"]}%</strong><br/>Admission Location n (%): other</div>
+  <div><strong>${summary["Vasopressor encounters n (%)"]}%</strong><br/>Vasopressor encounters n (%)</div>
+  <div><strong>${summary["Dopamine dose, median [Q1,Q3]"]}%</strong><br/>Dopamine dose, median [Q1,Q3]</div>
+  <div><strong>${summary["Epinephrine dose, median [Q1,Q3]"]}%</strong><br/>Epinephrine dose, median [Q1,Q3]</div>
+  <div><strong>${summary["Norepinephrine dose, median [Q1,Q3]"]}%</strong><br/>Norepinephrine dose, median [Q1,Q3]</div>
+  <div><strong>${summary["Phenylephrine dose, median [Q1,Q3]"]}%</strong><br/>Phenylephrine dose, median [Q1,Q3]</div>
+  <div><strong>${summary["Vasopressin dose, median [Q1,Q3]"]}%</strong><br/>Vasopressin dose, median [Q1,Q3]</div>
+  <div><strong>${summary["Angiotensin dose, median [Q1,Q3]"]}</strong><br/>Angiotensin dose, median [Q1,Q3]</div>
+  <div><strong>${summary["IMV encounters n (%)"]}</strong><br/>MV encounters n (%)</div>
+  <div><strong>${summary["First location of intubation n (%): icu"]}</strong><br/>First location of intubation n (%): icu</div>
+  <div><strong>${summary["First location of intubation n (%): ed"]}</strong><br/>First location of intubation n (%): ed</div>
+  <div><strong>${summary["First location of intubation n (%): procedural"]}</strong><br/>First location of intubation n (%): procedural</div>
+  <div><strong>${summary["First location of intubation n (%): stepdown"]}</strong><br/>First location of intubation n (%): stepdown</div>
+  <div><strong>${summary["First location of intubation n (%): ward"]}</strong><br/>First location of intubation n (%): ward</div>
+  <div><strong>${summary["First location of intubation n (%): radiology"]}</strong><br/>First location of intubation n (%): radiology</div>
+  <div><strong>${summary["First location of intubation n (%): dialysis"]}</strong><br/>First location of intubation n (%): dialysis</div>
+  <div><strong>${summary["First location of intubation n (%): other"]}</strong><br/>First location of intubation n (%): other</div>
+  <div><strong>${summary["First location of intubation n (%): l&d"]}</strong><br/>First location of intubation n (%): l&d</div>
+  <div><strong>${summary["Initial mode for IMV n (%): assist control-volume control"]}</strong><br/>Initial mode for IMV n (%): assist control-volume control</div>
+  <div><strong>${summary["Initial mode for IMV n (%): simv"]}</strong><br/>Initial mode for IMV n (%): simv</div>
+  <div><strong>${summary["Initial mode for IMV n (%): pressure support/cpap"]}</strong><br/>Initial mode for IMV n (%): pressure support/cpap</div>
+  <div><strong>${summary["Initial mode for IMV n (%): No mode documented"]}</strong><br/>Initial mode for IMV n (%): No mode documented</div>
+  <div><strong>${summary["Initial mode for IMV n (%): pressure control"]}</strong><br/>Initial mode for IMV n (%): pressure control</div>
+  <div><strong>${summary["Initial mode for IMV n (%): other"]}</strong><br/>Initial mode for IMV n (%): other</div>
+  <div><strong>${summary["Initial mode for IMV n (%): pressure-regulated volume control"]}</strong><br/>Initial mode for IMV n (%): pressure-regulated volume control</div>
+  <div><strong>${summary["Initial mode for IMV n (%): volume support"]}</strong><br/>Initial mode for IMV n (%): volume support</div>
+  <div><strong>${summary["Initial mode for IMV n (%): aprv"]}</strong><br/>Initial mode for IMV n (%): aprv</div>
+  <div><strong>${summary["Initial mode for IMV n (%): blow by"]}</strong><br/>Initial mode for IMV n (%): blow by</div>
+  <div><strong>${summary["fio2_set, median [Q1,Q3]"]}</strong><br/>fio2_set, median [Q1,Q3]</div>
+  <div><strong>${summary["peep_set, median [Q1,Q3]"]}</strong><br/>peep_set, median [Q1,Q3]</div>
+  <div><strong>${summary["resp_rate_set, median [Q1,Q3]"]}</strong><br/>resp_rate_set, median [Q1,Q3]</div>
+  <div><strong>${summary["tidal_volume_set, median [Q1,Q3]"]}</strong><br/>tidal_volume_set, median [Q1,Q3]</div>
+
+
+
+
+
+
+
+`
+
+htl.html`<div style="height: 2rem;"></div>`
+```
+
+```{ojs}
+// Inject donutData as JSON into HTML for D3 to read
+htl.html`<script id="donut-data" type="application/json">${JSON.stringify(donutData)}</script>`
+
+
+```
+
+```{ojs}
+import {htl} from "@observablehq/runtime"
+
+chart = {
+  const width = 300;
+  const height = 300;
+  const radius = Math.min(width, height) / 2;
+
+  const svg = d3.create("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .attr("viewBox", [-width / 2, -height / 2, width, height])
+    .style("max-width", "100%")
+    .style("height", "auto");
+
+  const arc = d3.arc()
+    .innerRadius(radius * 0.6)
+    .outerRadius(radius);
+
+  const pie = d3.pie()
+    .sort(null)
+    .value(d => +d.value);
+
+  const color = d3.scaleOrdinal()
+    .domain(donutData.map(d => d.name))
+    .range(d3.schemeTableau10);
+
+  svg.append("g")
+    .selectAll("path")
+    .data(pie(donutData))
+    .join("path")
+      .attr("fill", d => color(d.data.name))
+      .attr("d", arc);
+
+  svg.append("text")
+    .attr("text-anchor", "middle")
+    .attr("dy", "0.35em")
+    .style("font-size", "1.2rem")
+    .text("Total");
+
+
+  return svg.node();
+}
+
+chart
+```
