@@ -2,6 +2,7 @@
 title: "CLIF ICU Dashboard"
 format: 
   html:
+    observablehq: true
     theme: sandstone
     css: styles.css
     page-layout: full
@@ -24,25 +25,6 @@ resources:
 The table below showcases the characteristics and outcomes of ICU patient encounters across nine CLIF consortium sites. The cohort includes all adults (≥ 18 years) admitted to an ICU within 48 hours of hospitalization and staying at least 24 hours, from January 1, 2020, to December 31, 2021. This represents a diverse cohort of over 111,000 ICU patient encounters.
 
 ```{ojs}
-// Years available
-// Ensure it's a string for the lookup to work
-// viewof selectedYear = Inputs.select(["2022", "2023", "2024"], {
-//   label: "Select Year",
-//   value: "2024"
-// })
-
-// Extract university names (i.e., column names excluding 'Characteristic')
-// universities = Object.keys(data[0]).filter(k => !["Variable", "Aggregate"].includes(k))
-
-// // Dropdown for university selection
-// viewof selectedUniversity = Inputs.select(
-//   ["None", ...universities], {
-//     label: "Select University",
-//     value: "None"
-//   }
-// )
-
-// Load only 2024 data (remove year selector)
 data = FileAttachment("CLIF-TableOne/combined_overall_all_sites.csv").csv()
 
 // Extract university names (i.e., column names excluding 'Characteristic')
@@ -55,41 +37,13 @@ viewof selectedUniversity = Inputs.select(
     value: "Overall"
   }
 )
-
-
-// Preload all CSV attachments
-// files = ({
-//   "2022": FileAttachment("CLIF-TableOne/combined_2022_all_sites_with_agg.csv"),
-//   "2023": FileAttachment("CLIF-TableOne/combined_2023_all_sites_with_agg.csv"),
-//   "2024": FileAttachment("CLIF-TableOne/combined_2024_all_sites_with_agg.csv")
-// })
-
-// // Select and load CSV for selected year
-// data = files[selectedYear].csv()
-
-
-
-
-
 ```
 
 
 
 ```{ojs}
-
-// Optionally convert data for plotting (transpose)
-// Inputs.table(
-//   selectedUniversity === "None"
-//     ? data
-//     : data.map(d => ({
-//         Variable: d.Variable,
-//         [selectedUniversity]: d[selectedUniversity]
-//       }))
-// )
-
 htl.html`<div style="height: 2rem;"></div>`
 
-// Use Consortium values if "None" is selected
 // Use Consortium values if "Overall" is selected
 sourceColumn = selectedUniversity === "Overall" ? "Consortium Aggregate" : selectedUniversity
 
@@ -102,8 +56,7 @@ extractPercent = str => {
   return match ? parseFloat(match[1]) : NaN;
 }
 
-donutData = Object.keys(summary)
-  .filter(k => k.startsWith("First location of intubation n (%):"))
+donutData = first_intubation_locations
   .map(k => ({
     name: k.replace("First location of intubation n (%):", "").trim(),
     value: extractPercent(summary[k])
@@ -111,36 +64,49 @@ donutData = Object.keys(summary)
   .filter(d => !isNaN(d.value))
 
 
-// // Race categories you'd like to include
-// first_intubation_locations = [
-//     "First location of intubation n (%): icu",
-//     "First location of intubation n (%): ed",
-//     "First location of intubation n (%): procedural",
-//     "First location of intubation n (%): stepdown",
-//     "First location of intubation n (%): ward",
-//     "First location of intubation n (%): radiology",
-//     "First location of intubation n (%): dialysis",
-//     "First location of intubation n (%): other",
-// ]
+// // first intubation categories you'd like to include
+first_intubation_locations = [
+    "First location of intubation n (%): icu",
+    "First location of intubation n (%): ed",
+    "First location of intubation n (%): procedural",
+    "First location of intubation n (%): stepdown",
+    "First location of intubation n (%): ward",
+ ]
 
+// Initial mode for IMV categories
+imv_modes = [
+  "Initial mode for IMV n (%): assist control-volume control",
+  "Initial mode for IMV n (%): simv",
+  "Initial mode for IMV n (%): pressure support/cpap",
+  "Initial mode for IMV n (%): No mode documented",
+  "Initial mode for IMV n (%): pressure control",
+  "Initial mode for IMV n (%): other",
+  "Initial mode for IMV n (%): pressure-regulated volume control",
+  "Initial mode for IMV n (%): volume support"
+]
 
-
+imvDonutData = imv_modes
+  .map(k => ({
+    name: k.replace("Initial mode for IMV n (%):", "").trim(),
+    value: extractPercent(summary[k])
+  }))
+  .filter(d => !isNaN(d.value))
 
 
 htl.html`
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem 2rem; font-family: sans-serif;">
   <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
   <img src="../images/totalicus.png" alt="icon" style="width: 96px; height: 96px; margin-bottom: 0.5rem;">
-  <div><strong>${summary["N: ICU encounters"]}</strong><br/>Total ICU encounters in the cohort</div></div>
+  <div><strong>${summary["N: ICU encounters"]}</strong><br/>Total ICU encounters</div></div>
   <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
   <img src="../images/ttl_patients.png" alt="icon" style="width: 96px; height: 96px; margin-bottom: 0.5rem;">
-  <div><strong>${summary["N: unique patients"]}</strong><br/>Total unique patients in the cohort</div></div>
+  <div><strong>${summary["N: unique patients"]}</strong><br/>Total unique patients</div></div>
   <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
   <img src="../images/gender.png" alt="icon" style="width: 96px; height: 96px; margin-bottom: 0.5rem;">
   <div><strong>${summary["Sex n (%): Female"]}%</strong><br/>Female</div></div>
   <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
   <img src="../images/race.png" alt="icon" style="width: 96px; height: 96px; margin-bottom: 0.5rem;">
-  <div><strong>${summary["Race n (%): Black"]}%</strong><br/>Race: black</div></div>
+  <div><strong>${summary["Race n (%): Black"]}%</strong><br/>Race: Black</div></div>
   <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
   <img src="../images/race.png" alt="icon" style="width: 96px; height: 96px; margin-bottom: 0.5rem;">
   <div><strong>${summary["Race n (%): White"]}%</strong><br/>Race: White</div></div>
@@ -173,62 +139,44 @@ htl.html`
   <div><strong>${summary["Vasopressin dose, median [Q1,Q3]"]}%</strong><br/>Vasopressin dose, median [Q1,Q3]</div>
   <div><strong>${summary["Angiotensin dose, median [Q1,Q3]"]}</strong><br/>Angiotensin dose, median [Q1,Q3]</div>
   <div><strong>${summary["IMV encounters n (%)"]}</strong><br/>MV encounters n (%)</div>
-  <div><strong>${summary["First location of intubation n (%): icu"]}</strong><br/>First location of intubation n (%): icu</div>
-  <div><strong>${summary["First location of intubation n (%): ed"]}</strong><br/>First location of intubation n (%): ed</div>
-  <div><strong>${summary["First location of intubation n (%): procedural"]}</strong><br/>First location of intubation n (%): procedural</div>
-  <div><strong>${summary["First location of intubation n (%): stepdown"]}</strong><br/>First location of intubation n (%): stepdown</div>
-  <div><strong>${summary["First location of intubation n (%): ward"]}</strong><br/>First location of intubation n (%): ward</div>
-  <div><strong>${summary["First location of intubation n (%): radiology"]}</strong><br/>First location of intubation n (%): radiology</div>
-  <div><strong>${summary["First location of intubation n (%): dialysis"]}</strong><br/>First location of intubation n (%): dialysis</div>
-  <div><strong>${summary["First location of intubation n (%): other"]}</strong><br/>First location of intubation n (%): other</div>
-  <div><strong>${summary["First location of intubation n (%): l&d"]}</strong><br/>First location of intubation n (%): l&d</div>
-  <div><strong>${summary["Initial mode for IMV n (%): assist control-volume control"]}</strong><br/>Initial mode for IMV n (%): assist control-volume control</div>
-  <div><strong>${summary["Initial mode for IMV n (%): simv"]}</strong><br/>Initial mode for IMV n (%): simv</div>
-  <div><strong>${summary["Initial mode for IMV n (%): pressure support/cpap"]}</strong><br/>Initial mode for IMV n (%): pressure support/cpap</div>
-  <div><strong>${summary["Initial mode for IMV n (%): No mode documented"]}</strong><br/>Initial mode for IMV n (%): No mode documented</div>
-  <div><strong>${summary["Initial mode for IMV n (%): pressure control"]}</strong><br/>Initial mode for IMV n (%): pressure control</div>
-  <div><strong>${summary["Initial mode for IMV n (%): other"]}</strong><br/>Initial mode for IMV n (%): other</div>
-  <div><strong>${summary["Initial mode for IMV n (%): pressure-regulated volume control"]}</strong><br/>Initial mode for IMV n (%): pressure-regulated volume control</div>
-  <div><strong>${summary["Initial mode for IMV n (%): volume support"]}</strong><br/>Initial mode for IMV n (%): volume support</div>
-  <div><strong>${summary["Initial mode for IMV n (%): aprv"]}</strong><br/>Initial mode for IMV n (%): aprv</div>
-  <div><strong>${summary["Initial mode for IMV n (%): blow by"]}</strong><br/>Initial mode for IMV n (%): blow by</div>
   <div><strong>${summary["fio2_set, median [Q1,Q3]"]}</strong><br/>fio2_set, median [Q1,Q3]</div>
   <div><strong>${summary["peep_set, median [Q1,Q3]"]}</strong><br/>peep_set, median [Q1,Q3]</div>
   <div><strong>${summary["resp_rate_set, median [Q1,Q3]"]}</strong><br/>resp_rate_set, median [Q1,Q3]</div>
   <div><strong>${summary["tidal_volume_set, median [Q1,Q3]"]}</strong><br/>tidal_volume_set, median [Q1,Q3]</div>
-
-
-
-
-
-
 
 `
 
 htl.html`<div style="height: 2rem;"></div>`
 ```
 
-```{ojs}
+```{ojs echo: false}
 // Inject donutData as JSON into HTML for D3 to read
 htl.html`<script id="donut-data" type="application/json">${JSON.stringify(donutData)}</script>`
-
 
 ```
 
 ```{ojs}
+//| label: first-intube-chart
+//| output: html
+
 import {htl} from "@observablehq/runtime"
 
 chart = {
   const width = 300;
-  const height = 300;
+  const height = 350;  // Increased height to accommodate text below
   const radius = Math.min(width, height) / 2;
 
+  // Create main SVG with extra width for legend
   const svg = d3.create("svg")
-    .attr("width", width)
+    .attr("width", width + 200) // Add extra width for legend
     .attr("height", height)
-    .attr("viewBox", [-width / 2, -height / 2, width, height])
+    .attr("viewBox", [0, 0, width + 200, height])
     .style("max-width", "100%")
     .style("height", "auto");
+
+  // Create a group for the donut chart and center it
+  const chartGroup = svg.append("g")
+    .attr("transform", `translate(${width/2}, ${height/2 - 25})`);  // Moved up slightly to make room for text
 
   const arc = d3.arc()
     .innerRadius(radius * 0.6)
@@ -238,26 +186,128 @@ chart = {
     .sort(null)
     .value(d => +d.value);
 
-  const color = d3.scaleOrdinal()
-    .domain(donutData.map(d => d.name))
-    .range(d3.schemeTableau10);
+  const color = d3.scaleOrdinal(d3.schemeReds[9]);    // Red gradient
 
-  svg.append("g")
+  // Add the pie chart to the centered group
+  chartGroup.append("g")
     .selectAll("path")
     .data(pie(donutData))
     .join("path")
       .attr("fill", d => color(d.data.name))
       .attr("d", arc);
 
+  // Add text below the donut
   svg.append("text")
     .attr("text-anchor", "middle")
-    .attr("dy", "0.35em")
+    .attr("x", width/2)
+    .attr("y", height - 20)  // Position near bottom of SVG
     .style("font-size", "1.2rem")
-    .text("Total");
+    .style("font-weight", "bold")
+    .text("First location of intubation");
 
+  // Create legend group
+  const legend = svg.append("g")
+    .attr("transform", `translate(${width + 20}, 20)`); // Position legend 20px from right edge
+
+  // Add legend items
+  donutData.forEach((d, i) => {
+    const legendItem = legend.append("g")
+      .attr("transform", `translate(0, ${i * 25})`); // Space items 25px apart
+
+    legendItem.append("rect")
+      .attr("width", 15)
+      .attr("height", 15)
+      .attr("fill", color(d.name));
+
+    legendItem.append("text")
+      .attr("x", 20)
+      .attr("y", 12)
+      .style("font-size", "12px")
+      .text(d.name);
+  });
 
   return svg.node();
 }
 
-chart
+display(chart)
+
+```
+
+
+```{ojs}
+//| label: inital-imv-chart
+//| output: html
+
+import {htl} from "@observablehq/runtime"
+
+imvChart = {
+  const width = 300;
+  const height = 350;  // Increased height to accommodate text below
+  const radius = Math.min(width, height) / 2;
+
+  // Create main SVG with extra width for legend
+  const svg = d3.create("svg")
+    .attr("width", width + 200) // Add extra width for legend
+    .attr("height", height)
+    .attr("viewBox", [0, 0, width + 200, height])
+    .style("max-width", "100%")
+    .style("height", "auto");
+
+  // Create a group for the donut chart and center it
+  const chartGroup = svg.append("g")
+    .attr("transform", `translate(${width/2}, ${height/2 - 25})`);  // Moved up slightly to make room for text
+
+  const arc = d3.arc()
+    .innerRadius(radius * 0.6)
+    .outerRadius(radius);
+
+  const pie = d3.pie()
+    .sort(null)
+    .value(d => +d.value);
+
+  const color = d3.scaleOrdinal(d3.schemeReds[9]);    // Red gradient
+  
+  // Add the pie chart to the centered group
+  chartGroup.append("g")
+    .selectAll("path")
+    .data(pie(imvDonutData))
+    .join("path")
+      .attr("fill", d => color(d.data.name))
+      .attr("d", arc);
+
+  // Add text below the donut
+  svg.append("text")
+    .attr("text-anchor", "middle")
+    .attr("x", width/2)
+    .attr("y", height - 20)  // Position near bottom of SVG
+    .style("font-size", "1.2rem")
+    .style("font-weight", "bold")
+    .text("Initial mode for IMV");
+
+  // Create legend group
+  const legend = svg.append("g")
+    .attr("transform", `translate(${width + 20}, 20)`); // Position legend 20px from right edge
+
+  // Add legend items
+  imvDonutData.forEach((d, i) => {
+    const legendItem = legend.append("g")
+      .attr("transform", `translate(0, ${i * 25})`); // Space items 25px apart
+
+    legendItem.append("rect")
+      .attr("width", 15)
+      .attr("height", 15)
+      .attr("fill", color(d.name));
+
+    legendItem.append("text")
+      .attr("x", 20)
+      .attr("y", 12)
+      .style("font-size", "12px")
+      .text(d.name);
+  });
+
+  return svg.node();
+}
+
+display(imvChart)
+
 ```
