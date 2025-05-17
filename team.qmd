@@ -353,6 +353,36 @@ format:
     </a></p></div>
 </div>
 
+## Cornell University
+
+<div class="team-grid">
+  <div><img src="headshots/edward_schenck.jpeg" alt="Edward J. Schenck" class="team-img">
+    <p><strong>Edward J. Schenck, M.D</strong><br>
+    <a href="https://scholar.google.com/citations?user=AndXGDsAAAAJ&hl=en" target="_blank">
+      <img src="images/scholar_icon.png" alt="Google Scholar" class="icon">
+    </a></p></div>
+</div>
+
+## University of California San Francisco
+
+<div class="team-grid">
+  <div><img src="headshots/placeholder.jpg" alt="Aartik Sarma" class="team-img">
+    <p><strong>Aartik Sarma, M.D, MAS</strong><br>
+    <a href="https://scholar.google.com/citations?user=BCmu_34AAAAJ&hl=en" target="_blank">
+      <img src="images/scholar_icon.png" alt="Google Scholar" class="icon">
+    </a></p></div>
+</div>
+
+## University of Colorado
+
+<div class="team-grid">
+  <div><img src="headshots/jen_ginestra.jpg" alt="Jennifer Ginestra" class="team-img">
+    <p><strong>Jennifer Ginestra, MD</strong><br>
+    <a href="https://scholar.google.com/citations?user=YRo_t84AAAAJ&hl=en" target="_blank">
+      <img src="images/scholar_icon.png" alt="Google Scholar" class="icon">
+    </a></p></div>
+</div>
+
 ## Yale University
 
 <div class="team-grid">
@@ -360,6 +390,16 @@ format:
     <p><strong>Snigdha Jain, MD</strong><br>
     <a href="https://www.linkedin.com/in/snigdha-jain-5179a2327/" target="_blank">
       <img src="images/linkedin_icon.png" alt="LinkedIn" class="icon">
+    </a></p></div>
+</div>
+
+## Harvard University
+
+<div class="team-grid">
+  <div><img src="headshots/claire_shappell.jpeg" alt="claire_shappell" class="team-img">
+    <p><strong>Claire N Shappell, M.D.</strong><br>
+    <a href="https://scholar.google.com/citations?hl=en&user=DvBE3dEAAAAJ" target="_blank">
+      <img src="images/scholar_icon.png" alt="Google Scholar" class="icon">
     </a></p></div>
 </div>
 
