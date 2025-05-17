@@ -366,8 +366,8 @@ format:
 ## University of California San Francisco
 
 <div class="team-grid">
-  <div><img src="headshots/placeholder.jpg" alt="Aartik Sarma" class="team-img">
-    <p><strong>Aartik Sarma, M.D, MAS</strong><br>
+  <div><img src="headshots/aartik.jpg" alt="Aartik Sarma" class="team-img">
+    <p><strong>Aartik Sarma, M.D</strong><br>
     <a href="https://scholar.google.com/citations?user=BCmu_34AAAAJ&hl=en" target="_blank">
       <img src="images/scholar_icon.png" alt="Google Scholar" class="icon">
     </a></p></div>
