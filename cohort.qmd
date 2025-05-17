@@ -304,10 +304,7 @@ chart = {
   return svg.node();
 }
 
-display(chart)
-
 ```
-
 
 ```{ojs}
 //| label: inital-imv-chart
@@ -383,6 +380,13 @@ imvChart = {
   return svg.node();
 }
 
-display(imvChart)
+```
 
+```{ojs}
+htl.html`
+  <div style="display: flex; justify-content: space-around; align-items: center;">
+    ${chart} 
+    ${imvChart} 
+  </div>
+`
 ```
