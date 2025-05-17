@@ -39,11 +39,7 @@ viewof selectedUniversity = Inputs.select(
 )
 ```
 
-
-
 ```{ojs}
-htl.html`<div style="height: 2rem;"></div>`
-
 // Use Consortium values if "Overall" is selected
 sourceColumn = selectedUniversity === "Overall" ? "Consortium Aggregate" : selectedUniversity
 
@@ -52,7 +48,7 @@ summary = Object.fromEntries(
 )
 
 extractPercent = str => {
-  const match = /\(([\d.]+)\)/.exec(str);
+  const match = /\(([^)]+)\)/.exec(str);
   return match ? parseFloat(match[1]) : NaN;
 }
 
@@ -93,56 +89,135 @@ imvDonutData = imv_modes
   .filter(d => !isNaN(d.value))
 
 
+```
+
+```{ojs}
 htl.html`
+<div style="height: 2rem;"></div>
+
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem 2rem; font-family: sans-serif;">
+
   <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-  <img src="../images/totalicus.png" alt="icon" style="width: 96px; height: 96px; margin-bottom: 0.5rem;">
-  <div><strong>${summary["N: ICU encounters"]}</strong><br/>Total ICU encounters</div></div>
+    <img src="../images/totalicus.png" style="width: 96px; margin-bottom: 0.5rem;">
+    <div><strong>${summary["N: ICU encounters"]}</strong><br/>Total ICU encounters</div>
+  </div>
+
   <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-  <img src="../images/ttl_patients.png" alt="icon" style="width: 96px; height: 96px; margin-bottom: 0.5rem;">
-  <div><strong>${summary["N: unique patients"]}</strong><br/>Total unique patients</div></div>
+    <img src="../images/ttl_patients.png" style="width: 96px; margin-bottom: 0.5rem;">
+    <div><strong>${summary["N: unique patients"]}</strong><br/>Total unique patients</div>
+  </div>
+
   <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-  <img src="../images/gender.png" alt="icon" style="width: 96px; height: 96px; margin-bottom: 0.5rem;">
-  <div><strong>${summary["Sex n (%): Female"]}%</strong><br/>Female</div></div>
+    <img src="../images/gender.png" style="width: 96px; margin-bottom: 0.5rem;">
+    <div><strong>${summary["Sex n (%): Female"]}%</strong><br/>Female</div>
+  </div>
+
   <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-  <img src="../images/race.png" alt="icon" style="width: 96px; height: 96px; margin-bottom: 0.5rem;">
-  <div><strong>${summary["Race n (%): Black"]}%</strong><br/>Race: Black</div></div>
+    <img src="../images/race.png" style="width: 96px; margin-bottom: 0.5rem;">
+    <div style="display: flex; justify-content: space-around; width: 100%;">
+      <div><strong>${summary["Race n (%): Black"]}%</strong><br/>Black</div>
+      <div><strong>${summary["Race n (%): White"]}%</strong><br/>White</div>
+      <div><strong>${summary["Race n (%): Other"]}%</strong><br/>Other</div>
+    </div>
+    <strong>Race</strong><br/>
+  </div>
+
   <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-  <img src="../images/race.png" alt="icon" style="width: 96px; height: 96px; margin-bottom: 0.5rem;">
-  <div><strong>${summary["Race n (%): White"]}%</strong><br/>Race: White</div></div>
+    <img src="../images/ethnicity.png" style="width: 96px; margin-bottom: 0.5rem;">
+    <div><strong>${summary["Ethnicity n (%): Hispanic"]}</strong><br/>Ethnicity: Hispanic</div>
+  </div>
+
   <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-  <img src="../images/race.png" alt="icon" style="width: 96px; height: 96px; margin-bottom: 0.5rem;">
-  <div><strong>${summary["Race n (%): Other"]}%</strong><br/>Race: Other</div></div>
+    <img src="../images/ethnicity.png" style="width: 96px; margin-bottom: 0.5rem;">
+    <div><strong>${summary["Total ICU days, median [Q1,Q3]"]}</strong><br/>Total ICU days</div>
+  </div>
+
   <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-  <img src="../images/ethnicity.png" alt="icon" style="width: 96px; height: 96px; margin-bottom: 0.5rem;">
-  <div><strong>${summary["Ethnicity n (%): Hispanic"]}</strong><br/>Ethnicity: Hispanic</div></div>
+    <img src="../images/ethnicity.png" style="width: 96px; margin-bottom: 0.5rem;">
+    <div><strong>${summary["Total hospital days, median [Q1,Q3]"]}</strong><br/>Total hospital days</div>
+  </div>
+
   <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-  <div><strong>${summary["Total ICU days, median [Q1,Q3]"]}%</strong><br/>Total ICU days, median [Q1,Q3]</div></div>
+    <img src="../images/death.jpg" style="width: 96px; margin-bottom: 0.5rem;">
+    <div><strong>${summary["Hospital mortality n (%)"]}</strong><br/>Mortality</div>
+  </div>
+
+  <div style="text-align: center;">
+   <strong>Admission Location</strong>
+   <table style="border: 1px solid black; border-collapse: collapse;">
+     <thead>
+       <tr>
+         <th style="border: 1px solid black; padding: 8px;">Location</th>
+         <th style="border: 1px solid black; padding: 8px;">n (%)</th>
+       </tr>
+     </thead>
+     <tbody>
+       ${[
+         "Admission Location n (%): ed",
+         "Admission Location n (%): procedural",
+         "Admission Location n (%): icu",
+         "Admission Location n (%): stepdown",
+         "Admission Location n (%): ward",
+         "Admission Location n (%): psych",
+         "Admission Location n (%): other"
+       ].map(key => {
+         // Extract location name by removing the prefix
+         const locationName = key.replace('Admission Location n (%): ', '');
+         const value = summary[key];
+         return htl.html`<tr><td style="border: 1px solid black; padding: 8px;">${locationName}</td><td style="border: 1px solid black; padding: 8px;">${value}</td></tr>`;
+       })}
+     </tbody>
+   </table>
+ </div>
   <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-  <div><strong>${summary["Total hospital days, median [Q1,Q3]"]}%</strong><br/>Total hospital days, median [Q1,Q3]</div></div>
+    <img src="../images/ethnicity.png" style="width: 96px; margin-bottom: 0.5rem;">
+    <div><strong>${summary["Vasopressor encounters n (%)"]}%</strong><br/>Vasopressor encounters n (%)</div>
+  </div>
   <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-  <img src="../images/death.jpg" alt="icon" style="width: 96px; height: 96px; margin-bottom: 0.5rem;">
-  <div><strong>${summary["Hospital mortality n (%)"]}</strong><br/>Mortality</div></div>
-  <div><strong>${summary["SOFA-97 TOTAL, median [Q1,Q3]"]}%</strong><br/>SOFA-97 TOTAL, median [Q1,Q3]</div>
-  <div><strong>${summary["Admission Location n (%): ed"]}%</strong><br/>Admission Location n (%): ed</div>
-  <div><strong>${summary["Admission Location n (%): procedural"]}%</strong><br/>Admission Location n (%): procedural</div>
-  <div><strong>${summary["Admission Location n (%): icu"]}%</strong><br/>Admission Location n (%): icu</div>
-  <div><strong>${summary["Admission Location n (%): stepdown"]}%</strong><br/>Admission Location n (%): stepdown</div>
-  <div><strong>${summary["Admission Location n (%): ward"]}%</strong><br/>Admission Location n (%): ward</div>
-  <div><strong>${summary["Admission Location n (%): psych"]}</strong><br/>Admission Location n (%): psych</div>
-  <div><strong>${summary["Admission Location n (%): other"]}%</strong><br/>Admission Location n (%): other</div>
-  <div><strong>${summary["Vasopressor encounters n (%)"]}%</strong><br/>Vasopressor encounters n (%)</div>
-  <div><strong>${summary["Dopamine dose, median [Q1,Q3]"]}%</strong><br/>Dopamine dose, median [Q1,Q3]</div>
-  <div><strong>${summary["Epinephrine dose, median [Q1,Q3]"]}%</strong><br/>Epinephrine dose, median [Q1,Q3]</div>
-  <div><strong>${summary["Norepinephrine dose, median [Q1,Q3]"]}%</strong><br/>Norepinephrine dose, median [Q1,Q3]</div>
-  <div><strong>${summary["Phenylephrine dose, median [Q1,Q3]"]}%</strong><br/>Phenylephrine dose, median [Q1,Q3]</div>
-  <div><strong>${summary["Vasopressin dose, median [Q1,Q3]"]}%</strong><br/>Vasopressin dose, median [Q1,Q3]</div>
-  <div><strong>${summary["Angiotensin dose, median [Q1,Q3]"]}</strong><br/>Angiotensin dose, median [Q1,Q3]</div>
-  <div><strong>${summary["IMV encounters n (%)"]}</strong><br/>MV encounters n (%)</div>
-  <div><strong>${summary["fio2_set, median [Q1,Q3]"]}</strong><br/>fio2_set, median [Q1,Q3]</div>
-  <div><strong>${summary["peep_set, median [Q1,Q3]"]}</strong><br/>peep_set, median [Q1,Q3]</div>
-  <div><strong>${summary["resp_rate_set, median [Q1,Q3]"]}</strong><br/>resp_rate_set, median [Q1,Q3]</div>
-  <div><strong>${summary["tidal_volume_set, median [Q1,Q3]"]}</strong><br/>tidal_volume_set, median [Q1,Q3]</div>
+    <img src="../images/ethnicity.png" style="width: 96px; margin-bottom: 0.5rem;">
+    <div><strong>${summary["Dopamine dose, median [Q1,Q3]"]}%</strong><br/>Dopamine dose, median [Q1,Q3]</div>
+  </div>
+  <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+    <img src="../images/ethnicity.png" style="width: 96px; margin-bottom: 0.5rem;">
+    <div><strong>${summary["Epinephrine dose, median [Q1,Q3]"]}%</strong><br/>Epinephrine dose, median [Q1,Q3]</div>
+  </div>
+  <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+    <img src="../images/ethnicity.png" style="width: 96px; margin-bottom: 0.5rem;">
+    <div><strong>${summary["Norepinephrine dose, median [Q1,Q3]"]}%</strong><br/>Norepinephrine dose, median [Q1,Q3]</div>
+  </div>
+  <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+    <img src="../images/ethnicity.png" style="width: 96px; margin-bottom: 0.5rem;">
+    <div><strong>${summary["Phenylephrine dose, median [Q1,Q3]"]}%</strong><br/>Phenylephrine dose, median [Q1,Q3]</div>
+  </div>
+  <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+    <img src="../images/ethnicity.png" style="width: 96px; margin-bottom: 0.5rem;">
+    <div><strong>${summary["Vasopressin dose, median [Q1,Q3]"]}%</strong><br/>Vasopressin dose, median [Q1,Q3]</div>
+  </div>
+  <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+    <img src="../images/ethnicity.png" style="width: 96px; margin-bottom: 0.5rem;">
+    <div><strong>${summary["Angiotensin dose, median [Q1,Q3]"]}</strong><br/>Angiotensin dose, median [Q1,Q3]</div>
+  </div>
+  <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+    <img src="../images/ethnicity.png" style="width: 96px; margin-bottom: 0.5rem;">
+    <div><strong>${summary["IMV encounters n (%)"]}</strong><br/>MV encounters n (%)</div>
+  </div>
+  <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+    <img src="../images/ethnicity.png" style="width: 96px; margin-bottom: 0.5rem;">
+    <div><strong>${summary["fio2_set, median [Q1,Q3]"]}</strong><br/>fio2_set, median [Q1,Q3]</div>
+  </div>
+  <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+    <img src="../images/ethnicity.png" style="width: 96px; margin-bottom: 0.5rem;">
+    <div><strong>${summary["peep_set, median [Q1,Q3]"]}</strong><br/>peep_set, median [Q1,Q3]</div>
+  </div>
+  <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+    <img src="../images/ethnicity.png" style="width: 96px; margin-bottom: 0.5rem;">
+    <div><strong>${summary["resp_rate_set, median [Q1,Q3]"]}</strong><br/>resp_rate_set, median [Q1,Q3]</div>
+  </div>
+  <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+    <img src="../images/ethnicity.png" style="width: 96px; margin-bottom: 0.5rem;">
+    <div><strong>${summary["tidal_volume_set, median [Q1,Q3]"]}</strong><br/>tidal_volume_set, median [Q1,Q3]</div>
+  </div>
+</div>
 
 `
 
