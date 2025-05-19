@@ -73,29 +73,39 @@ Principal Investigators (PIs) in the consortium are supported by a wide range of
 
 <div class="scrollable-projects">
 
-A common longitudinal intensive care unit data format (CLIF) for critical illness research  
-[SpringerNature](https://link.springer.com/article/10.1007/s00134-025-07848-7)
+Identifying windows of opportunity for early mobilization of mechanically ventilated patients: Multi-center comparative analysis of clinical trial and consensus guideline eligibility criteria, 2025 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm-conference.2025.211.1_MeetingAbstracts.A2870)
 
-Age and Saving Lives in Crisis Standards of Care: A Multicenter Cohort Study of Triage Score Prognostic Accuracy  
-[SCCM Journals](https://journals.lww.com/ccejournal/fulltext/2025/05000/age_and_saving_lives_in_crisis_standards_of_care_.8.aspx)
+Multi-center evaluation of prone positioning practices for moderate and severe hypoxemic respiratory failure, 2025 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm-conference.2025.211.1_MeetingAbstracts.A7155)
 
-Foundation models for electronic health records: representation dynamics and transferability  
-[arXiv](https://arxiv.org/abs/2504.10422)
+The association of sex and height with low-tidal volume ventilation in a multi-center cohort of critically ill adults, 2025 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm-conference.2025.211.1_MeetingAbstracts.A7695)
 
-A Common Longitudinal Intensive Care Unit data Format (CLIF) to enable multi-institutional federated critical illness research  
-[PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC11398431/)
+A Common Longitudinal Intensive Care Unit data Format (CLIF) to enable multi-institutional federated critical illness research, 2024 [medRxiv](http://medrxiv.org/lookup/doi/10.1101/2024.09.04.24313058)
 
-The Epidemiology of Intensive Care Unit Readmissions Across Ten Health Systems  
-[medRxiv](https://www.medrxiv.org/content/10.1101/2025.03.10.25323672v1)
+Patient preferred language and deep sedation during invasive mechanical ventilation: A multicenter retrospective cohort study, 2025 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm-conference.2025.211.1_MeetingAbstracts.A5266)
 
-The Association of Sex and Height With Low-tidal Volume Ventilation in a Multi-center Cohort of Critically Ill Adults  
-[ATS](https://www.atsjournals.org/doi/abs/10.1164/ajrccm.2025.211.Abstracts.A7695)
+The common longitudinal intensive care unit (CLIF) respiratory support waterfall: A novel method for analyzing ventilator mode patterns in critical care, 2025 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm-conference.2025.211.1_MeetingAbstracts.A7159)
 
-Multi-center Evaluation of Prone Positioning Practices for Moderate and Severe Hypoxemic Respiratory Failure  
-[ATS](https://www.atsjournals.org/doi/abs/10.1164/ajrccm.2025.211.Abstracts.A7155)
+The effect of the optional lactate criterion for organ dysfunction on CDC adult sepsis event incidence and mortality, 2025 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm-conference.2025.211.1_MeetingAbstracts.A3691)
 
-Identifying Windows of Opportunity for Early Mobilization of Mechanically Ventilated Patients: Multi-center Comparative Analysis of Clinical Trial and Consensus Guideline Eligibility Criteria  
-[ATS](https://www.atsjournals.org/doi/abs/10.1164/ajrccm.2025.211.Abstracts.A2870)
+Characterizing variation in documented delivery of spontaneous awakening trials across five health systems, 2025 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm-conference.2025.211.1_MeetingAbstracts.A7781)
+
+Speaking common longitudinal ICU data format (CLIF): A large language model for critical care phenotyping, 2025 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm-conference.2025.211.1_MeetingAbstracts.A5692)
+
+Age and Saving Lives in Crisis Standards of Care: A Multicenter Cohort Study of Triage Score Prognostic Accuracy, 2025 [Google Scholar](https://scholar.google.com/citations?view_op=view_citation&hl=en&citation_for_view=8jRf8ZoAAAAJ:_FxGoFyzp5QC)
+
+Electronic health record signatures of spontaneous awakening trials: A multi-center analysis of sedation cessation patterns in mechanically ventilated patients, 2025 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm-conference.2025.211.1_MeetingAbstracts.A7188)
+
+The epidemiology of intensive care unit readmissions across 8 academic medical centers, 2025 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm-conference.2025.211.1_MeetingAbstracts.A7173)
+
+Advancing multi-center clinical research in critically ill patients through the development of a common longitudinal ICU format (CLIF), 2024 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm-conference.2024.211.1_MeetingAbstracts.A5078)
+
+Variation in setting low tidal volume ventilation on day 1 of mechanical ventilation by hospital, 2024 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm-conference.2024.211.1_MeetingAbstracts.A4771)
+
+A common longitudinal intensive care unit data format (CLIF) for critical illness research, 2025 [SpringerNature](https://link.springer.com/article/10.1007/s00134-025-07848-7)
+
+The epidemiology of intensive care unit readmissions across ten health systems, 2025 [medRxiv](https://www.medrxiv.org/content/10.1101/2025.03.10.25323672.abstract)
+
+Foundation models for electronic health records: representation dynamics and transferability, 2025 [arXiv](http://arxiv.org/abs/2504.10422)
 
 </div>
 
@@ -116,15 +126,15 @@ Identifying Windows of Opportunity for Early Mobilization of Mechanically Ventil
 </div>
 
 <div class="conference-image-item">
-  <img src="./images/AMIA_2024.jpg" alt="AMIA 2024 Conference">
-  <p class="title">AMIA 2024</p>
-  <p class="description">Add a brief description here for AMIA 2024 events or highlights.</p>
-</div>
-
-<div class="conference-image-item">
   <img src="./images/ats_2024.png" alt="ATS 2024 Conference">
   <p class="title">ATS 2024</p>
   <p class="description">Add a brief description here for ATS 2024 events or highlights.</p>
+</div>
+
+<div class="conference-image-item">
+  <img src="./images/AMIA_2024.jpg" alt="AMIA 2024 Conference">
+  <p class="title">AMIA 2024 Informatics Summit</p>
+  <p class="description">Add a brief description here for AMIA 2024 events or highlights.</p>
 </div>
 
 </div>
