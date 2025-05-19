@@ -1,13 +1,29 @@
-## Ongoing Projects within the CLIF consortium
+---
+title: "CLIF CONSORTIUM RESEARCH"
+format: 
+  html:
+    theme: sandstone
+    css: styles.css
+    raw-html: true
+    toc: false
+    page-layout: full
+---
 
+::: {.columns}
 
-The CLIF consortium is a network of NIH funded investigators. 
+::: {.column width="50%"}
 
-Principal Investigators (PIs) in the consortium are supported by a wide range of NIH grants that use big data and advanced ML techniques to answer open scientific questions related to critical illness. Each of these projects would be better with CLIF rather than done in silos. 
+## Ongoing Projects
+
+<div class="scrollable-projects">
+
+The CLIF consortium is a network of NIH funded investigators.
+
+Principal Investigators (PIs) in the consortium are supported by a wide range of NIH grants that use big data and advanced ML techniques to answer open scientific questions related to critical illness. Each of these projects would be better with CLIF rather than done in silos.
 
 ### Improving the efficiency and equity of critical care allocation during a crisis with place-based disadvantage indices
 
-- **CLIF Project Description:** Creating a life support allocation triage score for crisis standards of care 
+- **CLIF Project Description:** Creating a life support allocation triage score for crisis standards of care
 - **Grant:** [R01 LM014263](https://reporter.nih.gov/search/skf_8uTY8USB45uQrSL2Ug/project-details/10817718)
 - **PI:** William Parker, University of Chicago
 
@@ -31,7 +47,7 @@ Principal Investigators (PIs) in the consortium are supported by a wide range of
 
 ### Early Mobilization: Operationalizing Big Data & Implementation Science to Lead Expansion to ICUs (E-MOBILE-ICU)
 
-- **CLIF Project Description:** Identifying critically ill patients who are eligible for mobilization using the electronic healthcare record 
+- **CLIF Project Description:** Identifying critically ill patients who are eligible for mobilization using the electronic healthcare record
 - **Grant:** [K23 HL148387](https://reporter.nih.gov/search/m0yB8RKJLUuEoOlobWszpw/project-details/10055025)
 - **PI:** Bhakti Patel, University of Chicago
 
@@ -46,3 +62,69 @@ Principal Investigators (PIs) in the consortium are supported by a wide range of
 - **CLIF Project Description:** Develop an oncology-specific sepsis prediction model using EHR data and human-centered design
 - **Grant:** [K08CA270383](https://reporter.nih.gov/search/NtN6kDznS0abLd7eY-HHuw/project-details/10884029)
 - **PI:** Patrick Lyons, Oregon Health and Science University
+
+</div>
+
+:::
+
+::: {.column width="50%"}
+
+## Publications
+
+<div class="scrollable-projects">
+
+A common longitudinal intensive care unit data format (CLIF) for critical illness research  
+[SpringerNature](https://link.springer.com/article/10.1007/s00134-025-07848-7)
+
+Age and Saving Lives in Crisis Standards of Care: A Multicenter Cohort Study of Triage Score Prognostic Accuracy  
+[SCCM Journals](https://journals.lww.com/ccejournal/fulltext/2025/05000/age_and_saving_lives_in_crisis_standards_of_care_.8.aspx)
+
+Foundation models for electronic health records: representation dynamics and transferability  
+[arXiv](https://arxiv.org/abs/2504.10422)
+
+A Common Longitudinal Intensive Care Unit data Format (CLIF) to enable multi-institutional federated critical illness research  
+[PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC11398431/)
+
+The Epidemiology of Intensive Care Unit Readmissions Across Ten Health Systems  
+[medRxiv](https://www.medrxiv.org/content/10.1101/2025.03.10.25323672v1)
+
+The Association of Sex and Height With Low-tidal Volume Ventilation in a Multi-center Cohort of Critically Ill Adults  
+[ATS](https://www.atsjournals.org/doi/abs/10.1164/ajrccm.2025.211.Abstracts.A7695)
+
+Multi-center Evaluation of Prone Positioning Practices for Moderate and Severe Hypoxemic Respiratory Failure  
+[ATS](https://www.atsjournals.org/doi/abs/10.1164/ajrccm.2025.211.Abstracts.A7155)
+
+Identifying Windows of Opportunity for Early Mobilization of Mechanically Ventilated Patients: Multi-center Comparative Analysis of Clinical Trial and Consensus Guideline Eligibility Criteria  
+[ATS](https://www.atsjournals.org/doi/abs/10.1164/ajrccm.2025.211.Abstracts.A2870)
+
+</div>
+
+:::
+
+:::
+
+<div style="margin-top: 50px;"></div>
+
+## Conferences
+
+<div class="conference-images-container">
+
+<div class="conference-image-item">
+  <img src="./images/ATS_2025.JPG" alt="ATS 2025 Conference">
+  <p class="title">ATS 2025</p>
+  <p class="description">Add a brief description here for ATS 2025 events or highlights.</p>
+</div>
+
+<div class="conference-image-item">
+  <img src="./images/AMIA_2024.jpg" alt="AMIA 2024 Conference">
+  <p class="title">AMIA 2024</p>
+  <p class="description">Add a brief description here for AMIA 2024 events or highlights.</p>
+</div>
+
+<div class="conference-image-item">
+  <img src="./images/ats_2024.png" alt="ATS 2024 Conference">
+  <p class="title">ATS 2024</p>
+  <p class="description">Add a brief description here for ATS 2024 events or highlights.</p>
+</div>
+
+</div>

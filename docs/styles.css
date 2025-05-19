@@ -220,3 +220,155 @@ h2 {
     grid-template-columns: 1fr;
   }
 }
+
+.projects-container {
+  display: flex;
+  gap: 2rem;
+}
+
+.projects-column {
+  flex: 1;
+}
+
+/* CSS for the scrollable publications section */
+.publications-scrollable-container {
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Stack items vertically */
+  overflow-y: auto; /* Enable vertical scrolling */
+  /* Removed overflow-x: auto; */
+  gap: 15px; /* Add vertical space between publication items */
+  padding-right: 15px; /* Add padding for the scrollbar area */
+  /* Removed padding-bottom */
+  flex-wrap: nowrap; /* Keep nowrap for vertical flex direction */
+  max-height: 600px; 
+  overflow-x: visible;
+}
+
+/* Style for individual publication items */
+.publication-scroll-item {
+  flex-shrink: 0; /* Prevent items from shrinking */
+  /* Removed fixed width for vertical list */
+  width: max-content;
+  padding: 15px; /* Add padding inside each item */
+  border: 1px solid #ccc; /* Optional: Add a border */
+  border-radius: 8px; /* Optional: Add rounded corners */
+  background-color: #f9f9f9; /* Optional: Add a background color */
+  display: flex; /* Use flexbox for content within the item */
+  flex-direction: column; /* Stack content vertically */
+}
+
+.publication-scroll-item p {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.publication-scroll-item a {
+    /* Style links within the scrollable item */
+    text-decoration: none; /* Remove underline from links */
+    color: #007bff; /* Link color */
+}
+
+.publication-scroll-item strong {
+    /* Style the bolded title */
+    margin-bottom: 5px; /* Space between title and link/source */
+}
+
+.scrollable-projects {
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 15px;
+}
+
+.conference-images-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 50px;
+  padding-bottom: 15px;
+  flex-wrap: nowrap;
+  scrollbar-width: thin;
+  justify-content: flex-start;
+}
+
+.conference-images-container img {
+  flex-shrink: 0;
+  height: 150px;
+  width: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 4px 4px 0 0;
+}
+
+.conference-images-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.conference-images-container::-webkit-scrollbar-thumb {
+  background-color: #983232;
+  border-radius: 4px;
+}
+
+.conference-section-wrapper {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+.conference-image-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #e0f2f7;
+  border-radius: 8px;
+  padding: 15px;
+  flex: 0 0 400px;
+  max-width: 450px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.conference-image-item img {
+  flex-shrink: 0;
+}
+
+.conference-image-item p {
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-size: 1.3em;
+  color: #333;
+  font-weight: bold;
+}
+
+.conference-image-item .description {
+  font-size: 1em;
+  color: #555;
+  margin-top: 5px;
+}
+
+.column:first-child h2 {
+  margin-right: 20px;
+}
+
+.column h2 {
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.container {
+  max-width: none !important;
+}
+
+.columns {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+main, .main-content, .content-wrapper {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
