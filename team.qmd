@@ -3,8 +3,8 @@ format:
   html:
     theme: sandstone
     css: styles.css
-    toc: true
     raw-html: true
+    toc: true
 ---
 
 # CLIF Steering Committee
