@@ -22,10 +22,12 @@ website:
     #   👩🏻‍💻Access <a href="https://docs.google.com/spreadsheets/d/1l8nvjHmmf4lxCviPp12rxafRo2zNApKGOGK126Tn2_s/edit?usp=sharing">CLIF Tracker</a> <br>
   navbar:
     left:
-      - href: mission.qmd
-        text: About
-      - href: team.qmd
-        text: TEAM
+      - text: About
+        menu:
+          - href: mission.qmd
+            text: Mission, Vission, Value
+          - href: team.qmd
+            text: Team
       - href: cohort.qmd
         text: CLIF Cohort
       # - posts.qmd # add your posts.qmd file to your navbar!

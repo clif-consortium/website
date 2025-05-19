@@ -371,6 +371,12 @@ format:
     <a href="https://scholar.google.com/citations?user=BCmu_34AAAAJ&hl=en" target="_blank">
       <img src="images/scholar_icon.png" alt="Google Scholar" class="icon">
     </a></p></div>
+  <div><img src="headshots/andrew_wilmore.jpeg" alt="Andrew Wilmore" class="team-img">
+    <p><strong>Andrew Wilmore, MS</strong><br>
+    <a href="https://www.linkedin.com/in/andrewwillmore/" target="_blank">
+      <img src="images/linkedin_icon.png" alt="Linkedin" class="icon">
+    </a></p></div>
+  
 </div>
 
 ## University of Colorado
