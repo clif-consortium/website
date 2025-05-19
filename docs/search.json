@@ -4,7 +4,7 @@
     "href": "posts.html",
     "title": "Blog",
     "section": "",
-    "text": "CLIF Microbiology\n\n\n\nehr-to-clif\n\n\nmicrobiology\n\n\nERD\n\n\n\n\n\n\n\nKevin Buell, Kaveri Chhikara\n\n\nJul 3, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nUsing CLIF GitHub with R\n\n\n\ngithub\n\n\ncollaboration\n\n\n\n\n\n\n\nKaveri Chhikara\n\n\nJun 6, 2024\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "CLIF Microbiology\n\n\n\nehr-to-clif\n\nmicrobiology\n\nERD\n\n\n\n\n\n\n\nKevin Buell, Kaveri Chhikara\n\n\nJul 3, 2024\n\n\n\n\n\n\n\n\n\n\n\nUsing CLIF GitHub with R\n\n\n\ngithub\n\ncollaboration\n\n\n\n\n\n\n\nKaveri Chhikara\n\n\nJun 6, 2024\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "data-dictionary/change_log.html",
@@ -406,11 +406,39 @@
     "text": "University of Pennsylvania\n\n\n\n\nGary E. Weissman, MD   \n\n\n\n\n\nAlexander Ortiz, MD   \n\n\n\n\n\nKatie Connell, PhD      \n\n\n\n\n\nAnuradha Vyas, MD, MPH   \n\n\n\n\n\nBenjamin Schmid, MS"
   },
   {
+    "objectID": "team.html#cornell-university",
+    "href": "team.html#cornell-university",
+    "title": "CLIF Steering Committee",
+    "section": "Cornell University",
+    "text": "Cornell University\n\n\n\n\nEdward J. Schenck, M.D"
+  },
+  {
+    "objectID": "team.html#university-of-california-san-francisco",
+    "href": "team.html#university-of-california-san-francisco",
+    "title": "CLIF Steering Committee",
+    "section": "University of California San Francisco",
+    "text": "University of California San Francisco\n\n\n\n\nAartik Sarma, M.D   \n\n\n\n\n\nAndrew Wilmore, MS"
+  },
+  {
+    "objectID": "team.html#university-of-colorado",
+    "href": "team.html#university-of-colorado",
+    "title": "CLIF Steering Committee",
+    "section": "University of Colorado",
+    "text": "University of Colorado\n\n\n\n\nJennifer Ginestra, MD"
+  },
+  {
     "objectID": "team.html#yale-university",
     "href": "team.html#yale-university",
     "title": "CLIF Steering Committee",
     "section": "Yale University",
     "text": "Yale University\n\n\n\n\nSnigdha Jain, MD"
+  },
+  {
+    "objectID": "team.html#harvard-university",
+    "href": "team.html#harvard-university",
+    "title": "CLIF Steering Committee",
+    "section": "Harvard University",
+    "text": "Harvard University\n\n\n\n\nClaire N Shappell, M.D."
   },
   {
     "objectID": "mCIDE.html",
@@ -726,75 +754,5 @@
     "title": "CLIF maturity",
     "section": "Maturity Levels for CLIF Tables",
     "text": "Maturity Levels for CLIF Tables\nThere are two critical maturity elements for each CLIF table: 1) field structure and 2) Common ICU data Element development. Each CLIF table has one or more consortium physician-data scientists who are responsible for table design.\n\n Concept: A planned future CLIF table that has yet to be used in a federated project. The table structure and CDE elements are in draft form. Permissible values of category variables may still need to be defined. Seeking conceptual feedback. Significant changes to all aspects of the table are possible.\n Beta: Table purpose, structure, and field names complete and used in at least one federated CLIF project. CDE for category variables defined. Actively testing the table’s practical use in projects.\n Stable: Tested and recommended for general use. CDE stable with permissible values for all category variables precisely defined and locked. Fully implemented at multiple consortium sites and used in a peer-reviewed publication.\n Mature: Adopted across a majority of the CLIF consortium sites and very stable.\n Deprecated: No longer maintained."
-  },
-  {
-    "objectID": "team.html#cornell-university",
-    "href": "team.html#cornell-university",
-    "title": "CLIF Steering Committee",
-    "section": "Cornell University",
-    "text": "Cornell University\n\n\n\n\nEdward J. Schenck, M.D"
-  },
-  {
-    "objectID": "team.html#university-of-california-san-francisco",
-    "href": "team.html#university-of-california-san-francisco",
-    "title": "CLIF Steering Committee",
-    "section": "University of California San Francisco",
-    "text": "University of California San Francisco\n\n\n\n\nAartik Sarma, M.D   \n\n\n\n\n\nAndrew Wilmore, MS"
-  },
-  {
-    "objectID": "team.html#university-of-california-san-francisco-1",
-    "href": "team.html#university-of-california-san-francisco-1",
-    "title": "CLIF Steering Committee",
-    "section": "University of California San Francisco",
-    "text": "University of California San Francisco\n\n\n\n\nAartik Sarma, M.D, MAS"
-  },
-  {
-    "objectID": "team.html#university-of-colorado",
-    "href": "team.html#university-of-colorado",
-    "title": "CLIF Steering Committee",
-    "section": "University of Colorado",
-    "text": "University of Colorado\n\n\n\n\nJennifer Ginestra, MD"
-  },
-  {
-    "objectID": "team.html#cornell-university-1",
-    "href": "team.html#cornell-university-1",
-    "title": "CLIF Steering Committee",
-    "section": "Cornell University",
-    "text": "Cornell University\n\n\n\n\nEdward J. Schenck, M.D"
-  },
-  {
-    "objectID": "team.html#university-of-colorado-1",
-    "href": "team.html#university-of-colorado-1",
-    "title": "CLIF Steering Committee",
-    "section": "University of Colorado",
-    "text": "University of Colorado\n\n\n\n\nJennifer Ginestra, MD"
-  },
-  {
-    "objectID": "team.html#harvard-university",
-    "href": "team.html#harvard-university",
-    "title": "CLIF Steering Committee",
-    "section": "Harvard University",
-    "text": "Harvard University\n\n\n\n\nClaire N Shappell, M.D."
-  },
-  {
-    "objectID": "cohort.html#cohort-demographics",
-    "href": "cohort.html#cohort-demographics",
-    "title": "CLIF Cohort Overview",
-    "section": "",
-    "text": "The dashboard below represents the characteristics and outcomes of ICU patient encounters across 11 CLIF consortium sites and MIMIC-IV. The cohort includes all adults (≥ 18 years) admitted to an ICU at each site across the consortium. This represents a diverse cohort of over 850,000 ICU patient encounters and provides valuable insights into critical care practices across different institutions."
-  },
-  {
-    "objectID": "cohort.html#interactive-dashboard",
-    "href": "cohort.html#interactive-dashboard",
-    "title": "CLIF Cohort Overview",
-    "section": "",
-    "text": "Open CLIF Cohort Dashboard"
-  },
-  {
-    "objectID": "cohort.html#dashboard",
-    "href": "cohort.html#dashboard",
-    "title": "CLIF Consortium",
-    "section": "Dashboard",
-    "text": "Dashboard\nThe dashboard below represents the characteristics and outcomes of ICU patient encounters across 11 CLIF consortium sites and MIMIC-IV. The cohort includes all adults (≥ 18 years) admitted to an ICU at each site across the consortium. This represents a diverse cohort of over 850,000 ICU patient encounters and provides valuable insights into critical care practices across different institutions.\n\nOpen CLIF Cohort Dashboard"
   }
 ]

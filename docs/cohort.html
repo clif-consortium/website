@@ -111,14 +111,21 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="./mission.html"> 
-<span class="menu-text">About</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-about" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">About</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-about">    
+        <li>
+    <a class="dropdown-item" href="./mission.html">
+ <span class="dropdown-text">Mission, Vission, Value</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./team.html"> 
-<span class="menu-text">TEAM</span></a>
+        <li>
+    <a class="dropdown-item" href="./team.html">
+ <span class="dropdown-text">Team</span></a>
   </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link active" href="./cohort.html" aria-current="page"> 
 <span class="menu-text">CLIF Cohort</span></a>
@@ -203,10 +210,10 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="images/clif_map.png" alt="CLIF MAP" class="clif-map" style="width: 100%;"></p>
 <p>The dashboard below represents the characteristics and outcomes of ICU patient encounters across 11 CLIF consortium sites and MIMIC-IV. The cohort includes all adults (≥ 18 years) admitted to an ICU at each site across the consortium. This represents a diverse cohort of over 850,000 ICU patient encounters and provides valuable insights into critical care practices across different institutions.</p>
 <div style="text-align: center;">
-<p><a href="https://common-longitudinal-icu-data-format.github.io/CLIF-Cohort-Dashboard/" class="dashboard-button" target="_blank">Open CLIF Cohort Dashboard</a></p>
+<p><a href="https://clif-consortium.shinyapps.io/clif-cohort-dashboard/" class="dashboard-button" target="_blank">Open CLIF Cohort Dashboard</a></p>
 </div>
 <div class="dashboard-container">
-<iframe src="https://common-longitudinal-icu-data-format.github.io/CLIF-Cohort-Dashboard/" width="100%" height="100%" frameborder="0"></iframe>
+<iframe src="https://clif-consortium.shinyapps.io/clif-cohort-dashboard/" width="100%" height="100%" frameborder="0"></iframe>
 </div>
 
 

@@ -36,12 +36,12 @@ format:
 The dashboard below represents the characteristics and outcomes of ICU patient encounters across 11 CLIF consortium sites and MIMIC-IV. The cohort includes all adults (≥ 18 years) admitted to an ICU at each site across the consortium. This represents a diverse cohort of over 850,000 ICU patient encounters and provides valuable insights into critical care practices across different institutions.
 
 <div style="text-align: center;">
-  <a href="https://common-longitudinal-icu-data-format.github.io/CLIF-Cohort-Dashboard/" class="dashboard-button" target="_blank">Open CLIF Cohort Dashboard</a>
+  <a href="https://clif-consortium.shinyapps.io/clif-cohort-dashboard/" class="dashboard-button" target="_blank">Open CLIF Cohort Dashboard</a>
 </div>
 
 ```{=html}
 <div class="dashboard-container">
-<iframe src="https://common-longitudinal-icu-data-format.github.io/CLIF-Cohort-Dashboard/" width="100%" height="100%" frameborder="0"></iframe>
+<iframe src="https://clif-consortium.shinyapps.io/clif-cohort-dashboard/" width="100%" height="100%" frameborder="0"></iframe>
 </div>
 ```
 
