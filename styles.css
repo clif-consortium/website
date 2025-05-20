@@ -274,10 +274,9 @@ h2 {
 
 .conference-images-container img {
   flex-shrink: 0;
-  width: 100%;
-  height: auto;
-  max-height: 250px;
-  object-fit: cover;
+  width: 100%; /* Ensure image takes full width of its container */
+  height: auto; /* Allow height to adjust proportionally */
+  max-height: 250px; /* Keep max height as a constraint */
   border-radius: 4px 4px 0 0;
 }
 
