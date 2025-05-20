@@ -9,6 +9,12 @@ format:
     page-layout: full
 ---
 
+<style>
+h1.title {
+  text-align: center;
+}
+</style>
+
 ::: {.columns}
 
 ::: {.column width="50%"}
@@ -73,39 +79,39 @@ Principal Investigators (PIs) in the consortium are supported by a wide range of
 
 <div class="scrollable-projects">
 
-Identifying windows of opportunity for early mobilization of mechanically ventilated patients: Multi-center comparative analysis of clinical trial and consensus guideline eligibility criteria, 2025 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm-conference.2025.211.1_MeetingAbstracts.A2870)
+A common longitudinal intensive care unit data Format (CLIF) for critical illness research, 2025 [SpringerNature](https://link.springer.com/article/10.1007/s00134-025-07848-7)
 
-Multi-center evaluation of prone positioning practices for moderate and severe hypoxemic respiratory failure, 2025 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm-conference.2025.211.1_MeetingAbstracts.A7155)
+Age and Saving Lives in Crisis Standards of Care: A Multicenter Cohort Study of Triage Score Prognostic Accuracy, 2025 [PubMed Central](https://pmc.ncbi.nlm.nih.gov/articles/PMC12074069/)
 
-The association of sex and height with low-tidal volume ventilation in a multi-center cohort of critically ill adults, 2025 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm-conference.2025.211.1_MeetingAbstracts.A7695)
+Characterizing variation in documented delivery of spontaneous awakening trials across five health systems, 2025 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm.2025.211.Abstracts.A7781)
 
-A Common Longitudinal Intensive Care Unit data Format (CLIF) to enable multi-institutional federated critical illness research, 2024 [medRxiv](http://medrxiv.org/lookup/doi/10.1101/2024.09.04.24313058)
+Electronic health record signatures of spontaneous awakening trials: A multi-center analysis of sedation cessation patterns in mechanically ventilated patients, 2025 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm.2025.211.Abstracts.A7188)
 
-Patient preferred language and deep sedation during invasive mechanical ventilation: A multicenter retrospective cohort study, 2025 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm-conference.2025.211.1_MeetingAbstracts.A5266)
+Foundation models for electronic health records: representation dynamics and transferability, 2025 [arXiv](https://arxiv.org/abs/2504.10422)
+
+Identifying windows of opportunity for early mobilization of mechanically ventilated patients: Multi-center comparative analysis of clinical trial and consensus guideline eligibility criteria, 2025 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm.2025.211.Abstracts.A2870)
+
+Multi-center evaluation of prone positioning practices for moderate and severe hypoxemic respiratory failure, 2025 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm.2025.211.Abstracts.A7155)
+
+Patient preferred language and deep sedation during invasive mechanical ventilation: A multicenter retrospective cohort study, 2025 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm.2025.211.Abstracts.A5266)
+
+Speaking common longitudinal ICU data format (CLIF): A large language model for critical care phenotyping, 2025 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm.2025.211.Abstracts.A5692)
+
+The association of sex and height with low-tidal volume ventilation in a multi-center cohort of critically ill adults, 2025 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm.2025.211.Abstracts.A7695)
 
 The common longitudinal intensive care unit (CLIF) respiratory support waterfall: A novel method for analyzing ventilator mode patterns in critical care, 2025 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm-conference.2025.211.1_MeetingAbstracts.A7159)
 
-The effect of the optional lactate criterion for organ dysfunction on CDC adult sepsis event incidence and mortality, 2025 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm-conference.2025.211.1_MeetingAbstracts.A3691)
+The effect of the optional lactate criterion for organ dysfunction on CDC adult sepsis event incidence and mortality, 2025 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm.2025.211.Abstracts.A3691)
 
-Characterizing variation in documented delivery of spontaneous awakening trials across five health systems, 2025 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm-conference.2025.211.1_MeetingAbstracts.A7781)
+The epidemiology of intensive care unit readmissions across 8 academic medical centers, 2025 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm.2025.211.Abstracts.A7173)
 
-Speaking common longitudinal ICU data format (CLIF): A large language model for critical care phenotyping, 2025 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm-conference.2025.211.1_MeetingAbstracts.A5692)
+The epidemiology of intensive care unit readmissions across ten health systems, 2025 [medRxiv](https://www.medrxiv.org/content/10.1101/2025.03.10.25323672v1)
 
-Age and Saving Lives in Crisis Standards of Care: A Multicenter Cohort Study of Triage Score Prognostic Accuracy, 2025 [Google Scholar](https://scholar.google.com/citations?view_op=view_citation&hl=en&citation_for_view=8jRf8ZoAAAAJ:_FxGoFyzp5QC)
+A Common Longitudinal Intensive Care Unit data Format (CLIF) to enable multi-institutional federated critical illness research, 2024 [PubMed Central](https://pmc.ncbi.nlm.nih.gov/articles/PMC11398431/)
 
-Electronic health record signatures of spontaneous awakening trials: A multi-center analysis of sedation cessation patterns in mechanically ventilated patients, 2025 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm-conference.2025.211.1_MeetingAbstracts.A7188)
+Advancing multi-center clinical research in critically ill patients through the development of a common longitudinal ICU format (CLIF), 2024 [American Thoracic Society](https://www.atsjournals.org/doi/pdf/10.1164/ajrccm-conference.2024.209.1_MeetingAbstracts.A5078)
 
-The epidemiology of intensive care unit readmissions across 8 academic medical centers, 2025 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm-conference.2025.211.1_MeetingAbstracts.A7173)
-
-Advancing multi-center clinical research in critically ill patients through the development of a common longitudinal ICU format (CLIF), 2024 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm-conference.2024.211.1_MeetingAbstracts.A5078)
-
-Variation in setting low tidal volume ventilation on day 1 of mechanical ventilation by hospital, 2024 [American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm-conference.2024.211.1_MeetingAbstracts.A4771)
-
-A common longitudinal intensive care unit data format (CLIF) for critical illness research, 2025 [SpringerNature](https://link.springer.com/article/10.1007/s00134-025-07848-7)
-
-The epidemiology of intensive care unit readmissions across ten health systems, 2025 [medRxiv](https://www.medrxiv.org/content/10.1101/2025.03.10.25323672.abstract)
-
-Foundation models for electronic health records: representation dynamics and transferability, 2025 [arXiv](http://arxiv.org/abs/2504.10422)
+Variation in setting low tidal volume ventilation on day 1 of mechanical ventilation by hospital, 2024 [American Thoracic Society](https://www.atsjournals.org/doi/pdf/10.1164/ajrccm-conference.2024.209.1_MeetingAbstracts.A4771)
 
 </div>
 
@@ -122,19 +128,24 @@ Foundation models for electronic health records: representation dynamics and tra
 <div class="conference-image-item">
   <img src="./images/ATS_2025.JPG" alt="ATS 2025 Conference">
   <p class="title">ATS 2025</p>
-  <p class="description">Add a brief description here for ATS 2025 events or highlights.</p>
+  <p class="description"> Committee members present various CLIF studies:
+  <br> Analyzing [sedation cessation patterns](https://www.atsjournals.org/doi/abs/10.1164/ajrccm.2025.211.Abstracts.A7188) during Spontaneous Awakening Trials in mechanically ventilated ICU patients.<br>
+  Application of [CLIF Respiratory Support Waterfall to analyze ventilator mode patterns](https://www.atsjournals.org/doi/abs/10.1164/ajrccm-conference.2025.211.1_MeetingAbstracts.A7159) in critically ill adults receiving IMV.<br>
+  Association of [sex and height with LTVV](https://www.atsjournals.org/doi/abs/10.1164/ajrccm.2025.211.Abstracts.A7695) in critically ill adults.<br>
+  Eligibility for [early mobilization](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=8jRf8ZoAAAAJ&sortby=pubdate&citation_for_view=8jRf8ZoAAAAJ:eQOLeE2rZwMC) of mechanically ventilated patients</p>
 </div>
 
 <div class="conference-image-item">
   <img src="./images/ats_2024.png" alt="ATS 2024 Conference">
   <p class="title">ATS 2024</p>
-  <p class="description">Add a brief description here for ATS 2024 events or highlights.</p>
+  <p class="description">Nicholas E. Ingraham, MD, presents a consortium project demonstrating CLIF's value in analyzing low tidal volume ventilation (LTVV) adherence across 21 US hospitals from March 2020 to March 2022. [Read more here...](https://www.atsjournals.org/doi/abs/10.1164/ajrccm-conference.2024.209.1_MeetingAbstracts.A4771)
+  </p>
 </div>
 
 <div class="conference-image-item">
   <img src="./images/AMIA_2024.jpg" alt="AMIA 2024 Conference">
   <p class="title">AMIA 2024 Informatics Summit</p>
-  <p class="description">Add a brief description here for AMIA 2024 events or highlights.</p>
+  <p class="description">Kaveri Chhikara, presents the CLIF at the American Medical Informatics Association Summit, touching on the standardized data format created to address challenges in using ICU electronic health record data for research.</p>
 </div>
 
 </div>
