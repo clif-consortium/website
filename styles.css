@@ -221,56 +221,39 @@ h2 {
   }
 }
 
-.projects-container {
-  display: flex;
-  gap: 2rem;
-}
-
-.projects-column {
-  flex: 1;
-}
 
 /* CSS for the scrollable publications section */
 .publications-scrollable-container {
-  display: flex; /* Use flexbox */
-  flex-direction: column; /* Stack items vertically */
-  overflow-y: auto; /* Enable vertical scrolling */
-  /* Removed overflow-x: auto; */
-  gap: 15px; /* Add vertical space between publication items */
-  padding-right: 15px; /* Add padding for the scrollbar area */
-  /* Removed padding-bottom */
-  flex-wrap: nowrap; /* Keep nowrap for vertical flex direction */
-  max-height: 600px; 
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  gap: 15px;
+  padding-right: 15px;
+  flex-wrap: nowrap;
+  max-height: 600px;
   overflow-x: visible;
 }
 
 /* Style for individual publication items */
 .publication-scroll-item {
-  flex-shrink: 0; /* Prevent items from shrinking */
-  /* Removed fixed width for vertical list */
+  flex-shrink: 0;
   width: max-content;
-  padding: 15px; /* Add padding inside each item */
-  border: 1px solid #ccc; /* Optional: Add a border */
-  border-radius: 8px; /* Optional: Add rounded corners */
-  background-color: #f9f9f9; /* Optional: Add a background color */
-  display: flex; /* Use flexbox for content within the item */
-  flex-direction: column; /* Stack content vertically */
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
 }
 
 .publication-scroll-item p {
-    margin-top: 0;
-    margin-bottom: 5px;
+  margin-top: 0;
+  margin-bottom: 5px;
 }
 
-.publication-scroll-item a {
-    /* Style links within the scrollable item */
-    text-decoration: none; /* Remove underline from links */
-    color: #007bff; /* Link color */
-}
 
 .publication-scroll-item strong {
-    /* Style the bolded title */
-    margin-bottom: 5px; /* Space between title and link/source */
+  margin-bottom: 5px;
 }
 
 .scrollable-projects {
@@ -281,20 +264,16 @@ h2 {
 
 .conference-images-container {
   display: flex;
-  overflow-x: auto;
-  gap: 50px;
+  flex-direction: column;
+  gap: 30px;
   padding-bottom: 15px;
-  flex-wrap: nowrap;
   scrollbar-width: thin;
-  justify-content: flex-start;
+  max-height: 600px;
+  overflow-y: auto;
 }
 
 .conference-images-container img {
   flex-shrink: 0;
-  height: 150px;
-  width: auto;
-  border-radius: 8px;
-  object-fit: cover;
   width: 100%;
   height: auto;
   max-height: 250px;
@@ -303,7 +282,7 @@ h2 {
 }
 
 .conference-images-container::-webkit-scrollbar {
-  height: 8px;
+  width: 8px;
 }
 
 .conference-images-container::-webkit-scrollbar-thumb {
@@ -321,36 +300,45 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
   background-color: #983232;
-  border-radius: 0px;
+  border-radius: 8px;
   padding: 0px;
-  flex: 0 0 400px;
-  max-width: 450px;
+  width: 100%;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  color: white;
+  text-align: left;
 }
 
 .conference-image-item img {
   flex-shrink: 0;
 }
 
-.conference-image-item p {
+.conference-image-item p.title {
   margin-top: 5px;
   margin-bottom: 0;
   font-size: 1.3em;
-  color: #fff;
+  color: white;
   font-weight: bold;
+  text-align: center !important;
+  width: 100%;
+  padding: 0 15px;
+  box-sizing: border-box;
 }
 
 .conference-image-item .description {
   min-height: 100px;
   font-size: 1em;
-  color: #fff;
-  margin-top: 5px;
-  padding: 15px;
+  color: white;
+  margin-top: 0;
+  padding: 0 15px 15px 15px;
   line-height: 1.5;
   font-weight: normal;
   text-align: left;
+}
+
+.conference-image-item .description p {
+  color: white;
+  margin-bottom: 0;
 }
 
 .column:first-child h2 {
@@ -376,4 +364,30 @@ h2 {
 main, .main-content, .content-wrapper {
   padding-left: 0 !important;
   padding-right: 0 !important;
+}
+
+
+/* Add styles for the Ongoing Projects section */
+.ongoing-projects h2 {
+  text-align: left;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+}
+
+.ongoing-projects-section .scrollable-projects {
+  width: 100%;
+}
+
+.conference-image-item .description ul li {
+  color: white !important; /* Force white color */
+  margin-bottom: 10px;
+  text-align: left !important; /* Force left alignment */
+  list-style-position: inside;
+  padding-left: 0 !important; /* Ensure no padding on the left of the content */
+  margin-left: 0 !important; /* Ensure no margin on the left of the content */
+}
+
+.conference-image-item .description ul li:last-child {
+  margin-bottom: 0;
 }
