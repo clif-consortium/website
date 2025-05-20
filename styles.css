@@ -220,3 +220,173 @@ h2 {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* CSS for the scrollable publications section */
+.publications-scrollable-container {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  gap: 15px;
+  padding-right: 15px;
+  flex-wrap: nowrap;
+  max-height: 600px;
+  overflow-x: visible;
+}
+
+/* Style for individual publication items */
+.publication-scroll-item {
+  flex-shrink: 0;
+  width: max-content;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+}
+
+.publication-scroll-item p {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+
+.publication-scroll-item strong {
+  margin-bottom: 5px;
+}
+
+.scrollable-projects {
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 15px;
+}
+
+.conference-images-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-bottom: 15px;
+  scrollbar-width: thin;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.conference-images-container img {
+  flex-shrink: 0;
+  width: 100%; /* Ensure image takes full width of its container */
+  height: auto; /* Allow height to adjust proportionally */
+  max-height: 250px; /* Keep max height as a constraint */
+  border-radius: 4px 4px 0 0;
+}
+
+.conference-images-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.conference-images-container::-webkit-scrollbar-thumb {
+  background-color: #983232;
+  border-radius: 4px;
+}
+
+.conference-section-wrapper {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+.conference-image-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #983232;
+  border-radius: 8px;
+  padding: 0px;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  color: white;
+  text-align: left;
+}
+
+.conference-image-item img {
+  flex-shrink: 0;
+}
+
+.conference-image-item p.title {
+  margin-top: 5px;
+  margin-bottom: 0;
+  font-size: 1.3em;
+  color: white;
+  font-weight: bold;
+  text-align: center !important;
+  width: 100%;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.conference-image-item .description {
+  min-height: 100px;
+  font-size: 1em;
+  color: white;
+  margin-top: 0;
+  padding: 0 15px 15px 15px;
+  line-height: 1.5;
+  font-weight: normal;
+  text-align: left;
+}
+
+.conference-image-item .description p {
+  color: white;
+  margin-bottom: 0;
+}
+
+.column:first-child h2 {
+  margin-right: 20px;
+}
+
+.column h2 {
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.container {
+  max-width: none !important;
+}
+
+.columns {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+main, .main-content, .content-wrapper {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+
+/* Add styles for the Ongoing Projects section */
+.ongoing-projects h2 {
+  text-align: left;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+}
+
+.ongoing-projects-section .scrollable-projects {
+  width: 100%;
+}
+
+.conference-image-item .description ul li {
+  color: white !important; /* Force white color */
+  margin-bottom: 10px;
+  text-align: left !important; /* Force left alignment */
+  list-style-position: inside;
+  padding-left: 0 !important; /* Ensure no padding on the left of the content */
+  margin-left: 0 !important; /* Ensure no margin on the left of the content */
+}
+
+.conference-image-item .description ul li:last-child {
+  margin-bottom: 0;
+}

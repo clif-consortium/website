@@ -4,7 +4,7 @@
     "href": "posts.html",
     "title": "Blog",
     "section": "",
-    "text": "CLIF Microbiology\n\n\n\nehr-to-clif\n\nmicrobiology\n\nERD\n\n\n\n\n\n\n\nKevin Buell, Kaveri Chhikara\n\n\nJul 3, 2024\n\n\n\n\n\n\n\n\n\n\n\nUsing CLIF GitHub with R\n\n\n\ngithub\n\ncollaboration\n\n\n\n\n\n\n\nKaveri Chhikara\n\n\nJun 6, 2024\n\n\n\n\n\n\nNo matching items"
+    "text": "CLIF Microbiology\n\n\n\nehr-to-clif\n\n\nmicrobiology\n\n\nERD\n\n\n\n\n\n\n\nKevin Buell, Kaveri Chhikara\n\n\nJul 3, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nUsing CLIF GitHub with R\n\n\n\ngithub\n\n\ncollaboration\n\n\n\n\n\n\n\nKaveri Chhikara\n\n\nJun 6, 2024\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "data-dictionary/change_log.html",
@@ -212,16 +212,16 @@
   {
     "objectID": "projects.html",
     "href": "projects.html",
-    "title": "CLIF Consortium",
+    "title": "RESEARCH",
     "section": "",
-    "text": "The CLIF consortium is a network of NIH funded investigators.\nPrincipal Investigators (PIs) in the consortium are supported by a wide range of NIH grants that use big data and advanced ML techniques to answer open scientific questions related to critical illness. Each of these projects would be better with CLIF rather than done in silos.\n\n\n\nCLIF Project Description: Creating a life support allocation triage score for crisis standards of care\nGrant: R01 LM014263\nPI: William Parker, University of Chicago\n\n\n\n\n\nCLIF Project Description: Studying hospital variation in low-tidal volume ventilation across hospital systems\nGrant: K23 HL166783\nPI: Nicholas Ingraham, University of Minnesota\n\n\n\n\n\nCLIF Project Description: Validating the association of temperature trajectories and ICU mortality across hospital systems\nGrant: K23 GM144867\nPI: Sivasubramanium Bhavani, Emory University\n\n\n\n\n\nCLIF Project Description: Studying the association between proning practice patterns and ARDS survival\nGrant: K23 HL169743\nPI: Chad Hochberg, John Hopkins University\n\n\n\n\n\nCLIF Project Description: Identifying critically ill patients who are eligible for mobilization using the electronic healthcare record\nGrant: K23 HL148387\nPI: Bhakti Patel, University of Chicago\n\n\n\n\n\nCLIF Project Description: Prediction of severe pneumonia using machine learning\nGrant: K23HL169815\nPI: Catherine Gao, Northwestern University\n\n\n\n\n\nCLIF Project Description: Develop an oncology-specific sepsis prediction model using EHR data and human-centered design\nGrant: K08CA270383\nPI: Patrick Lyons, Oregon Health and Science University"
+    "text": "A common longitudinal intensive care unit data Format (CLIF) for critical illness research, 2025  SpringerNature\n\n\n\nAge and Saving Lives in Crisis Standards of Care: A Multicenter Cohort Study of Triage Score Prognostic Accuracy, 2025 PubMed Central\n\n\n\nCharacterizing variation in documented delivery of spontaneous awakening trials across five health systems, 2025 American Thoracic Society\n\n\n\nFoundation models for electronic health records: representation dynamics and transferability, 2025 arXiv\n\n\n\nPatient preferred language and deep sedation during invasive mechanical ventilation: A multicenter retrospective cohort study, 2025 American Thoracic Society\n\n\n\nSpeaking common longitudinal ICU data format (CLIF): A large language model for critical care phenotyping, 2025 American Thoracic Society\n\n\n\nThe effect of the optional lactate criterion for organ dysfunction on CDC adult sepsis event incidence and mortality, 2025 American Thoracic Society\n\n\n\nThe epidemiology of intensive care unit readmissions across 8 academic medical centers, 2025 American Thoracic Society\n\n\n\nThe epidemiology of intensive care unit readmissions across ten health systems, 2025 medRxiv\n\n\n\nA Common Longitudinal Intensive Care Unit data Format (CLIF) to enable multi-institutional federated critical illness research, 2024 PubMed Central\n\n\n\nVariation in setting low tidal volume ventilation on day 1 of mechanical ventilation by hospital, 2024 American Thoracic Society\n\n\n\n\n\n\n\n\n\n\n\n\nAmerican Thoracic Society (ATS)  2025\n\n\nCommittee members present various CLIF studies:\n\n\n\nElectronic health record signatures of spontaneous awakening trials: A multi-center analysis of sedation cessation patterns in mechanically ventilated patients, 2025 American Thoracic Society\n\n\n\nMulti-center evaluation of prone positioning practices for moderate and severe hypoxemic respiratory failure, 2025 American Thoracic Society\n\n\n\nThe association of sex and height with low-tidal volume ventilation in a multi-center cohort of critically ill adults, 2025 American Thoracic Society\n\n\n\nThe common longitudinal intensive care unit (CLIF) respiratory support waterfall: A novel method for analyzing ventilator mode patterns in critical care, 2025 American Thoracic Society\n\n\n\n\n\n\n\nAmerican Thoracic Society (ATS) 2024\n\n\nVarious CLIF studies presented by members:\n\n\n\nAdvancing multi-center clinical research in critically ill patients through the development of a common longitudinal ICU format (CLIF), 2024 American Thoracic Society\n\n\n\nIdentifying windows of opportunity for early mobilization of mechanically ventilated patients: Multi-center comparative analysis of clinical trial and consensus guideline eligibility criteria, 2025 American Thoracic Society\n\n\n\nVariation in setting low tidal volume ventilation on day 1 of mechanical ventilation by hospital, 2024 American Thoracic Society\n\n\n\n\n\n\n\n\n\nAmerican Medical Informatics Association (AMIA)  2024 Informatics Summit\n\n\n\nKaveri Chhikara, presents the CLIF at the AMIA Summit, touching on the standardized data format created to address challenges in using ICU electronic health record data for research.\n\n\n\n\n\n\n\n\nThe CLIF consortium is a network of NIH funded investigators.\nPrincipal Investigators (PIs) in the consortium are supported by a wide range of NIH grants that use big data and advanced ML techniques to answer open scientific questions related to critical illness. Each of these projects would be better with CLIF rather than done in silos.\n\n\n\nCLIF Project Description: Creating a life support allocation triage score for crisis standards of care\nGrant: R01 LM014263\nPI: William Parker, University of Chicago\n\n\n\n\n\nCLIF Project Description: Studying hospital variation in low-tidal volume ventilation across hospital systems\nGrant: K23 HL166783\nPI: Nicholas Ingraham, University of Minnesota\n\n\n\n\n\nCLIF Project Description: Validating the association of temperature trajectories and ICU mortality across hospital systems\nGrant: K23 GM144867\nPI: Sivasubramanium Bhavani, Emory University\n\n\n\n\n\nCLIF Project Description: Studying the association between proning practice patterns and ARDS survival\nGrant: K23 HL169743\nPI: Chad Hochberg, John Hopkins University\n\n\n\n\n\nCLIF Project Description: Identifying critically ill patients who are eligible for mobilization using the electronic healthcare record\nGrant: K23 HL148387\nPI: Bhakti Patel, University of Chicago\n\n\n\n\n\nCLIF Project Description: Prediction of severe pneumonia using machine learning\nGrant: K23HL169815\nPI: Catherine Gao, Northwestern University\n\n\n\n\n\nCLIF Project Description: Develop an oncology-specific sepsis prediction model using EHR data and human-centered design\nGrant: K08CA270383\nPI: Patrick Lyons, Oregon Health and Science University"
   },
   {
     "objectID": "projects.html#ongoing-projects-within-the-clif-consortium",
     "href": "projects.html#ongoing-projects-within-the-clif-consortium",
     "title": "CLIF Consortium",
     "section": "",
-    "text": "The CLIF consortium is a network of NIH funded investigators.\nPrincipal Investigators (PIs) in the consortium are supported by a wide range of NIH grants that use big data and advanced ML techniques to answer open scientific questions related to critical illness. Each of these projects would be better with CLIF rather than done in silos.\n\n\n\nCLIF Project Description: Creating a life support allocation triage score for crisis standards of care\nGrant: R01 LM014263\nPI: William Parker, University of Chicago\n\n\n\n\n\nCLIF Project Description: Studying hospital variation in low-tidal volume ventilation across hospital systems\nGrant: K23 HL166783\nPI: Nicholas Ingraham, University of Minnesota\n\n\n\n\n\nCLIF Project Description: Validating the association of temperature trajectories and ICU mortality across hospital systems\nGrant: K23 GM144867\nPI: Sivasubramanium Bhavani, Emory University\n\n\n\n\n\nCLIF Project Description: Studying the association between proning practice patterns and ARDS survival\nGrant: K23 HL169743\nPI: Chad Hochberg, John Hopkins University\n\n\n\n\n\nCLIF Project Description: Identifying critically ill patients who are eligible for mobilization using the electronic healthcare record\nGrant: K23 HL148387\nPI: Bhakti Patel, University of Chicago\n\n\n\n\n\nCLIF Project Description: Prediction of severe pneumonia using machine learning\nGrant: K23HL169815\nPI: Catherine Gao, Northwestern University\n\n\n\n\n\nCLIF Project Description: Develop an oncology-specific sepsis prediction model using EHR data and human-centered design\nGrant: K08CA270383\nPI: Patrick Lyons, Oregon Health and Science University"
+    "text": "The CLIF consortium is a network of NIH funded investigators.\nPrincipal Investigators (PIs) in the consortium are supported by a wide range of NIH grants that use big data and advanced ML techniques to answer open scientific questions related to critical illness. Each of these projects would be better with CLIF rather than done in silos.\n\n\n\nCLIF Project Description: Creating a life support allocation triage score for crisis standards of care\nGrant: R01 LM014263\nPI: William Parker, University of Chicago\n\n\n\n\n\nCLIF Project Description: Studying hospital variation in low-tidal volume ventilation across hospital systems\nGrant: K23 HL166783\nPI: Nicholas Ingraham, University of Minnesota\n\n\n\n\n\nCLIF Project Description: Validating the association of temperature trajectories and ICU mortality across hospital systems\nGrant: K23 GM144867\nPI: Sivasubramanium Bhavani, Emory University\n\n\n\n\n\nCLIF Project Description: Studying the association between proning practice patterns and ARDS survival\nGrant: K23 HL169743\nPI: Chad Hochberg, John Hopkins University\n\n\n\n\n\nCLIF Project Description: Identifying critically ill patients who are eligible for mobilization using the electronic healthcare record\nGrant: K23 HL148387\nPI: Bhakti Patel, University of Chicago\n\n\n\n\n\nCLIF Project Description: Prediction of severe pneumonia using machine learning\nGrant: K23HL169815\nPI: Catherine Gao, Northwestern University\n\n\n\n\n\nCLIF Project Description: Develop an oncology-specific sepsis prediction model using EHR data and human-centered design\nGrant: K08CA270383\nPI: Patrick Lyons, Oregon Health and Science University\n\n\n\n\n\nAdd your publications content here."
   },
   {
     "objectID": "faqs.html",
@@ -406,39 +406,11 @@
     "text": "University of Pennsylvania\n\n\n\n\nGary E. Weissman, MD   \n\n\n\n\n\nAlexander Ortiz, MD   \n\n\n\n\n\nKatie Connell, PhD      \n\n\n\n\n\nAnuradha Vyas, MD, MPH   \n\n\n\n\n\nBenjamin Schmid, MS"
   },
   {
-    "objectID": "team.html#cornell-university",
-    "href": "team.html#cornell-university",
-    "title": "CLIF Steering Committee",
-    "section": "Cornell University",
-    "text": "Cornell University\n\n\n\n\nEdward J. Schenck, M.D"
-  },
-  {
-    "objectID": "team.html#university-of-california-san-francisco",
-    "href": "team.html#university-of-california-san-francisco",
-    "title": "CLIF Steering Committee",
-    "section": "University of California San Francisco",
-    "text": "University of California San Francisco\n\n\n\n\nAartik Sarma, M.D   \n\n\n\n\n\nAndrew Wilmore, MS"
-  },
-  {
-    "objectID": "team.html#university-of-colorado",
-    "href": "team.html#university-of-colorado",
-    "title": "CLIF Steering Committee",
-    "section": "University of Colorado",
-    "text": "University of Colorado\n\n\n\n\nJennifer Ginestra, MD"
-  },
-  {
     "objectID": "team.html#yale-university",
     "href": "team.html#yale-university",
     "title": "CLIF Steering Committee",
     "section": "Yale University",
     "text": "Yale University\n\n\n\n\nSnigdha Jain, MD"
-  },
-  {
-    "objectID": "team.html#harvard-university",
-    "href": "team.html#harvard-university",
-    "title": "CLIF Steering Committee",
-    "section": "Harvard University",
-    "text": "Harvard University\n\n\n\n\nClaire N Shappell, M.D."
   },
   {
     "objectID": "mCIDE.html",
@@ -754,5 +726,138 @@
     "title": "CLIF maturity",
     "section": "Maturity Levels for CLIF Tables",
     "text": "Maturity Levels for CLIF Tables\nThere are two critical maturity elements for each CLIF table: 1) field structure and 2) Common ICU data Element development. Each CLIF table has one or more consortium physician-data scientists who are responsible for table design.\n\n Concept: A planned future CLIF table that has yet to be used in a federated project. The table structure and CDE elements are in draft form. Permissible values of category variables may still need to be defined. Seeking conceptual feedback. Significant changes to all aspects of the table are possible.\n Beta: Table purpose, structure, and field names complete and used in at least one federated CLIF project. CDE for category variables defined. Actively testing the table’s practical use in projects.\n Stable: Tested and recommended for general use. CDE stable with permissible values for all category variables precisely defined and locked. Fully implemented at multiple consortium sites and used in a peer-reviewed publication.\n Mature: Adopted across a majority of the CLIF consortium sites and very stable.\n Deprecated: No longer maintained."
+  },
+  {
+    "objectID": "team.html#cornell-university",
+    "href": "team.html#cornell-university",
+    "title": "CLIF Steering Committee",
+    "section": "Cornell University",
+    "text": "Cornell University\n\n\n\n\nEdward J. Schenck, M.D"
+  },
+  {
+    "objectID": "team.html#university-of-california-san-francisco",
+    "href": "team.html#university-of-california-san-francisco",
+    "title": "CLIF Steering Committee",
+    "section": "University of California San Francisco",
+    "text": "University of California San Francisco\n\n\n\n\nAartik Sarma, M.D   \n\n\n\n\n\nAndrew Wilmore, MS"
+  },
+  {
+    "objectID": "team.html#university-of-california-san-francisco-1",
+    "href": "team.html#university-of-california-san-francisco-1",
+    "title": "CLIF Steering Committee",
+    "section": "University of California San Francisco",
+    "text": "University of California San Francisco\n\n\n\n\nAartik Sarma, M.D, MAS"
+  },
+  {
+    "objectID": "team.html#university-of-colorado",
+    "href": "team.html#university-of-colorado",
+    "title": "CLIF Steering Committee",
+    "section": "University of Colorado",
+    "text": "University of Colorado\n\n\n\n\nJennifer Ginestra, MD"
+  },
+  {
+    "objectID": "team.html#cornell-university-1",
+    "href": "team.html#cornell-university-1",
+    "title": "CLIF Steering Committee",
+    "section": "Cornell University",
+    "text": "Cornell University\n\n\n\n\nEdward J. Schenck, M.D"
+  },
+  {
+    "objectID": "team.html#university-of-colorado-1",
+    "href": "team.html#university-of-colorado-1",
+    "title": "CLIF Steering Committee",
+    "section": "University of Colorado",
+    "text": "University of Colorado\n\n\n\n\nJennifer Ginestra, MD"
+  },
+  {
+    "objectID": "team.html#harvard-university",
+    "href": "team.html#harvard-university",
+    "title": "CLIF Steering Committee",
+    "section": "Harvard University",
+    "text": "Harvard University\n\n\n\n\nClaire N Shappell, M.D."
+  },
+  {
+    "objectID": "cohort.html#cohort-demographics",
+    "href": "cohort.html#cohort-demographics",
+    "title": "CLIF Cohort Overview",
+    "section": "",
+    "text": "The dashboard below represents the characteristics and outcomes of ICU patient encounters across 11 CLIF consortium sites and MIMIC-IV. The cohort includes all adults (≥ 18 years) admitted to an ICU at each site across the consortium. This represents a diverse cohort of over 850,000 ICU patient encounters and provides valuable insights into critical care practices across different institutions."
+  },
+  {
+    "objectID": "cohort.html#interactive-dashboard",
+    "href": "cohort.html#interactive-dashboard",
+    "title": "CLIF Cohort Overview",
+    "section": "",
+    "text": "Open CLIF Cohort Dashboard"
+  },
+  {
+    "objectID": "cohort.html#dashboard",
+    "href": "cohort.html#dashboard",
+    "title": "CLIF Consortium",
+    "section": "Dashboard",
+    "text": "Dashboard\nThe dashboard below represents the characteristics and outcomes of ICU patient encounters across 11 CLIF consortium sites and MIMIC-IV. The cohort includes all adults (≥ 18 years) admitted to an ICU at each site across the consortium. This represents a diverse cohort of over 850,000 ICU patient encounters and provides valuable insights into critical care practices across different institutions.\n\nOpen CLIF Cohort Dashboard"
+  },
+  {
+    "objectID": "projects.html#publications",
+    "href": "projects.html#publications",
+    "title": "RESEARCH",
+    "section": "",
+    "text": "A common longitudinal intensive care unit data Format (CLIF) for critical illness research, 2025  SpringerNature\n\n\n\nAge and Saving Lives in Crisis Standards of Care: A Multicenter Cohort Study of Triage Score Prognostic Accuracy, 2025 PubMed Central\n\n\n\nCharacterizing variation in documented delivery of spontaneous awakening trials across five health systems, 2025 American Thoracic Society\n\n\n\nFoundation models for electronic health records: representation dynamics and transferability, 2025 arXiv\n\n\n\nPatient preferred language and deep sedation during invasive mechanical ventilation: A multicenter retrospective cohort study, 2025 American Thoracic Society\n\n\n\nSpeaking common longitudinal ICU data format (CLIF): A large language model for critical care phenotyping, 2025 American Thoracic Society\n\n\n\nThe effect of the optional lactate criterion for organ dysfunction on CDC adult sepsis event incidence and mortality, 2025 American Thoracic Society\n\n\n\nThe epidemiology of intensive care unit readmissions across 8 academic medical centers, 2025 American Thoracic Society\n\n\n\nThe epidemiology of intensive care unit readmissions across ten health systems, 2025 medRxiv\n\n\n\nA Common Longitudinal Intensive Care Unit data Format (CLIF) to enable multi-institutional federated critical illness research, 2024 PubMed Central\n\n\n\nVariation in setting low tidal volume ventilation on day 1 of mechanical ventilation by hospital, 2024 American Thoracic Society"
+  },
+  {
+    "objectID": "projects.html#conference",
+    "href": "projects.html#conference",
+    "title": "CLIF CONSORTIUM RESEARCH",
+    "section": "Conference",
+    "text": "Conference\n\n\n\n\nATS 2024\n\n\n\n\n\n\nATS 2024\n\n\n\n\n\n\nATS 2024\n\n\n\n\n\n\nATS 2024"
+  },
+  {
+    "objectID": "projects.html#ongoing-projects",
+    "href": "projects.html#ongoing-projects",
+    "title": "RESEARCH",
+    "section": "",
+    "text": "The CLIF consortium is a network of NIH funded investigators.\nPrincipal Investigators (PIs) in the consortium are supported by a wide range of NIH grants that use big data and advanced ML techniques to answer open scientific questions related to critical illness. Each of these projects would be better with CLIF rather than done in silos.\n\n\n\nCLIF Project Description: Creating a life support allocation triage score for crisis standards of care\nGrant: R01 LM014263\nPI: William Parker, University of Chicago\n\n\n\n\n\nCLIF Project Description: Studying hospital variation in low-tidal volume ventilation across hospital systems\nGrant: K23 HL166783\nPI: Nicholas Ingraham, University of Minnesota\n\n\n\n\n\nCLIF Project Description: Validating the association of temperature trajectories and ICU mortality across hospital systems\nGrant: K23 GM144867\nPI: Sivasubramanium Bhavani, Emory University\n\n\n\n\n\nCLIF Project Description: Studying the association between proning practice patterns and ARDS survival\nGrant: K23 HL169743\nPI: Chad Hochberg, John Hopkins University\n\n\n\n\n\nCLIF Project Description: Identifying critically ill patients who are eligible for mobilization using the electronic healthcare record\nGrant: K23 HL148387\nPI: Bhakti Patel, University of Chicago\n\n\n\n\n\nCLIF Project Description: Prediction of severe pneumonia using machine learning\nGrant: K23HL169815\nPI: Catherine Gao, Northwestern University\n\n\n\n\n\nCLIF Project Description: Develop an oncology-specific sepsis prediction model using EHR data and human-centered design\nGrant: K08CA270383\nPI: Patrick Lyons, Oregon Health and Science University"
+  },
+  {
+    "objectID": "projects.html#publications-1",
+    "href": "projects.html#publications-1",
+    "title": "CLIF CONSORTIUM RESEARCH",
+    "section": "",
+    "text": "&lt;p&gt;&lt;a href=\"https://link.springer.com/article/10.1007/s00134-025-07848-7\"&gt;A common longitudinal intensive care unit data format (CLIF) for critical illness research&lt;/a&gt;&lt;/p&gt;\n\n\n&lt;p&gt;&lt;a href=\"https://journals.lww.com/ccejournal/fulltext/2025/05000/age_and_saving_lives_in_crisis_standards_of_care_.8.aspx\"&gt;Age and Saving Lives in Crisis Standards of Care: A Multicenter Cohort Study of Triage Score Prognostic Accuracy&lt;/a&gt;&lt;/p&gt;\n\n\n&lt;p&gt;&lt;a href=\"https://arxiv.org/abs/2504.10422\"&gt;Foundation models for electronic health records: representation dynamics and transferability&lt;/a&gt;&lt;/p&gt;\n\n\n&lt;p&gt;&lt;a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC11398431/\"&gt;A Common Longitudinal Intensive Care Unit data Format (CLIF) to enable multi-institutional federated critical illness research&lt;/a&gt;&lt;/p&gt;\n\n\n&lt;p&gt;&lt;a href=\"https://www.medrxiv.org/content/10.1101/2025.03.10.25323672v1\"&gt;The Epidemiology of Intensive Care Unit Readmissions Across Ten Health Systems&lt;/a&gt;&lt;/p&gt;\n\n\n&lt;p&gt;&lt;a href=\"https://www.atsjournals.org/doi/abs/10.1164/ajrccm.2025.211.Abstracts.A7695\"&gt;The Association of Sex and Height With Low-tidal Volume Ventilation in a Multi-center Cohort of Critically Ill Adults&lt;/a&gt;&lt;/p&gt;\n\n\n&lt;p&gt;&lt;a href=\"https://www.atsjournals.org/doi/abs/10.1164/ajrccm.2025.211.Abstracts.A7155\"&gt;Multi-center Evaluation of Prone Positioning Practices for Moderate and Severe Hypoxemic Respiratory Failure&lt;/a&gt;&lt;/p&gt;\n\n\n&lt;p&gt;&lt;a href=\"https://www.atsjournals.org/doi/abs/10.1164/ajrccm.2025.211.Abstracts.A2870\"&gt;Identifying Windows of Opportunity for Early Mobilization of Mechanically Ventilated Patients: Multi-center Comparative Analysis of Clinical Trial and Consensus Guideline Eligibility Criteria&lt;/a&gt;&lt;/p&gt;"
+  },
+  {
+    "objectID": "projects.html#conferences",
+    "href": "projects.html#conferences",
+    "title": "RESEARCH",
+    "section": "",
+    "text": "American Thoracic Society (ATS)  2025\n\n\nCommittee members present various CLIF studies:\n\n\n\nElectronic health record signatures of spontaneous awakening trials: A multi-center analysis of sedation cessation patterns in mechanically ventilated patients, 2025 American Thoracic Society\n\n\n\nMulti-center evaluation of prone positioning practices for moderate and severe hypoxemic respiratory failure, 2025 American Thoracic Society\n\n\n\nThe association of sex and height with low-tidal volume ventilation in a multi-center cohort of critically ill adults, 2025 American Thoracic Society\n\n\n\nThe common longitudinal intensive care unit (CLIF) respiratory support waterfall: A novel method for analyzing ventilator mode patterns in critical care, 2025 American Thoracic Society\n\n\n\n\n\n\n\nAmerican Thoracic Society (ATS) 2024\n\n\nVarious CLIF studies presented by members:\n\n\n\nAdvancing multi-center clinical research in critically ill patients through the development of a common longitudinal ICU format (CLIF), 2024 American Thoracic Society\n\n\n\nIdentifying windows of opportunity for early mobilization of mechanically ventilated patients: Multi-center comparative analysis of clinical trial and consensus guideline eligibility criteria, 2025 American Thoracic Society\n\n\n\nVariation in setting low tidal volume ventilation on day 1 of mechanical ventilation by hospital, 2024 American Thoracic Society\n\n\n\n\n\n\n\n\n\nAmerican Medical Informatics Association (AMIA)  2024 Informatics Summit\n\n\n\nKaveri Chhikara, presents the CLIF at the AMIA Summit, touching on the standardized data format created to address challenges in using ICU electronic health record data for research."
+  },
+  {
+    "objectID": "projects copy.html",
+    "href": "projects copy.html",
+    "title": "CLIF CONSORTIUM RESEARCH",
+    "section": "",
+    "text": "The CLIF consortium is a network of NIH funded investigators.\nPrincipal Investigators (PIs) in the consortium are supported by a wide range of NIH grants that use big data and advanced ML techniques to answer open scientific questions related to critical illness. Each of these projects would be better with CLIF rather than done in silos.\n\n\n\nCLIF Project Description: Creating a life support allocation triage score for crisis standards of care\nGrant: R01 LM014263\nPI: William Parker, University of Chicago\n\n\n\n\n\nCLIF Project Description: Studying hospital variation in low-tidal volume ventilation across hospital systems\nGrant: K23 HL166783\nPI: Nicholas Ingraham, University of Minnesota\n\n\n\n\n\nCLIF Project Description: Validating the association of temperature trajectories and ICU mortality across hospital systems\nGrant: K23 GM144867\nPI: Sivasubramanium Bhavani, Emory University\n\n\n\n\n\nCLIF Project Description: Studying the association between proning practice patterns and ARDS survival\nGrant: K23 HL169743\nPI: Chad Hochberg, John Hopkins University\n\n\n\n\n\nCLIF Project Description: Identifying critically ill patients who are eligible for mobilization using the electronic healthcare record\nGrant: K23 HL148387\nPI: Bhakti Patel, University of Chicago\n\n\n\n\n\nCLIF Project Description: Prediction of severe pneumonia using machine learning\nGrant: K23HL169815\nPI: Catherine Gao, Northwestern University\n\n\n\n\n\nCLIF Project Description: Develop an oncology-specific sepsis prediction model using EHR data and human-centered design\nGrant: K08CA270383\nPI: Patrick Lyons, Oregon Health and Science University\n\n\n\n\n\n\n\n\nA common longitudinal intensive care unit data Format (CLIF) for critical illness research, 2025 SpringerNature\nAge and Saving Lives in Crisis Standards of Care: A Multicenter Cohort Study of Triage Score Prognostic Accuracy, 2025 PubMed Central\nCharacterizing variation in documented delivery of spontaneous awakening trials across five health systems, 2025 American Thoracic Society\nElectronic health record signatures of spontaneous awakening trials: A multi-center analysis of sedation cessation patterns in mechanically ventilated patients, 2025 American Thoracic Society\nFoundation models for electronic health records: representation dynamics and transferability, 2025 arXiv\nIdentifying windows of opportunity for early mobilization of mechanically ventilated patients: Multi-center comparative analysis of clinical trial and consensus guideline eligibility criteria, 2025 American Thoracic Society\nMulti-center evaluation of prone positioning practices for moderate and severe hypoxemic respiratory failure, 2025 American Thoracic Society\nPatient preferred language and deep sedation during invasive mechanical ventilation: A multicenter retrospective cohort study, 2025 American Thoracic Society\nSpeaking common longitudinal ICU data format (CLIF): A large language model for critical care phenotyping, 2025 American Thoracic Society\nThe association of sex and height with low-tidal volume ventilation in a multi-center cohort of critically ill adults, 2025 American Thoracic Society\nThe common longitudinal intensive care unit (CLIF) respiratory support waterfall: A novel method for analyzing ventilator mode patterns in critical care, 2025 American Thoracic Society\nThe effect of the optional lactate criterion for organ dysfunction on CDC adult sepsis event incidence and mortality, 2025 American Thoracic Society\nThe epidemiology of intensive care unit readmissions across 8 academic medical centers, 2025 American Thoracic Society\nThe epidemiology of intensive care unit readmissions across ten health systems, 2025 medRxiv\nA Common Longitudinal Intensive Care Unit data Format (CLIF) to enable multi-institutional federated critical illness research, 2024 PubMed Central\nAdvancing multi-center clinical research in critically ill patients through the development of a common longitudinal ICU format (CLIF), 2024 American Thoracic Society\nVariation in setting low tidal volume ventilation on day 1 of mechanical ventilation by hospital, 2024 American Thoracic Society"
+  },
+  {
+    "objectID": "projects copy.html#ongoing-projects",
+    "href": "projects copy.html#ongoing-projects",
+    "title": "CLIF CONSORTIUM RESEARCH",
+    "section": "",
+    "text": "The CLIF consortium is a network of NIH funded investigators.\nPrincipal Investigators (PIs) in the consortium are supported by a wide range of NIH grants that use big data and advanced ML techniques to answer open scientific questions related to critical illness. Each of these projects would be better with CLIF rather than done in silos.\n\n\n\nCLIF Project Description: Creating a life support allocation triage score for crisis standards of care\nGrant: R01 LM014263\nPI: William Parker, University of Chicago\n\n\n\n\n\nCLIF Project Description: Studying hospital variation in low-tidal volume ventilation across hospital systems\nGrant: K23 HL166783\nPI: Nicholas Ingraham, University of Minnesota\n\n\n\n\n\nCLIF Project Description: Validating the association of temperature trajectories and ICU mortality across hospital systems\nGrant: K23 GM144867\nPI: Sivasubramanium Bhavani, Emory University\n\n\n\n\n\nCLIF Project Description: Studying the association between proning practice patterns and ARDS survival\nGrant: K23 HL169743\nPI: Chad Hochberg, John Hopkins University\n\n\n\n\n\nCLIF Project Description: Identifying critically ill patients who are eligible for mobilization using the electronic healthcare record\nGrant: K23 HL148387\nPI: Bhakti Patel, University of Chicago\n\n\n\n\n\nCLIF Project Description: Prediction of severe pneumonia using machine learning\nGrant: K23HL169815\nPI: Catherine Gao, Northwestern University\n\n\n\n\n\nCLIF Project Description: Develop an oncology-specific sepsis prediction model using EHR data and human-centered design\nGrant: K08CA270383\nPI: Patrick Lyons, Oregon Health and Science University"
+  },
+  {
+    "objectID": "projects copy.html#publications",
+    "href": "projects copy.html#publications",
+    "title": "CLIF CONSORTIUM RESEARCH",
+    "section": "",
+    "text": "A common longitudinal intensive care unit data Format (CLIF) for critical illness research, 2025 SpringerNature\nAge and Saving Lives in Crisis Standards of Care: A Multicenter Cohort Study of Triage Score Prognostic Accuracy, 2025 PubMed Central\nCharacterizing variation in documented delivery of spontaneous awakening trials across five health systems, 2025 American Thoracic Society\nElectronic health record signatures of spontaneous awakening trials: A multi-center analysis of sedation cessation patterns in mechanically ventilated patients, 2025 American Thoracic Society\nFoundation models for electronic health records: representation dynamics and transferability, 2025 arXiv\nIdentifying windows of opportunity for early mobilization of mechanically ventilated patients: Multi-center comparative analysis of clinical trial and consensus guideline eligibility criteria, 2025 American Thoracic Society\nMulti-center evaluation of prone positioning practices for moderate and severe hypoxemic respiratory failure, 2025 American Thoracic Society\nPatient preferred language and deep sedation during invasive mechanical ventilation: A multicenter retrospective cohort study, 2025 American Thoracic Society\nSpeaking common longitudinal ICU data format (CLIF): A large language model for critical care phenotyping, 2025 American Thoracic Society\nThe association of sex and height with low-tidal volume ventilation in a multi-center cohort of critically ill adults, 2025 American Thoracic Society\nThe common longitudinal intensive care unit (CLIF) respiratory support waterfall: A novel method for analyzing ventilator mode patterns in critical care, 2025 American Thoracic Society\nThe effect of the optional lactate criterion for organ dysfunction on CDC adult sepsis event incidence and mortality, 2025 American Thoracic Society\nThe epidemiology of intensive care unit readmissions across 8 academic medical centers, 2025 American Thoracic Society\nThe epidemiology of intensive care unit readmissions across ten health systems, 2025 medRxiv\nA Common Longitudinal Intensive Care Unit data Format (CLIF) to enable multi-institutional federated critical illness research, 2024 PubMed Central\nAdvancing multi-center clinical research in critically ill patients through the development of a common longitudinal ICU format (CLIF), 2024 American Thoracic Society\nVariation in setting low tidal volume ventilation on day 1 of mechanical ventilation by hospital, 2024 American Thoracic Society"
+  },
+  {
+    "objectID": "projects copy.html#conferences",
+    "href": "projects copy.html#conferences",
+    "title": "CLIF CONSORTIUM RESEARCH",
+    "section": "Conferences",
+    "text": "Conferences\n\n\n\n\nATS 2025\n\n\nCommittee members present various CLIF studies:  Analyzing sedation cessation patterns during Spontaneous Awakening Trials in mechanically ventilated ICU patients. Application of CLIF Respiratory Support Waterfall to analyze ventilator mode patterns in critically ill adults receiving IMV. Association of sex and height with LTVV in critically ill adults. Eligibility for early mobilization of mechanically ventilated patients\n\n\n\n\n\nATS 2024\n\n\nNicholas E. Ingraham, MD, presents a consortium project demonstrating CLIF’s value in analyzing low tidal volume ventilation (LTVV) adherence across 21 US hospitals from March 2020 to March 2022. Read more here…\n\n\n\n\n\nAMIA 2024 Informatics Summit\n\n\nKaveri Chhikara, presents the CLIF at the American Medical Informatics Association Summit, touching on the standardized data format created to address challenges in using ICU electronic health record data for research."
   }
 ]
