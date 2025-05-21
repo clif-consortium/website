@@ -272,11 +272,10 @@ h2 {
   overflow-y: auto;
 }
 
-.conference-images-container img {
-  flex-shrink: 0;
-  width: 100%; /* Ensure image takes full width of its container */
-  height: auto; /* Allow height to adjust proportionally */
-  max-height: 250px; /* Keep max height as a constraint */
+.conference-image-item img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
   border-radius: 4px 4px 0 0;
 }
 
