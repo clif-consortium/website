@@ -47,7 +47,7 @@ h1.title {
 <div class="conference-images-container">
 
 <div class="conference-image-item">
-  <img src="./images/ATS_2025.jpg" alt="American Thoracic Society 2025 Conference">
+  <img src="./images/ATS_2025_B.jpg" alt="American Thoracic Society 2025 Conference">
   <p class="title">American Thoracic Society (ATS) <br> 2025</p>
   <div class="description">
   <br>Committee members present various CLIF studies:
