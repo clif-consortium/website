@@ -2,6 +2,7 @@
 title: " CLIF-2.1.0 Data Dictionary- WIP"
 output-dir: docs/
 toc: true
+toc-depth: 2
 ---
 
 The CLIF Data Dictionary serves as a comprehensive guide to the Common Longitudinal ICU data Format, detailing the structure and purpose of each table within the framework. Designed to standardize and harmonize electronic health record data across multiple institutions, the dictionary outlines the entity-relationship model, variable definitions, and permissible values.
@@ -10,7 +11,7 @@ The CLIF Data Dictionary serves as a comprehensive guide to the Common Longitudi
 <img src="../images/ERD-2.1.0.png" alt="ERD" id="erd" usemap="#clif-map" style="width: 100%;"/>
 :::
 
-# Beta tables
+# **Beta tables**
 
 The table purpose, structure, and field names for  beta tables is complete and used in at least one federated CLIF project. The [minimum Common ICU Data Elements (mCIDE)](../mCIDE.qmd) for category variables is defined. Actively testing the table’s practical use in projects. Breaking changes unlikely, but backward compatible updates in future minor versions possible
 
@@ -676,7 +677,7 @@ The vitals table is a long-form (one vital sign per row) longitudinal table.
 : {.striped .hover}
 :::
 
-# Concept tables
+# **Concept tables**
 
 A planned future CLIF table that has yet to be used in a federated project. The table structure and CDE elements are in draft form. Permissible values of category variables may still need to be defined. Seeking conceptual feedback. Significant changes to all aspects of the table are possible.
 
@@ -1164,7 +1165,7 @@ This table provides detailed information about transfusion events linked to spec
 : {.striped .hover}
 :::
 
-# Future proposed tables
+# **Future proposed tables**
 
 These are tables without any defined structure that the consortium has not yet committed to implementing.
 

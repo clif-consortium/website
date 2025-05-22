@@ -7,7 +7,7 @@ format:
     toc: true
 ---
 
-# CLIF Steering Committee
+# **CLIF Steering Committee**
 
 ```{=html}
 <div class="leadership-card">
@@ -91,7 +91,7 @@ format:
 </div>
 ```
 
-# CLIF Steering Committee Members
+# **CLIF Steering Committee Members**
 
 <div class="member-grid">
   <div><a href="https://www.linkedin.com/in/alexander-ortiz-md-ms-124a5241/" target="_blank">
@@ -121,7 +121,7 @@ format:
 </div>
 
 
-# CLIF Collaborators by Site
+# **CLIF Collaborators by Site**
 
 ## University of Chicago
 
