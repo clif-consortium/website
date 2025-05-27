@@ -136,7 +136,8 @@ about:
 <p>Developed by a consortium of nine U.S. academic health systems, CLIF's schema, clinical vocabularies, and federated approach to data sharing are detailed in our recently published study in *Intensive Care Medicine*.</p>
 <!-- CTA Button for CLIF Concept -->
 <a href="https://link.springer.com/article/10.1007/s00134-025-07848-7" class="cta-button" target="_blank">Read the full study in Intensive Care Medicine</a>
-<a href="data-dictionary/data-dictionary-2.0.0.qmd" class="cta-button" target="_blank">Explore CLIF-2.0.0 Data Dictionary</a>
+<a href="data-dictionary/data-dictionary-2.0.0.qmd" class="cta-button" target="_blank">View CLIF-2.0.0 Data Dictionary</a>
+<a href="https://clif-consortium.shinyapps.io/clif-cohort-dashboard/" class="cta-button" target="_blank">Explore Cohort Dashboard</a>
 </div>
 
 <!-- Participating Sites Logos Section -->
