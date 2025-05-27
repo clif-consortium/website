@@ -125,7 +125,7 @@ about:
   }
 </style>
 
-<!-- Main Title Section -->
+<!--- Main Title Section -->
 
 <img src="images/clif_logo.png" alt="CLIF Logo" class="clif-logo">
 <h1>Common Longitudinal ICU data Format</h1>
