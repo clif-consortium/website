@@ -389,3 +389,9 @@ main, .main-content, .content-wrapper {
 .conference-image-item .description ul li:last-child {
   margin-bottom: 0;
 }
+
+#TOC ul.collapse {
+  display: block !important;
+  }
+  
+  
