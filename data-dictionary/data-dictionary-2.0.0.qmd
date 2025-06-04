@@ -179,16 +179,16 @@ The labs table is a long form (one lab result per row) longitudinal table.
 **Example**:
 
 ::: scrollable-table
-| hospitalization_id | lab_order_dttm | lab_collect_dttm | lab_result_dttm | lab_order_name | lab_name | lab_category | lab_value | lab_value_numeric | reference_unit | lab_type_name | lab_loinc_code |
-|------|------|------|------|------|------|------|------|------|------|------|------|
-| 12345 | 2024-12-01 08:15:00+00:00 | 2024-12-01 08:30:00+00:00 | 2024-12-01 09:00:00+00:00 | Complete Blood Count | Hemoglobin | hemoglobin | 12.3 | 12.3 | g/dL | standard | 718-7 |
-| 12345 | 2024-12-01 08:15:00+00:00 | 2024-12-01 08:30:00+00:00 | 2024-12-01 09:05:00+00:00 | Complete Blood Count | White Blood Cell Count | wbc | 5.6 | 5.6 | 10\^3/uL | standard | 6690-2 |
-| 12345 | 2024-12-01 08:15:00+00:00 | 2024-12-01 08:30:00+00:00 | 2024-12-01 09:10:00+00:00 | Metabolic Panel | Sodium | sodium | 138 | 138 | mmol/L | standard | 2951-2 |
-| 12345 | 2024-12-01 08:15:00+00:00 | 2024-12-01 08:30:00+00:00 | 2024-12-01 09:20:00+00:00 | Metabolic Panel | Potassium | potassium | 4.1 | 4.1 | mmol/L | standard | 2823-3 |
-| 67890 | 2024-12-01 09:30:00+00:00 | 2024-12-01 09:45:00+00:00 | 2024-12-01 10:15:00+00:00 | Arterial Blood Gas | pH | ph | 7.35 | 7.35 |  | standard | 2744-1 |
-| 67890 | 2024-12-01 09:30:00+00:00 | 2024-12-01 09:45:00+00:00 | 2024-12-01 10:20:00+00:00 | Arterial Blood Gas | pCO2 | pco2 | 40 | 40 | mmHg | standard | 2019-8 |
-| 67890 | 2024-12-01 09:30:00+00:00 | 2024-12-01 09:45:00+00:00 | 2024-12-01 10:25:00+00:00 | Arterial Blood Gas | pO2 | po2 | 90 | 90 | mmHg | standard | 2703-7 |
-| 67890 | 2024-12-01 09:30:00+00:00 | 2024-12-01 09:45:00+00:00 | 2024-12-01 10:30:00+00:00 | Arterial Blood Gas | Bicarbonate | bicarbonate | 24 | 24 | mmol/L | standard | 2028-3 |
+| hospitalization_id | lab_order_dttm | lab_collect_dttm | lab_result_dttm | lab_order_name | lab_name | lab_category | lab_value | lab_value_numeric | reference_unit | lab_loinc_code | lab_specimen_name |  lab_specimen_category |
+|------|------|------|------|------|------|------|------|------|------|------|------|------|------|
+| 12345 | 2024-12-01 08:15:00+00:00 | 2024-12-01 08:30:00+00:00 | 2024-12-01 09:00:00+00:00 | Complete Blood Count | Hemoglobin | hemoglobin | 12.3 | 12.3 | g/dL | 718-7 | |   |
+| 12345 | 2024-12-01 08:15:00+00:00 | 2024-12-01 08:30:00+00:00 | 2024-12-01 09:05:00+00:00 | Complete Blood Count | White Blood Cell Count | wbc | 5.6 | 5.6 | 10\^3/uL | 6690-2 | |   |
+| 12345 | 2024-12-01 08:15:00+00:00 | 2024-12-01 08:30:00+00:00 | 2024-12-01 09:10:00+00:00 | Metabolic Panel | Sodium | sodium | 138 | 138 | mmol/L | 2951-2 | |   |
+| 12345 | 2024-12-01 08:15:00+00:00 | 2024-12-01 08:30:00+00:00 | 2024-12-01 09:20:00+00:00 | Metabolic Panel | Potassium | potassium | 4.1 | 4.1 | mmol/L | 2823-3 |   |   |
+| 67890 | 2024-12-01 09:30:00+00:00 | 2024-12-01 09:45:00+00:00 | 2024-12-01 10:15:00+00:00 | Arterial Blood Gas | pH | ph | 7.35 | 7.35 |  | 2744-1 |  |   |
+| 67890 | 2024-12-01 09:30:00+00:00 | 2024-12-01 09:45:00+00:00 | 2024-12-01 10:20:00+00:00 | Arterial Blood Gas | pCO2 | pco2 | 40 | 40 | mmHg | 2019-8 |  |   |
+| 67890 | 2024-12-01 09:30:00+00:00 | 2024-12-01 09:45:00+00:00 | 2024-12-01 10:25:00+00:00 | Arterial Blood Gas | pO2 | po2 | 90 | 90 | mmHg | 2703-7 |    |   |
+| 67890 | 2024-12-01 09:30:00+00:00 | 2024-12-01 09:45:00+00:00 | 2024-12-01 10:30:00+00:00 | Arterial Blood Gas | Bicarbonate | bicarbonate | 24 | 24 | mmol/L | 2028-3 |
 : {.striped .hover}
 :::
 
