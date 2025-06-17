@@ -46,7 +46,7 @@ website:
         - href: tools.qmd
           text: CLIF Tools
         - href: projects.qmd
-          text: Projects
+          text: Research
         - href: maturity.qmd
           text: CLIF Maturity
         - href: mCIDE.qmd
