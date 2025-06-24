@@ -172,7 +172,7 @@ format:
       <img src="images/linkedin_icon.png" alt="LinkedIn" class="icon">
     </a></p></div>
   <div><img src="headshots/zewei_liao.jpg" alt="Zewei Liao" class="team-img">
-    <p><strong>Zewei ("Whiskey") Liao, BA</strong><br>
+    <p><strong>Zewei ("Whiskey") Liao, MS</strong><br>
      <a href="https://www.linkedin.com/in/zewei-whiskey-liao" target="_blank">
       <img src="images/linkedin_icon.png" alt="LinkedIn" class="icon">
     </a></p></div>
@@ -406,6 +406,26 @@ format:
     <p><strong>Claire N Shappell, M.D.</strong><br>
     <a href="https://scholar.google.com/citations?hl=en&user=DvBE3dEAAAAJ" target="_blank">
       <img src="images/scholar_icon.png" alt="Google Scholar" class="icon">
+    </a></p></div>
+</div>
+
+## University of Alabama
+
+<div class="team-grid">
+  <div><img src="headshots/amy_wang.jpeg" alt="Amy Wang" class="team-img">
+    <p><strong>Amy Wang, MD</strong><br>
+    <a href="https://www.linkedin.com/in/amywangmd" target="_blank">
+      <img src="images/linkedin_icon.png" alt="LinkedIn" class="icon">
+    </a></p></div>
+  <div><img src="headshots/sandeep_boddu.jpeg" alt="Sandeep Bodduluri" class="team-img">
+    <p><strong>Sandeep Bodduluri, PhD</strong><br>
+    <a href="https://scholar.google.com/citations?user=5o7e9KkAAAAJ&hl=en" target="_blank">
+      <img src="images/scholar_icon.png" alt="Google Scholar" class="icon">
+    </a></p></div>
+  <div><img src="headshots/javier_neyra.jpeg" alt="Javier Neyra" class="team-img">
+    <p><strong>Javier Neyra, MD, MSCS</strong><br>
+    <a href="https://scholar.google.com/citations?user=SX_y2d4AAAAJ&hl=en" target="_blank">
+    <img src="images/scholar_icon.png" alt="Google Scholar" class="icon">
     </a></p></div>
 </div>
 
