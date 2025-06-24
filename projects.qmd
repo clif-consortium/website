@@ -24,17 +24,7 @@ h1.title {
 
 <div class="scrollable-projects">
 <ul>
-<li>A common longitudinal intensive care unit data Format (CLIF) for critical illness research, 2025 <br> [SpringerNature](https://link.springer.com/article/10.1007/s00134-025-07848-7)</li><br>
-<li>Age and Saving Lives in Crisis Standards of Care: A Multicenter Cohort Study of Triage Score Prognostic Accuracy, 2025 <br>[PubMed Central](https://pmc.ncbi.nlm.nih.gov/articles/PMC12074069/)</li><br>
-<li>Characterizing variation in documented delivery of spontaneous awakening trials across five health systems, 2025 <br>[American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm.2025.211.Abstracts.A7781)</li><br>
-<li>Foundation models for electronic health records: representation dynamics and transferability, 2025 <br>[arXiv](https://arxiv.org/abs/2504.10422)</li><br>
-<li>Patient preferred language and deep sedation during invasive mechanical ventilation: A multicenter retrospective cohort study, 2025 <br>[American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm.2025.211.Abstracts.A5266)</li><br>
-<li>Speaking common longitudinal ICU data format (CLIF): A large language model for critical care phenotyping, 2025 <br>[American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm.2025.211.Abstracts.A5692)</li><br>
-<li>The effect of the optional lactate criterion for organ dysfunction on CDC adult sepsis event incidence and mortality, 2025 <br>[American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm.2025.211.Abstracts.A3691)</li><br>
-<li>The epidemiology of intensive care unit readmissions across 8 academic medical centers, 2025 <br>[American Thoracic Society](https://www.atsjournals.org/doi/abs/10.1164/ajrccm.2025.211.Abstracts.A7173)</li><br>
-<li>The epidemiology of intensive care unit readmissions across ten health systems, 2025 <br>[medRxiv](https://www.medrxiv.org/content/10.1101/2025.03.10.25323672v1)</li><br>
-<li>A Common Longitudinal Intensive Care Unit data Format (CLIF) to enable multi-institutional federated critical illness research, 2024 <br>[PubMed Central](https://pmc.ncbi.nlm.nih.gov/articles/PMC11398431/)</li><br>
-<li>Variation in setting low tidal volume ventilation on day 1 of mechanical ventilation by hospital, 2024 <br>[American Thoracic Society](https://www.atsjournals.org/doi/pdf/10.1164/ajrccm-conference.2024.209.1_MeetingAbstracts.A4771)</li><br>
+<li>A Common Longitudinal Intensive Care Unit data Format (CLIF) to enable multi-institutional federated critical illness research, 2024 <br>[medRxiv](https://www.medrxiv.org/content/10.1101/2024.09.04.24313058v1)</li><br>
 </ul>
 </div>
 
@@ -95,6 +85,8 @@ h1.title {
 
 :::
 
+<br>
+<br>
 <div class="ongoing-projects-section">
 ## Ongoing Projects
 
