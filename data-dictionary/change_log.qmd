@@ -19,6 +19,7 @@ title: "CLIF Change Log"
   - Finalize patient language category mCIDE- [Issue#13](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/issues/13)
   - Add ADT location type field with finalized mCIDE- [Issue#39](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/issues/39), [Issue#64](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/issues/64)
   - Finalize hospitalization admission type mCIDE- [Issue#16](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/issues/16)
+  - Add LTACH to admission_type mCIDE
 
 ### 2.0.0 (Current Version)
 - **Release** February 2025
