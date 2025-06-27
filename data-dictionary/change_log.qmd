@@ -11,7 +11,7 @@ title: "CLIF Change Log"
   - Add ICD codes table to Beta Status
 
 ### 2.1.0
-- **Release** June 2025
+- **Release** September 2025
 - **Data Structure Updates**
   - Move CRRT therapy to Beta status
   - Move ECMO MCS to Beta status
