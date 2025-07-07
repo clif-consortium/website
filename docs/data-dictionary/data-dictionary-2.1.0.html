@@ -3510,25 +3510,25 @@ ul.task-list li input[type="checkbox"] {
 <td><a href="https://github.com/clif-consortium/CLIF/blob/main/mCIDE/clif_microbiology_culture_fluid_categories.csv">CDE NIH Infection Site</a></td>
 </tr>
 <tr class="odd">
-<td>component_name</td>
+<td>method_name</td>
 <td>VARCHAR</td>
-<td>Original component names from the source data.</td>
+<td>Original method names from the source data.</td>
 <td>No restriction</td>
 </tr>
 <tr class="even">
-<td>component_category</td>
+<td>method_category</td>
 <td>VARCHAR</td>
-<td>Maps <code>component_name</code> to a standardized list of component categories</td>
+<td>Maps <code>method_name</code> to a standardized list of method categories</td>
 <td><code>culture</code>, <code>gram stain</code>, <code>smear</code></td>
 </tr>
 <tr class="odd">
-<td>organism_name</td>
+<td>organism_category</td>
 <td>VARCHAR</td>
 <td>Cleaned organism name string from the raw data. This field is not used for analysis.</td>
 <td>No restriction. <a href="https://github.com/clif-consortium/CLIF/blob/main/mCIDE/mCIDE_mapping_examples/clif_vocab_microbiology_name_organism_ucmc.csv">Check this file for examples</a></td>
 </tr>
 <tr class="even">
-<td>organism_category</td>
+<td>organism_group</td>
 <td>VARCHAR</td>
 <td>Maps <code>organism_name</code> to the standardized list of organisms in the NIH CDE</td>
 <td><a href="https://github.com/clif-consortium/CLIF/blob/main/mCIDE/clif_microbiology_culture_organism_categories.csv">CDE NIH Organism</a></td>
@@ -3558,10 +3558,10 @@ ul.task-list li input[type="checkbox"] {
 <th>result_dttm</th>
 <th>fluid_name</th>
 <th>fluid_category</th>
-<th>component_name</th>
-<th>component_category</th>
-<th>organism_name</th>
+<th>method_name</th>
+<th>method_category</th>
 <th>organism_category</th>
+<th>organism_group</th>
 </tr>
 </thead>
 <tbody>
