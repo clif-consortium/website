@@ -32,6 +32,7 @@ title: "CLIF Change Log"
   - Added Beta tables and concept tables
   - Standardized mCIDE elements
   - Standardized all datetime variables to be time zone aware with UTC- [Issue#40](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/issues/40)
+  - Revision to Micro culture mCIDE for LOINC compatibility - [Issue#25](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/issues/25)
 
 ### 1.0.0
 - First official release of CLIF
