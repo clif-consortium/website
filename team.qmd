@@ -429,4 +429,14 @@ format:
     </a></p></div>
 </div>
 
+## University of Toronto
+
+<div class="team-grid">
+  <div><img src="headshots/andre_carlos.jpg" alt="Andre Amaral" class="team-img">
+    <p><strong>Andre Amaral, MD</strong><br>
+    <a href="https://scholar.google.com/citations?user=bl8HE5EAAAAJ&hl=en" target="_blank">
+      <img src="images/scholar_icon.png" alt="Google Scholar" class="icon">
+    </a></p></div>
+</div>
+
 
