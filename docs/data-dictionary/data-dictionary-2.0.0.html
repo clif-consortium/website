@@ -2386,46 +2386,51 @@ ul.task-list li input[type="checkbox"] {
 <td>Unique identifier for hospitalization episode</td>
 </tr>
 <tr class="even">
+<td>device_id</td>
+<td>VARCHAR</td>
+<td>Unique identifier for dialysis machine</td>
+</tr>
+<tr class="odd">
 <td>recorded_dttm</td>
 <td>DATETIME</td>
 <td>Timestamp when CRRT parameters were recorded</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>crrt_mode_name</td>
 <td>VARCHAR</td>
 <td>Name of CRRT mode (e.g., “CVVHDF”)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>crrt_mode_category</td>
 <td>VARCHAR</td>
 <td><code>scuf</code>, <code>cvvh</code>, <code>cvvhd</code>, <code>cvvhdf</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>dialysis_machine_name</td>
 <td>VARCHAR</td>
 <td>Unique identifier for the dialysis machine</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>blood_flow_rate</td>
 <td>DOUBLE</td>
 <td>Rate of blood flow through the CRRT circuit (mL/hr)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>pre_filter_replacement_fluid_rate</td>
 <td>DOUBLE</td>
 <td>Rate of pre-filter replacement fluid infusion (mL/hr)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>post_filter_replacement_fluid_rate</td>
 <td>DOUBLE</td>
 <td>Rate of post-filter replacement fluid infusion (mL/hr)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>dialysate_flow_rate</td>
 <td>DOUBLE</td>
 <td>Flow rate of dialysate solution (mL/hr)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>ultrafiltration_out</td>
 <td>DOUBLE</td>
 <td>Net ultrafiltration output (mL)</td>
@@ -2500,10 +2505,10 @@ ul.task-list li input[type="checkbox"] {
 <table class="table-striped table-hover table">
 <colgroup>
 <col style="width: 8%">
+<col style="width: 9%">
 <col style="width: 10%">
 <col style="width: 6%">
 <col style="width: 8%">
-<col style="width: 9%">
 <col style="width: 7%">
 <col style="width: 13%">
 <col style="width: 14%">
@@ -2513,10 +2518,10 @@ ul.task-list li input[type="checkbox"] {
 <thead>
 <tr class="header">
 <th>hospitalization_id</th>
+<th>device_id</th>
 <th>recorded_dttm</th>
 <th>crrt_mode_name</th>
 <th>crrt_mode_category</th>
-<th>dialysis_machine_name</th>
 <th>blood_flow_rate</th>
 <th>pre_filter_replacement_fluid_rate</th>
 <th>post_filter_replacement_fluid_rate</th>
@@ -2527,10 +2532,10 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td>201</td>
+<td>J3</td>
 <td>2024-02-15 07:00:00+00:00</td>
 <td>CVVHDF</td>
 <td>CVVHDF</td>
-<td>J3</td>
 <td>200.0</td>
 <td>1000.0</td>
 <td>500.0</td>
@@ -2539,10 +2544,10 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="even">
 <td>202</td>
+<td>J7</td>
 <td>2024-02-16 09:15:00+00:00</td>
 <td>CVVH</td>
 <td>CVVH</td>
-<td>J7</td>
 <td>180.0</td>
 <td>1200.0</td>
 <td>300.0</td>
@@ -2551,10 +2556,10 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td>203</td>
+<td>J11</td>
 <td>2024-02-17 11:45:00+00:00</td>
 <td>SCUF</td>
 <td>SCUF</td>
-<td>J11</td>
 <td>150.0</td>
 <td>NA</td>
 <td>NA</td>
