@@ -12,8 +12,7 @@ title: "CLIF Change Log"
 ### 2.1.0
 - **Release** September 2025
 - **Data Structure Updates**
-  - Move Code Status, CRRT therapy, ECMO MCS, Hospital Diagnosis, and Microbiology Culture to Beta Status 
-  - Move Micro non-culture to Beta status- [Issue#65](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/issues/65)
+  - Move Code Status, CRRT therapy, ECMO MCS, Hospital Diagnosis, Microbiology Culture, and Micro non-culture to Beta status
   - Finalize patient language category mCIDE- [Issue#13](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/issues/13)
   - Add ADT location type field with finalized mCIDE- [Issue#39](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/issues/39), [Issue#64](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/issues/64)
   - Finalize hospitalization admission type mCIDE- [Issue#16](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/issues/16)
@@ -23,6 +22,7 @@ title: "CLIF Change Log"
   - Add ADT location type field with finalized mCIDE - [Issue#39](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/issues/39), [Issue#64](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/issues/64)
   - Finalize hospitalization admission type mCIDE (Add LTACH to admission_type mCIDE) - [Issue#16](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/issues/39)
   - Additional information on hospitalization variables for ADI/SVI
+  - Addition of device_id to respiratory_support [Issue#67](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/issues/67)
 
 ### 2.0.0 (Current Version)
 - **Release** February 2025
