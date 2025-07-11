@@ -194,10 +194,10 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#concept-tables" id="toc-concept-tables" class="nav-link" data-scroll-target="#concept-tables"><strong>Concept tables</strong></a>
   <ul class="collapse">
-  <li><a href="#admission-diagnosis" id="toc-admission-diagnosis" class="nav-link" data-scroll-target="#admission-diagnosis">Admission Diagnosis</a></li>
   <li><a href="#code-status" id="toc-code-status" class="nav-link" data-scroll-target="#code-status">Code Status</a></li>
   <li><a href="#crrt-therapy" id="toc-crrt-therapy" class="nav-link" data-scroll-target="#crrt-therapy">CRRT Therapy</a></li>
   <li><a href="#ecmo_mcs" id="toc-ecmo_mcs" class="nav-link" data-scroll-target="#ecmo_mcs">ECMO_MCS</a></li>
+  <li><a href="#hospital-diagnosis" id="toc-hospital-diagnosis" class="nav-link" data-scroll-target="#hospital-diagnosis">Hospital Diagnosis</a></li>
   <li><a href="#intake_output" id="toc-intake_output" class="nav-link" data-scroll-target="#intake_output">Intake_Output</a></li>
   <li><a href="#invasive-hemodynamics" id="toc-invasive-hemodynamics" class="nav-link" data-scroll-target="#invasive-hemodynamics">Invasive Hemodynamics</a></li>
   <li><a href="#key-icu-orders" id="toc-key-icu-orders" class="nav-link" data-scroll-target="#key-icu-orders">Key ICU orders</a></li>
@@ -239,7 +239,7 @@ ul.task-list li input[type="checkbox"] {
 
 <p>The CLIF Data Dictionary serves as a comprehensive guide to the Common Longitudinal ICU data Format, detailing the structure and purpose of each table within the framework. Designed to standardize and harmonize electronic health record data across multiple institutions, the dictionary outlines the entity-relationship model, variable definitions, and permissible values.</p>
 <div id="erd-container" style="max-width: 100%; overflow: hidden;">
-<p><img src="../images/ERD-2.0.0.png" alt="ERD" id="erd" usemap="#clif-map" style="width: 100%;"></p>
+<p><img src="../images/ERD-2.0.0-071125.png" alt="ERD" id="erd" usemap="#clif-map" style="width: 100%;"></p>
 </div>
 <section id="beta-tables" class="level1">
 <h1><strong>Beta tables</strong></h1>
@@ -2140,138 +2140,6 @@ ul.task-list li input[type="checkbox"] {
 <section id="concept-tables" class="level1">
 <h1><strong>Concept tables</strong></h1>
 <p>A planned future CLIF table that has yet to be used in a federated project. The table structure and CDE elements are in draft form. Permissible values of category variables may still need to be defined. Seeking conceptual feedback. Significant changes to all aspects of the table are possible.</p>
-<section id="admission-diagnosis" class="level2">
-<h2 class="anchored" data-anchor-id="admission-diagnosis">Admission Diagnosis</h2>
-<p><a href="../maturity.html"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
-<p>Record of all diagnoses associated with the hospitalization. Expect breaking changes to this table as we seek to align it with existing diagnosis ontologies</p>
-<table class="table">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 10%">
-<col style="width: 37%">
-<col style="width: 35%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Variable Name</th>
-<th>Data Type</th>
-<th>Definition</th>
-<th>Permissible Values</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>patient_id</td>
-<td>VARCHAR</td>
-<td>Unique identifier for each patient</td>
-<td>No restriction</td>
-</tr>
-<tr class="even">
-<td>diagnostic_code</td>
-<td>DOUBLE</td>
-<td>numeric diagnosis code</td>
-<td>valid code in the <code>diagnositic_code_format</code></td>
-</tr>
-<tr class="odd">
-<td>diagnosis_code_format</td>
-<td>VARCHAR</td>
-<td>description of the diagnostic code format</td>
-<td><code>icd9</code> ,<code>icd10</code></td>
-</tr>
-<tr class="even">
-<td>start_dttm</td>
-<td>DATETIME</td>
-<td>date time the diagnosis was recorded</td>
-<td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
-</tr>
-<tr class="odd">
-<td>end_dttm</td>
-<td>DATETIME</td>
-<td>date time the diagnosis was noted as resolved (if resolved)</td>
-<td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong>:</p>
-<div class="scrollable-table">
-<table class="table-striped table-hover table">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 15%">
-<col style="width: 19%">
-<col style="width: 24%">
-<col style="width: 24%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>hospitalization_id</th>
-<th>diagnostic_code</th>
-<th>diagnosis_code_format</th>
-<th>start_dttm</th>
-<th>end_dttm</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1001014</td>
-<td>250.00</td>
-<td>icd9</td>
-<td>2023-05-01 08:00:00+00:00</td>
-<td>2023-05-10 08:00:00+00:00</td>
-</tr>
-<tr class="even">
-<td>1001014</td>
-<td>J45.909</td>
-<td>icd10</td>
-<td>2023-05-01 08:00:00+00:00</td>
-<td>2023-05-15 08:00:00+00:00</td>
-</tr>
-<tr class="odd">
-<td>1002025</td>
-<td>401.9</td>
-<td>icd9</td>
-<td>2023-06-10 09:00:00+00:00</td>
-<td>2023-06-12 09:00:00+00:00</td>
-</tr>
-<tr class="even">
-<td>1002025</td>
-<td>E11.9</td>
-<td>icd10</td>
-<td>2023-06-10 09:00:00+00:00</td>
-<td>2023-06-20 09:00:00+00:00</td>
-</tr>
-<tr class="odd">
-<td>1003036</td>
-<td>414.01</td>
-<td>icd9</td>
-<td>2023-07-15 07:30:00+00:00</td>
-<td>2023-07-30 07:30:00+00:00</td>
-</tr>
-<tr class="even">
-<td>1003036</td>
-<td>I25.10</td>
-<td>icd10</td>
-<td>2023-07-15 07:30:00+00:00</td>
-<td>2023-07-25 07:30:00+00:00</td>
-</tr>
-<tr class="odd">
-<td>1004047</td>
-<td>530.81</td>
-<td>icd9</td>
-<td>2023-08-20 10:00:00+00:00</td>
-<td>2023-08-22 10:00:00+00:00</td>
-</tr>
-<tr class="even">
-<td>1004047</td>
-<td>K21.9</td>
-<td>icd10</td>
-<td>2023-08-20 10:00:00+00:00</td>
-<td>2023-08-24 10:00:00+00:00</td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
 <section id="code-status" class="level2">
 <h2 class="anchored" data-anchor-id="code-status">Code Status</h2>
 <p><a href="../maturity.html"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
@@ -2713,6 +2581,138 @@ ul.task-list li input[type="checkbox"] {
 <td>4.0</td>
 <td>4.0</td>
 <td>1.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="hospital-diagnosis" class="level2">
+<h2 class="anchored" data-anchor-id="hospital-diagnosis">Hospital Diagnosis</h2>
+<p><a href="../maturity.html"><img src="https://img.shields.io/badge/Maturity-Concept-orange.png" class="img-fluid"></a></p>
+<p>Record of all diagnoses associated with the hospitalization. Expect breaking changes to this table as we seek to align it with existing diagnosis ontologies</p>
+<table class="table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 10%">
+<col style="width: 37%">
+<col style="width: 35%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable Name</th>
+<th>Data Type</th>
+<th>Definition</th>
+<th>Permissible Values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>patient_id</td>
+<td>VARCHAR</td>
+<td>Unique identifier for each patient</td>
+<td>No restriction</td>
+</tr>
+<tr class="even">
+<td>diagnostic_code</td>
+<td>DOUBLE</td>
+<td>numeric diagnosis code</td>
+<td>valid code in the <code>diagnositic_code_format</code></td>
+</tr>
+<tr class="odd">
+<td>diagnosis_code_format</td>
+<td>VARCHAR</td>
+<td>description of the diagnostic code format</td>
+<td><code>icd9</code> ,<code>icd10</code></td>
+</tr>
+<tr class="even">
+<td>start_dttm</td>
+<td>DATETIME</td>
+<td>date time the diagnosis was recorded</td>
+<td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
+</tr>
+<tr class="odd">
+<td>end_dttm</td>
+<td>DATETIME</td>
+<td>date time the diagnosis was noted as resolved (if resolved)</td>
+<td>Datetime format should be <code>YYY-MM-DD HH:MM:SS+00:00</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>:</p>
+<div class="scrollable-table">
+<table class="table-striped table-hover table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 15%">
+<col style="width: 19%">
+<col style="width: 24%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>hospitalization_id</th>
+<th>diagnostic_code</th>
+<th>diagnosis_code_format</th>
+<th>start_dttm</th>
+<th>end_dttm</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1001014</td>
+<td>250.00</td>
+<td>icd9</td>
+<td>2023-05-01 08:00:00+00:00</td>
+<td>2023-05-10 08:00:00+00:00</td>
+</tr>
+<tr class="even">
+<td>1001014</td>
+<td>J45.909</td>
+<td>icd10</td>
+<td>2023-05-01 08:00:00+00:00</td>
+<td>2023-05-15 08:00:00+00:00</td>
+</tr>
+<tr class="odd">
+<td>1002025</td>
+<td>401.9</td>
+<td>icd9</td>
+<td>2023-06-10 09:00:00+00:00</td>
+<td>2023-06-12 09:00:00+00:00</td>
+</tr>
+<tr class="even">
+<td>1002025</td>
+<td>E11.9</td>
+<td>icd10</td>
+<td>2023-06-10 09:00:00+00:00</td>
+<td>2023-06-20 09:00:00+00:00</td>
+</tr>
+<tr class="odd">
+<td>1003036</td>
+<td>414.01</td>
+<td>icd9</td>
+<td>2023-07-15 07:30:00+00:00</td>
+<td>2023-07-30 07:30:00+00:00</td>
+</tr>
+<tr class="even">
+<td>1003036</td>
+<td>I25.10</td>
+<td>icd10</td>
+<td>2023-07-15 07:30:00+00:00</td>
+<td>2023-07-25 07:30:00+00:00</td>
+</tr>
+<tr class="odd">
+<td>1004047</td>
+<td>530.81</td>
+<td>icd9</td>
+<td>2023-08-20 10:00:00+00:00</td>
+<td>2023-08-22 10:00:00+00:00</td>
+</tr>
+<tr class="even">
+<td>1004047</td>
+<td>K21.9</td>
+<td>icd10</td>
+<td>2023-08-20 10:00:00+00:00</td>
+<td>2023-08-24 10:00:00+00:00</td>
 </tr>
 </tbody>
 </table>

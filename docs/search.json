@@ -1153,5 +1153,19 @@
     "title": "CLIF Steering Committee",
     "section": "University of Toronto",
     "text": "University of Toronto\n\n\n\n\nAndre Amaral, MD"
+  },
+  {
+    "objectID": "data-dictionary/data-dictionary-2.1.0.html#hospital-diagnosis",
+    "href": "data-dictionary/data-dictionary-2.1.0.html#hospital-diagnosis",
+    "title": "CLIF-2.1.0 Data Dictionary- WIP",
+    "section": "Hospital Diagnosis",
+    "text": "Hospital Diagnosis\n\nRecord of all diagnoses associated with the hospitalization. Expect breaking changes to this table as we seek to align it with existing diagnosis ontologies\n\n\n\n\n\n\n\n\n\nVariable Name\nData Type\nDefinition\nPermissible Values\n\n\n\n\npatient_id\nVARCHAR\nUnique identifier for each patient\nNo restriction\n\n\ndiagnostic_code\nDOUBLE\nnumeric diagnosis code\nvalid code in the diagnositic_code_format\n\n\ndiagnosis_code_format\nVARCHAR\ndescription of the diagnostic code format\nicd9 ,icd10\n\n\nstart_dttm\nDATETIME\ndate time the diagnosis was recorded\nDatetime format should be YYY-MM-DD HH:MM:SS+00:00\n\n\nend_dttm\nDATETIME\ndate time the diagnosis was noted as resolved (if resolved)\nDatetime format should be YYY-MM-DD HH:MM:SS+00:00\n\n\n\nExample:\n\n\n\n\n\n\n\n\n\n\n\nhospitalization_id\ndiagnostic_code\ndiagnosis_code_format\nstart_dttm\nend_dttm\n\n\n\n\n1001014\n250.00\nicd9\n2023-05-01 08:00:00+00:00\n2023-05-10 08:00:00+00:00\n\n\n1001014\nJ45.909\nicd10\n2023-05-01 08:00:00+00:00\n2023-05-15 08:00:00+00:00\n\n\n1002025\n401.9\nicd9\n2023-06-10 09:00:00+00:00\n2023-06-12 09:00:00+00:00\n\n\n1002025\nE11.9\nicd10\n2023-06-10 09:00:00+00:00\n2023-06-20 09:00:00+00:00\n\n\n1003036\n414.01\nicd9\n2023-07-15 07:30:00+00:00\n2023-07-30 07:30:00+00:00\n\n\n1003036\nI25.10\nicd10\n2023-07-15 07:30:00+00:00\n2023-07-25 07:30:00+00:00\n\n\n1004047\n530.81\nicd9\n2023-08-20 10:00:00+00:00\n2023-08-22 10:00:00+00:00\n\n\n1004047\nK21.9\nicd10\n2023-08-20 10:00:00+00:00\n2023-08-24 10:00:00+00:00"
+  },
+  {
+    "objectID": "data-dictionary/data-dictionary-2.0.0.html#hospital-diagnosis",
+    "href": "data-dictionary/data-dictionary-2.0.0.html#hospital-diagnosis",
+    "title": "CLIF-2.0.0 Data Dictionary",
+    "section": "Hospital Diagnosis",
+    "text": "Hospital Diagnosis\n\nRecord of all diagnoses associated with the hospitalization. Expect breaking changes to this table as we seek to align it with existing diagnosis ontologies\n\n\n\n\n\n\n\n\n\nVariable Name\nData Type\nDefinition\nPermissible Values\n\n\n\n\npatient_id\nVARCHAR\nUnique identifier for each patient\nNo restriction\n\n\ndiagnostic_code\nDOUBLE\nnumeric diagnosis code\nvalid code in the diagnositic_code_format\n\n\ndiagnosis_code_format\nVARCHAR\ndescription of the diagnostic code format\nicd9 ,icd10\n\n\nstart_dttm\nDATETIME\ndate time the diagnosis was recorded\nDatetime format should be YYY-MM-DD HH:MM:SS+00:00\n\n\nend_dttm\nDATETIME\ndate time the diagnosis was noted as resolved (if resolved)\nDatetime format should be YYY-MM-DD HH:MM:SS+00:00\n\n\n\nExample:\n\n\n\n\n\n\n\n\n\n\n\nhospitalization_id\ndiagnostic_code\ndiagnosis_code_format\nstart_dttm\nend_dttm\n\n\n\n\n1001014\n250.00\nicd9\n2023-05-01 08:00:00+00:00\n2023-05-10 08:00:00+00:00\n\n\n1001014\nJ45.909\nicd10\n2023-05-01 08:00:00+00:00\n2023-05-15 08:00:00+00:00\n\n\n1002025\n401.9\nicd9\n2023-06-10 09:00:00+00:00\n2023-06-12 09:00:00+00:00\n\n\n1002025\nE11.9\nicd10\n2023-06-10 09:00:00+00:00\n2023-06-20 09:00:00+00:00\n\n\n1003036\n414.01\nicd9\n2023-07-15 07:30:00+00:00\n2023-07-30 07:30:00+00:00\n\n\n1003036\nI25.10\nicd10\n2023-07-15 07:30:00+00:00\n2023-07-25 07:30:00+00:00\n\n\n1004047\n530.81\nicd9\n2023-08-20 10:00:00+00:00\n2023-08-22 10:00:00+00:00\n\n\n1004047\nK21.9\nicd10\n2023-08-20 10:00:00+00:00\n2023-08-24 10:00:00+00:00"
   }
 ]

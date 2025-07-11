@@ -8,7 +8,7 @@ toc-depth: 2
 The CLIF Data Dictionary serves as a comprehensive guide to the Common Longitudinal ICU data Format, detailing the structure and purpose of each table within the framework. Designed to standardize and harmonize electronic health record data across multiple institutions, the dictionary outlines the entity-relationship model, variable definitions, and permissible values.
 
 ::: {#erd-container style="max-width: 100%; overflow: hidden;"}
-<img src="../images/ERD-2.0.0.png" alt="ERD" id="erd" usemap="#clif-map" style="width: 100%;"/> 
+<img src="../images/ERD-2.0.0-071125.png" alt="ERD" id="erd" usemap="#clif-map" style="width: 100%;"/> 
 :::
 
 # **Beta tables**
@@ -527,42 +527,7 @@ The vitals table is a long-form (one vital sign per row) longitudinal table.
 
 A planned future CLIF table that has yet to be used in a federated project. The table structure and CDE elements are in draft form. Permissible values of category variables may still need to be defined. Seeking conceptual feedback. Significant changes to all aspects of the table are possible.
 
-## Admission Diagnosis
 
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](../maturity.qmd)
-
-Record of all diagnoses associated with the hospitalization. Expect breaking changes to this table as we seek to align it with existing diagnosis ontologies
-
-+-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
-| Variable Name         | Data Type       | Definition                                                  | Permissible Values                                      |
-+=======================+=================+=============================================================+=========================================================+
-| patient_id            | VARCHAR         | Unique identifier for each patient                          | No restriction                                          |
-+-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
-| diagnostic_code       | DOUBLE          | numeric diagnosis code                                      | valid code in the `diagnositic_code_format`             |
-+-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
-| diagnosis_code_format | VARCHAR         | description of the diagnostic code format                   | `icd9` ,`icd10`                                         |
-+-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
-| start_dttm            | DATETIME        | date time the diagnosis was recorded                        | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`    |
-+-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
-| end_dttm              | DATETIME        | date time the diagnosis was noted as resolved (if resolved) | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`    |
-+-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
-
-**Example**:
-
-::: scrollable-table
-| hospitalization_id | diagnostic_code | diagnosis_code_format | start_dttm                | end_dttm                  |
-|-------------------|-----------------|----------------------|---------------------------|---------------------------|
-| 1001014           | 250.00         | icd9                 | 2023-05-01 08:00:00+00:00 | 2023-05-10 08:00:00+00:00 |
-| 1001014           | J45.909        | icd10                | 2023-05-01 08:00:00+00:00 | 2023-05-15 08:00:00+00:00 |
-| 1002025           | 401.9          | icd9                 | 2023-06-10 09:00:00+00:00 | 2023-06-12 09:00:00+00:00 |
-| 1002025           | E11.9          | icd10                | 2023-06-10 09:00:00+00:00 | 2023-06-20 09:00:00+00:00 |
-| 1003036           | 414.01         | icd9                 | 2023-07-15 07:30:00+00:00 | 2023-07-30 07:30:00+00:00 |
-| 1003036           | I25.10         | icd10                | 2023-07-15 07:30:00+00:00 | 2023-07-25 07:30:00+00:00 |
-| 1004047           | 530.81         | icd9                 | 2023-08-20 10:00:00+00:00 | 2023-08-22 10:00:00+00:00 |
-| 1004047           | K21.9          | icd10                | 2023-08-20 10:00:00+00:00 | 2023-08-24 10:00:00+00:00 |
-
-: {.striped .hover}
-:::
 
 ## Code Status
 
@@ -711,6 +676,43 @@ The ECMO/MCS table is a wider longitudinal table that captures the start and sto
 | 1004               | 2024-01-15 14:00:00+00:00 | ECMO VA      | VA_ECMO          | ECMO            | RPMs                | 3500        | 4.0  | 4.0   | 1.0  |
 +--------------------+---------------------------+--------------+------------------+-----------------+---------------------+-------------+------+-------+------+
 
+
+: {.striped .hover}
+:::
+
+## Hospital Diagnosis
+
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](../maturity.qmd)
+
+Record of all diagnoses associated with the hospitalization. Expect breaking changes to this table as we seek to align it with existing diagnosis ontologies
+
++-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
+| Variable Name         | Data Type       | Definition                                                  | Permissible Values                                      |
++=======================+=================+=============================================================+=========================================================+
+| patient_id            | VARCHAR         | Unique identifier for each patient                          | No restriction                                          |
++-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
+| diagnostic_code       | DOUBLE          | numeric diagnosis code                                      | valid code in the `diagnositic_code_format`             |
++-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
+| diagnosis_code_format | VARCHAR         | description of the diagnostic code format                   | `icd9` ,`icd10`                                         |
++-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
+| start_dttm            | DATETIME        | date time the diagnosis was recorded                        | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`    |
++-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
+| end_dttm              | DATETIME        | date time the diagnosis was noted as resolved (if resolved) | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`    |
++-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
+
+**Example**:
+
+::: scrollable-table
+| hospitalization_id | diagnostic_code | diagnosis_code_format | start_dttm                | end_dttm                  |
+|-------------------|-----------------|----------------------|---------------------------|---------------------------|
+| 1001014           | 250.00         | icd9                 | 2023-05-01 08:00:00+00:00 | 2023-05-10 08:00:00+00:00 |
+| 1001014           | J45.909        | icd10                | 2023-05-01 08:00:00+00:00 | 2023-05-15 08:00:00+00:00 |
+| 1002025           | 401.9          | icd9                 | 2023-06-10 09:00:00+00:00 | 2023-06-12 09:00:00+00:00 |
+| 1002025           | E11.9          | icd10                | 2023-06-10 09:00:00+00:00 | 2023-06-20 09:00:00+00:00 |
+| 1003036           | 414.01         | icd9                 | 2023-07-15 07:30:00+00:00 | 2023-07-30 07:30:00+00:00 |
+| 1003036           | I25.10         | icd10                | 2023-07-15 07:30:00+00:00 | 2023-07-25 07:30:00+00:00 |
+| 1004047           | 530.81         | icd9                 | 2023-08-20 10:00:00+00:00 | 2023-08-22 10:00:00+00:00 |
+| 1004047           | K21.9          | icd10                | 2023-08-20 10:00:00+00:00 | 2023-08-24 10:00:00+00:00 |
 
 : {.striped .hover}
 :::

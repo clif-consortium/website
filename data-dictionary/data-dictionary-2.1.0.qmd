@@ -68,6 +68,41 @@ The admission, discharge, and transfer (ADT) table is a start-stop longitudinal 
 : {.striped .hover}
 :::
 
+
+## Code Status
+
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](../maturity.qmd)
+
+This table provides a longitudinal record of changes in a patient's code status during their hospitalization. It tracks the timeline and categorization of code status updates, facilitating the analysis of care preferences and decisions.
+
++----------------------+-----------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------+
+| **Variable Name**    | **Data Type**   | **Definition**                                                                                      | **Permissible Values**                                          |
++======================+=================+=====================================================================================================+=================================================================+
+| hospitalization_id   | VARCHAR         | Unique identifier linking the code status event to a specific hospitalization in the CLIF database. | Unique identifier, e.g., `123456`                               |
++----------------------+-----------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------+
+| start_dttm           | DATETIME        | The date and time when the specific code status was initiated.                                      | Example: `2024-12-03 08:30:00+00:00`                            |
++----------------------+-----------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------+
+| code_status_name     | VARCHAR         | The name/description of the code status.                                                            | Free text to describe the code status.                          |
++----------------------+-----------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------+
+| code_status_category | VARCHAR         | Categorical variable specifying the code status during the hospitalization.                         | E.g., `DNR`, `UDNR`, `DNR/DNI`, `Full`, `Presume Full`, `Other` |
++----------------------+-----------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------+
+
+**Notes**:
+
+-   The `code_status_category` set of permissible values is under development
+
+**Example**:
+
+::: scrollable-table
+| hospitalization_id | start_dttm                  | code_status_name   | code_status_category |
+|-------------------|----------------------------|-------------------|-------------------|
+| 12345             | 2024-12-01 08:30:00+00:00 | Do Not Resuscitate| DNR               |
+| 12345             | 2024-12-02 14:00:00+00:00 | Do Not Intubate   | DNR/DNI           |
+| 12345             | 2024-12-03 10:15:00+00:00 | Full Code         | Full              |
+
+: {.striped .hover}
+:::
+
 ## CRRT Therapy
 
 [![](https://img.shields.io/badge/Maturity-Concept-orange)](../maturity.qmd)
@@ -249,6 +284,42 @@ The hospitalization table contains information about each hospitalization event.
 : {.striped .hover}
 :::
 
+## Hospital Diagnosis
+
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](../maturity.qmd)
+
+Record of all diagnoses associated with the hospitalization. Expect breaking changes to this table as we seek to align it with existing diagnosis ontologies
+
++-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
+| Variable Name         | Data Type       | Definition                                                  | Permissible Values                                      |
++=======================+=================+=============================================================+=========================================================+
+| patient_id            | VARCHAR         | Unique identifier for each patient                          | No restriction                                          |
++-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
+| diagnostic_code       | DOUBLE          | numeric diagnosis code                                      | valid code in the `diagnositic_code_format`             |
++-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
+| diagnosis_code_format | VARCHAR         | description of the diagnostic code format                   | `icd9` ,`icd10`                                         |
++-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
+| start_dttm            | DATETIME        | date time the diagnosis was recorded                        | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`    |
++-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
+| end_dttm              | DATETIME        | date time the diagnosis was noted as resolved (if resolved) | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`    |
++-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
+
+**Example**:
+
+::: scrollable-table
+| hospitalization_id | diagnostic_code | diagnosis_code_format | start_dttm                | end_dttm                  |
+|-------------------|-----------------|----------------------|---------------------------|---------------------------|
+| 1001014           | 250.00         | icd9                 | 2023-05-01 08:00:00+00:00 | 2023-05-10 08:00:00+00:00 |
+| 1001014           | J45.909        | icd10                | 2023-05-01 08:00:00+00:00 | 2023-05-15 08:00:00+00:00 |
+| 1002025           | 401.9          | icd9                 | 2023-06-10 09:00:00+00:00 | 2023-06-12 09:00:00+00:00 |
+| 1002025           | E11.9          | icd10                | 2023-06-10 09:00:00+00:00 | 2023-06-20 09:00:00+00:00 |
+| 1003036           | 414.01         | icd9                 | 2023-07-15 07:30:00+00:00 | 2023-07-30 07:30:00+00:00 |
+| 1003036           | I25.10         | icd10                | 2023-07-15 07:30:00+00:00 | 2023-07-25 07:30:00+00:00 |
+| 1004047           | 530.81         | icd9                 | 2023-08-20 10:00:00+00:00 | 2023-08-22 10:00:00+00:00 |
+| 1004047           | K21.9          | icd10                | 2023-08-20 10:00:00+00:00 | 2023-08-24 10:00:00+00:00 |
+
+: {.striped .hover}
+:::
 
 ## Labs
 
@@ -351,6 +422,53 @@ The medication admin continuous table is a long-form (one medication administrat
 | 370921            | 2123-02-12 03:07:00+00:00 | PHENYLEPHRINE 5 MG/50 ML (100 MCG/ML) IN 0.9 % SODIUM CHLORIDE      | phenylephrine | vasoactives   | Intravenous    | NA                | 20.0000   | mcg/min       | New Bag        |
 | 370921            | 2123-02-12 03:14:00+00:00 | PHENYLEPHRINE 5 MG/50 ML (100 MCG/ML) IN 0.9 % SODIUM CHLORIDE      | phenylephrine | vasoactives   | Intravenous    | NA                | 50.0000   | mcg/min       | Rate Change    |
 | 702344            | 2123-04-27 04:30:00+00:00 | HEPARIN (PORCINE) 25,000 UNIT/250 ML IN 0.45 % SODIUM CHLORIDE      | heparin       | anticoagulation| Intravenous    | NA                | 18.0000   | Units/kg/hr   | New Bag        |
+: {.striped .hover}
+:::
+
+## Microbiology Culture
+
+[![](https://img.shields.io/badge/Maturity-Concept-orange)](../maturity.qmd)
+
+The microbiology culture table is a wide longitudinal table that captures the order and result times of microbiology culture tests, the type of fluid collected, the component of the test, and the organism identified.
+
++--------------------+-----------------+--------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Variable Name      | Data Type       | Definition                                                                           | Permissible Values                                                                                                                                                            |
++====================+=================+======================================================================================+===============================================================================================================================================================================+
+| hospitalization_id | VARCHAR         | ID variable for each patient encounter.                                              |                                                                                                                                                                               |
++--------------------+-----------------+--------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| order_dttm         | DATETIME        | Date and time when the test is ordered.                                              | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`                                                                                                                          |
++--------------------+-----------------+--------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| collect_dttm       | DATETIME        | Date and time when the specimen is collected.                                        | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`                                                                                                                          |
++--------------------+-----------------+--------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| result_dttm        | DATETIME        | Date and time when the results are available.                                        | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`                                                                                                                          |
++--------------------+-----------------+--------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| fluid_name         | VARCHAR         | Cleaned fluid name string from the raw data. This field is not used for analysis.    | No restriction. Check this [file for examples](https://github.com/clif-consortium/CLIF/blob/main/mCIDE/mCIDE_mapping_examples/clif_vocab_microbiology_culture_fluid_ucmc.csv) |
++--------------------+-----------------+--------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| fluid_category     | VARCHAR         | Fluid categories defined according to the NIH common data elements.                  | [CDE NIH Infection Site](https://github.com/clif-consortium/CLIF/blob/main/mCIDE/clif_microbiology_culture_fluid_categories.csv)                                              |
++--------------------+-----------------+--------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| method_name        | VARCHAR         | Original method names from the source data.                                          | No restriction                                                                                                                                                                |
++--------------------+-----------------+--------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| method_category    | VARCHAR         | Maps `method_name` to a standardized list of method categories                       | `culture`, `gram stain`, `smear`                                                                                                                                              |
++--------------------+-----------------+--------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| organism_category  | VARCHAR         | Cleaned organism name string from the raw data. This field is not used for analysis. | No restriction. [Check this file for examples](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/blob/main/mCIDE/clif_microbiology_culture_organism_categories.csv) |
++--------------------+-----------------+--------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| organism_group     | VARCHAR         | Maps `organism_name` to the standardized list of organisms in the NIH CDE            | [CDE NIH Organism](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/blob/main/mCIDE/clif_microbiology_culture_organism_groups.csv)                                 |
++--------------------+-----------------+--------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+**Example**:
+
+::: scrollable-table
+| hospitalization_id | order_dttm                  | collect_dttm                | result_dttm                 | fluid_name                           | fluid_category           | method_name | method_category | organism_category       | organism_group           |
+|-------------------|----------------------------|----------------------------|----------------------------|--------------------------------------|------------------------|----------------|-------------------|------------------------|------------------------------|
+| 12345             | 2023-10-01 14:00:00+00:00 | 2023-10-01 15:00:00+00:00 | 2023-10-03 10:00:00+00:00 | culture, blood (bacterial & fungal)  | blood/buffy coat       | culture        | culture           | no growth              | no growth                     |
+| 12345             | 2023-10-01 16:00:00+00:00 | 2023-10-01 17:00:00+00:00 | 2023-10-03 12:00:00+00:00 | culture, urine                       | genito-urinary tract   | culture        | culture           | escherichia_coli       | escherichia (also e. coli)    |
+| 12346             | 2023-11-01 10:30:00+00:00 | 2023-11-01 11:15:00+00:00 | 2023-11-02 09:00:00+00:00 | culture & stain, respiratory         | lower respiratory tract | gram stain     | gram stain        | gram positive cocci    | gram positive cocci (nos)     |
+| 12346             | 2023-11-02 12:00:00+00:00 | 2023-11-02 12:45:00+00:00 | 2023-11-03 08:30:00+00:00 | culture, cerebrospinal fluid         | csf                    | culture        | culture           | no growth              | no growth                     |
+| 12347             | 2023-09-15 14:20:00+00:00 | 2023-09-15 15:00:00+00:00 | 2023-09-17 11:30:00+00:00 | culture & stain, afb                 | other unspecified      | afb smear      | smear             | no growth              | no growth                     |
+| 12348             | 2023-08-10 09:00:00+00:00 | 2023-08-10 09:45:00+00:00 | 2023-08-12 08:00:00+00:00 | culture, blood (bacterial & fungal)  | blood/buffy coat       | culture        | culture           | staphylococcus_aureus  | staphylococcus (all)          |
+| 12349             | 2023-07-25 11:00:00+00:00 | 2023-07-25 11:30:00+00:00 | 2023-07-27 10:15:00+00:00 | culture, urine                       | genito-urinary tract   | culture        | culture           | enterococcus_faecium   | enterococcus (all species)    |
+| 12350             | 2023-06-15 13:30:00+00:00 | 2023-06-15 14:00:00+00:00 | 2023-06-17 09:45:00+00:00 | culture & stain, respiratory         | lower respiratory tract | gram stain     | gram stain        | gram negative rod      | gram negative rod (nos)       |
+
 : {.striped .hover}
 :::
 
@@ -683,76 +801,6 @@ The vitals table is a long-form (one vital sign per row) longitudinal table.
 
 A planned future CLIF table that has yet to be used in a federated project. The table structure and CDE elements are in draft form. Permissible values of category variables may still need to be defined. Seeking conceptual feedback. Significant changes to all aspects of the table are possible.
 
-## Admission Diagnosis
-
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](../maturity.qmd)
-
-Record of all diagnoses associated with the hospitalization. Expect breaking changes to this table as we seek to align it with existing diagnosis ontologies
-
-+-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
-| Variable Name         | Data Type       | Definition                                                  | Permissible Values                                      |
-+=======================+=================+=============================================================+=========================================================+
-| patient_id            | VARCHAR         | Unique identifier for each patient                          | No restriction                                          |
-+-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
-| diagnostic_code       | DOUBLE          | numeric diagnosis code                                      | valid code in the `diagnositic_code_format`             |
-+-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
-| diagnosis_code_format | VARCHAR         | description of the diagnostic code format                   | `icd9` ,`icd10`                                         |
-+-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
-| start_dttm            | DATETIME        | date time the diagnosis was recorded                        | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`    |
-+-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
-| end_dttm              | DATETIME        | date time the diagnosis was noted as resolved (if resolved) | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`    |
-+-----------------------+-----------------+-------------------------------------------------------------+---------------------------------------------------------+
-
-**Example**:
-
-::: scrollable-table
-| hospitalization_id | diagnostic_code | diagnosis_code_format | start_dttm                | end_dttm                  |
-|-------------------|-----------------|----------------------|---------------------------|---------------------------|
-| 1001014           | 250.00         | icd9                 | 2023-05-01 08:00:00+00:00 | 2023-05-10 08:00:00+00:00 |
-| 1001014           | J45.909        | icd10                | 2023-05-01 08:00:00+00:00 | 2023-05-15 08:00:00+00:00 |
-| 1002025           | 401.9          | icd9                 | 2023-06-10 09:00:00+00:00 | 2023-06-12 09:00:00+00:00 |
-| 1002025           | E11.9          | icd10                | 2023-06-10 09:00:00+00:00 | 2023-06-20 09:00:00+00:00 |
-| 1003036           | 414.01         | icd9                 | 2023-07-15 07:30:00+00:00 | 2023-07-30 07:30:00+00:00 |
-| 1003036           | I25.10         | icd10                | 2023-07-15 07:30:00+00:00 | 2023-07-25 07:30:00+00:00 |
-| 1004047           | 530.81         | icd9                 | 2023-08-20 10:00:00+00:00 | 2023-08-22 10:00:00+00:00 |
-| 1004047           | K21.9          | icd10                | 2023-08-20 10:00:00+00:00 | 2023-08-24 10:00:00+00:00 |
-
-: {.striped .hover}
-:::
-
-## Code Status
-
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](../maturity.qmd)
-
-This table provides a longitudinal record of changes in a patient's code status during their hospitalization. It tracks the timeline and categorization of code status updates, facilitating the analysis of care preferences and decisions.
-
-+----------------------+-----------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------+
-| **Variable Name**    | **Data Type**   | **Definition**                                                                                      | **Permissible Values**                                          |
-+======================+=================+=====================================================================================================+=================================================================+
-| hospitalization_id   | VARCHAR         | Unique identifier linking the code status event to a specific hospitalization in the CLIF database. | Unique identifier, e.g., `123456`                               |
-+----------------------+-----------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------+
-| start_dttm           | DATETIME        | The date and time when the specific code status was initiated.                                      | Example: `2024-12-03 08:30:00+00:00`                            |
-+----------------------+-----------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------+
-| code_status_name     | VARCHAR         | The name/description of the code status.                                                            | Free text to describe the code status.                          |
-+----------------------+-----------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------+
-| code_status_category | VARCHAR         | Categorical variable specifying the code status during the hospitalization.                         | E.g., `DNR`, `UDNR`, `DNR/DNI`, `Full`, `Presume Full`, `Other` |
-+----------------------+-----------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------+
-
-**Notes**:
-
--   The `code_status_category` set of permissible values is under development
-
-**Example**:
-
-::: scrollable-table
-| hospitalization_id | start_dttm                  | code_status_name   | code_status_category |
-|-------------------|----------------------------|-------------------|-------------------|
-| 12345             | 2024-12-01 08:30:00+00:00 | Do Not Resuscitate| DNR               |
-| 12345             | 2024-12-02 14:00:00+00:00 | Do Not Intubate   | DNR/DNI           |
-| 12345             | 2024-12-03 10:15:00+00:00 | Full Code         | Full              |
-
-: {.striped .hover}
-:::
 
 ## Intake_Output
 
@@ -928,52 +976,6 @@ This table records the ordering (not administration) of medications. The table i
 : {.striped .hover}
 :::
 
-## Microbiology Culture
-
-[![](https://img.shields.io/badge/Maturity-Concept-orange)](../maturity.qmd)
-
-The microbiology culture table is a wide longitudinal table that captures the order and result times of microbiology culture tests, the type of fluid collected, the component of the test, and the organism identified.
-
-+--------------------+-----------------+--------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Variable Name      | Data Type       | Definition                                                                           | Permissible Values                                                                                                                                                            |
-+====================+=================+======================================================================================+===============================================================================================================================================================================+
-| hospitalization_id | VARCHAR         | ID variable for each patient encounter.                                              |                                                                                                                                                                               |
-+--------------------+-----------------+--------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| order_dttm         | DATETIME        | Date and time when the test is ordered.                                              | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`                                                                                                                          |
-+--------------------+-----------------+--------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| collect_dttm       | DATETIME        | Date and time when the specimen is collected.                                        | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`                                                                                                                          |
-+--------------------+-----------------+--------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| result_dttm        | DATETIME        | Date and time when the results are available.                                        | Datetime format should be `YYY-MM-DD HH:MM:SS+00:00`                                                                                                                          |
-+--------------------+-----------------+--------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| fluid_name         | VARCHAR         | Cleaned fluid name string from the raw data. This field is not used for analysis.    | No restriction. Check this [file for examples](https://github.com/clif-consortium/CLIF/blob/main/mCIDE/mCIDE_mapping_examples/clif_vocab_microbiology_culture_fluid_ucmc.csv) |
-+--------------------+-----------------+--------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| fluid_category     | VARCHAR         | Fluid categories defined according to the NIH common data elements.                  | [CDE NIH Infection Site](https://github.com/clif-consortium/CLIF/blob/main/mCIDE/clif_microbiology_culture_fluid_categories.csv)                                              |
-+--------------------+-----------------+--------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| method_name        | VARCHAR         | Original method names from the source data.                                          | No restriction                                                                                                                                                                |
-+--------------------+-----------------+--------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| method_category    | VARCHAR         | Maps `method_name` to a standardized list of method categories                       | `culture`, `gram stain`, `smear`                                                                                                                                              |
-+--------------------+-----------------+--------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| organism_category  | VARCHAR         | Cleaned organism name string from the raw data. This field is not used for analysis. | No restriction. [Check this file for examples](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/blob/main/mCIDE/clif_microbiology_culture_organism_categories.csv) |
-+--------------------+-----------------+--------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| organism_group     | VARCHAR         | Maps `organism_name` to the standardized list of organisms in the NIH CDE            | [CDE NIH Organism](https://github.com/Common-Longitudinal-ICU-data-Format/CLIF/blob/main/mCIDE/clif_microbiology_culture_organism_groups.csv)                                 |
-+--------------------+-----------------+--------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-**Example**:
-
-::: scrollable-table
-| hospitalization_id | order_dttm                  | collect_dttm                | result_dttm                 | fluid_name                           | fluid_category           | method_name | method_category | organism_category       | organism_group           |
-|-------------------|----------------------------|----------------------------|----------------------------|--------------------------------------|------------------------|----------------|-------------------|------------------------|------------------------------|
-| 12345             | 2023-10-01 14:00:00+00:00 | 2023-10-01 15:00:00+00:00 | 2023-10-03 10:00:00+00:00 | culture, blood (bacterial & fungal)  | blood/buffy coat       | culture        | culture           | no growth              | no growth                     |
-| 12345             | 2023-10-01 16:00:00+00:00 | 2023-10-01 17:00:00+00:00 | 2023-10-03 12:00:00+00:00 | culture, urine                       | genito-urinary tract   | culture        | culture           | escherichia_coli       | escherichia (also e. coli)    |
-| 12346             | 2023-11-01 10:30:00+00:00 | 2023-11-01 11:15:00+00:00 | 2023-11-02 09:00:00+00:00 | culture & stain, respiratory         | lower respiratory tract | gram stain     | gram stain        | gram positive cocci    | gram positive cocci (nos)     |
-| 12346             | 2023-11-02 12:00:00+00:00 | 2023-11-02 12:45:00+00:00 | 2023-11-03 08:30:00+00:00 | culture, cerebrospinal fluid         | csf                    | culture        | culture           | no growth              | no growth                     |
-| 12347             | 2023-09-15 14:20:00+00:00 | 2023-09-15 15:00:00+00:00 | 2023-09-17 11:30:00+00:00 | culture & stain, afb                 | other unspecified      | afb smear      | smear             | no growth              | no growth                     |
-| 12348             | 2023-08-10 09:00:00+00:00 | 2023-08-10 09:45:00+00:00 | 2023-08-12 08:00:00+00:00 | culture, blood (bacterial & fungal)  | blood/buffy coat       | culture        | culture           | staphylococcus_aureus  | staphylococcus (all)          |
-| 12349             | 2023-07-25 11:00:00+00:00 | 2023-07-25 11:30:00+00:00 | 2023-07-27 10:15:00+00:00 | culture, urine                       | genito-urinary tract   | culture        | culture           | enterococcus_faecium   | enterococcus (all species)    |
-| 12350             | 2023-06-15 13:30:00+00:00 | 2023-06-15 14:00:00+00:00 | 2023-06-17 09:45:00+00:00 | culture & stain, respiratory         | lower respiratory tract | gram stain     | gram stain        | gram negative rod      | gram negative rod (nos)       |
-
-: {.striped .hover}
-:::
 
 ## Procedures
 
