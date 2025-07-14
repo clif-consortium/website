@@ -78,8 +78,6 @@ This table provides a longitudinal record of changes in a patient's code status 
 +----------------------+-----------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------+
 | **Variable Name**    | **Data Type**   | **Definition**                                                                                      | **Permissible Values**                                          |
 +======================+=================+=====================================================================================================+=================================================================+
-| hospitalization_id   | VARCHAR         | Unique identifier linking the code status event to a specific hospitalization in the CLIF database. | Unique identifier, e.g., `123456`                               |
-+----------------------+-----------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------+
 | patient_id           | VARCHAR         | Unique identifier for each patient, presumed to be a distinct individual.                           |                                                                 |
 +----------------------+-----------------+-----------------------------------------------------------------------------------------------------+-----------------------------------------------------------------+
 | start_dttm           | DATETIME        | The date and time when the specific code status was initiated.                                      | Example: `2024-12-03 08:30:00+00:00`                            |
@@ -96,11 +94,11 @@ This table provides a longitudinal record of changes in a patient's code status 
 **Example**:
 
 ::: scrollable-table
-| hospitalization_id | patient_id | start_dttm                  | code_status_name   | code_status_category |
-|-------------------|------------|----------------------------|-------------------|---------------------|
-| 12345             | 123451     | 2024-12-01 08:30:00+00:00 | Do Not Resuscitate| DNR                 |
-| 67890             | 123452     | 2024-12-02 14:00:00+00:00 | Do Not Intubate   | DNR/DNI             |
-| 12345             | 123451     | 2024-12-03 10:15:00+00:00 | Full Code         | Full                |
+| patient_id | start_dttm                  | code_status_name   | code_status_category |
+|------------|----------------------------|-------------------|---------------------|
+| 123451     | 2024-12-01 08:30:00+00:00 | Do Not Resuscitate| DNR                 |
+| 123452     | 2024-12-02 14:00:00+00:00 | Do Not Intubate   | DNR/DNI             |
+| 123451     | 2024-12-03 10:15:00+00:00 | Full Code         | Full                |
 
 : {.striped .hover}
 :::

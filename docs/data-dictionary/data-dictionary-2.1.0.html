@@ -423,30 +423,24 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td>hospitalization_id</td>
-<td>VARCHAR</td>
-<td>Unique identifier linking the code status event to a specific hospitalization in the CLIF database.</td>
-<td>Unique identifier, e.g., <code>123456</code></td>
-</tr>
-<tr class="even">
 <td>patient_id</td>
 <td>VARCHAR</td>
 <td>Unique identifier for each patient, presumed to be a distinct individual.</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>start_dttm</td>
 <td>DATETIME</td>
 <td>The date and time when the specific code status was initiated.</td>
 <td>Example: <code>2024-12-03 08:30:00+00:00</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>code_status_name</td>
 <td>VARCHAR</td>
 <td>The name/description of the code status.</td>
 <td>Free text to describe the code status.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>code_status_category</td>
 <td>VARCHAR</td>
 <td>Categorical variable specifying the code status during the hospitalization.</td>
@@ -462,15 +456,13 @@ ul.task-list li input[type="checkbox"] {
 <div class="scrollable-table">
 <table class="table-striped table-hover table">
 <colgroup>
-<col style="width: 19%">
-<col style="width: 12%">
-<col style="width: 28%">
-<col style="width: 19%">
-<col style="width: 21%">
+<col style="width: 15%">
+<col style="width: 35%">
+<col style="width: 23%">
+<col style="width: 26%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>hospitalization_id</th>
 <th>patient_id</th>
 <th>start_dttm</th>
 <th>code_status_name</th>
@@ -479,21 +471,18 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td>12345</td>
 <td>123451</td>
 <td>2024-12-01 08:30:00+00:00</td>
 <td>Do Not Resuscitate</td>
 <td>DNR</td>
 </tr>
 <tr class="even">
-<td>67890</td>
 <td>123452</td>
 <td>2024-12-02 14:00:00+00:00</td>
 <td>Do Not Intubate</td>
 <td>DNR/DNI</td>
 </tr>
 <tr class="odd">
-<td>12345</td>
 <td>123451</td>
 <td>2024-12-03 10:15:00+00:00</td>
 <td>Full Code</td>
